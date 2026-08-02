@@ -66,9 +66,6 @@ export default function Home() {
             <a href="/portfolio" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)" }}>
               {dict.nav.portfolio}
             </a>
-            <a href="/demos" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--coral-blue)", fontFamily: "var(--font-head)" }}>
-              🎮 Demos
-            </a>
 
             {/* Language & Currency Controls */}
             <div style={{ display: "flex", gap: "10px", alignItems: "center", borderLeft: "1px solid var(--border)", paddingLeft: "16px" }}>
