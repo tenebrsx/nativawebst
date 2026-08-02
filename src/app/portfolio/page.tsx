@@ -4,6 +4,7 @@ import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import PortfolioGrid from "@/components/portfolio-grid";
 import Link from "next/link";
+import { RegionSelector } from "@/components/region-selector";
 
 export default function PortfolioPage() {
   const { lang, setLang, currency, setCurrency } = useGeo();
@@ -67,27 +68,9 @@ export default function PortfolioPage() {
             </Link>
 
             {/* Language & Currency Controls */}
+            {/* Language & Currency Region Selector */}
             <div style={{ display: "flex", gap: "10px", alignItems: "center", borderLeft: "1px solid var(--border)", paddingLeft: "16px" }}>
-              <button
-                onClick={() => setLang(lang === "en" ? "es" : "en")}
-                style={{
-                  background: "none", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-head)", fontSize: "12px", fontWeight: 800,
-                  color: "var(--navy-trench)", opacity: 0.8
-                }}
-              >
-                {lang.toUpperCase()}
-              </button>
-              <button
-                onClick={() => setCurrency(currency === "USD" ? "DOP" : "USD")}
-                style={{
-                  background: "none", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-head)", fontSize: "12px", fontWeight: 800,
-                  color: "var(--navy-trench)", opacity: 0.8
-                }}
-              >
-                {currency}
-              </button>
+              <RegionSelector />
             </div>
 
             <Link href="/#consultation" className="btn btn-navy" style={{ padding: "10px 20px", fontSize: "13px", textDecoration: "none" }}>

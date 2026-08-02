@@ -6,6 +6,7 @@ import JargonCards from "@/components/jargon-cards";
 import PricingBuilder from "@/components/pricing-builder";
 import ContactForm from "@/components/contact-form";
 import SailingRoadmap from "@/components/sailing-roadmap";
+import { RegionSelector } from "@/components/region-selector";
 
 export default function Home() {
   const { lang, setLang, currency, setCurrency } = useGeo();
@@ -67,28 +68,9 @@ export default function Home() {
               {dict.nav.portfolio}
             </a>
 
-            {/* Language & Currency Controls */}
+            {/* Language & Currency Region Selector */}
             <div style={{ display: "flex", gap: "10px", alignItems: "center", borderLeft: "1px solid var(--border)", paddingLeft: "16px" }}>
-              <button
-                onClick={() => setLang(lang === "en" ? "es" : "en")}
-                style={{
-                  background: "none", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-head)", fontSize: "12px", fontWeight: 800,
-                  color: "var(--navy-trench)", opacity: 0.8
-                }}
-              >
-                {lang.toUpperCase()}
-              </button>
-              <button
-                onClick={() => setCurrency(currency === "USD" ? "DOP" : "USD")}
-                style={{
-                  background: "none", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-head)", fontSize: "12px", fontWeight: 800,
-                  color: "var(--navy-trench)", opacity: 0.8
-                }}
-              >
-                {currency}
-              </button>
+              <RegionSelector />
             </div>
 
             <a href="#consultation" className="btn btn-navy" style={{ padding: "10px 20px", fontSize: "13px" }}>
