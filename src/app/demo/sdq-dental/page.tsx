@@ -34,11 +34,9 @@ export default function SDQDentalDemo() {
     { name: "Dra. María Laura Torres", spec: "Ortodoncia Invisible & Estética Dental", exp: "10 años de experiencia · PUCMM / São Paulo", img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" }
   ];
 
-  const pillars = [
-    { title: "Ambiente Tranquilo & Relajante", desc: "Diseñado específicamente para eliminar la ansiedad dental, con aromas florales, música ambiental y atención humana cálida.", icon: "🌿" },
-    { title: "Odontología Digital de Vanguardia", desc: "Contamos con tomografía 3D (CBCT), escáneres intraorales y tecnología láser de baja intensidad.", icon: "⚡" },
-    { title: "Atención Familiar Integral", desc: "Desde la primera dentición infantil hasta prótesis avanzadas para adultos mayores bajo un mismo techo.", icon: "👨‍👩‍👧‍👦" },
-    { title: "Opciones de Financiamiento BLU", desc: "Trabajamos con los principales seguros médicos y ofrecemos planes de pago flexibles en cuotas sin interés.", icon: "💳" }
+  const testimonials = [
+    { name: "Lic. Vanessa Rivas", text: "Dra. Laura y el Dr. Carlos hicieron mi tratamiento de carillas en 2 citas. El espacio en Naco es súper cómodo, pulcro y el personal sumamente atento.", role: "Paciente de Estética Dental", stars: 5 },
+    { name: "Ing. Manuel Henríquez", text: "Tenía años con fobia al dentista hasta que probé la sedación consciente en Dental BLU. No sentí absolutamente nada de molestia durante mi implante.", role: "Paciente de Implantes", stars: 5 }
   ];
 
   return (
@@ -46,24 +44,26 @@ export default function SDQDentalDemo() {
       
       {/* Sticky Altamar Demo Banner */}
       <DemoTopBar
-        templateName="Plantilla Dental BLU Clinic (Imágenes HD)"
+        templateName="Plantilla Dental BLU Clinic (Edición Profesional)"
         templateCategory="Salud & Odontología"
-        whatsappMessage="Hola Altamar, vi la plantilla de Clínica Dental BLU (#sdq-dental) y me gustaría cotizar este modelo con mis fotos de clínica."
+        whatsappMessage="Hola Altamar, vi la plantilla profesional de Clínica Dental BLU (#sdq-dental) y quiero personalizarla para mi clínica."
       />
 
       {/* ─── DENTAL BLU HEADER BAR ──────────────────────────────── */}
       <header style={{ background: "#FFFFFF", borderBottom: "1px solid #E2E8F0", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
-          {/* Brand Logo */}
+          {/* Custom SVG Vector Dental BLU Brand Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ background: "#1E64C4", color: "#FFFFFF", width: "42px", height: "42px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: "20px", boxShadow: "0 4px 12px rgba(30,100,196,0.3)" }}>
-              BLU
-            </div>
+            <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="10" fill="#1E64C4" />
+              <path d="M24 10C17.5 10 13 15 13 22C13 29 16 38 20 40C22 41 23 37 24 35C25 37 26 41 28 40C32 38 35 29 35 22C35 15 30.5 10 24 10Z" fill="#FFFFFF" />
+              <path d="M24 16C21 16 19 18.5 19 22C19 25 21 27 24 27C27 27 29 25 29 22C29 18.5 27 16 24 16Z" fill="#38BDF8" opacity="0.6" />
+            </svg>
             <div>
-              <div style={{ fontWeight: 900, fontSize: "20px", color: "#0F172A", letterSpacing: "-0.02em" }}>Dental BLU SDQ</div>
-              <div style={{ fontSize: "10px", color: "#1E64C4", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                Highland Heights Standard · Naco, Santo Domingo
+              <div style={{ fontWeight: 900, fontSize: "19px", color: "#0F172A", letterSpacing: "-0.02em" }}>DENTAL BLU</div>
+              <div style={{ fontSize: "9.5px", color: "#1E64C4", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                HIGHLAND HEIGHTS STANDARD · NACO, SANTO DOMINGO
               </div>
             </div>
           </div>
@@ -73,6 +73,7 @@ export default function SDQDentalDemo() {
             <a href="#about" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Nosotros</a>
             <a href="#services" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Especialidades</a>
             <a href="#doctors" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Especialistas</a>
+            <a href="#testimonials" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Testimonios</a>
             <a href="#appointment" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Contacto</a>
           </div>
 
@@ -80,16 +81,17 @@ export default function SDQDentalDemo() {
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <a
               href="tel:8095550192"
-              style={{ background: "#F1F5F9", color: "#0F172A", padding: "10px 16px", borderRadius: "8px", textDecoration: "none", fontWeight: 800, fontSize: "13px" }}
+              style={{ background: "#F1F5F9", color: "#0F172A", padding: "10px 16px", borderRadius: "8px", textDecoration: "none", fontWeight: 800, fontSize: "13px", display: "flex", alignItems: "center", gap: "6px" }}
               className="nav-link-desktop"
             >
-              📞 (809) 555-0192
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (809) 555-0192
             </a>
             <a
               href="#appointment"
               style={{ background: "#1E64C4", color: "#FFFFFF", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: 800, fontSize: "13px", boxShadow: "0 4px 12px rgba(30,100,196,0.25)" }}
             >
-              Solicitar Cita 📅
+              Solicitar Cita
             </a>
           </div>
         </div>
@@ -120,9 +122,10 @@ export default function SDQDentalDemo() {
                 href="https://wa.me/18093588113?text=Hola%20Dental%20BLU,%20deseo%20consultar%20disponibilidad"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ background: "#25D366", color: "#FFFFFF", padding: "14px 28px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "15px", boxShadow: "0 4px 16px rgba(37,211,102,0.3)" }}
+                style={{ background: "#25D366", color: "#FFFFFF", padding: "14px 28px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "15px", boxShadow: "0 4px 16px rgba(37,211,102,0.3)", display: "inline-flex", alignItems: "center", gap: "8px" }}
               >
-                WhatsApp Directo 💬
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                WhatsApp Directo
               </a>
             </div>
 
@@ -155,8 +158,8 @@ export default function SDQDentalDemo() {
             
             {/* Floating Review Badge Overlay */}
             <div style={{ position: "absolute", bottom: "-20px", left: "20px", background: "#FFFFFF", padding: "16px 20px", borderRadius: "16px", boxShadow: "0 10px 30px rgba(0,0,0,0.12)", border: "1px solid #E2E8F0", display: "flex", alignItems: "center", gap: "14px" }}>
-              <div style={{ background: "#25D366", color: "#fff", width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px" }}>
-                💬
+              <div style={{ background: "#25D366", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
               </div>
               <div>
                 <div style={{ fontSize: "12px", fontWeight: 900, color: "#0F172A" }}>Citas Inmediatas por WhatsApp</div>
@@ -289,11 +292,36 @@ export default function SDQDentalDemo() {
                   onClick={() => { setSelectedService(s.title); document.getElementById("appointment")?.scrollIntoView({ behavior: "smooth" }); }}
                   style={{ marginTop: "16px", background: "#F1F5F9", color: "#1E64C4", border: "none", padding: "10px", borderRadius: "8px", fontWeight: 800, fontSize: "12px", cursor: "pointer", width: "100%" }}
                 >
-                  Seleccionar Tratamiento 📌
+                  Seleccionar Tratamiento
                 </button>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ─── TESTIMONIALS SECTION ────────────────────────────────── */}
+      <section id="testimonials" style={{ background: "#F8FAFC", padding: "80px 24px", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase" }}>TESTIMONIOS REALES DE PACIENTES</span>
+            <h2 style={{ fontSize: "32px", fontWeight: 900, color: "#0F172A", margin: "4px 0" }}>Lo Que Dicen Nuestros Pacientes</h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "28px" }}>
+            {testimonials.map((t, idx) => (
+              <div key={idx} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "32px", boxShadow: "0 6px 20px rgba(0,0,0,0.03)" }}>
+                <div style={{ color: "#F59E0B", fontSize: "16px", fontWeight: 900, marginBottom: "12px" }}>★★★★★</div>
+                <p style={{ fontSize: "14.5px", color: "#334155", lineHeight: "1.65", margin: "0 0 20px", fontStyle: "italic" }}>
+                  "{t.text}"
+                </p>
+                <div>
+                  <div style={{ fontWeight: 900, fontSize: "15px", color: "#0F172A" }}>{t.name}</div>
+                  <div style={{ fontSize: "11.5px", color: "#1E64C4", fontWeight: 700, marginTop: "2px" }}>{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -310,7 +338,6 @@ export default function SDQDentalDemo() {
 
           {booked ? (
             <div style={{ background: "#F0FDF4", border: "1.5px solid #86EFAC", padding: "28px", borderRadius: "16px", textAlign: "center" }}>
-              <div style={{ fontSize: "36px", marginBottom: "8px" }}>🎉</div>
               <h3 style={{ color: "#166534", fontWeight: 900, fontSize: "20px", margin: "0 0 8px" }}>¡Solicitud Confirmada!</h3>
               <p style={{ fontSize: "13px", color: "#15803D", lineHeight: "1.6" }}>
                 El equipo médico de Dental BLU Naco te ha asignado turno prioritario. Nos comunicaremos a tu WhatsApp para coordinar tu hora exacta.
@@ -334,7 +361,7 @@ export default function SDQDentalDemo() {
                 <input type="tel" required placeholder="809-555-0192" style={{ width: "100%", padding: "12px", borderRadius: "8px", border: "1px solid #CBD5E1", fontSize: "13.5px", marginTop: "4px" }} />
               </div>
               <button type="submit" style={{ background: "#1E64C4", color: "#FFFFFF", border: "none", padding: "16px", borderRadius: "10px", fontWeight: 900, fontSize: "15px", cursor: "pointer", boxShadow: "0 4px 16px rgba(30,100,196,0.3)", marginTop: "6px" }}>
-                Confirmar Cita por WhatsApp 📅
+                Confirmar Cita por WhatsApp
               </button>
             </form>
           )}
