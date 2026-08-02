@@ -336,14 +336,14 @@ export default function PortfolioGrid() {
                                 <div style={{ background: "#1E64C4", color: "#fff", width: "16px", height: "16px", borderRadius: "3px", fontSize: "7px", fontWeight: 900, display: "flex", alignItems: "center", justifyContent: "center" }}>BLU</div>
                                 <span style={{ fontSize: "9px", fontWeight: 900, color: "#0F172A" }}>Dental BLU SDQ</span>
                               </div>
-                              <span style={{ background: "#1E64C4", color: "#fff", padding: "2px 6px", borderRadius: "3px", fontSize: "7px", fontWeight: 800 }}>Cita 📅</span>
+                              <span style={{ background: "#1E64C4", color: "#fff", padding: "2px 6px", borderRadius: "3px", fontSize: "7px", fontWeight: 800 }}>Cita Directa</span>
                             </div>
 
                             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center", marginTop: "4px" }}>
                               <div>
-                                <span style={{ fontSize: "6.5px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase" }}>Highland Heights Standard</span>
+                                <span style={{ fontSize: "6.5px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase" }}>Odontología Especializada</span>
                                 <div style={{ fontSize: "10px", fontWeight: 900, color: "#0F172A", lineHeight: "1.2" }}>Sonrisas Hermosas en Naco</div>
-                                <div style={{ fontSize: "7px", color: "#166534", fontWeight: 800, marginTop: "2px" }}>4.9 ★★★★★ (350+ Google)</div>
+                                <div style={{ fontSize: "7px", color: "#166534", fontWeight: 800, marginTop: "2px" }}>4.9 ★★★★★ (350+ Reseñas)</div>
                               </div>
                               <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #E2E8F0" }}>
                                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=400&q=80" alt="Clinic operatory" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -356,7 +356,7 @@ export default function PortfolioGrid() {
                               <span style={{ background: "#EFF6FF", border: "1px solid #DBEAFE", borderRadius: "3px", padding: "2px 4px", fontSize: "6.5px", color: "#1E64C4", fontWeight: 700 }}>Invisalign</span>
                             </div>
                           </div>
-                        ) : project.id.includes("villa") || project.id.includes("construction") ? (
+                        ) : project.id.includes("villa") ? (
                           <div style={{ padding: "10px", background: "#0A1128", color: "#fff", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                               <span style={{ fontSize: "8px", fontWeight: 900, color: "#FFB703", letterSpacing: "0.08em" }}>CAP CANA ESCAPES</span>
@@ -364,12 +364,29 @@ export default function PortfolioGrid() {
                             </div>
                             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
                               <div>
-                                <div style={{ fontSize: "10px", fontWeight: 800, lineHeight: "1.2" }}>Villas de Lujo Privadas</div>
+                                <div style={{ fontSize: "10px", fontWeight: 800, lineHeight: "1.2" }}>Villas de Ultra Lujo</div>
                                 <div style={{ fontSize: "7px", color: "#0EA5E9", marginTop: "2px" }}>Cap Cana · Bávaro</div>
-                                <div style={{ fontSize: "8px", color: "#FFB703", fontWeight: 900, marginTop: "4px" }}>$1,450 / noche</div>
+                                <div style={{ fontSize: "8px", color: "#FFB703", fontWeight: 900, marginTop: "4px" }}>USD $1,450 / noche</div>
                               </div>
                               <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px" }}>
                                 <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80" alt="Villa resort" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              </div>
+                            </div>
+                          </div>
+                        ) : project.id.includes("construction") ? (
+                          <div style={{ padding: "10px", background: "#0A1128", color: "#fff", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#D7A639", letterSpacing: "0.08em" }}>CONSTRUCTORA AYBAR</span>
+                              <span style={{ background: "#D7A639", color: "#0A1128", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 900 }}>ISO 9001</span>
+                            </div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <div style={{ fontSize: "9.5px", fontWeight: 900, lineHeight: "1.2" }}>Torres & Edificaciones</div>
+                                <div style={{ fontSize: "7px", color: "#94A3B8", marginTop: "2px" }}>32 Niveles · Sismo-Resistente</div>
+                                <div style={{ fontSize: "7.5px", color: "#D7A639", fontWeight: 800, marginTop: "3px" }}>Cotizador de Obra m²</div>
+                              </div>
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #334155" }}>
+                                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80" alt="Construction tower" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                               </div>
                             </div>
                           </div>
@@ -379,39 +396,51 @@ export default function PortfolioGrid() {
                               <span style={{ fontSize: "8px", fontWeight: 900, letterSpacing: "0.05em" }}>NOLASCO & ALMONTE</span>
                               <span style={{ fontSize: "6.5px", color: "#0EA5E9", fontWeight: 800 }}>ABOGADOS</span>
                             </div>
-                            <div>
-                              <div style={{ fontSize: "9.5px", fontWeight: 900, color: "#fff", lineHeight: "1.2" }}>Protegemos tu Empresa en R.D.</div>
-                              <div style={{ fontSize: "7px", color: "rgba(255,255,255,0.6)", marginTop: "2px" }}>Derecho Corporativo & Inversión Extranjera</div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <div style={{ fontSize: "9px", fontWeight: 900, color: "#fff", lineHeight: "1.2" }}>Protegemos tu Empresa</div>
+                                <div style={{ fontSize: "7px", color: "rgba(255,255,255,0.6)", marginTop: "2px" }}>Derecho Corporativo</div>
+                              </div>
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "45px" }}>
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Law firm" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              </div>
                             </div>
                             <div style={{ background: "#0EA5E9", color: "#fff", padding: "3px 6px", borderRadius: "3px", fontSize: "7px", fontWeight: 800, textAlign: "center" }}>
                               Consulta Confidencial →
                             </div>
                           </div>
                         ) : project.id.includes("coffee") ? (
-                          <div style={{ padding: "10px", background: "#2B1E16", color: "#FAF7F2", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                          <div style={{ padding: "10px", background: "#2C1A11", color: "#FDFBF7", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#D97706" }}>CAFÉ TERRENAS ☕</span>
-                              <span style={{ background: "#D97706", color: "#fff", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 800 }}>🛒 (2)</span>
+                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#D96B43" }}>CAFÉ TERRENAS</span>
+                              <span style={{ background: "#D96B43", color: "#fff", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 800 }}>Bolsa (2)</span>
                             </div>
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px", alignItems: "center" }}>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
                               <div>
-                                <div style={{ fontSize: "9px", fontWeight: 900 }}>Café de Origen</div>
-                                <div style={{ fontSize: "7px", color: "#D97706", fontWeight: 800 }}>RD$ 650 / 500g</div>
+                                <div style={{ fontSize: "9px", fontWeight: 900 }}>Single Origin Espresso</div>
+                                <div style={{ fontSize: "7.5px", color: "#D96B43", fontWeight: 800, marginTop: "2px" }}>RD$ 750 / 500g</div>
                               </div>
-                              <div style={{ background: "rgba(255,255,255,0.1)", borderRadius: "4px", padding: "4px", textAlign: "center", fontSize: "7px", fontWeight: 800 }}>
-                                Stripe Checkout 💳
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "50px", border: "1px solid #523727" }}>
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=400&q=80" alt="Coffee roastery" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                               </div>
                             </div>
                           </div>
                         ) : (
+                          /* República Fleet & Maintenance (Automotive) */
                           <div style={{ padding: "10px", background: "#0F172A", color: "#fff", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#EF4444" }}>REPÚBLICA AUTO 🚘</span>
-                              <span style={{ background: "#EF4444", color: "#fff", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 800 }}>Taller</span>
+                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#EF4444", letterSpacing: "0.05em" }}>REPÚBLICA FLEET</span>
+                              <span style={{ background: "#EF4444", color: "#fff", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 800 }}>Red 4 Sucursales</span>
                             </div>
-                            <div style={{ background: "#1E293B", borderRadius: "6px", padding: "6px", border: "1px solid #334155" }}>
-                              <div style={{ fontSize: "8px", fontWeight: 800 }}>Cambio de Aceite Sintético</div>
-                              <div style={{ fontSize: "9px", fontWeight: 900, color: "#10B981", marginTop: "2px" }}>RD$ 3,800</div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <div style={{ fontSize: "8.5px", fontWeight: 900, lineHeight: "1.2" }}>Mantenimiento & Flotas</div>
+                                <div style={{ fontSize: "7px", color: "#94A3B8", marginTop: "2px" }}>15 Marcas · 120+ Modelos</div>
+                                <div style={{ fontSize: "8px", color: "#10B981", fontWeight: 900, marginTop: "3px" }}>Cambio Aceite RD$ 3,800</div>
+                              </div>
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #334155" }}>
+                                <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=400&q=80" alt="Automotive service shop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              </div>
                             </div>
                           </div>
                         )}
@@ -567,17 +596,21 @@ export default function PortfolioGrid() {
                         gap: "4px"
                       }}
                     >
-                      🚀 Demo en Vivo
+                      Ver Demo en Vivo →
                     </a>
                     <button
                       onClick={() => setActiveModalId(project.id)}
                       className="btn btn-outline"
                       style={{
                         padding: "10px",
-                        fontSize: "12px"
+                        fontSize: "12px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "4px"
                       }}
                     >
-                      📋 Especificación
+                      Especificaciones
                     </button>
                   </div>
 
