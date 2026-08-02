@@ -381,19 +381,63 @@ export default function PortfolioGrid() {
                             </div>
                           </div>
                         ) : project.id.includes("construction") ? (
-                          <div style={{ padding: "10px", background: "#0A1128", color: "#fff", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#D7A639", letterSpacing: "0.08em" }}>CONSTRUCTORA AYBAR</span>
-                              <span style={{ background: "#D7A639", color: "#0A1128", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 900 }}>ISO 9001</span>
+                          <div style={{
+                            background: "#0A1128",
+                            color: "#FFFFFF",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            fontFamily: "system-ui, -apple-system, sans-serif"
+                          }}>
+                            {/* Top Gold Engineering Bar */}
+                            <div style={{ background: "#D7A639", color: "#0A1128", padding: "3px 8px", fontSize: "5.5px", textAlign: "center", fontWeight: 900, letterSpacing: "0.08em" }}>
+                              SISMO-RESISTENCIA GRADO 8+ · AUDITORÍA P6 · CODIA #48921
                             </div>
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
-                              <div>
-                                <div style={{ fontSize: "9.5px", fontWeight: 900, lineHeight: "1.2" }}>Torres & Edificaciones</div>
-                                <div style={{ fontSize: "7px", color: "#94A3B8", marginTop: "2px" }}>32 Niveles · Sismo-Resistente</div>
-                                <div style={{ fontSize: "7.5px", color: "#D7A639", fontWeight: 800, marginTop: "3px" }}>Cotizador de Obra m²</div>
+
+                            {/* Crisp White Header Bar */}
+                            <div style={{ background: "#FFFFFF", padding: "5px 10px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "2px solid #D7A639" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                                <span style={{ fontSize: "8px", fontWeight: 900, color: "#0A1128", letterSpacing: "0.05em" }}>
+                                  CONSTRUCTORA <span style={{ color: "#D7A639" }}>AYBAR</span>
+                                </span>
                               </div>
-                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #334155" }}>
-                                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80" alt="Construction tower" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                                <span style={{ background: "rgba(215, 166, 57, 0.15)", color: "#B88A24", border: "1px solid rgba(215, 166, 57, 0.4)", padding: "1px 5px", borderRadius: "3px", fontSize: "5.5px", fontWeight: 900 }}>
+                                  ISO 9001:2015
+                                </span>
+                                <span style={{ background: "#0A1128", color: "#D7A639", padding: "1px 5px", borderRadius: "3px", fontSize: "5.5px", fontWeight: 800 }}>
+                                  ES / EN
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Hero High-Rise Showcase & Estimator Preview */}
+                            <div style={{ margin: "6px 8px 8px 8px", padding: "8px 10px", background: "rgba(255,255,255,0.04)", borderRadius: "8px", border: "1px solid rgba(215, 166, 57, 0.25)", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <span style={{ fontSize: "5.5px", fontWeight: 800, color: "#D7A639", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                                  Torre Aybar Anacaona
+                                </span>
+                                <div style={{ fontSize: "9px", fontWeight: 900, color: "#FFFFFF", lineHeight: "1.2", marginTop: "2px" }}>
+                                  Torres Residenciales & Obras
+                                </div>
+                                <div style={{ fontSize: "6px", color: "#94A3B8", marginTop: "2px", lineHeight: "1.2" }}>
+                                  f&apos;c = 350-450 kg/cm² · 32 Niveles
+                                </div>
+                                <div style={{ display: "inline-block", background: "rgba(215, 166, 57, 0.15)", border: "1px solid rgba(215, 166, 57, 0.35)", color: "#E2C476", padding: "2px 6px", borderRadius: "4px", fontSize: "6.5px", fontWeight: 900, marginTop: "5px" }}>
+                                  Cotizador m² (USD/DOP)
+                                </div>
+                              </div>
+
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid rgba(215, 166, 57, 0.35)", position: "relative" }}>
+                                <img
+                                  src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80"
+                                  alt="Torre Aybar Anacaona high-rise construction"
+                                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                />
+                                <div style={{ position: "absolute", bottom: "3px", right: "3px", background: "rgba(10, 17, 40, 0.9)", color: "#D7A639", padding: "1px 4px", borderRadius: "2px", fontSize: "5px", fontWeight: 900 }}>
+                                  32 Niveles
+                                </div>
                               </div>
                             </div>
                           </div>
