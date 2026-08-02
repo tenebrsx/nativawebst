@@ -201,7 +201,7 @@ export function DemoTopBar({ templateName, templateCategory, whatsappMessage, th
       {/* Right: Action CTA */}
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <span style={{ fontSize: "11px", color: s.text, opacity: 0.65, fontWeight: 600 }} className="nav-link-desktop">
-          Lanzamiento en 48h
+          Prototipo Interactivo
         </span>
         
         <a

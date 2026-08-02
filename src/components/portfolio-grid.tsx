@@ -410,18 +410,61 @@ export default function PortfolioGrid() {
                             </div>
                           </div>
                         ) : project.id.includes("coffee") ? (
-                          <div style={{ padding: "10px", background: "#2C1A11", color: "#FDFBF7", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#D96B43" }}>CAFÉ TERRENAS</span>
-                              <span style={{ background: "#D96B43", color: "#fff", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 800 }}>Bolsa (2)</span>
+                          <div style={{
+                            background: "#FDFBF7",
+                            color: "#2C1A11",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            fontFamily: "system-ui, -apple-system, sans-serif"
+                          }}>
+                            {/* Top Announcement Bar */}
+                            <div style={{ background: "#2C1A11", color: "#FDFBF7", padding: "3px 8px", fontSize: "5.5px", textAlign: "center", fontWeight: 700, letterSpacing: "0.08em" }}>
+                              ENVIOS A TODA R.D. · CATA DE CAFÉ EN LAS TERRENAS
                             </div>
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
-                              <div>
-                                <div style={{ fontSize: "9px", fontWeight: 900 }}>Single Origin Espresso</div>
-                                <div style={{ fontSize: "7.5px", color: "#D96B43", fontWeight: 800, marginTop: "2px" }}>RD$ 750 / 500g</div>
+
+                            {/* Header Navigation */}
+                            <div style={{ padding: "6px 12px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #EAE3D2" }}>
+                              <span style={{ fontFamily: "Georgia, serif", fontSize: "9.5px", fontWeight: 900, color: "#2C1A11", letterSpacing: "0.04em" }}>
+                                CAFÉ TERRENAS
+                              </span>
+                              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "6.5px", fontWeight: 700, color: "#8C7A6B" }}>
+                                <span>SHOP</span>
+                                <span>NOSOTROS</span>
+                                <span>EVENTOS</span>
+                                <span style={{ background: "#D96B43", color: "#FFFFFF", padding: "1.5px 6px", borderRadius: "9999px", fontSize: "6px", fontWeight: 800 }}>
+                                  Bolsa (2)
+                                </span>
                               </div>
-                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "50px", border: "1px solid #523727" }}>
-                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=400&q=80" alt="Coffee roastery" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                            </div>
+
+                            {/* Hero Section Container (Land to Sea NYC Style) */}
+                            <div style={{ margin: "6px 8px 8px 8px", padding: "8px 10px", background: "#2C1A11", borderRadius: "8px", color: "#FDFBF7", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <span style={{ fontSize: "5.5px", fontWeight: 800, color: "#D96B43", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                                  Las Terrenas, Samaná
+                                </span>
+                                <div style={{ fontFamily: "Georgia, serif", fontSize: "9px", fontWeight: 700, color: "#FDFBF7", lineHeight: "1.2", marginTop: "2px" }}>
+                                  Un Espacio Creativo Frente al Mar
+                                </div>
+                                <div style={{ fontSize: "6px", color: "#E5D4C0", marginTop: "3px", lineHeight: "1.2" }}>
+                                  Café de Especialidad Tostado en Samaná
+                                </div>
+                                <div style={{ display: "inline-block", background: "#D96B43", color: "#FFFFFF", padding: "2px 6px", borderRadius: "4px", fontSize: "7px", fontWeight: 900, marginTop: "5px" }}>
+                                  RD$ 240 <span style={{ fontSize: "5.5px", fontWeight: 500, opacity: 0.9 }}>/ espresso</span>
+                                </div>
+                              </div>
+
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid rgba(255,255,255,0.15)", position: "relative" }}>
+                                <img
+                                  src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=400&q=80"
+                                  alt="Café Terrenas Roastery"
+                                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                />
+                                <div style={{ position: "absolute", bottom: "3px", right: "3px", background: "rgba(44, 26, 17, 0.88)", color: "#FDFBF7", padding: "1px 4px", borderRadius: "2px", fontSize: "5px", fontWeight: 800 }}>
+                                  Las Terrenas
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -439,7 +482,7 @@ export default function PortfolioGrid() {
                                 <div style={{ fontSize: "8px", color: "#10B981", fontWeight: 900, marginTop: "3px" }}>Cambio Aceite RD$ 3,800</div>
                               </div>
                               <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #334155" }}>
-                                <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=400&q=80" alt="Automotive service shop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80" alt="Automotive service shop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                               </div>
                             </div>
                           </div>
@@ -471,38 +514,74 @@ export default function PortfolioGrid() {
                       {/* Mobile Body Content */}
                       <div style={{
                         padding: "8px",
-                        background: project.id.includes("clinic") ? "#EFF6FF" : project.id.includes("villa") || project.id.includes("legal") ? "#0A1128" : "#2B1E16",
+                        background: project.id.includes("clinic")
+                          ? "#EFF6FF"
+                          : project.id.includes("villa") || project.id.includes("legal")
+                          ? "#0A1128"
+                          : project.id.includes("coffee")
+                          ? "linear-gradient(180deg, #1F120B 0%, #2D1B11 100%)"
+                          : "#0F172A",
                         color: project.id.includes("clinic") ? "#0F172A" : "#FFFFFF",
                         flexGrow: 1,
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "space-between",
-                        gap: "6px"
+                        gap: "5px"
                       }}>
-                        <div style={{ fontSize: "7px", fontWeight: 900 }}>
-                          {project.id.includes("clinic") ? "Dental BLU SDQ" : project.id.includes("villa") ? "Cap Cana Escapes" : "Nolasco Law"}
-                        </div>
-                        <div style={{ fontSize: "8px", fontWeight: 800, lineHeight: "1.2" }}>
-                          {project.id.includes("clinic") ? "Atención Excepcional" : project.id.includes("villa") ? "Villas de Lujo" : "Abogados Corporativos"}
-                        </div>
-                        <div style={{
-                          background: "#25D366",
-                          color: "#fff",
-                          borderRadius: "4px",
-                          padding: "4px",
-                          fontSize: "7px",
-                          fontWeight: 900,
-                          textAlign: "center",
-                          marginTop: "auto"
-                        }}>
-                          WhatsApp Directo 💬
-                        </div>
+                        {project.id.includes("coffee") ? (
+                          <>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                              <span style={{ fontSize: "6.5px", fontWeight: 900, color: "#D96B43" }}>CAFÉ TERRENAS</span>
+                              <span style={{ background: "#D96B43", color: "#fff", padding: "1px 4px", borderRadius: "2px", fontSize: "5px", fontWeight: 900 }}>🛒 2</span>
+                            </div>
+                            <div style={{ borderRadius: "4px", overflow: "hidden", height: "48px", border: "1px solid rgba(217,107,67,0.35)", position: "relative" }}>
+                              <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=300&q=80" alt="Coffee" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              <div style={{ position: "absolute", bottom: "2px", right: "2px", background: "rgba(0,0,0,0.85)", color: "#D96B43", padding: "1px 3px", borderRadius: "2px", fontSize: "4.5px", fontWeight: 900 }}>RD$ 750</div>
+                            </div>
+                            <div>
+                              <div style={{ fontSize: "6.5px", fontWeight: 900, color: "#FDFBF7", lineHeight: "1.1" }}>Single Origin Espresso</div>
+                              <div style={{ fontSize: "5.5px", color: "rgba(253,251,247,0.6)", marginTop: "1px" }}>Tueste Artesanal</div>
+                            </div>
+                            <div style={{
+                              background: "linear-gradient(135deg, #D96B43 0%, #C25630 100%)",
+                              color: "#fff",
+                              borderRadius: "3px",
+                              padding: "3px",
+                              fontSize: "5.5px",
+                              fontWeight: 900,
+                              textAlign: "center"
+                            }}>
+                              Comprar en 2 Taps
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div style={{ fontSize: "7px", fontWeight: 900 }}>
+                              {project.id.includes("clinic") ? "Dental BLU SDQ" : project.id.includes("villa") ? "Cap Cana Escapes" : "Nolasco Law"}
+                            </div>
+                            <div style={{ fontSize: "8px", fontWeight: 800, lineHeight: "1.2" }}>
+                              {project.id.includes("clinic") ? "Atención Excepcional" : project.id.includes("villa") ? "Villas de Lujo" : "Abogados Corporativos"}
+                            </div>
+                            <div style={{
+                              background: "#25D366",
+                              color: "#fff",
+                              borderRadius: "4px",
+                              padding: "4px",
+                              fontSize: "7px",
+                              fontWeight: 900,
+                              textAlign: "center",
+                              marginTop: "auto"
+                            }}>
+                              WhatsApp Directo 💬
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Card Content & Metrics */}
+                {/* Card Content */}
                 <div style={{
                   padding: "20px",
                   display: "flex",
@@ -510,45 +589,6 @@ export default function PortfolioGrid() {
                   flexGrow: 1,
                   gap: "14px"
                 }}>
-                  {/* Speed Compare Badge & Result Metric */}
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    flexWrap: "wrap",
-                    gap: "8px"
-                  }}>
-                    {/* Speed Indicator */}
-                    <div style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      background: "var(--bg)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "6px",
-                      padding: "4px 10px",
-                      fontSize: "11px",
-                      fontFamily: "var(--font-head)",
-                      fontWeight: 700
-                    }}>
-                      <span style={{ color: "#EF4444", textDecoration: "line-through" }}>{project.speedBefore}</span>
-                      <span style={{ color: "var(--coral-blue)" }}>➔</span>
-                      <span style={{ color: "#10B981" }}>{project.speedAfter}</span>
-                    </div>
-
-                    {/* Result Impact Badge */}
-                    <span style={{
-                      background: "var(--coral-light)",
-                      color: "var(--coral-blue)",
-                      fontSize: "11px",
-                      fontWeight: 800,
-                      borderRadius: "6px",
-                      padding: "4px 10px",
-                      fontFamily: "var(--font-head)"
-                    }}>
-                      ⚡ {project.badge}
-                    </span>
-                  </div>
 
                   <p style={{
                     fontSize: "13px",
