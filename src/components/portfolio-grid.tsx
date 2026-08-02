@@ -470,19 +470,63 @@ export default function PortfolioGrid() {
                           </div>
                         ) : (
                           /* República Fleet & Maintenance (Automotive) */
-                          <div style={{ padding: "10px", background: "#0F172A", color: "#fff", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                              <span style={{ fontSize: "8px", fontWeight: 900, color: "#EF4444", letterSpacing: "0.05em" }}>REPÚBLICA FLEET</span>
-                              <span style={{ background: "#EF4444", color: "#fff", padding: "2px 5px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 800 }}>Red 4 Sucursales</span>
+                          <div style={{
+                            background: "#0F172A",
+                            color: "#FFFFFF",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            fontFamily: "system-ui, -apple-system, sans-serif"
+                          }}>
+                            {/* Top Express Service Bar */}
+                            <div style={{ background: "linear-gradient(90deg, #DC2626 0%, #B91C1C 100%)", color: "#FFFFFF", padding: "3px 8px", fontSize: "5.5px", textAlign: "center", fontWeight: 800, letterSpacing: "0.08em" }}>
+                              ⚡ MANTENIMIENTO EXPRESS HASTA 6:00 PM · RED DE 4 SUCURSALES
                             </div>
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", alignItems: "center" }}>
-                              <div>
-                                <div style={{ fontSize: "8.5px", fontWeight: 900, lineHeight: "1.2" }}>Mantenimiento & Flotas</div>
-                                <div style={{ fontSize: "7px", color: "#94A3B8", marginTop: "2px" }}>15 Marcas · 120+ Modelos</div>
-                                <div style={{ fontSize: "8px", color: "#10B981", fontWeight: 900, marginTop: "3px" }}>Cambio Aceite RD$ 3,800</div>
+
+                            {/* Header Navigation */}
+                            <div style={{ padding: "6px 12px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #334155" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                                <span style={{ background: "#EF4444", color: "#FFF", padding: "1.5px 5px", borderRadius: "3px", fontSize: "7.5px", fontWeight: 900, letterSpacing: "0.05em" }}>
+                                  REPÚBLICA FLEET
+                                </span>
                               </div>
-                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #334155" }}>
-                                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80" alt="Automotive service shop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "6.5px", fontWeight: 700, color: "#94A3B8" }}>
+                                <span>COTIZADOR</span>
+                                <span>MARCAS</span>
+                                <span>SUCURSALES</span>
+                                <span style={{ background: "#EF4444", color: "#FFFFFF", padding: "1.5px 6px", borderRadius: "3px", fontSize: "6px", fontWeight: 800 }}>
+                                  Agendar Cita
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Hero Interactive Selector Showcase */}
+                            <div style={{ margin: "6px 8px 8px 8px", padding: "8px 10px", background: "#1E293B", borderRadius: "8px", border: "1px solid #334155", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <span style={{ fontSize: "5.5px", fontWeight: 800, color: "#EF4444", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                                  Mantenimiento & Flotas
+                                </span>
+                                <div style={{ fontSize: "9px", fontWeight: 900, color: "#FFFFFF", lineHeight: "1.2", marginTop: "2px" }}>
+                                  Cotizador Automotriz m²
+                                </div>
+                                <div style={{ fontSize: "6px", color: "#94A3B8", marginTop: "2px", lineHeight: "1.2" }}>
+                                  15 Marcas · 120+ Modelos (Toyota, Honda, Hyundai...)
+                                </div>
+                                <div style={{ display: "inline-block", background: "#0F172A", border: "1px solid #334155", color: "#10B981", padding: "2px 6px", borderRadius: "4px", fontSize: "7px", fontWeight: 900, marginTop: "5px" }}>
+                                  Cambio Aceite RD$ 3,800
+                                </div>
+                              </div>
+
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #334155", position: "relative" }}>
+                                <img
+                                  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+                                  alt="Automotive fleet service"
+                                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                />
+                                <div style={{ position: "absolute", bottom: "3px", right: "3px", background: "rgba(15, 23, 42, 0.9)", color: "#10B981", padding: "1px 4px", borderRadius: "2px", fontSize: "5px", fontWeight: 900 }}>
+                                  Red 4 Sucursales
+                                </div>
                               </div>
                             </div>
                           </div>
