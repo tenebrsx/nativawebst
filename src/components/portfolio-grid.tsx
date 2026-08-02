@@ -4,6 +4,16 @@ import { useState, useMemo } from "react";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 
+const demoRoutes: Record<string, string> = {
+  "sdq-clinic-template": "/demo/sdq-dental",
+  "punta-cana-villa-template": "/demo/punta-cana-villas",
+  "naco-legal-template": "/demo/naco-legal",
+  "zona-tours-template": "/demo/punta-cana-villas",
+  "terrenas-coffee-template": "/demo/terrenas-coffee",
+  "sdq-auto-template": "/demo/sdq-auto",
+  "sdq-beauty-template": "/demo/sdq-dental",
+};
+
 type Category = "all" | "smb" | "realestate" | "pro" | "ecom";
 
 export default function PortfolioGrid() {
@@ -466,18 +476,33 @@ export default function PortfolioGrid() {
                     ))}
                   </div>
 
-                  {/* Action Button */}
-                  <div style={{ marginTop: "auto", paddingTop: "12px" }}>
+                  {/* Action Buttons */}
+                  <div style={{ marginTop: "auto", paddingTop: "12px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                    <a
+                      href={demoRoutes[project.id] || "/demo/sdq-dental"}
+                      className="btn btn-navy"
+                      style={{
+                        padding: "10px",
+                        fontSize: "12px",
+                        textDecoration: "none",
+                        textAlign: "center",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "4px"
+                      }}
+                    >
+                      🚀 Demo en Vivo
+                    </a>
                     <button
                       onClick={() => setActiveModalId(project.id)}
                       className="btn btn-outline"
                       style={{
-                        width: "100%",
                         padding: "10px",
-                        fontSize: "12.5px"
+                        fontSize: "12px"
                       }}
                     >
-                      {dict.labels.view_demo}
+                      📋 Especificación
                     </button>
                   </div>
 
