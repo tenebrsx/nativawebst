@@ -260,18 +260,18 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       disclaimer: "🔒 Your specifications are private. Handled within 4 business hours."
     },
     portfolioPage: {
-      label: "Interactive Blueprints",
+      label: "Plantillas Interactivas",
       title: "Production-Ready Web Templates",
-      sub: "Inspect our ready-to-deploy website blueprints engineered for Dominican & global brands. Select a template, test live previews, and launch in 48 hours.",
+      sub: "Inspect our ready-to-deploy website templates engineered for Dominican & global brands. Select a template, test live previews, and launch in 48 hours.",
       stat_built: "12+",
-      stat_built_lbl: "Ready Blueprints",
+      stat_built_lbl: "Plantillas Listas",
       stat_speed: "48h",
       stat_speed_lbl: "Launch Turnaround",
       stat_score: "100/100",
       stat_score_lbl: "Mobile Speed Score",
       search_placeholder: "Search template (e.g. Clinic, Real Estate, Legal, WhatsApp, E-Commerce)...",
       categories: {
-        all: "All Blueprints",
+        all: "Todas las Plantillas",
         smb: "Medical & SMBs",
         realestate: "Real Estate & Villas",
         pro: "Legal & Corporate",
@@ -283,15 +283,15 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         modules: "Integrated Modules",
         features: "Key System Features",
         spec: "Template Specification",
-        cta_modal: "Claim This Blueprint & Configure →",
+        cta_modal: "Claim This Template & Configure →",
         close: "Close Live Preview",
-        view_demo: "Inspect Blueprint →",
-        no_results: "No template blueprints match your search criteria. Try another keyword."
+        view_demo: "Inspect Template →",
+        no_results: "No templates match your search criteria. Try another keyword."
       },
       projects: [
         {
           id: "sdq-clinic-template",
-          title: "SDQ Medical & Dental Clinic Blueprint",
+          title: "SDQ Medical & Dental Clinic",
           client: "Healthcare & Clinic Template",
           category: "smb",
           industry: "Medical & Dental Clinic",
@@ -305,7 +305,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "punta-cana-villa-template",
-          title: "Punta Cana Coastal Villa Blueprint",
+          title: "Punta Cana Coastal Villa",
           client: "Vacation Rental & Resort Template",
           category: "realestate",
           industry: "Real Estate & Vacation Rentals",
@@ -319,7 +319,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "naco-legal-template",
-          title: "Naco Corporate Law & Advisory Blueprint",
+          title: "Naco Corporate Law & Advisory",
           client: "Legal & Professional Firm Template",
           category: "pro",
           industry: "Corporate Law Firm",
@@ -333,7 +333,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "zona-tours-template",
-          title: "Zona Colonial Excursion & Tour Blueprint",
+          title: "Zona Colonial Excursion & Tour",
           client: "Tourism & Experience Template",
           category: "realestate",
           industry: "Tourism & Excursions",
@@ -347,7 +347,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "terrenas-coffee-template",
-          title: "Artisanal Coffee & Specialty Shop Blueprint",
+          title: "Artisanal Coffee & Specialty Shop",
           client: "E-Commerce & Food Template",
           category: "ecom",
           industry: "E-Commerce & Gourmet Food",
@@ -361,7 +361,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "sdq-auto-template",
-          title: "República Fleet & Maintenance Blueprint",
+          title: "República Fleet & Maintenance",
           client: "Automotive & Fleet Template",
           category: "smb",
           industry: "Automotive Services",
@@ -375,7 +375,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "sdq-beauty-template",
-          title: "Naco Luxury Salon & Aesthetics Blueprint",
+          title: "Naco Luxury Salon & Aesthetics",
           client: "Beauty & Spa Studio Template",
           category: "smb",
           industry: "Beauty & Spa Studio",
@@ -389,7 +389,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "sdq-construction-template",
-          title: "Santo Domingo Towers & Building Blueprint",
+          title: "Constructora Aybar & Torres",
           client: "Construction & Real Estate Template",
           category: "realestate",
           industry: "Construction & Development",
