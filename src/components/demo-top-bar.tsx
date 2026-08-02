@@ -150,31 +150,6 @@ export function DemoTopBar({ templateName, templateCategory, whatsappMessage, th
     }}>
       {/* Left: Navigation links */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <Link
-          href="/demos"
-          style={{
-            background: s.demosBg,
-            color: s.demosText,
-            border: s.demosBorder,
-            textDecoration: "none",
-            padding: "5px 12px",
-            borderRadius: "9999px",
-            fontSize: "11px",
-            fontWeight: 800,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "6px",
-            letterSpacing: "0.02em"
-          }}
-        >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="3" width="7" height="7"></rect>
-            <rect x="14" y="3" width="7" height="7"></rect>
-            <rect x="14" y="14" width="7" height="7"></rect>
-            <rect x="3" y="14" width="7" height="7"></rect>
-          </svg>
-          Demos
-        </Link>
 
         <Link
           href="/"
