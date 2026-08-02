@@ -12,6 +12,7 @@ const demoRoutes: Record<string, string> = {
   "terrenas-coffee-template": "/demo/terrenas-coffee",
   "sdq-auto-template": "/demo/sdq-auto",
   "sdq-beauty-template": "/demo/sdq-dental",
+  "sdq-construction-template": "/demo/constructora-aybar",
 };
 
 type Category = "all" | "smb" | "realestate" | "pro" | "ecom";
