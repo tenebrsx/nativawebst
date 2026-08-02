@@ -10,24 +10,29 @@ export default function SDQDentalDemo() {
 
   const services = {
     general: [
-      { title: "Limpieza Ultrasónica & Examen Completo", desc: "Eliminación profunda de placa, profilaxis con tecnología alemana y diagnóstico digital 3D.", tag: "Preventivo", price: "RD$ 2,500" },
-      { title: "Tratamiento de Conducto (Endodoncia)", desc: "Procedimiento de alta precisión en 1 sola sesión sin dolor ni molestia posterior.", tag: "Especializado", price: "RD$ 12,000" },
-      { title: "Odontopediatría & Cuidado Infantil", desc: "Atención cálida y libre de ansiedad adaptada para los más pequeños de la familia.", tag: "Familiar", price: "RD$ 3,000" },
-      { title: "Extracciones Quirúrgicas & Cordales", desc: "Procedimientos guiados por anestesia local o sedación consciente.", tag: "Cirugía", price: "RD$ 6,500" }
+      { title: "Limpieza Ultrasónica & Examen Completo", desc: "Eliminación profunda de placa, profilaxis con tecnología alemana y diagnóstico digital 3D.", tag: "Preventivo", price: "RD$ 2,500", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" },
+      { title: "Tratamiento de Conducto (Endodoncia)", desc: "Procedimiento de alta precisión en 1 sola sesión sin dolor ni molestia posterior.", tag: "Especializado", price: "RD$ 12,000", img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" },
+      { title: "Odontopediatría & Cuidado Infantil", desc: "Atención cálida y libre de ansiedad adaptada para los más pequeños de la familia.", tag: "Familiar", price: "RD$ 3,000", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" },
+      { title: "Extracciones Quirúrgicas & Cordales", desc: "Procedimientos guiados por anestesia local o sedación consciente.", tag: "Cirugía", price: "RD$ 6,500", img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" }
     ],
     cosmetic: [
-      { title: "Diseño de Sonrisa & Carillas BioClear", desc: "Restauración estética de alta precisión en porcelana o resina biocompatible.", tag: "Estética", price: "RD$ 18,000" },
-      { title: "Blanqueamiento LED de Alta Intensidad", desc: "Aclaramiento de hasta 4 tonos en 1 sola sesión de 45 minutos sin sensibilidad.", tag: "Brillo", price: "RD$ 7,500" },
-      { title: "Alineadores Invisibles Invisalign®", desc: "Corrección progresiva y discreta sin brackets metálicos.", tag: "Ortodoncia", price: "RD$ 35,000" },
-      { title: "Restauración de Dientes Desgastados", desc: "Reconstrucción anatómica para recuperar la mordida y la estética juvenil.", tag: "Rejuvenecimiento", price: "RD$ 14,000" }
+      { title: "Diseño de Sonrisa & Carillas BioClear", desc: "Restauración estética de alta precisión en porcelana o resina biocompatible.", tag: "Estética", price: "RD$ 18,000", img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" },
+      { title: "Blanqueamiento LED de Alta Intensidad", desc: "Aclaramiento de hasta 4 tonos en 1 sola sesión de 45 minutos sin sensibilidad.", tag: "Brillo", price: "RD$ 7,500", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" },
+      { title: "Alineadores Invisibles Invisalign®", desc: "Corrección progresiva y discreta sin brackets metálicos.", tag: "Ortodoncia", price: "RD$ 35,000", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" },
+      { title: "Restauración de Dientes Desgastados", desc: "Reconstrucción anatómica para recuperar la mordida y la estética juvenil.", tag: "Rejuvenecimiento", price: "RD$ 14,000", img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" }
     ],
     specialty: [
-      { title: "Implantes Dentales & Coronas en Porcelana", desc: "Reemplazo permanente con raíz de titanio y corona biomecánica idéntica al diente natural.", tag: "Implantes", price: "RD$ 28,000" },
-      { title: "Sedación Consciente & Odontología Sin Estrés", desc: "Supera el miedo dental con protocolos de sedación aprobados internacionalmente.", tag: "Confort", price: "RD$ 5,000" },
-      { title: "Tratamiento de Frenillo Láser (Frenectomía)", desc: "Liberación de frenillo lingual o labial con láser de dióxido de carbono sin sangrado.", tag: "Láser", price: "RD$ 9,000" },
-      { title: "Tratamiento para Apnea del Sueño & Bruxismo", desc: "Dispositivos bucales nocturnos a medida para mejorar el descanso y proteger los dientes.", tag: "Bienestar", price: "RD$ 11,000" }
+      { title: "Implantes Dentales & Coronas en Porcelana", desc: "Reemplazo permanente con raíz de titanio y corona biomecánica idéntica al diente natural.", tag: "Implantes", price: "RD$ 28,000", img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" },
+      { title: "Sedación Consciente & Odontología Sin Estrés", desc: "Supera el miedo dental con protocolos de sedación aprobados internacionalmente.", tag: "Confort", price: "RD$ 5,000", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" },
+      { title: "Tratamiento de Frenillo Láser (Frenectomía)", desc: "Liberación de frenillo lingual o labial con láser de dióxido de carbono sin sangrado.", tag: "Láser", price: "RD$ 9,000", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" },
+      { title: "Tratamiento para Apnea del Sueño & Bruxismo", desc: "Dispositivos bucales nocturnos a medida para mejorar el descanso y proteger los dientes.", tag: "Bienestar", price: "RD$ 11,000", img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" }
     ]
   };
+
+  const doctors = [
+    { name: "Dr. Carlos Fernández", spec: "Especialista en Rehabilitación Oral & Implantes", exp: "14 años de experiencia · UNIBE / NYU", img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=500&q=80" },
+    { name: "Dra. María Laura Torres", spec: "Ortodoncia Invisible & Estética Dental", exp: "10 años de experiencia · PUCMM / São Paulo", img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80" }
+  ];
 
   const pillars = [
     { title: "Ambiente Tranquilo & Relajante", desc: "Diseñado específicamente para eliminar la ansiedad dental, con aromas florales, música ambiental y atención humana cálida.", icon: "🌿" },
@@ -41,9 +46,9 @@ export default function SDQDentalDemo() {
       
       {/* Sticky Altamar Demo Banner */}
       <DemoTopBar
-        templateName="Plantilla Dental BLU Clinic (Réplica Directa)"
+        templateName="Plantilla Dental BLU Clinic (Imágenes HD)"
         templateCategory="Salud & Odontología"
-        whatsappMessage="Hola Altamar, vi la plantilla de Clínica Dental BLU (#sdq-dental) inspirada en DentalBLU.com y quiero cotizar este modelo."
+        whatsappMessage="Hola Altamar, vi la plantilla de Clínica Dental BLU (#sdq-dental) y me gustaría cotizar este modelo con mis fotos de clínica."
       />
 
       {/* ─── DENTAL BLU HEADER BAR ──────────────────────────────── */}
@@ -52,7 +57,7 @@ export default function SDQDentalDemo() {
           
           {/* Brand Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ background: "#1E64C4", color: "#FFFFFF", width: "42px", height: "42px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: "22px", boxShadow: "0 4px 12px rgba(30,100,196,0.3)" }}>
+            <div style={{ background: "#1E64C4", color: "#FFFFFF", width: "42px", height: "42px", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: "20px", boxShadow: "0 4px 12px rgba(30,100,196,0.3)" }}>
               BLU
             </div>
             <div>
@@ -67,7 +72,7 @@ export default function SDQDentalDemo() {
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }} className="nav-link-desktop">
             <a href="#about" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Nosotros</a>
             <a href="#services" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Especialidades</a>
-            <a href="#difference" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Planes BLU</a>
+            <a href="#doctors" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Especialistas</a>
             <a href="#appointment" style={{ textDecoration: "none", color: "#475569", fontSize: "13.5px", fontWeight: 700 }}>Contacto</a>
           </div>
 
@@ -138,22 +143,24 @@ export default function SDQDentalDemo() {
             </div>
           </div>
 
-          {/* Hero Visual Mock Banner */}
-          <div style={{ background: "#FFFFFF", borderRadius: "24px", padding: "32px", boxShadow: "0 20px 50px rgba(30,100,196,0.12)", border: "1px solid #E2E8F0", display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div style={{ background: "#EFF6FF", borderRadius: "16px", padding: "28px", textAlign: "center" }}>
-              <div style={{ fontSize: "48px", marginBottom: "8px" }}>🩺✨</div>
-              <h3 style={{ fontSize: "20px", fontWeight: 900, color: "#1E64C4", margin: 0 }}>Tu Primera Cita Incluye:</h3>
-              <p style={{ fontSize: "13px", color: "#475569", margin: "6px 0 0" }}>Examen clínico integral + Limpieza ultrasónica + Diagnóstico por imágenes digitales 3D.</p>
+          {/* Real Operatory & Clinic Photography Hero Card */}
+          <div style={{ position: "relative" }}>
+            <div style={{ borderRadius: "24px", overflow: "hidden", boxShadow: "0 20px 50px rgba(30,100,196,0.18)", border: "4px solid #FFFFFF" }}>
+              <img
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80"
+                alt="Dental BLU Clinic Operatory Room"
+                style={{ width: "100%", height: "420px", objectFit: "cover", display: "block" }}
+              />
             </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-              <div style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", padding: "16px", borderRadius: "12px" }}>
-                <div style={{ fontSize: "12px", fontWeight: 800, color: "#1E64C4" }}>Dres. Principales</div>
-                <div style={{ fontSize: "14px", fontWeight: 900, color: "#0F172A", marginTop: "2px" }}>Dr. Arlinghaus & Torres</div>
+            
+            {/* Floating Review Badge Overlay */}
+            <div style={{ position: "absolute", bottom: "-20px", left: "20px", background: "#FFFFFF", padding: "16px 20px", borderRadius: "16px", boxShadow: "0 10px 30px rgba(0,0,0,0.12)", border: "1px solid #E2E8F0", display: "flex", alignItems: "center", gap: "14px" }}>
+              <div style={{ background: "#25D366", color: "#fff", width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px" }}>
+                💬
               </div>
-              <div style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", padding: "16px", borderRadius: "12px" }}>
-                <div style={{ fontSize: "12px", fontWeight: 800, color: "#166534" }}>Ubicación Naco</div>
-                <div style={{ fontSize: "14px", fontWeight: 900, color: "#0F172A", marginTop: "2px" }}>Parqueo Privado VIP</div>
+              <div>
+                <div style={{ fontSize: "12px", fontWeight: 900, color: "#0F172A" }}>Citas Inmediatas por WhatsApp</div>
+                <div style={{ fontSize: "11px", color: "#64748B" }}>Respuesta promedio: 5 minutos</div>
               </div>
             </div>
           </div>
@@ -161,8 +168,23 @@ export default function SDQDentalDemo() {
       </section>
 
       {/* ─── ABOUT SECTION ("Tu Sonrisa, Nuestra Pasión") ──────── */}
-      <section id="about" style={{ padding: "80px 24px", maxWidth: "1200px", margin: "0 auto" }}>
+      <section id="about" style={{ padding: "90px 24px", maxWidth: "1200px", margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+          
+          {/* Clinic Interior Photo Grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <img
+              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+              alt="Dental Reception Lounge"
+              style={{ width: "100%", height: "220px", objectFit: "cover", borderRadius: "16px", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}
+            />
+            <img
+              src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+              alt="Beautiful Healthy Smile"
+              style={{ width: "100%", height: "220px", objectFit: "cover", borderRadius: "16px", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}
+            />
+          </div>
+
           <div style={{ background: "#1E64C4", color: "#FFFFFF", borderRadius: "24px", padding: "40px", boxShadow: "0 10px 30px rgba(30,100,196,0.2)" }}>
             <span style={{ fontSize: "11px", fontWeight: 900, letterSpacing: "0.15em", textTransform: "uppercase", color: "#93C5FD" }}>
               FILOSOFÍA DENTAL BLU
@@ -177,14 +199,30 @@ export default function SDQDentalDemo() {
               Desde limpiezas preventivas rutinarias hasta implantes dentales avanzados, ortodoncia invisible y frenectomías infantiles con láser, ofrecemos un espectro completo de tratamientos en un ambiente sereno e higiénico.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {pillars.map(p => (
-              <div key={p.title} style={{ background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "20px 24px", display: "flex", gap: "16px", alignItems: "center" }}>
-                <div style={{ fontSize: "32px" }}>{p.icon}</div>
-                <div>
-                  <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#0F172A", margin: 0 }}>{p.title}</h3>
-                  <p style={{ fontSize: "13px", color: "#64748B", margin: "4px 0 0", lineHeight: "1.5" }}>{p.desc}</p>
+      {/* ─── DOCTORS TEAM SECTION ───────────────────────────────── */}
+      <section id="doctors" style={{ background: "#F8FAFC", padding: "80px 24px", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase" }}>EQUIPO DE ESPECIALISTAS</span>
+            <h2 style={{ fontSize: "34px", fontWeight: 900, color: "#0F172A", margin: "4px 0" }}>Conoce a Nuestros Doctores</h2>
+            <p style={{ fontSize: "15px", color: "#64748B" }}>Profesionales certificados dedicados al cuidado integral de tu salud bucal.</p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+            {doctors.map(d => (
+              <div key={d.name} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.04)" }}>
+                <img
+                  src={d.img}
+                  alt={d.name}
+                  style={{ width: "100%", height: "280px", objectFit: "cover", objectPosition: "top" }}
+                />
+                <div style={{ padding: "24px" }}>
+                  <h3 style={{ fontSize: "20px", fontWeight: 900, color: "#0F172A", margin: 0 }}>{d.name}</h3>
+                  <div style={{ fontSize: "13px", color: "#1E64C4", fontWeight: 800, marginTop: "4px" }}>{d.spec}</div>
+                  <div style={{ fontSize: "12px", color: "#64748B", marginTop: "6px" }}>{d.exp}</div>
                 </div>
               </div>
             ))}
@@ -193,66 +231,69 @@ export default function SDQDentalDemo() {
       </section>
 
       {/* ─── SERVICES TABBED SECTION ────────────────────────────── */}
-      <section id="services" style={{ background: "#F8FAFC", padding: "80px 24px", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 40px" }}>
-            <span style={{ fontSize: "11px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              SERVICIOS ODONTOLÓGICOS INTEGRALES
-            </span>
-            <h2 style={{ fontSize: "34px", fontWeight: 900, color: "#0F172A", margin: "8px 0" }}>
-              Logra la Sonrisa de tus Sueños
-            </h2>
-            <p style={{ fontSize: "15px", color: "#64748B" }}>
-              Combinamos tecnología odontológica de vanguardia con un trato humano cálido para garantizar resultados duraderos.
-            </p>
+      <section id="services" style={{ padding: "80px 24px", maxWidth: "1200px", margin: "0 auto" }}>
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 40px" }}>
+          <span style={{ fontSize: "11px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+            SERVICIOS ODONTOLÓGICOS INTEGRALES
+          </span>
+          <h2 style={{ fontSize: "34px", fontWeight: 900, color: "#0F172A", margin: "8px 0" }}>
+            Logra la Sonrisa de tus Sueños
+          </h2>
+          <p style={{ fontSize: "15px", color: "#64748B" }}>
+            Combinamos tecnología odontológica de vanguardia con un trato humano cálido para garantizar resultados duraderos.
+          </p>
 
-            {/* Category Tabs */}
-            <div style={{ display: "inline-flex", background: "#FFFFFF", border: "1px solid #CBD5E1", padding: "4px", borderRadius: "12px", marginTop: "24px", gap: "4px" }}>
-              <button
-                onClick={() => setActiveTab("general")}
-                style={{ background: activeTab === "general" ? "#1E64C4" : "transparent", color: activeTab === "general" ? "#FFF" : "#475569", border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
-              >
-                Odontología General
-              </button>
-              <button
-                onClick={() => setActiveTab("cosmetic")}
-                style={{ background: activeTab === "cosmetic" ? "#1E64C4" : "transparent", color: activeTab === "cosmetic" ? "#FFF" : "#475569", border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
-              >
-                Estética & Sonrisa
-              </button>
-              <button
-                onClick={() => setActiveTab("specialty")}
-                style={{ background: activeTab === "specialty" ? "#1E64C4" : "transparent", color: activeTab === "specialty" ? "#FFF" : "#475569", border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
-              >
-                Especialidades & Implantes
-              </button>
-            </div>
+          {/* Category Tabs */}
+          <div style={{ display: "inline-flex", background: "#F1F5F9", border: "1px solid #CBD5E1", padding: "4px", borderRadius: "12px", marginTop: "24px", gap: "4px" }}>
+            <button
+              onClick={() => setActiveTab("general")}
+              style={{ background: activeTab === "general" ? "#1E64C4" : "transparent", color: activeTab === "general" ? "#FFF" : "#475569", border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
+            >
+              Odontología General
+            </button>
+            <button
+              onClick={() => setActiveTab("cosmetic")}
+              style={{ background: activeTab === "cosmetic" ? "#1E64C4" : "transparent", color: activeTab === "cosmetic" ? "#FFF" : "#475569", border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
+            >
+              Estética & Sonrisa
+            </button>
+            <button
+              onClick={() => setActiveTab("specialty")}
+              style={{ background: activeTab === "specialty" ? "#1E64C4" : "transparent", color: activeTab === "specialty" ? "#FFF" : "#475569", border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
+            >
+              Especialidades & Implantes
+            </button>
           </div>
+        </div>
 
-          {/* Services Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: "24px" }}>
-            {services[activeTab].map(s => (
-              <div key={s.title} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
-                <div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                    <span style={{ fontSize: "10px", fontWeight: 900, background: "#EFF6FF", color: "#1E64C4", padding: "3px 8px", borderRadius: "6px", textTransform: "uppercase" }}>
-                      {s.tag}
-                    </span>
-                    <span style={{ fontSize: "14px", fontWeight: 900, color: "#0F172A" }}>{s.price}</span>
-                  </div>
-                  <h3 style={{ fontSize: "17px", fontWeight: 800, color: "#0F172A", margin: "0 0 8px", lineHeight: "1.3" }}>{s.title}</h3>
-                  <p style={{ fontSize: "13px", color: "#64748B", lineHeight: "1.6", margin: 0 }}>{s.desc}</p>
+        {/* Services Grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: "24px" }}>
+          {services[activeTab].map(s => (
+            <div key={s.title} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
+              <img
+                src={s.img}
+                alt={s.title}
+                style={{ width: "100%", height: "160px", objectFit: "cover" }}
+              />
+              <div style={{ padding: "20px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+                  <span style={{ fontSize: "10px", fontWeight: 900, background: "#EFF6FF", color: "#1E64C4", padding: "3px 8px", borderRadius: "6px", textTransform: "uppercase" }}>
+                    {s.tag}
+                  </span>
+                  <span style={{ fontSize: "14px", fontWeight: 900, color: "#0F172A" }}>{s.price}</span>
                 </div>
-
+                <h3 style={{ fontSize: "16.5px", fontWeight: 800, color: "#0F172A", margin: "0 0 8px", lineHeight: "1.3" }}>{s.title}</h3>
+                <p style={{ fontSize: "13px", color: "#64748B", lineHeight: "1.6", margin: 0 }}>{s.desc}</p>
+                
                 <button
                   onClick={() => { setSelectedService(s.title); document.getElementById("appointment")?.scrollIntoView({ behavior: "smooth" }); }}
-                  style={{ marginTop: "20px", background: "#F1F5F9", color: "#1E64C4", border: "none", padding: "10px", borderRadius: "8px", fontWeight: 800, fontSize: "12px", cursor: "pointer", width: "100%" }}
+                  style={{ marginTop: "16px", background: "#F1F5F9", color: "#1E64C4", border: "none", padding: "10px", borderRadius: "8px", fontWeight: 800, fontSize: "12px", cursor: "pointer", width: "100%" }}
                 >
                   Seleccionar Tratamiento 📌
                 </button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
