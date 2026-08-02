@@ -132,9 +132,10 @@ export default function ConstructoraAybarDemo() {
       
       {/* Sticky Altamar Demo Banner */}
       <DemoTopBar
-        templateName="Plantilla Constructora Aybar (Réplica Directa GrupoAybar.com)"
+        templateName="Plantilla Constructora Aybar & Torres (Grupo Aybar & Construger Standard)"
         templateCategory="Construcción & Desarrollo Inmobiliario"
-        whatsappMessage="Hola Altamar, vi la réplica de Constructora Aybar (#sdq-construction) y deseo cotizar este modelo para mi constructora."
+        whatsappMessage="Hola Altamar, vi la plantilla de Constructora Aybar (#sdq-construction) y deseo cotizar una web corporativa para mi constructora."
+        theme="gold"
       />
 
       {/* ─── GRUPO AYBAR TOP ANNOUNCEMENT & CONTACT BAR ─────────── */}

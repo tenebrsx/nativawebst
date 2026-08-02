@@ -174,6 +174,7 @@ export default function TerrenasCoffeeDemo() {
         templateName="Plantilla Café Terrenas (Réplica Directa LandToSeaNYC.com)"
         templateCategory="E-Commerce & Café de Especialidad"
         whatsappMessage="Hola Altamar, vi la plantilla de Café Terrenas (#terrenas-coffee) y deseo cotizar una tienda online para mi café o marca."
+        theme="coffee"
       />
 
       {/* ─── ANNOUNCEMENT BAR ────────────────────────────────────── */}
