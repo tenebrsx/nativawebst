@@ -1,0 +1,670 @@
+export type TranslationKey = 'en' | 'es';
+
+export interface TranslationDict {
+  nav: {
+    services: string;
+    process: string;
+    pricing: string;
+    portfolio: string;
+    cta: string;
+  };
+  hero: {
+    badge_label: string;
+    badge_sub: string;
+    title_1: string;
+    title_2: string;
+    title_3: string;
+    desc: string;
+    cta_launch: string;
+    cta_price: string;
+    stat_delivery: string;
+    stat_delivery_lbl: string;
+    stat_brands: string;
+    stat_brands_lbl: string;
+    stat_updates: string;
+    stat_updates_lbl: string;
+    whatsapp_footer: string;
+  };
+  partners: {
+    label: string;
+  };
+  services: {
+    label: string;
+    title: string;
+    sub: string;
+    items: Array<{ icon: string; title: string; desc: string }>;
+  };
+  process: {
+    label: string;
+    title: string;
+    sub: string;
+    steps: Array<{ num: string; title: string; body: string }>;
+  };
+  jargon: {
+    label: string;
+    title: string;
+    sub: string;
+    cards: Array<{ tech: string; plain: string; why: string; icon: string }>;
+    hint: string;
+  };
+  pricing: {
+    label: string;
+    title: string;
+    sub: string;
+    step_1: string;
+    step_1_sub: string;
+    step_2: string;
+    step_2_sub: string;
+    step_3: string;
+    step_3_sub: string;
+    summary_title: string;
+    one_time: string;
+    monthly: string;
+    monthly_suffix: string;
+    platform: string;
+    managed_support: string;
+    cta: string;
+    disclaimer: string;
+    tiers: Record<string, { name: string; desc: string; pages: string }>;
+    addons: Record<string, { label: string; desc: string }>;
+    support_label: string;
+    support_desc: string;
+  };
+  contact: {
+    label: string;
+    title: string;
+    desc: string;
+    bullet_1: string;
+    bullet_2: string;
+    bullet_3: string;
+    bullet_4: string;
+    form_title: string;
+    form_sub: string;
+    lbl_name: string;
+    lbl_email: string;
+    lbl_phone: string;
+    lbl_budget: string;
+    lbl_message: string;
+    placeholder_name: string;
+    placeholder_message: string;
+    btn_submit_idle: string;
+    btn_submit_loading: string;
+    success_title: string;
+    success_desc: string;
+    success_btn: string;
+    disclaimer: string;
+  };
+  portfolioPage: {
+    label: string;
+    title: string;
+    sub: string;
+    stat_built: string;
+    stat_built_lbl: string;
+    stat_speed: string;
+    stat_speed_lbl: string;
+    stat_score: string;
+    stat_score_lbl: string;
+    search_placeholder: string;
+    categories: {
+      all: string;
+      smb: string;
+      realestate: string;
+      pro: string;
+      ecom: string;
+    };
+    labels: {
+      view_mode: string;
+      turnaround: string;
+      modules: string;
+      features: string;
+      spec: string;
+      cta_modal: string;
+      close: string;
+      view_demo: string;
+      no_results: string;
+    };
+    projects: Array<{
+      id: string;
+      title: string;
+      client: string;
+      category: "smb" | "realestate" | "pro" | "ecom";
+      industry: string;
+      badge: string;
+      speedBefore: string;
+      speedAfter: string;
+      desc: string;
+      problem: string;
+      solution: string;
+      tags: string[];
+    }>;
+  };
+}
+
+export const translations: Record<TranslationKey, TranslationDict> = {
+  en: {
+    nav: {
+      services: "Services",
+      process: "Process",
+      pricing: "Pricing",
+      portfolio: "Work & Proof",
+      cta: "Get Free Quote"
+    },
+    hero: {
+      badge_label: "NATIVA WEB ENGINE",
+      badge_sub: "· Simple interfaces built with high engineering contrast",
+      title_1: "Websites Built for",
+      title_2: "Local Action.",
+      title_3: "Engineered for Growth.",
+      desc: "We build clean, high-speed platforms that rank where your customers look. Zero clutter, zero complexity. Just pure local performance.",
+      cta_launch: "Launch the Ship →",
+      cta_price: "Configure Estimate",
+      stat_delivery: "3 Weeks",
+      stat_delivery_lbl: "Average Project Delivery",
+      stat_brands: "1,000+",
+      stat_brands_lbl: "Dominican Brands Launched",
+      stat_updates: "24 Hours",
+      stat_updates_lbl: "Content Update Response",
+      whatsapp_footer: "Want to change text, add images, or adjust hours? Just text us."
+    },
+    partners: {
+      label: "Anchor partners:"
+    },
+    services: {
+      label: "Core Modules",
+      title: "Everything You Need. No Fluff.",
+      sub: "We build clean web structures and support them continuously so you can lead your market.",
+      items: [
+        { icon: "🌐", title: "Website Design & Build", desc: "Fast, premium websites designed to engage visitors and convert them into paying customers. Deployed in under 3 weeks." },
+        { icon: "📍", title: "Google Maps & Local SEO", desc: "We place your brand at the top of local maps. When clients search for your services nearby, you rank first." },
+        { icon: "✍️", title: "Persuasive Copywriting", desc: "Clean, direct messaging structured to tell your brand story and guide potential clients to reach out." },
+        { icon: "🛒", title: "E-Commerce & Scheduling", desc: "Sell products, schedule bookings, or accept secure customer payments without complex monthly platform fees." },
+        { icon: "📱", title: "WhatsApp & Leads Automation", desc: "Direct traffic into WhatsApp chats and track inquiry channels effortlessly, integrated straight to your phone." },
+        { icon: "🔧", title: "Managed Updates & Support", desc: "Send us updates anytime via email or message. Hours, text updates, or page changes are live within 24 hours." }
+      ]
+    },
+    process: {
+      label: "The Pathway",
+      title: "Structured Journey to Launch",
+      sub: "A straightforward progression from concept to live deployment.",
+      steps: [
+        { num: "01", title: "The Spec", body: "We jump on a 15-minute alignment call. We map out pages, custom components, maps, and content structure. Zero jargon, just raw business logic." },
+        { num: "02", title: "The Build", body: "We draft clean components and layout options rapidly. You receive a private development link to review iterations transparently." },
+        { num: "03", title: "The Ship", body: "Your site launches globally on fast CDN edges, connected directly to local maps. Transition is seamless, secure, and clean." }
+      ]
+    },
+    jargon: {
+      label: "Plain Speak",
+      title: "Cutting Through Tech Jargon",
+      sub: "Agencies often hide behind complex terminology. We focus on absolute clarity. Click a card to read the plain English meaning.",
+      cards: [
+        { tech: "SSL & HTTPS Encryption", plain: "The Security Lock", why: "Stops Google from showing visitors a scary red 'Not Secure' warning — and keeps your client data safe.", icon: "🔒" },
+        { tech: "Responsive Breakpoints", plain: "Works Perfect on Any Phone", why: "60% of your customers search from a cell phone. We make sure your number and booking form are one tap away.", icon: "📱" },
+        { tech: "Edge CDN Caching", plain: "Loads Before They Blink", why: "Slow sites lose 50% of visitors in 3 seconds. We host your site globally so it loads instantly on any network.", icon: "⚡" }
+      ],
+      hint: "👆 Click any card to translate"
+    },
+    pricing: {
+      label: "Interactive Configurator",
+      title: "Configure Your Platform",
+      sub: "Select your structural base, toggle growth modules, and view real-time estimates instantly.",
+      step_1: "01 Select Model Size",
+      step_1_sub: "Choose the baseline foundation that matches your business needs.",
+      step_2: "02 Add Custom Options",
+      step_2_sub: "Add tailored features to accelerate growth and market outreach.",
+      step_3: "03 Ongoing Support",
+      step_3_sub: "Add our zero-stress managed care framework. Text updates anytime.",
+      summary_title: "Nativa Configuration",
+      one_time: "One-Time Investment",
+      monthly: "Monthly Support Plan",
+      monthly_suffix: "/month",
+      platform: "Platform",
+      managed_support: "Managed Support Care",
+      cta: "Launch the Ship →",
+      disclaimer: "Configuration specifications will be verified on a brief onboarding consultation.",
+      tiers: {
+        starter: { name: "Starter", desc: "Perfect for local service providers, single-page operations, or simple portfolios.", pages: "1–3 Pages" },
+        standard: { name: "Standard", desc: "Our most popular setup. Perfect for growing local businesses and medical clinics.", pages: "Up to 5 Pages" },
+        growth: { name: "Growth", desc: "Complete digital presence with advanced lead flows, rich integrations & custom sections.", pages: "Up to 10 Pages" }
+      },
+      addons: {
+        seo: { label: "Google Maps & Local SEO Setup", desc: "Target top local search queries to stand out locally." },
+        brand: { label: "Logo & Branding Assets", desc: "Premium color palette, typography guidelines & logo files." },
+        whatsapp: { label: "WhatsApp Contact Integration", desc: "Connect your visitors to instant WhatsApp chats." },
+        bilingual: { label: "Multi-language (EN / ES)", desc: "Full translation support to serve diverse global markets." }
+      },
+      support_label: "Managed Support & Optimization Care",
+      support_desc: "Includes daily backups, performance scaling, secure edge hosting, and unlimited text-to-update content changes."
+    },
+    contact: {
+      label: "Start Customizing",
+      title: "Ready to Establish Your Brand?",
+      desc: "Send us a short overview of your requirements. We will analyze your search profile and compile an exact spec document for your business goals.",
+      bullet_1: "Direct turnaround on specifications within 4 business hours",
+      bullet_2: "Complimentary speed & structure audit included",
+      bullet_3: "Zero obligation alignment call",
+      bullet_4: "Fully reachable via WhatsApp and direct channels",
+      form_title: "Begin Project Config",
+      form_sub: "Let's align on your system specifications. No tech jargon.",
+      lbl_name: "Your Name *",
+      lbl_email: "Email *",
+      lbl_phone: "WhatsApp / Phone *",
+      lbl_budget: "Budget Range",
+      lbl_message: "What does your business do?",
+      placeholder_name: "e.g. María González",
+      placeholder_message: "Tell us what you do and what you need — in plain words is perfect.",
+      btn_submit_idle: "Send Request Spec →",
+      btn_submit_loading: "Submitting Spec...",
+      success_title: "We got it!",
+      success_desc: "Expect a response within 4 business hours. We'll review your goals and provide a speed audit of your current site.",
+      success_btn: "Submit another →",
+      disclaimer: "🔒 Your specifications are private. Handled within 4 business hours."
+    },
+    portfolioPage: {
+      label: "Interactive Blueprints",
+      title: "Production-Ready Web Templates",
+      sub: "Inspect our ready-to-deploy website blueprints engineered for Dominican & global brands. Select a template, test live previews, and launch in 48 hours.",
+      stat_built: "12+",
+      stat_built_lbl: "Ready Blueprints",
+      stat_speed: "48h",
+      stat_speed_lbl: "Launch Turnaround",
+      stat_score: "100/100",
+      stat_score_lbl: "Mobile Speed Score",
+      search_placeholder: "Search template (e.g. Clinic, Real Estate, Legal, WhatsApp, E-Commerce)...",
+      categories: {
+        all: "All Blueprints",
+        smb: "Medical & SMBs",
+        realestate: "Real Estate & Villas",
+        pro: "Legal & Corporate",
+        ecom: "Shops & E-Com"
+      },
+      labels: {
+        view_mode: "Viewport Preview:",
+        turnaround: "Turnaround Time",
+        modules: "Integrated Modules",
+        features: "Key System Features",
+        spec: "Template Specification",
+        cta_modal: "Claim This Blueprint & Configure →",
+        close: "Close Live Preview",
+        view_demo: "Inspect Blueprint →",
+        no_results: "No template blueprints match your search criteria. Try another keyword."
+      },
+      projects: [
+        {
+          id: "sdq-clinic-template",
+          title: "SDQ Medical & Dental Clinic Blueprint",
+          client: "Healthcare & Clinic Template",
+          category: "smb",
+          industry: "Medical & Dental Clinic",
+          badge: "Ready in 48 Hours",
+          speedBefore: "5.2s",
+          speedAfter: "0.3s",
+          desc: "High-speed bilingual clinic template with instant WhatsApp appointment booking and local Google Maps optimization.",
+          problem: "Medical practices lose high-value patients when phone lines are busy or online booking forms take minutes to load on mobile.",
+          solution: "Pre-configured with direct WhatsApp scheduling, doctor profile cards, localized Google Maps schema, and patient intake forms.",
+          tags: ["WhatsApp Booking", "Local SEO", "Doctor Directory", "Bilingual EN/ES"]
+        },
+        {
+          id: "punta-cana-villa-template",
+          title: "Punta Cana Coastal Villa Blueprint",
+          client: "Vacation Rental & Resort Template",
+          category: "realestate",
+          industry: "Real Estate & Vacation Rentals",
+          badge: "Ready in 48 Hours",
+          speedBefore: "6.1s",
+          speedAfter: "0.4s",
+          desc: "Luxury vacation rental showcase template with availability calendar, multi-currency USD/DOP toggles, and direct inquiry routing.",
+          problem: "Slow photo loading on mobile networks kills rental inquiries before guests can view property features or rates.",
+          solution: "Includes Edge-cached CDN image gallery, multi-currency USD/DOP display, seasonal pricing breakdown, and instant WhatsApp booking.",
+          tags: ["Photo CDN", "USD/DOP Switcher", "Availability Calendar", "WhatsApp Direct"]
+        },
+        {
+          id: "naco-legal-template",
+          title: "Naco Corporate Law & Advisory Blueprint",
+          client: "Legal & Professional Firm Template",
+          category: "pro",
+          industry: "Corporate Law Firm",
+          badge: "Ready in 48 Hours",
+          speedBefore: "4.8s",
+          speedAfter: "0.3s",
+          desc: "High-contrast corporate legal template with practice area breakdown, attorney bio cards, and friction-free consultation form.",
+          problem: "Potential corporate clients drop off when legal websites are bloated with jargon and lack clear contact channels.",
+          solution: "Engineered with high-contrast corporate typography, structured Google schema for attorney listings, and 1-tap consultation scheduling.",
+          tags: ["Practice Cards", "Attorney Profiles", "Lead Engine", "Local SEO"]
+        },
+        {
+          id: "zona-tours-template",
+          title: "Zona Colonial Excursion & Tour Blueprint",
+          client: "Tourism & Experience Template",
+          category: "realestate",
+          industry: "Tourism & Excursions",
+          badge: "Ready in 48 Hours",
+          speedBefore: "3.9s",
+          speedAfter: "0.4s",
+          desc: "Mobile-optimized tour booking template with instant ticket selection, multi-language support (EN/ES), and WhatsApp guide dispatch.",
+          problem: "Tourists walking around historic areas want to book tours in 30 seconds without creating accounts or waiting for emails.",
+          solution: "Features instant ticket selection, automated guide WhatsApp alerts, Stripe Checkout integration, and multi-language toggles.",
+          tags: ["Ticket Selector", "WhatsApp Dispatch", "Bilingual EN/ES", "Stripe Ready"]
+        },
+        {
+          id: "terrenas-coffee-template",
+          title: "Artisanal Coffee & Specialty Shop Blueprint",
+          client: "E-Commerce & Food Template",
+          category: "ecom",
+          industry: "E-Commerce & Gourmet Food",
+          badge: "Ready in 48 Hours",
+          speedBefore: "5.5s",
+          speedAfter: "0.3s",
+          desc: "Fast Next.js e-commerce storefront template connected to Stripe Checkout, optimized for 2-tap mobile purchases.",
+          problem: "Legacy shopping platforms suffer 80%+ cart abandonment rates on mobile due to slow multi-step checkouts.",
+          solution: "Custom React storefront with slide-out cart drawer, 2-step Stripe Checkout, product variant selectors, and shipping calculator.",
+          tags: ["Stripe Checkout", "Cart Drawer", "Product Grid", "Instagram Feed"]
+        },
+        {
+          id: "sdq-auto-template",
+          title: "República Fleet & Maintenance Blueprint",
+          client: "Automotive & Fleet Template",
+          category: "smb",
+          industry: "Automotive Services",
+          badge: "Ready in 48 Hours",
+          speedBefore: "4.1s",
+          speedAfter: "0.4s",
+          desc: "Interactive service cost estimator template allowing vehicle owners to select maintenance options and receive instant WhatsApp specs.",
+          problem: "Service centers waste hours every day answering phone calls for routine oil change and maintenance estimates.",
+          solution: "Includes interactive service estimator, vehicle model selector, instant cost breakdown, and 1-tap WhatsApp booking dispatch.",
+          tags: ["Service Estimator", "WhatsApp Spec", "Package Builder", "Local SEO"]
+        },
+        {
+          id: "sdq-beauty-template",
+          title: "Naco Luxury Salon & Aesthetics Blueprint",
+          client: "Beauty & Spa Studio Template",
+          category: "smb",
+          industry: "Beauty & Spa Studio",
+          badge: "Ready in 48 Hours",
+          speedBefore: "4.2s",
+          speedAfter: "0.3s",
+          desc: "Elegant spa & salon template with interactive treatment menu, stylist directory, and VIP appointment booking flow.",
+          problem: "Clients want to see treatment pricing, stylist portfolios, and available time slots on Instagram without waiting for DMs.",
+          solution: "Pre-loaded with aesthetic treatment menu, stylist showcase, Instagram photo grid, and instant WhatsApp VIP booking.",
+          tags: ["Treatment Menu", "Stylist Directory", "WhatsApp Booking", "Instagram Grid"]
+        },
+        {
+          id: "sdq-construction-template",
+          title: "Santo Domingo Towers & Building Blueprint",
+          client: "Construction & Real Estate Template",
+          category: "realestate",
+          industry: "Construction & Development",
+          badge: "Ready in 48 Hours",
+          speedBefore: "5.8s",
+          speedAfter: "0.4s",
+          desc: "Heavy-duty real estate development template highlighting floor plans, construction progress updates, and brochure PDF downloads.",
+          problem: "Investors want to inspect floor plans and construction timelines without waiting for email attachments.",
+          solution: "Includes floor plan viewer, progress timeline tracker, automated brochure PDF requester, and WhatsApp sales rep connector.",
+          tags: ["Floor Plans", "Progress Tracker", "Brochure Lead", "WhatsApp Sales"]
+        }
+      ]
+    }
+  },
+  es: {
+    nav: {
+      services: "Servicios",
+      process: "Proceso",
+      pricing: "Precios",
+      portfolio: "Plantillas & Demos",
+      cta: "Presupuesto Gratis"
+    },
+    hero: {
+      badge_label: "SISTEMA WEB NATIVA",
+      badge_sub: "· Interfaces simples construidas con alto contraste de ingeniería",
+      title_1: "Sitios Web Creados para",
+      title_2: "Acción Local.",
+      title_3: "Diseñados para Crecer.",
+      desc: "Construimos plataformas limpias y rápidas que posicionan donde buscan tus clientes. Sin rodeos, sin complejidades. Puro rendimiento local.",
+      cta_launch: "Lanzar el Barco →",
+      cta_price: "Configurar Presupuesto",
+      stat_delivery: "3 Semanas",
+      stat_delivery_lbl: "Entrega Promedio del Proyecto",
+      stat_brands: "1,000+",
+      stat_brands_lbl: "Marcas Dominicanas Lanzadas",
+      stat_updates: "24 Horas",
+      stat_updates_lbl: "Respuesta de Actualizaciones",
+      whatsapp_footer: "¿Quieres cambiar texto, agregar fotos o ajustar horarios? Solo envíanos un mensaje."
+    },
+    partners: {
+      label: "Empresas aliadas:"
+    },
+    services: {
+      label: "Módulos Principales",
+      title: "Todo lo que Necesitas. Sin Relleno.",
+      sub: "Construimos estructuras web limpias y las soportamos continuamente para que lideres tu mercado.",
+      items: [
+        { icon: "🌐", title: "Diseño & Desarrollo Web", desc: "Sitios web rápidos y de alto impacto orientados a convertir visitantes en clientes. Puesta en marcha en menos de 3 semanas." },
+        { icon: "📍", title: "Ficha Google Maps & SEO Local", desc: "Posicionamos tu marca de primero en mapas locales. Cuando tus clientes busquen tus servicios cerca, aparecerás primero." },
+        { icon: "💬", title: "Integración Directa WhatsApp", desc: "Conectamos a tus visitantes directamente con tu canal de ventas por WhatsApp para cerrar consultas al instante." },
+        { icon: "⚡", title: "Optimización de Carga Ultrarrápida", desc: "Eliminamos plugins pesados y código innecesario. Tu web cargará en menos de 0.5 segundos en cualquier celular." },
+        { icon: "📝", title: "Mantenimiento Continuo", desc: "Cambiamos textos, agregamos fotos o ajustamos precios cuando lo necesites. Solo envíanos un mensaje y lo resolvemos en 24h." },
+        { icon: "📊", title: "Captación de Leads & Formularios", desc: "Diseñamos formularios limpios e intuitivos para que tus clientes soliciten presupuestos sin fricción." }
+      ]
+    },
+    process: {
+      label: "El Camino",
+      title: "Un Viaje Estructurado al Lanzamiento",
+      sub: "Una progresión directa y transparente desde el concepto hasta la puesta en marcha.",
+      steps: [
+        { num: "01", title: "La Especificación", body: "Llamada de alineación de 15 minutos. Definimos páginas, componentes a medida, mapas y estructura de contenidos. Sin tecnicismos." },
+        { num: "02", title: "La Construcción", body: "Programamos componentes y layouts de forma rápida. Recibes un enlace de desarrollo privado para revisar avances con total transparencia." },
+        { num: "03", title: "El Embarque", body: "Tu web se lanza globalmente en servidores ultrarrápidos, conectada directamente a mapas locales. Transición segura y limpia." }
+      ]
+    },
+    jargon: {
+      label: "Hablando Claro",
+      title: "Eliminando la Jerga Técnica",
+      sub: "Las agencias a menudo se esconden detrás de términos complejos. Nos enfocamos en la claridad absoluta. Haz clic para ver el significado real.",
+      cards: [
+        { tech: "Encriptación SSL y HTTPS", plain: "El Candado de Seguridad", why: "Evita que Google muestre una advertencia roja de 'No Seguro' a tus clientes y protege sus datos.", icon: "🔒" },
+        { tech: "Diseño Responsivo", plain: "Funciona Perfecto en Celulares", why: "El 60% de tus clientes busca desde su celular. Hacemos que tu botón de llamada y reservas estén a un toque de distancia.", icon: "📱" },
+        { tech: "Caché Edge CDN", plain: "Carga Antes de que Parpadeen", why: "Las webs lentas pierden al 50% de las visitas. Alojamos tu web globalmente para que cargue al instante en cualquier red.", icon: "⚡" }
+      ],
+      hint: "👆 Haz clic en cualquier tarjeta para traducir"
+    },
+    pricing: {
+      label: "Configurador Interactivo",
+      title: "Configura tu Plataforma",
+      sub: "Selecciona tu base estructural, añade módulos de crecimiento y mira estimaciones reales al instante.",
+      step_1: "01 Selecciona Tamaño",
+      step_1_sub: "Elige la base estructural que se adapte mejor a tus objetivos comerciales.",
+      step_2: "02 Agrega Opciones",
+      step_2_sub: "Añade herramientas avanzadas para potenciar tu presencia y alcance local.",
+      step_3: "03 Soporte Continuo",
+      step_3_sub: "Suma nuestro plan de soporte sin estrés. Actualizaciones por chat en 24 horas.",
+      summary_title: "Configuración Nativa",
+      one_time: "Inversión Única",
+      monthly: "Plan de Soporte Mensual",
+      monthly_suffix: "/mes",
+      platform: "Plataforma",
+      managed_support: "Soporte Gestionado",
+      cta: "Lanzar el Barco →",
+      disclaimer: "Las especificaciones se verificarán en una breve consulta de onboarding.",
+      tiers: {
+        starter: { name: "Básico", desc: "Ideal para profesionales independientes, landing pages o portafolios sencillos.", pages: "1–3 Páginas" },
+        standard: { name: "Estándar", desc: "Nuestro modelo más popular. Perfecto para negocios locales en crecimiento y clínicas.", pages: "Hasta 5 Páginas" },
+        growth: { name: "Crecimiento", desc: "Presencia digital completa con flujos de leads, integraciones avanzadas y secciones a medida.", pages: "Hasta 10 Páginas" }
+      },
+      addons: {
+        seo: { label: "Ficha Google Maps y SEO Local", desc: "Aparece de primero cuando los clientes busquen tus servicios en tu zona." },
+        brand: { label: "Diseño de Logotipo e Identidad", desc: "Paleta de colores, tipografías y archivos de logotipo para tu marca." },
+        whatsapp: { label: "Integración de Botón WhatsApp", desc: "Conecta a tus visitantes directamente con tu chat de WhatsApp." },
+        bilingual: { label: "Sitio Web Bilingüe (EN / ES)", desc: "Traducción completa para captar tanto público local como internacional." }
+      },
+      support_label: "Plan de Soporte y Optimización",
+      support_desc: "Incluye copias de seguridad diarias, velocidad optimizada, alojamiento seguro y cambios de texto/fotos ilimitados."
+    },
+    contact: {
+      label: "Comienza a Configurar",
+      title: "¿Listo para Posicionar tu Marca?",
+      desc: "Envíanos un resumen de lo que necesitas. Analizaremos tu presencia de búsqueda y prepararemos una propuesta detallada para tus objetivos.",
+      bullet_1: "Entrega de especificaciones detalladas en 4 horas laborables",
+      bullet_2: "Auditoría gratuita de velocidad y estructura web incluida",
+      bullet_3: "Llamada de alineación inicial sin compromisos",
+      bullet_4: "Totalmente disponibles por WhatsApp y canales directos",
+      form_title: "Configuración Inicial",
+      form_sub: "Alineemos los requerimientos de tu sistema. Sin jerga técnica.",
+      lbl_name: "Tu Nombre *",
+      lbl_email: "Correo Electrónico *",
+      lbl_phone: "WhatsApp / Teléfono *",
+      lbl_budget: "Presupuesto Estimado",
+      lbl_message: "¿A qué se dedica tu negocio?",
+      placeholder_name: "ej. María González",
+      placeholder_message: "Cuéntanos brevemente qué hace tu negocio y qué necesitas en tu web.",
+      btn_submit_idle: "Enviar Requerimientos →",
+      btn_submit_loading: "Enviando Especificaciones...",
+      success_title: "¡Recibido!",
+      success_desc: "Responderemos en menos de 4 horas laborables. Analizaremos tus objetivos e incluiremos una auditoría de velocidad gratis.",
+      success_btn: "Enviar otra consulta →",
+      disclaimer: "🔒 Tus especificaciones son privadas. Respuesta en 4 horas laborables."
+    },
+    portfolioPage: {
+      label: "Plantillas Interactivas",
+      title: "Modelos Web Listos para Lanzar",
+      sub: "Explora nuestros modelos interactivos diseñados para empresas en la República Dominicana. Selecciona una plantilla, prueba la vista previa y lánzala en 48 horas.",
+      stat_built: "12+",
+      stat_built_lbl: "Plantillas Listas",
+      stat_speed: "48h",
+      stat_speed_lbl: "Tiempo de Entrega",
+      stat_score: "100/100",
+      stat_score_lbl: "Velocidad Google Móvil",
+      search_placeholder: "Buscar plantilla (ej. Clínica, Bienes Raíces, Abogados, WhatsApp, Barbería)...",
+      categories: {
+        all: "Todas las Plantillas",
+        smb: "Salud & Clínicas",
+        realestate: "Bienes Raíces & Villas",
+        pro: "Abogados & Servicios",
+        ecom: "Tiendas & Alimentos"
+      },
+      labels: {
+        view_mode: "Vista previa:",
+        turnaround: "Tiempo de Entrega",
+        modules: "Módulos Integrados",
+        features: "Características Principales",
+        spec: "Especificaciones del Modelo",
+        cta_modal: "Usar Esta Plantilla & Configurar →",
+        close: "Cerrar Previsualización",
+        view_demo: "Inspeccionar Plantilla →",
+        no_results: "No encontramos plantillas con ese criterio. Prueba con otra palabra clave."
+      },
+      projects: [
+        {
+          id: "sdq-clinic-template",
+          title: "Plantilla SDQ Clínica Médica & Odontológica",
+          client: "Modelo para Salud & Odontología",
+          category: "smb",
+          industry: "Clínica Médica & Odontológica",
+          badge: "Lista en 48 Horas",
+          speedBefore: "5.2s",
+          speedAfter: "0.3s",
+          desc: "Plataforma clínica bilingüe ultrarrápida con agendamiento directo por WhatsApp y posicionamiento local en Google Maps.",
+          problem: "Las clínicas pierden pacientes cuando las líneas están ocupadas o el formulario tarda minutos en cargar en celulares.",
+          solution: "Preconfigurada con citas por WhatsApp, catálogo de especialistas, esquema de Google Maps local y formularios de ingreso.",
+          tags: ["Citas por WhatsApp", "SEO Local", "Directorio Médico", "Bilingüe EN/ES"]
+        },
+        {
+          id: "punta-cana-villa-template",
+          title: "Plantilla Punta Cana Villas & Alquileres",
+          client: "Modelo para Turismo & Bienes Raíces",
+          category: "realestate",
+          industry: "Bienes Raíces & Alquileres Vacacionales",
+          badge: "Lista en 48 Horas",
+          speedBefore: "6.1s",
+          speedAfter: "0.4s",
+          desc: "Catálogo de alquileres de lujo con calendario de disponibilidad, selector multimoneda (USD/DOP) y consultas por WhatsApp.",
+          problem: "Las fotos pesadas en redes móviles hacen que los huéspedes abandonen antes de consultar precios o disponibilidad.",
+          solution: "Incluye galería con CDN de alta velocidad, selector de moneda USD/DOP, desglose de tarifas por temporada y reservas por WhatsApp.",
+          tags: ["CDN de Fotos", "Selector USD/DOP", "Calendario", "WhatsApp Directo"]
+        },
+        {
+          id: "naco-legal-template",
+          title: "Plantilla Naco Abogados & Asesores",
+          client: "Modelo para Firmas de Abogados",
+          category: "pro",
+          industry: "Firma de Abogados Corporativos",
+          badge: "Lista en 48 Horas",
+          speedBefore: "4.8s",
+          speedAfter: "0.3s",
+          desc: "Sitio web corporativo de alto contraste con desglose de áreas de práctica, perfiles de socios y formulario de consultas directas.",
+          problem: "Los clientes corporativos abandonan los sitios de abogados llenos de jerga compleja y sin canales rápidos de contacto.",
+          solution: "Diseñada con tipografía corporativa de alto contraste, esquema estructurado de Google para abogados y agendamiento en 1 toque.",
+          tags: ["Áreas de Práctica", "Perfiles de Socios", "Captación de Leads", "SEO Local"]
+        },
+        {
+          id: "zona-tours-template",
+          title: "Plantilla Excursiones Zona Colonial",
+          client: "Modelo para Turismo & Experiencias",
+          category: "realestate",
+          industry: "Turismo & Excursiones",
+          badge: "Lista en 48 Horas",
+          speedBefore: "3.9s",
+          speedAfter: "0.4s",
+          desc: "Plataforma de reservas de tours optimizada para móviles con selección instantánea de boletos, soporte bilingüe (EN/ES) y alertas por WhatsApp.",
+          problem: "Los turistas caminando por zonas históricas quieren reservar un tour en 30 segundos sin crear cuentas ni esperar correos.",
+          solution: "Incluye selector de boletos instantáneo, notificación de guías por WhatsApp, pasarela Stripe y selector bilingüe.",
+          tags: ["Selector de Boletos", "Despacho WhatsApp", "Bilingüe EN/ES", "Stripe Listo"]
+        },
+        {
+          id: "terrenas-coffee-template",
+          title: "Plantilla Café Artesanal & Gourmet",
+          client: "Modelo para Tiendas & Alimentos",
+          category: "ecom",
+          industry: "E-Commerce & Alimentos Gourmet",
+          badge: "Lista en 48 Horas",
+          speedBefore: "5.5s",
+          speedAfter: "0.3s",
+          desc: "Storefront e-commerce ultrarrápido en Next.js conectado a Stripe Checkout, optimizado para compras móviles en 2 toques.",
+          problem: "Las tiendas tradicionales sufren más de un 80% de abandono de carrito en móviles por compras lentas de múltiples pasos.",
+          solution: "Storefront en React con carrito deslizable, checkout en 2 pasos con Stripe, selector de productos y calculador de envíos.",
+          tags: ["Stripe Checkout", "Carrito Deslizable", "Catálogo", "Feed Instagram"]
+        },
+        {
+          id: "sdq-auto-template",
+          title: "Plantilla República Taller Automotriz",
+          client: "Modelo para Mantenimiento & Flotas",
+          category: "smb",
+          industry: "Servicios Automotrices",
+          badge: "Lista en 48 Horas",
+          speedBefore: "4.1s",
+          speedAfter: "0.4s",
+          desc: "Estimador interactivo de costo de servicios automotrices permitiendo a los clientes seleccionar mantenimientos y recibir desglose por WhatsApp.",
+          problem: "Los talleres pierden horas contestando llamadas para cotizaciones rutinarias de cambio de aceite y frenos.",
+          solution: "Incluye estimador interactivo de servicios, selector de modelo de vehículo, desglose inmediato de costo y envío por WhatsApp.",
+          tags: ["Estimador de Servicio", "Desglose WhatsApp", "Paquetes", "SEO Local"]
+        },
+        {
+          id: "sdq-beauty-template",
+          title: "Plantilla Naco Salón de Belleza & Spa",
+          client: "Modelo para Estética & Spa",
+          category: "smb",
+          industry: "Estética & Salón de Belleza",
+          badge: "Lista en 48 Horas",
+          speedBefore: "4.2s",
+          speedAfter: "0.3s",
+          desc: "Sitio elegante para centro de estética con menú de tratamientos, directorio de especialistas y flujo de agendamiento VIP.",
+          problem: "Las clientas quieren ver precios de tratamientos, especialistas y disponibilidad sin tener que esperar mensajes por Instagram DM.",
+          solution: "Precargada con menú de tratamientos estéticos, galería de especialistas, feed de Instagram y reservas VIP por WhatsApp.",
+          tags: ["Menú Tratamientos", "Especialistas", "Reservas WhatsApp", "Feed Instagram"]
+        },
+        {
+          id: "sdq-construction-template",
+          title: "Plantilla Torres Santo Domingo",
+          client: "Modelo para Constructoras & Proyectos",
+          category: "realestate",
+          industry: "Construcción & Inmobiliaria",
+          badge: "Lista en 48 Horas",
+          speedBefore: "5.8s",
+          speedAfter: "0.4s",
+          desc: "Plataforma inmobiliaria para desarrolladores de torres y proyectos residenciales con planos interactivos y descarga de brochure PDF.",
+          problem: "Los inversionistas quieren revisar planos de apartamentos y avances de obra sin esperar adjuntos por correo.",
+          solution: "Incluye visor de planos, cronograma de avance de construcción, captador de leads para brochures PDF y contacto con asesores por WhatsApp.",
+          tags: ["Visor de Planos", "Avance de Obra", "Brochure PDF", "Ventas WhatsApp"]
+        }
+      ]
+    }
+  }
+};

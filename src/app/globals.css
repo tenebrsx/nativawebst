@@ -1,26 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
+/* ─── Nativa Design System (Oscar Health Style Balance) ─────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 60% Canvas - Sand & Foam (Light, Premium Sandy Off-White) */
+  --sand:         #faf7f2; /* Elegant clean off-white with subtle sand warmth */
+  --white:        #ffffff;
+  --gray-foam:    #f3ede2; /* Foam / Soft wet sand */
+  --border-sand:  #eae4d8; /* Organic light sand borders */
+
+  /* 30% Deep Structure - Deep Trench Navy */
+  --navy-trench:  #0a1128; /* Ocean depths rich navy */
+  --navy-mid:     #1c2541;
+  --gray-muted:   #474f6e;
+
+  /* 10% Character - Tropical Coral Blue & Sun Yellow */
+  --sun-yellow:   #ffb703; /* Sunset yellow (Primary CTA ONLY) */
+  --sun-dark:     #fb8500;
+  --coral-blue:   #0ea5e9; /* Vibrant tropical blue detail */
+  --coral-light:  #e0f2fe;
+
+  /* Semantics */
+  --bg:           var(--sand);
+  --surface:      var(--white);
+  --border:       var(--border-sand);
+  --text:         var(--navy-trench);
+  --muted:        var(--gray-muted);
+
+  /* Typography */
+  --font-head:    'Montserrat', system-ui, sans-serif;
+  --font-body:    'Open Sans', system-ui, sans-serif;
+
+  /* Radii & Shadows */
+  --radius-sm:    6px;
+  --radius:       12px;
+  --radius-lg:    20px;
+  --shadow-sm:    0 2px 8px rgba(10,17,40,0.03);
+  --shadow:       0 12px 32px rgba(10,17,40,0.06);
+  --shadow-lg:    0 24px 48px rgba(10,17,40,0.09);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Base Styles ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--navy-trench);
+  margin: 0;
+}
+
+p { margin: 0; color: var(--muted); }
+a { text-decoration: none; color: inherit; }
+
+/* ─── Layout helpers ─────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ─── Responsive Grid Layouts ────────────────────────────────── */
+.hero-grid, .pricing-grid, .tiers-grid, .addons-grid, .steps-grid, .contact-grid, .jargon-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .hero-grid > div {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-summary {
+    position: static !important;
+    width: 100% !important;
+  }
+  .tiers-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .addons-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .jargon-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Main Ship Launcher CTA (Sun Yellow) */
+.btn-launch {
+  background: var(--sun-yellow);
+  color: var(--navy-trench);
+  padding: 15px 32px;
+  box-shadow: 0 4px 14px rgba(255,183,3,0.3);
+}
+.btn-launch:hover {
+  background: var(--sun-dark);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px rgba(255,183,3,0.4);
+}
+
+/* Structural Navy button */
+.btn-navy {
+  background: var(--navy-trench);
+  color: var(--white);
+  padding: 14px 28px;
+}
+.btn-navy:hover {
+  background: var(--coral-blue);
+  transform: translateY(-1px);
+}
+
+/* Secondary outline */
+.btn-outline {
+  background: transparent;
+  color: var(--navy-trench);
+  border: 1.5px solid var(--navy-trench);
+  padding: 12.5px 26.5px;
+}
+.btn-outline:hover {
+  background: var(--navy-trench);
+  color: var(--white);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--coral-blue);
+  transform: translateY(-2px);
+}
+
+/* ─── Section headings ───────────────────────────────────────── */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--coral-blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 3vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--navy-trench);
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* ─── Wave highlight decoration ──────────────────────────────── */
+.wave-accent {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.wave-accent::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--coral-blue);
+  opacity: 0.35;
+  z-index: -1;
+  border-radius: 2px;
+}
+
+/* ─── Form inputs ────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--navy-trench);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder { color: var(--gray-400); }
+
+.input:focus {
+  border-color: var(--coral-blue);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-up { animation: fadeUp 0.4s ease forwards; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.animate-blink { animation: blink 1.2s infinite; }
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.5; }
+}
+.dot-1 { animation: pulse-dot 1.2s infinite 0s; }
+.dot-2 { animation: pulse-dot 1.2s infinite 0.2s; }
+.dot-3 { animation: pulse-dot 1.2s infinite 0.4s; }
+
+/* ─── Custom scrollbars ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sand);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-sand);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* ─── Brand Partners Container ───────────────────────────────── */
+.brand-strip-container {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── Footer responsive grid ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  .nav-link-desktop {
+    display: none !important;
+  }
+  .brand-strip-container {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    padding-bottom: 8px !important;
+    gap: 24px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .brand-strip-container::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-grid a.btn {
+    width: 100% !important;
+  }
 }
