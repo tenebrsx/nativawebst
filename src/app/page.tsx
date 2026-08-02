@@ -400,6 +400,8 @@ export default function Home() {
                 <li><a href="#how-it-works" style={{ transition: "color 0.2s" }}>{dict.nav.process}</a></li>
                 <li><a href="#pricing" style={{ transition: "color 0.2s" }}>{dict.nav.pricing}</a></li>
                 <li><a href="/portfolio" style={{ transition: "color 0.2s" }}>{dict.nav.portfolio}</a></li>
+                <li><a href="/logos" style={{ transition: "color 0.2s" }}>Logos Lab</a></li>
+                <li><a href="/ads" style={{ transition: "color 0.2s" }}>Instagram Ads</a></li>
                 <li><a href="#consultation" style={{ transition: "color 0.2s" }}>{dict.nav.cta}</a></li>
               </ul>
             </div>
