@@ -138,7 +138,7 @@ export default function TerrenasCoffeeDemo() {
 
       {/* ─── ANNOUNCEMENT BAR ────────────────────────────────────── */}
       <div style={{ background: "#2C1A11", color: "#FDFBF7", padding: "8px 24px", fontSize: "12px", textAlign: "center", fontWeight: 600, letterSpacing: "0.05em" }}>
-        ☕ ENVÍO GRATIS EN SANTO DOMINGO & SAMANÁ EN COMPRAS MAYORES A RD$ 1,500
+        ENVÍO GRATIS EN SANTO DOMINGO & SAMANÁ EN COMPRAS MAYORES A RD$ 1,500
       </div>
 
       {/* ─── LAND TO SEA STYLE HEADER ───────────────────────────── */}
@@ -159,7 +159,7 @@ export default function TerrenasCoffeeDemo() {
               CAFÉ TERRENAS
             </div>
             <div style={{ fontSize: "10px", fontFamily: "system-ui, sans-serif", letterSpacing: "0.2em", textTransform: "uppercase", color: "#D96B43", fontWeight: 800 }}>
-              ARTISANAL ROASTERY · SAMANÁ ☻
+              ARTISANAL ROASTERY · SAMANÁ
             </div>
           </div>
 
@@ -192,7 +192,7 @@ export default function TerrenasCoffeeDemo() {
             href="#shop"
             style={{ background: "#D96B43", color: "#FFF", padding: "16px 36px", borderRadius: "30px", textDecoration: "none", fontFamily: "system-ui, sans-serif", fontWeight: 800, fontSize: "15px", display: "inline-block", boxShadow: "0 4px 20px rgba(217,107,67,0.3)" }}
           >
-            COMPRAR CAFÉ EN GRANO ☕
+            COMPRAR CAFÉ EN GRANO
           </a>
         </div>
       </section>
@@ -299,9 +299,9 @@ export default function TerrenasCoffeeDemo() {
             </p>
 
             <div style={{ fontFamily: "system-ui, sans-serif", fontSize: "14px", lineHeight: "1.8" }}>
-              <div>📍 <strong>Dirección:</strong> Calle Francisco Caamaño Deñó #14, Las Terrenas, Samaná</div>
-              <div>⏰ <strong>Horario:</strong> Lunes a Domingo: 7:30 AM – 6:00 PM</div>
-              <div>📞 <strong>Teléfono / WhatsApp:</strong> (809) 240-5912</div>
+              <div><strong>Dirección:</strong> Calle Francisco Caamaño Deñó #14, Las Terrenas, Samaná</div>
+              <div><strong>Horario:</strong> Lunes a Domingo: 7:30 AM – 6:00 PM</div>
+              <div><strong>Teléfono / WhatsApp:</strong> (809) 240-5912</div>
             </div>
           </div>
 
@@ -326,13 +326,13 @@ export default function TerrenasCoffeeDemo() {
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #E5DEC9", paddingBottom: "16px" }}>
                 <h3 style={{ fontSize: "22px", fontWeight: 900, color: "#2C1A11", margin: 0 }}>Tu Bolsa de Compras</h3>
-                <button onClick={() => setCartOpen(false)} style={{ background: "none", border: "none", fontSize: "24px", cursor: "pointer" }}>✕</button>
+                <button onClick={() => setCartOpen(false)} style={{ background: "none", border: "none", fontSize: "20px", fontWeight: 800, cursor: "pointer" }}>Cerrar</button>
               </div>
 
               {/* Free Shipping Progress Bar */}
               <div style={{ margin: "16px 0", fontFamily: "system-ui, sans-serif", fontSize: "12px" }}>
                 {totalDOP >= freeShippingThreshold ? (
-                  <div style={{ color: "#10B981", fontWeight: 800 }}>🎉 ¡Felicidades! Tienes Envío Gratis activado.</div>
+                  <div style={{ color: "#10B981", fontWeight: 800 }}>Envío Gratis activado en tu pedido.</div>
                 ) : (
                   <div>Faltan <strong style={{ color: "#D96B43" }}>RD$ {freeShippingThreshold - totalDOP}</strong> para Envío Gratis.</div>
                 )}
@@ -344,7 +344,7 @@ export default function TerrenasCoffeeDemo() {
               {/* Items List */}
               <div style={{ marginTop: "24px", display: "flex", flexDirection: "column", gap: "16px", maxHeight: "360px", overflowY: "auto" }}>
                 {cart.length === 0 ? (
-                  <div style={{ textAlign: "center", color: "#665343", padding: "40px 0" }}>Tu bolsa está vacía actualmente ☕</div>
+                  <div style={{ textAlign: "center", color: "#665343", padding: "40px 0" }}>Tu bolsa está vacía actualmente.</div>
                 ) : (
                   cart.map(item => (
                     <div key={`${item.id}-${item.grind}`} style={{ display: "flex", gap: "12px", borderBottom: "1px solid #F4EBD9", paddingBottom: "12px" }}>
@@ -380,14 +380,14 @@ export default function TerrenasCoffeeDemo() {
 
                 {checkoutComplete ? (
                   <div style={{ background: "#064E3B", color: "#10B981", padding: "14px", borderRadius: "10px", textAlign: "center", fontWeight: 800, fontSize: "13.5px" }}>
-                    ¡Pedido enviado por WhatsApp a Café Terrenas! ☕
+                    ¡Pedido enviado por WhatsApp a Café Terrenas!
                   </div>
                 ) : (
                   <button
                     onClick={() => setCheckoutComplete(true)}
                     style={{ background: "#D96B43", color: "#FFF", border: "none", width: "100%", padding: "16px", borderRadius: "30px", fontFamily: "system-ui, sans-serif", fontWeight: 900, fontSize: "15px", cursor: "pointer", boxShadow: "0 4px 16px rgba(217,107,67,0.3)" }}
                   >
-                    PROCEDER AL PAGO / ORDER NOW 🛒
+                    PROCEDER AL PAGO / ORDER NOW
                   </button>
                 )}
               </div>
