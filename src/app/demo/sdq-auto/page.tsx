@@ -38,13 +38,6 @@ export default function SDQAutoDemo() {
 
   return (
     <div style={{ background: "#0B0F19", color: "#F8FAFC", minHeight: "100vh", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-      
-      {/* Sticky Altamar Demo Banner */}
-      <DemoTopBar
-        templateName="Plantilla República Fleet & Midas Auto Maintenance"
-        templateCategory="Automotriz & Flotas Comerciales"
-        whatsappMessage="Hola Altamar, vi la plantilla de República Fleet & Auto Maintenance (#sdq-auto) inspirada en Midas.com y deseo cotizar un cotizador para mi taller."
-      />
 
       {/* ─── MIDAS TOP ANNOUNCEMENT BAR ─────────────────────────── */}
       <div style={{ background: "#FFC72C", color: "#0F172A", padding: "8px 24px", fontSize: "12px", fontWeight: 900, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
