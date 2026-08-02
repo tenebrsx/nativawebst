@@ -4,6 +4,27 @@ import { useState } from "react";
 import { DemoTopBar } from "@/components/demo-top-bar";
 
 export default function SDQAutoDemo() {
+  // Extensive Vehicle Database for R.D. Market
+  const vehicleDatabase: Record<string, string[]> = {
+    Toyota: ["RAV4", "Corolla", "Hilux", "Land Cruiser Prado", "Land Cruiser 300", "Fortuner", "Tacoma", "Camry", "Yaris", "Highlander", "4Runner", "Rush"],
+    Honda: ["CR-V", "Civic", "Accord", "HR-V", "Pilot", "Fit", "Ridgeline", "Passport"],
+    Hyundai: ["Tucson", "Santa Fe", "Elantra", "Accent", "Sonata", "Creta", "Palisade", "Grand i10", "Staria"],
+    Kia: ["Sportage", "Sorento", "Picanto", "Rio", "K5 / Optima", "Telluride", "Seltos", "Carnival"],
+    Nissan: ["Frontier", "Kicks", "X-Trail / Rogue", "Versa", "Sentra", "Pathfinder", "Patrol", "March"],
+    Lexus: ["RX 350", "GX 460 / GX 550", "LX 570 / LX 600", "IS 250 / IS 350", "NX 300", "ES 350"],
+    "Mercedes-Benz": ["C-Class (C200 / C300)", "E-Class (E350)", "GLE SUV / Coupe", "GLC SUV", "G-Wagon (G63)", "A-Class", "CLA"],
+    BMW: ["X5", "X3", "X6", "Serie 3 (320i / 330i)", "Serie 5 (530i)", "Serie 4 / M4", "X1"],
+    Chevrolet: ["Tahoe", "Suburban", "Colorado", "Silverado", "Equinox", "Tracker", "Trax", "Spark"],
+    Ford: ["Explorer", "F-150 / Raptor", "Ranger", "Escape", "Edge", "Expedition", "Mustang"],
+    Mazda: ["CX-5", "CX-9", "CX-30", "CX-50", "Mazda 3", "Mazda 6"],
+    Mitsubishi: ["Montero / Pajero", "Montero Sport", "L200", "Outlander", "ASX", "Mirage"],
+    Audi: ["Q5", "Q7", "Q3", "A4", "A6", "Q8"],
+    Jeep: ["Wrangler / Rubicon", "Grand Cherokee", "Compass", "Gladiator", "Renegade"],
+    Subaru: ["Forester", "Outback", "Crosstrek", "XV"]
+  };
+
+  const years = Array.from({ length: 21 }, (_, i) => (2025 - i).toString());
+
   const [vehicle, setVehicle] = useState({ year: "2022", make: "Toyota", model: "RAV4", mileage: "45,000 km" });
   const [selectedBranch, setSelectedBranch] = useState("naco");
   const [selectedServices, setSelectedServices] = useState<number[]>([1, 3]);
@@ -23,6 +44,12 @@ export default function SDQAutoDemo() {
 
   // FAQ Accordion state
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  // Handle Make Change
+  const handleMakeChange = (newMake: string) => {
+    const defaultModel = vehicleDatabase[newMake] ? vehicleDatabase[newMake][0] : "";
+    setVehicle({ ...vehicle, make: newMake, model: defaultModel });
+  };
 
   // Sucursales
   const branches = [
@@ -84,7 +111,7 @@ export default function SDQAutoDemo() {
 
   const totalTiresPrice = selectedTires.reduce((sum, id) => {
     const item = tireCatalog.find(t => t.id === id);
-    return sum + (item ? item.price * 4 : 0); // 4 tires
+    return sum + (item ? item.price * 4 : 0);
   }, 0);
 
   const grandTotal = totalServicesPrice + totalTiresPrice;
@@ -161,52 +188,50 @@ export default function SDQAutoDemo() {
         </div>
       </header>
 
-      {/* ─── VEHICLE SELECTOR STRIP ─────────────────────────────── */}
-      <div style={{ background: "#1E293B", borderBottom: "1px solid #334155", padding: "14px 24px" }}>
+      {/* ─── DYNAMIC VEHICLE SELECTOR STRIP ─────────────────────── */}
+      <div style={{ background: "#1E293B", borderBottom: "1px solid #334155", padding: "16px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", flexWrap: "wrap" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: 900, color: "#FFC72C" }}>
-            <span>🚗 VEHÍCULO ACTIVO:</span>
+            <span>🚗 VEHÍCULO SELECCIONADO:</span>
           </div>
 
-          <div style={{ display: "flex", gap: "12px", flexGrow: 1, maxWidth: "720px" }}>
+          <div style={{ display: "flex", gap: "12px", flexGrow: 1, maxWidth: "780px" }}>
+            {/* Year Selector (2005 - 2025) */}
             <select
               value={vehicle.year}
               onChange={(e) => setVehicle({ ...vehicle, year: e.target.value })}
-              style={{ background: "#0F172A", color: "#FFF", border: "1px solid #475569", padding: "8px 12px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, flexGrow: 1 }}
+              style={{ background: "#0F172A", color: "#FFF", border: "1px solid #475569", padding: "10px 14px", borderRadius: "8px", fontSize: "13.5px", fontWeight: 800, flexGrow: 1 }}
             >
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-              <option value="2018">2018</option>
+              {years.map(y => (
+                <option key={y} value={y}>{y}</option>
+              ))}
             </select>
 
+            {/* Make / Brand Selector */}
             <select
               value={vehicle.make}
-              onChange={(e) => setVehicle({ ...vehicle, make: e.target.value })}
-              style={{ background: "#0F172A", color: "#FFF", border: "1px solid #475569", padding: "8px 12px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, flexGrow: 1 }}
+              onChange={(e) => handleMakeChange(e.target.value)}
+              style={{ background: "#0F172A", color: "#FFF", border: "1px solid #475569", padding: "10px 14px", borderRadius: "8px", fontSize: "13.5px", fontWeight: 800, flexGrow: 1 }}
             >
-              <option value="Toyota">Toyota</option>
-              <option value="Honda">Honda</option>
-              <option value="Hyundai">Hyundai</option>
-              <option value="Kia">Kia</option>
-              <option value="Nissan">Nissan</option>
-              <option value="Ford">Ford</option>
-              <option value="Chevrolet">Chevrolet</option>
+              {Object.keys(vehicleDatabase).map(make => (
+                <option key={make} value={make}>{make}</option>
+              ))}
             </select>
 
-            <input
-              type="text"
+            {/* Model Dynamic Selector */}
+            <select
               value={vehicle.model}
               onChange={(e) => setVehicle({ ...vehicle, model: e.target.value })}
-              placeholder="Modelo"
-              style={{ background: "#0F172A", color: "#FFF", border: "1px solid #475569", padding: "8px 12px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, flexGrow: 1 }}
-            />
+              style={{ background: "#0F172A", color: "#FFF", border: "1px solid #475569", padding: "10px 14px", borderRadius: "8px", fontSize: "13.5px", fontWeight: 800, flexGrow: 1 }}
+            >
+              {(vehicleDatabase[vehicle.make] || ["Modelo general"]).map(m => (
+                <option key={m} value={m}>{m}</option>
+              ))}
+            </select>
           </div>
 
-          <span style={{ fontSize: "12.5px", color: "#CBD5E1", fontWeight: 800 }}>
-            {vehicle.year} {vehicle.make} {vehicle.model} · {vehicle.mileage}
+          <span style={{ fontSize: "13px", color: "#10B981", fontWeight: 900, background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "6px" }}>
+            ✓ {vehicle.year} {vehicle.make} {vehicle.model} (Verificado)
           </span>
         </div>
       </div>
@@ -219,7 +244,7 @@ export default function SDQAutoDemo() {
               SERVICIOS AUTOMOTRICES DE NIVEL INTERNACIONAL
             </span>
             <h1 style={{ fontSize: "clamp(34px, 4.8vw, 54px)", fontWeight: 900, color: "#FFFFFF", margin: "18px 0 16px", lineHeight: "1.1", letterSpacing: "-0.03em" }}>
-              El Mantenimiento de tu Vehículo Hecho Bien. Garantizado.
+              El Mantenimiento de tu {vehicle.make} {vehicle.model} Hecho Bien.
             </h1>
             <p style={{ fontSize: "16px", color: "#94A3B8", lineHeight: "1.65", margin: "0 0 32px" }}>
               Santo Domingo & Punta Cana: Mantenimiento preventivo, cambio de aceite sintético, frenos cerámicos, gomas de marcas líderes y gestión de flotas comerciales bajo el estándar Midas.
@@ -325,7 +350,7 @@ export default function SDQAutoDemo() {
               CATÁLOGO COMPLETO DE SERVICIOS
             </span>
             <h2 style={{ fontSize: "36px", fontWeight: 900, color: "#FFFFFF", margin: "8px 0" }}>
-              Mantenimiento & Reparación para Tu {vehicle.make} {vehicle.model}
+              Mantenimiento & Reparación para Tu {vehicle.make} {vehicle.model} ({vehicle.year})
             </h2>
 
             {/* Category Filter Pills */}
@@ -406,7 +431,7 @@ export default function SDQAutoDemo() {
       <section id="tires" style={{ padding: "90px 24px", maxWidth: "1280px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <span style={{ fontSize: "11px", fontWeight: 900, color: "#FFC72C", textTransform: "uppercase", letterSpacing: "0.1em" }}>BUSCADOR INTERACTIVO DE GOMAS</span>
-          <h2 style={{ fontSize: "36px", fontWeight: 900, color: "#FFFFFF", margin: "4px 0" }}>Encuentra las Gomas para Tu Vehículo</h2>
+          <h2 style={{ fontSize: "36px", fontWeight: 900, color: "#FFFFFF", margin: "4px 0" }}>Encuentra las Gomas para Tu {vehicle.make} {vehicle.model}</h2>
           <p style={{ fontSize: "15px", color: "#94A3B8" }}>Marcas de prestigio con garantía de fábrica y montaje computarizado incluido.</p>
         </div>
 
@@ -586,7 +611,7 @@ export default function SDQAutoDemo() {
               <h3 style={{ color: "#10B981", fontWeight: 900, fontSize: "24px", margin: "0 0 8px" }}>¡Reserva Confirmada Exitosamente!</h3>
               <div style={{ fontSize: "16px", color: "#FFF", fontWeight: 900, margin: "8px 0" }}>Código de Orden: <span style={{ color: "#FFC72C" }}>{bookingCode}</span></div>
               <p style={{ fontSize: "14px", color: "#D1D5DB", lineHeight: "1.6" }}>
-                Estimado(a) <strong>{customerInfo.name}</strong>, hemos separado tu turno para <strong>{bookingDate}</strong> en <strong>{branches.find(b => b.id === selectedBranch)?.name}</strong>. Un asesor de bahía se comunicará a tu WhatsApp ({customerInfo.phone}).
+                Estimado(a) <strong>{customerInfo.name}</strong>, hemos separado tu turno para <strong>{bookingDate}</strong> en <strong>{branches.find(b => b.id === selectedBranch)?.name}</strong> para tu <strong>{vehicle.year} {vehicle.make} {vehicle.model}</strong>. Un asesor de bahía se comunicará a tu WhatsApp ({customerInfo.phone}).
               </p>
               <button onClick={() => setBookingStep(1)} style={{ background: "#10B981", color: "#FFF", border: "none", padding: "12px 24px", borderRadius: "8px", fontWeight: 900, fontSize: "14px", marginTop: "16px", cursor: "pointer" }}>
                 Realizar Otra Cita
