@@ -4,7 +4,8 @@ import { useState } from "react";
 import { DemoTopBar } from "@/components/demo-top-bar";
 
 export default function ConstructoraAybarDemo() {
-  const [activeCategory, setActiveCategory] = useState<"all" | "residential" | "resort" | "industrial">("all");
+  const [lang, setLang] = useState<"es" | "en">("es");
+  const [activeCategory, setActiveCategory] = useState<"all" | "residential" | "resort" | "industrial" | "commercial">("all");
   const [projectType, setProjectType] = useState<"residential" | "resort" | "commercial" | "industrial">("residential");
   const [areaSqM, setAreaSqM] = useState(2500);
   const [finishLevel, setFinishLevel] = useState<"premium" | "luxury" | "ultraluxury">("luxury");
@@ -13,6 +14,43 @@ export default function ConstructoraAybarDemo() {
 
   const [contactForm, setContactForm] = useState({ name: "", company: "", phone: "", email: "", notes: "" });
 
+  const text = {
+    es: {
+      tag: "SINÓNIMO DE EXCELENCIA EN EL MUNDO DE LA CONSTRUCCIÓN",
+      heroTitle: "Innovación y Calidad en Cada Proyecto de Construcción",
+      heroSub: "Especialistas en la creación de majestuosos desarrollos turísticos, residenciales de alto lujo en Santo Domingo e infraestructura industrial con estándares internacionales de ingeniería.",
+      btnQuote: "Solicitar Cotización de Obra →",
+      btnCatalog: "Ver Portafolio de Proyectos 🏗️",
+      projectsTitle: "Portafolio de Obras Emblemáticas",
+      projectsSub: "Desarrollos que transforman el horizonte urbano y turístico de la República Dominicana.",
+      csrBtn: "Pádel Por Una Causa 🎾",
+      csrTitle: "Compromiso Social & Sostenibilidad",
+      csrDesc: "Apoyamos activamente el desarrollo comunitario y del deporte a través del torneo benéfico oficial 'Pádel Por Una Causa'.",
+      estimatorTitle: "Cotizador Interactivo de Presupuesto",
+      estimatorSub: "Herramienta preliminar de estimación según tipo de edificación, superficie en m² y especificación de acabados.",
+      contactTitle: "Departamento de Licitaciones & Proyectos",
+      contactSub: "Envía los requerimientos de tu terreno o anteproyecto para recibir una propuesta técnica en menos de 24 horas."
+    },
+    en: {
+      tag: "SYNONYM OF EXCELLENCE IN CIVIL ENGINEERING & CONSTRUCTION",
+      heroTitle: "Innovation and Quality in Every Construction Project",
+      heroSub: "Specialized in majestic resort developments, luxury residential high-rises in Santo Domingo, and industrial infrastructure with international engineering standards.",
+      btnQuote: "Request Project RFP →",
+      btnCatalog: "Explore Project Portfolio 🏗️",
+      projectsTitle: "Emblematic Construction Portfolio",
+      projectsSub: "Developments shaping the urban and resort skyline of the Dominican Republic.",
+      csrBtn: "Padel For A Cause 🎾",
+      csrTitle: "Social Responsibility & Sustainability",
+      csrDesc: "Actively supporting community growth and sports through our official charity tournament 'Padel For A Cause'.",
+      estimatorTitle: "Interactive Construction Budget Estimator",
+      estimatorSub: "Preliminary estimation tool based on building type, square meters area, and finishing specs.",
+      contactTitle: "RFP & Engineering Department",
+      contactSub: "Submit your land specifications or preliminary project to receive a technical proposal within 24 hours."
+    }
+  };
+
+  const t = text[lang];
+
   const projects = [
     {
       id: 1,
@@ -20,8 +58,8 @@ export default function ConstructoraAybarDemo() {
       name: "Torre Aybar Anacaona",
       location: "Av. Anacaona, Bella Vista, Santo Domingo",
       details: "32 Niveles · Penthouses Triplex · Helipuerto Privado",
-      area: "28,500 m² construidos",
-      year: "2024 (Entregado)",
+      area: "28,500 m²",
+      year: "2024",
       img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -30,8 +68,8 @@ export default function ConstructoraAybarDemo() {
       name: "Cap Cana Oceanfront Estates",
       location: "Cap Cana, La Altagracia",
       details: "12 Villas de Ultra Lujo · Muelle Privado · Frente al Mar",
-      area: "14,200 m² de construcción",
-      year: "2023 (Entregado)",
+      area: "14,200 m²",
+      year: "2023",
       img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -40,8 +78,8 @@ export default function ConstructoraAybarDemo() {
       name: "Residencial Naco Signature",
       location: "Ensanche Naco, Santo Domingo",
       details: "18 Niveles · Domótica Integrada · Certificación LEED",
-      area: "16,800 m² construidos",
-      year: "2024 (En Construcción)",
+      area: "16,800 m²",
+      year: "2024",
       img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -50,9 +88,19 @@ export default function ConstructoraAybarDemo() {
       name: "Parque Industrial Logístico SDQ",
       location: "Autopista Duarte Km 22, Santo Domingo Este",
       details: "45,000 m² de Naves Clase A · Losas de Alta Carga",
-      area: "45,000 m² techados",
-      year: "2023 (Entregado)",
+      area: "45,000 m²",
+      year: "2023",
       img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 5,
+      category: "commercial",
+      name: "Plaza Comercial Piantini Center",
+      location: "Av. Winston Churchill, Piantini",
+      details: "6 Niveles Comerciales · 4 Niveles de Parqueo Subterráneo",
+      area: "22,000 m²",
+      year: "2024",
+      img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -70,7 +118,7 @@ export default function ConstructoraAybarDemo() {
 
   const unitRateUSD = costPerSqM[projectType][finishLevel];
   const totalEstUSD = areaSqM * unitRateUSD;
-  const totalEstDOP = totalEstUSD * 60; // 1 USD = 60 DOP
+  const totalEstDOP = totalEstUSD * 60;
 
   const handleCalculateQuote = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,65 +128,74 @@ export default function ConstructoraAybarDemo() {
   };
 
   return (
-    <div style={{ background: "#070B14", color: "#F8FAFC", minHeight: "100vh", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
+    <div style={{ background: "#070B14", color: "#F8FAFC", minHeight: "100vh", fontFamily: "'Open Sans', system-ui, -apple-system, sans-serif" }}>
       
       {/* Sticky Altamar Demo Banner */}
       <DemoTopBar
-        templateName="Plantilla Constructora Aybar & Torres (Grupo Aybar & Construger Standard)"
+        templateName="Plantilla Constructora Aybar (Réplica Directa GrupoAybar.com)"
         templateCategory="Construcción & Desarrollo Inmobiliario"
-        whatsappMessage="Hola Altamar, vi la plantilla de Constructora Aybar (#sdq-construction) y deseo cotizar una web corporativa para mi constructora."
+        whatsappMessage="Hola Altamar, vi la réplica de Constructora Aybar (#sdq-construction) y deseo cotizar este modelo para mi constructora."
       />
 
-      {/* ─── TOP ANNOUNCEMENT BAR ───────────────────────────────── */}
-      <div style={{ background: "#D7A639", color: "#0A1128", padding: "8px 24px", fontSize: "12px", fontWeight: 900, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+      {/* ─── GRUPO AYBAR TOP ANNOUNCEMENT & CONTACT BAR ─────────── */}
+      <div style={{ background: "#111827", color: "#9CA3AF", borderBottom: "1px solid #1F2937", padding: "8px 24px", fontSize: "12px", fontWeight: 700, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <span>CERTIFICACIÓN ISO 9001:2015 EN GESTIÓN DE CALIDAD DE CONSTRUCCIÓN</span>
-          <span style={{ opacity: 0.5 }}>|</span>
-          <span>LICENCIA CODIA #48921</span>
+          <span style={{ color: "#D7A639", fontWeight: 900 }}>CONSTRUCTORA AYBAR SRL</span>
+          <span style={{ opacity: 0.4 }}>|</span>
+          <span>CERTIFICACIÓN ISO 9001:2015</span>
+          <span style={{ opacity: 0.4 }}>|</span>
+          <span>CODIA #48921</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <a href="tel:18095473746" style={{ color: "#0A1128", textDecoration: "none", fontWeight: 900 }}>📞 (809) 547-3746</a>
-          <span>SANTO DOMINGO & PUNTA CANA</span>
+          <a href="tel:18095473746" style={{ color: "#FFFFFF", textDecoration: "none", fontWeight: 800 }}>📞 (809) 547-3746</a>
+          <a href="mailto:info@grupoaybar.com" style={{ color: "#FFFFFF", textDecoration: "none", fontWeight: 800 }}>✉️ info@grupoaybar.com</a>
+          
+          {/* Language Switcher */}
+          <div style={{ display: "flex", gap: "4px", background: "#1F2937", padding: "2px 6px", borderRadius: "4px" }}>
+            <button onClick={() => setLang("es")} style={{ background: lang === "es" ? "#D7A639" : "transparent", color: lang === "es" ? "#070B14" : "#FFF", border: "none", borderRadius: "3px", fontSize: "10px", fontWeight: 900, cursor: "pointer", padding: "2px 6px" }}>ES</button>
+            <button onClick={() => setLang("en")} style={{ background: lang === "en" ? "#D7A639" : "transparent", color: lang === "en" ? "#070B14" : "#FFF", border: "none", borderRadius: "3px", fontSize: "10px", fontWeight: 900, cursor: "pointer", padding: "2px 6px" }}>EN</button>
+          </div>
         </div>
       </div>
 
-      {/* ─── BRAND HEADER ───────────────────────────────────────── */}
-      <header style={{ background: "#0A1128", borderBottom: "1px solid #1E293B", padding: "18px 0", position: "sticky", top: "42px", zIndex: 50 }}>
+      {/* ─── GRUPO AYBAR STICKY BRAND HEADER ───────────────────── */}
+      <header style={{ background: "#0A1128", borderBottom: "1px solid #1E293B", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
-          {/* Custom SVG Constructora Aybar Brand Logo */}
+          {/* Official Aybar Style Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" rx="8" fill="#D7A639" />
+            <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="6" fill="#D7A639" />
               <path d="M24 8L36 34H30L24 20L18 34H12L24 8Z" fill="#0A1128" />
               <path d="M17 26H31V30H17V26Z" fill="#0A1128" />
             </svg>
             <div>
               <div style={{ fontWeight: 900, fontSize: "20px", color: "#FFFFFF", letterSpacing: "-0.02em" }}>
-                CONSTRUCTORA <span style={{ color: "#D7A639" }}>AYBAR & TORRES</span>
+                CONSTRUCTORA <span style={{ color: "#D7A639" }}>AYBAR</span>
               </div>
-              <div style={{ fontSize: "9.5px", color: "#94A3B8", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
-                INGENIERÍA & EDIFICACIONES DE ALTO LUJO · DESDE 1998
+              <div style={{ fontSize: "9px", color: "#94A3B8", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                EXCELENCIA EN LA CONSTRUCCIÓN · SANTO DOMINGO
               </div>
             </div>
           </div>
 
           {/* Navigation Links */}
-          <div style={{ display: "flex", alignItems: "center", gap: "24px" }} className="nav-link-desktop">
-            <a href="#about" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 800 }}>Nosotros</a>
-            <a href="#portfolio" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 800 }}>Obras Emblemáticas</a>
-            <a href="#estimator" style={{ textDecoration: "none", color: "#D7A639", fontSize: "13.5px", fontWeight: 800 }}>Cotizador de Proyectos</a>
-            <a href="#engineering" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 800 }}>Sismo-Resistencia</a>
-            <a href="#contact" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 800 }}>Contacto</a>
+          <div style={{ display: "flex", alignItems: "center", gap: "22px" }} className="nav-link-desktop">
+            <a href="#about" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 700 }}>Nosotros</a>
+            <a href="#projects" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 700 }}>Proyectos</a>
+            <a href="#portfolio" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 700 }}>Portafolio</a>
+            <a href="#estimator" style={{ textDecoration: "none", color: "#D7A639", fontSize: "13.5px", fontWeight: 800 }}>Cotizador</a>
+            <a href="#csr" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 700 }}>Sostenibilidad</a>
+            <a href="#contact" style={{ textDecoration: "none", color: "#CBD5E1", fontSize: "13.5px", fontWeight: 700 }}>Contactos</a>
           </div>
 
-          {/* Header Action Button */}
+          {/* CSR Pádel Button */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <a
-              href="#estimator"
-              style={{ background: "#D7A639", color: "#0A1128", padding: "11px 22px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "13.5px", boxShadow: "0 4px 16px rgba(215,166,57,0.25)" }}
+              href="#csr"
+              style={{ background: "#1E293B", color: "#D7A639", border: "1px solid #D7A639", padding: "10px 18px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "12.5px" }}
             >
-              Cotizar Obra 🏗️
+              {t.csrBtn}
             </a>
           </div>
         </div>
@@ -149,13 +206,13 @@ export default function ConstructoraAybarDemo() {
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           <div>
             <span style={{ background: "#1E293B", color: "#D7A639", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 900, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-              SINÓNIMO DE EXCELENCIA EN LA CONSTRUCCIÓN
+              {t.tag}
             </span>
             <h1 style={{ fontSize: "clamp(34px, 4.8vw, 54px)", fontWeight: 900, color: "#FFFFFF", margin: "18px 0 16px", lineHeight: "1.1", letterSpacing: "-0.03em" }}>
-              Construyendo la Infraestructura y el Lujo Urbano de República Dominicana
+              {t.heroTitle}
             </h1>
             <p style={{ fontSize: "16px", color: "#94A3B8", lineHeight: "1.65", margin: "0 0 32px" }}>
-              Más de 25 años liderando la construcción de majestuosas torres residenciales en Santo Domingo, villas turísticas exclusivas en Cap Cana y complejas obras industriales con certificación de calidad ISO 9001.
+              {t.heroSub}
             </p>
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
@@ -163,20 +220,17 @@ export default function ConstructoraAybarDemo() {
                 href="#estimator"
                 style={{ background: "#D7A639", color: "#0A1128", padding: "16px 32px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "15px", boxShadow: "0 4px 20px rgba(215,166,57,0.3)" }}
               >
-                Cotizar Proyecto de Construcción →
+                {t.btnQuote}
               </a>
               <a
-                href="https://wa.me/18093588113?text=Hola%20Constructora%20Aybar,%20deseo%20consultar%20un%20proyecto%20de%20construcci%C3%B3n"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ background: "#25D366", color: "#FFFFFF", padding: "16px 32px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "15px", boxShadow: "0 4px 20px rgba(37,211,102,0.3)", display: "inline-flex", alignItems: "center", gap: "8px" }}
+                href="#portfolio"
+                style={{ background: "#1E293B", color: "#FFFFFF", border: "1px solid #334155", padding: "16px 32px", borderRadius: "8px", textDecoration: "none", fontWeight: 800, fontSize: "15px" }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                WhatsApp Directo
+                {t.btnCatalog}
               </a>
             </div>
 
-            {/* Metrics Badges */}
+            {/* Aybar Metrics */}
             <div style={{ display: "flex", gap: "28px", marginTop: "36px", paddingTop: "24px", borderTop: "1px solid #1E293B" }}>
               <div>
                 <div style={{ fontSize: "22px", fontWeight: 900, color: "#D7A639" }}>+150 Obras</div>
@@ -184,21 +238,21 @@ export default function ConstructoraAybarDemo() {
               </div>
               <div>
                 <div style={{ fontSize: "22px", fontWeight: 900, color: "#D7A639" }}>+1.2M m²</div>
-                <div style={{ fontSize: "11px", color: "#94A3B8", fontWeight: 700 }}>Área de Construcción</div>
+                <div style={{ fontSize: "11px", color: "#94A3B8", fontWeight: 700 }}>Construidos en R.D.</div>
               </div>
               <div>
-                <div style={{ fontSize: "22px", fontWeight: 900, color: "#10B981" }}>Sismo-Resistente</div>
-                <div style={{ fontSize: "11px", color: "#94A3B8", fontWeight: 700 }}>Norma Grado 8+</div>
+                <div style={{ fontSize: "22px", fontWeight: 900, color: "#10B981" }}>ISO 9001</div>
+                <div style={{ fontSize: "11px", color: "#94A3B8", fontWeight: 700 }}>Calidad Certificada</div>
               </div>
             </div>
           </div>
 
-          {/* Hero High-Rise Photo Card */}
+          {/* Hero Visual Card */}
           <div style={{ position: "relative" }}>
             <div style={{ borderRadius: "20px", overflow: "hidden", border: "2px solid #334155", boxShadow: "0 20px 50px rgba(0,0,0,0.6)" }}>
               <img
                 src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80"
-                alt="Torre Aybar Anacaona Construction"
+                alt="Constructora Aybar Project Build"
                 style={{ width: "100%", height: "440px", objectFit: "cover", display: "block" }}
               />
             </div>
@@ -208,7 +262,7 @@ export default function ConstructoraAybarDemo() {
               </div>
               <div>
                 <div style={{ fontSize: "12.5px", fontWeight: 900, color: "#FFF" }}>Torre Aybar Anacaona</div>
-                <div style={{ fontSize: "11px", color: "#94A3B8" }}>32 Niveles · Entregado con Éxito</div>
+                <div style={{ fontSize: "11px", color: "#94A3B8" }}>32 Niveles · Bella Vista, Santo Domingo</div>
               </div>
             </div>
           </div>
@@ -219,13 +273,13 @@ export default function ConstructoraAybarDemo() {
       <section id="portfolio" style={{ padding: "90px 24px", maxWidth: "1280px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 40px" }}>
           <span style={{ fontSize: "11px", fontWeight: 900, color: "#D7A639", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-            PORTAFOLIO DE OBRAS DE EMBLEMA
+            {t.projectsTitle}
           </span>
           <h2 style={{ fontSize: "36px", fontWeight: 900, color: "#FFFFFF", margin: "8px 0" }}>
-            Nuestras Construcciones Destacadas
+            Obras que Marcan la Diferencia
           </h2>
           <p style={{ fontSize: "15px", color: "#94A3B8" }}>
-            Explora algunos de los desarrollos inmobiliarios, turísticos e industriales más representativos en Santo Domingo y Cap Cana.
+            {t.projectsSub}
           </p>
 
           {/* Category Filter Pills */}
@@ -233,8 +287,9 @@ export default function ConstructoraAybarDemo() {
             {[
               { id: "all", label: "Todos los Proyectos" },
               { id: "residential", label: "Torres Residenciales" },
-              { id: "resort", label: "Proyectos Turísticos & Villas" },
-              { id: "industrial", label: "Naves & Infraestructura" }
+              { id: "resort", label: "Proyectos Turísticos" },
+              { id: "commercial", label: "Plazas Comerciales" },
+              { id: "industrial", label: "Naves Industriales" }
             ].map(c => (
               <button
                 key={c.id}
@@ -285,10 +340,10 @@ export default function ConstructoraAybarDemo() {
               HERRAMIENTA DE PRESUPUESTO PRELIMINAR
             </span>
             <h2 style={{ fontSize: "36px", fontWeight: 900, color: "#FFFFFF", margin: "6px 0" }}>
-              Cotizador Interactivo de Proyectos de Obra
+              {t.estimatorTitle}
             </h2>
             <p style={{ fontSize: "14.5px", color: "#94A3B8" }}>
-              Configura el tipo de obra, los metros cuadrados y el nivel de acabados para obtener un estimado de presupuesto inmediato.
+              {t.estimatorSub}
             </p>
           </div>
 
@@ -300,7 +355,7 @@ export default function ConstructoraAybarDemo() {
                 <label style={{ fontSize: "12.5px", fontWeight: 800, color: "#CBD5E1", display: "block", marginBottom: "6px" }}>1. Tipo de Edificación</label>
                 <select value={projectType} onChange={(e) => setProjectType(e.target.value as any)} style={{ width: "100%", padding: "12px", borderRadius: "8px", border: "1px solid #334155", background: "#0A1128", color: "#FFF", fontSize: "14px", fontWeight: 800 }}>
                   <option value="residential">Torre Residencial de Lujo</option>
-                  <option value="resort">Villa Turística Frontal al Mar</option>
+                  <option value="resort">Villa Turística Cap Cana</option>
                   <option value="commercial">Plaza / Centro Comercial</option>
                   <option value="industrial">Nave Industrial / Logística</option>
                 </select>
@@ -382,30 +437,35 @@ export default function ConstructoraAybarDemo() {
         </div>
       </section>
 
-      {/* ─── SISMO-RESISTENCIA & INGENIERÍA ─────────────────────── */}
-      <section id="engineering" style={{ padding: "90px 24px", maxWidth: "1280px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <span style={{ fontSize: "11px", fontWeight: 900, color: "#D7A639", textTransform: "uppercase" }}>TECNOLOGÍA DE INGENIERÍA CIVIL</span>
-          <h2 style={{ fontSize: "36px", fontWeight: 900, color: "#FFFFFF", margin: "4px 0" }}>Garantía Estructural & Sismo-Resistencia</h2>
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px" }}>
-          <div style={{ background: "#0A1128", border: "1px solid #1E293B", borderRadius: "16px", padding: "28px" }}>
-            <div style={{ fontSize: "32px", marginBottom: "12px" }}>🛡️</div>
-            <h3 style={{ fontSize: "18px", fontWeight: 900, color: "#FFF", margin: "0 0 8px" }}>Diseño Sismo-Resistente Grado 8+</h3>
-            <p style={{ fontSize: "13.5px", color: "#94A3B8", lineHeight: "1.6" }}>Estructuras calculadas con hormigón de alta resistencia (f'c = 350-450 kg/cm²) y acero grado 60 ensayado bajo normas sísmicas internacionales.</p>
+      {/* ─── CSR & SOCIAL CAUSE SECTION (Pádel Por Una Causa) ────── */}
+      <section id="csr" style={{ padding: "90px 24px", maxWidth: "1280px", margin: "0 auto" }}>
+        <div style={{ background: "#111827", border: "1px solid #1E293B", borderRadius: "24px", padding: "40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
+          <div>
+            <span style={{ background: "#D7A639", color: "#0A1128", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 900, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+              COMPROMISO SOCIAL CORPORATIVO
+            </span>
+            <h2 style={{ fontSize: "32px", fontWeight: 900, color: "#FFFFFF", margin: "14px 0 12px" }}>
+              {t.csrTitle}
+            </h2>
+            <p style={{ fontSize: "15px", color: "#94A3B8", lineHeight: "1.65", margin: "0 0 24px" }}>
+              {t.csrDesc}
+            </p>
+            <a
+              href="https://grupoaybar.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ background: "#D7A639", color: "#0A1128", padding: "12px 24px", borderRadius: "8px", textDecoration: "none", fontWeight: 900, fontSize: "14px" }}
+            >
+              Conocer Torneo Pádel Por Una Causa 🎾
+            </a>
           </div>
 
-          <div style={{ background: "#0A1128", border: "1px solid #1E293B", borderRadius: "16px", padding: "28px" }}>
-            <div style={{ fontSize: "32px", marginBottom: "12px" }}>📋</div>
-            <h3 style={{ fontSize: "18px", fontWeight: 900, color: "#FFF", margin: "0 0 8px" }}>Certificación ISO 9001:2015</h3>
-            <p style={{ fontSize: "13.5px", color: "#94A3B8", lineHeight: "1.6" }}>Control estricto de mezclas, curado e inspecciones por laboratorio independiente certificado en cada fase del vaciado.</p>
-          </div>
-
-          <div style={{ background: "#0A1128", border: "1px solid #1E293B", borderRadius: "16px", padding: "28px" }}>
-            <div style={{ fontSize: "32px", marginBottom: "12px" }}>⏱️</div>
-            <h3 style={{ fontSize: "18px", fontWeight: 900, color: "#FFF", margin: "0 0 8px" }}>Cronograma PMI & Cero Retrasos</h3>
-            <p style={{ fontSize: "13.5px", color: "#94A3B8", lineHeight: "1.6" }}>Planificación mediante metodología PMI / Primavera P6 con reporte semanal de avance físico y financiero para los desarrolladores.</p>
+          <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid #334155" }}>
+            <img
+              src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&q=80"
+              alt="Pádel Tournament CSR"
+              style={{ width: "100%", height: "280px", objectFit: "cover" }}
+            />
           </div>
         </div>
       </section>
@@ -414,10 +474,10 @@ export default function ConstructoraAybarDemo() {
       <section id="contact" style={{ background: "#0A1128", padding: "90px 24px", borderTop: "1px solid #1E293B" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto", background: "#070B14", border: "2px solid #D7A639", borderRadius: "24px", padding: "40px", boxShadow: "0 20px 50px rgba(0,0,0,0.5)" }}>
           <div style={{ textAlign: "center", marginBottom: "28px" }}>
-            <span style={{ fontSize: "11px", fontWeight: 900, color: "#D7A639", textTransform: "uppercase" }}>DEPARTAMENTO DE INGENIERÍA</span>
+            <span style={{ fontSize: "11px", fontWeight: 900, color: "#D7A639", textTransform: "uppercase" }}>{t.contactTitle}</span>
             <h2 style={{ fontSize: "30px", fontWeight: 900, color: "#FFFFFF", margin: "4px 0" }}>Solicitar Evaluación de Proyecto</h2>
             <p style={{ fontSize: "13.5px", color: "#94A3B8" }}>
-              Nuestros ingenieros principales revisarán tus requerimientos y se pondrán en contacto en menos de 24 horas.
+              {t.contactSub}
             </p>
           </div>
 
@@ -475,7 +535,7 @@ export default function ConstructoraAybarDemo() {
             CONSTRUCTORA AYBAR & TORRES SRL
           </div>
           <div>Torre Empresarial Piantini, Piso 14, Av. Winston Churchill #102, Santo Domingo, República Dominicana</div>
-          <div style={{ marginTop: "12px", color: "#64748B" }}>Teléfono: (809) 547-3746 · Correo: contacto@constructoraaybar.com · CODIA #48921</div>
+          <div style={{ marginTop: "12px", color: "#64748B" }}>Teléfono: (809) 547-3746 · Correo: info@grupoaybar.com · CODIA #48921</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #0F172A", color: "#D7A639", fontWeight: 800, fontSize: "11.5px" }}>
             Demo Template Built by Altamar Web Studio · Inspired by GrupoAybar.com & Construger.com
           </div>

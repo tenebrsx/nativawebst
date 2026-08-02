@@ -30,11 +30,11 @@ export function DemoTopBar({ templateName, templateCategory, whatsappMessage }: 
       fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
     }}>
       {/* Left: Back Link & Badge */}
-      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <Link
-          href="/portfolio"
+          href="/demos"
           style={{
-            background: "rgba(255,255,255,0.1)",
+            background: "#0EA5E9",
             color: "#ffffff",
             textDecoration: "none",
             padding: "4px 10px",
@@ -44,7 +44,22 @@ export function DemoTopBar({ templateName, templateCategory, whatsappMessage }: 
             transition: "background 0.2s"
           }}
         >
-          ⬅️ Volver a Altamar
+          🎮 Playground Demos
+        </Link>
+        <Link
+          href="/"
+          style={{
+            background: "rgba(255,255,255,0.1)",
+            color: "#ffffff",
+            textDecoration: "none",
+            padding: "4px 10px",
+            borderRadius: "6px",
+            fontSize: "11px",
+            fontWeight: 700,
+            transition: "background 0.2s"
+          }}
+        >
+          ← Altamar Home
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
