@@ -55,7 +55,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 550,
       subPriceUSD: 9.35,
       rating: "4.9 ★★★★★ (280+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80",
       benefits: ["Enzimas Activas", "Sin Azúcar Añadida", "100% Pura"]
     },
     {
@@ -70,7 +70,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 750,
       subPriceUSD: 12.75,
       rating: "5.0 ★★★★★ (190+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1601039641847-7857b994d701?auto=format&fit=crop&w=800&q=80",
       benefits: ["Omega-9 & Vitamina E", "Alto Punto de Humo", "Cero Químicos"]
     },
     {
@@ -85,7 +85,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 490,
       subPriceUSD: 8.0,
       rating: "4.8 ★★★★★ (140+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=800&q=80",
       benefits: ["Desintoxicante Natural", "Hierro & Proteína", "Certificado Orgánico"]
     },
     {
@@ -100,7 +100,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 380,
       subPriceUSD: 6.35,
       rating: "4.9 ★★★★★ (310+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&w=800&q=80",
       benefits: ["Alto en Fibra", "Sin Azúcar Añadida", "Snack Energético"]
     },
     {
@@ -115,7 +115,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 610,
       subPriceUSD: 10.2,
       rating: "5.0 ★★★★★ (220+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80",
       benefits: ["Rico en Teobromina", "Antioxidantes", "Comercio Justo"]
     },
     {
@@ -130,7 +130,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 440,
       subPriceUSD: 7.2,
       rating: "4.9 ★★★★★ (175+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1548678967-f1fc580946c0?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80",
       benefits: ["Textura Crujiente", "Magnesio Natural", "Superalimento"]
     },
     {
@@ -145,7 +145,7 @@ export default function CaribeSuperfoodsDemo() {
       subPriceDOP: 320,
       subPriceUSD: 5.5,
       rating: "4.8 ★★★★★ (95+ valoraciones)",
-      img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=800&q=80",
       benefits: ["Antiinflamatorio", "Cero Cafeína", "20 Filtros Biodegradables"]
     },
     {
@@ -380,7 +380,7 @@ export default function CaribeSuperfoodsDemo() {
         <div style={{ position: "relative" }}>
           <div style={{ borderRadius: "24px", overflow: "hidden", boxShadow: "0 24px 48px rgba(11, 43, 27, 0.25)", border: "4px solid #FFFFFF" }}>
             <img
-              src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=1000&q=80"
+              src="https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=1000&q=80"
               alt="Miel Silvestre de Jarabacoa"
               style={{ width: "100%", height: "460px", objectFit: "cover", display: "block" }}
             />
@@ -588,7 +588,7 @@ export default function CaribeSuperfoodsDemo() {
             <span style={{ background: "rgba(16, 185, 129, 0.2)", color: "#34D399", padding: "4px 12px", borderRadius: "9999px", fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Cesta Orgánica Automatizada
             </span>
-            <h2 style={{ fontFamily: "Georgia, serif", fontSize: "38px", fontWeight: 900, margin: "14px 0 16px 0", lineHeight: "1.15" }}>
+            <h2 style={{ fontFamily: "Georgia, serif", fontSize: "38px", fontWeight: 900, color: "#F7F4EB", margin: "14px 0 16px 0", lineHeight: "1.15" }}>
               Suscripción &quot;El Conuco Box&quot;
             </h2>
             <p style={{ fontSize: "15px", color: "#A7F3D0", lineHeight: "1.6", margin: "0 0 24px 0" }}>
@@ -597,7 +597,7 @@ export default function CaribeSuperfoodsDemo() {
 
             {/* Step 1: Tier Selector */}
             <div style={{ marginBottom: "20px" }}>
-              <div style={{ fontSize: "12px", fontWeight: 800, color: "#F7F4EB", textTransform: "uppercase", marginBottom: "8px" }}>
+              <div style={{ fontSize: "12px", fontWeight: 800, color: "#34D399", textTransform: "uppercase", marginBottom: "8px", letterSpacing: "0.05em" }}>
                 1. Selecciona el Tamaño de Cesta:
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
@@ -613,9 +613,9 @@ export default function CaribeSuperfoodsDemo() {
                     cursor: "pointer"
                   }}
                 >
-                  <div style={{ fontSize: "13px", fontWeight: 900 }}>Cesta Esencial (3 Prod.)</div>
-                  <div style={{ fontSize: "11px", opacity: 0.9, marginTop: "2px" }}>Miel + Aceite + Cacao</div>
-                  <div style={{ fontSize: "14px", fontWeight: 900, marginTop: "6px" }}>{fmt(32.5)} / entrega</div>
+                  <div style={{ fontSize: "13px", fontWeight: 900, color: "#FFFFFF" }}>Cesta Esencial (3 Prod.)</div>
+                  <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.8)", marginTop: "2px" }}>Miel + Aceite + Cacao</div>
+                  <div style={{ fontSize: "14px", fontWeight: 900, color: "#FFFFFF", marginTop: "6px" }}>{fmt(32.5)} / entrega</div>
                 </button>
 
                 <button
@@ -630,16 +630,16 @@ export default function CaribeSuperfoodsDemo() {
                     cursor: "pointer"
                   }}
                 >
-                  <div style={{ fontSize: "13px", fontWeight: 900 }}>Cesta Gourmet (6 Prod.)</div>
-                  <div style={{ fontSize: "11px", opacity: 0.9, marginTop: "2px" }}>Selección Completa Finca</div>
-                  <div style={{ fontSize: "14px", fontWeight: 900, marginTop: "6px" }}>{fmt(60)} / entrega</div>
+                  <div style={{ fontSize: "13px", fontWeight: 900, color: "#FFFFFF" }}>Cesta Gourmet (6 Prod.)</div>
+                  <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.8)", marginTop: "2px" }}>Selección Completa Finca</div>
+                  <div style={{ fontSize: "14px", fontWeight: 900, color: "#FFFFFF", marginTop: "6px" }}>{fmt(60)} / entrega</div>
                 </button>
               </div>
             </div>
 
             {/* Step 2: Frequency Selector */}
             <div style={{ marginBottom: "28px" }}>
-              <div style={{ fontSize: "12px", fontWeight: 800, color: "#F7F4EB", textTransform: "uppercase", marginBottom: "8px" }}>
+              <div style={{ fontSize: "12px", fontWeight: 800, color: "#34D399", textTransform: "uppercase", marginBottom: "8px", letterSpacing: "0.05em" }}>
                 2. Frecuencia de Entrega:
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
@@ -652,9 +652,9 @@ export default function CaribeSuperfoodsDemo() {
                     key={freq.key}
                     onClick={() => setSubFreq(freq.key as any)}
                     style={{
-                      background: subFreq === freq.key ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)",
+                      background: subFreq === freq.key ? "rgba(16, 185, 129, 0.3)" : "rgba(255,255,255,0.05)",
                       color: "#FFFFFF",
-                      border: subFreq === freq.key ? "1px solid #34D399" : "1px solid rgba(255,255,255,0.1)",
+                      border: subFreq === freq.key ? "2px solid #34D399" : "1px solid rgba(255,255,255,0.1)",
                       padding: "10px",
                       borderRadius: "8px",
                       fontSize: "12px",
@@ -706,12 +706,12 @@ export default function CaribeSuperfoodsDemo() {
           </div>
 
           {/* Subscription Box Visual Mockup */}
-          <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px", padding: "32px" }}>
+          <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "24px", padding: "32px", backdropFilter: "blur(8px)" }}>
             <div style={{ textAlign: "center", marginBottom: "20px" }}>
-              <div style={{ fontSize: "11px", fontWeight: 800, color: "#34D399", textTransform: "uppercase" }}>
+              <div style={{ fontSize: "11px", fontWeight: 800, color: "#34D399", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                 ¿Qué incluye tu primera entrega?
               </div>
-              <h3 style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 900, marginTop: "4px" }}>
+              <h3 style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: 900, color: "#FFFFFF", marginTop: "6px" }}>
                 Cesta {subTier === "essential" ? "Esencial" : "Gourmet"} {subFreq === "weekly" ? "Semanal" : subFreq === "biweekly" ? "Quincenal" : "Mensual"}
               </h3>
             </div>
@@ -727,16 +727,30 @@ export default function CaribeSuperfoodsDemo() {
                   "1x Infusión Herbal de Jengibre & Cúrcuma"
                 ] : [])
               ].map((item, idx) => (
-                <div key={idx} style={{ display: "flex", alignItems: "center", gap: "10px", background: "rgba(255,255,255,0.06)", padding: "10px 14px", borderRadius: "10px", fontSize: "13px", fontWeight: 700 }}>
+                <div key={idx} style={{ display: "flex", alignItems: "center", gap: "10px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", padding: "10px 14px", borderRadius: "10px", fontSize: "13px", fontWeight: 700, color: "#FFFFFF" }}>
                   <span style={{ color: "#34D399" }}>✓</span>
                   <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <div style={{ marginTop: "24px", paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.1)", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "12px", color: "#A7F3D0" }}>
-              <span>🚚 Envío Gratis Nacional Incluido</span>
-              <span>🔒 Cancela o Pausa en 1 Clic</span>
+            <div style={{ marginTop: "24px", paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.12)", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "12px", color: "#A7F3D0", fontWeight: 700 }}>
+              <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+                Envío Gratis Nacional Incluido
+              </span>
+              <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Cancela o Pausa en 1 Clic
+              </span>
             </div>
           </div>
         </div>
@@ -768,7 +782,7 @@ export default function CaribeSuperfoodsDemo() {
 
           {/* Farm 2: Jarabacoa */}
           <div style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0", boxShadow: "0 6px 24px rgba(0,0,0,0.04)" }}>
-            <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80" alt="Apiarios Jarabacoa" style={{ width: "100%", height: "240px", objectFit: "cover" }} />
+            <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80" alt="Apiarios Jarabacoa" style={{ width: "100%", height: "240px", objectFit: "cover" }} />
             <div style={{ padding: "24px" }}>
               <div style={{ fontSize: "11px", fontWeight: 800, color: "#10B981", textTransform: "uppercase" }}>Reserva de Biosfera Silvestre</div>
               <h3 style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 900, color: "#0B2B1B", margin: "4px 0 8px 0" }}>Apiarios Jarabacoa</h3>
