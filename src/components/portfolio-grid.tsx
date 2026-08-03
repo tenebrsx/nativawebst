@@ -12,6 +12,8 @@ const demoRoutes: Record<string, string> = {
   "terrenas-coffee-template": "/demo/terrenas-coffee",
   "caribe-superfoods-template": "/demo/caribe-superfoods",
   "bavaro-swim-template": "/demo/bavaro-swim",
+  "hache-design-template": "/demo/constructora-aybar",
+  "laura-alba-realestate-template": "/demo/punta-cana-villas",
   "sdq-auto-template": "/demo/sdq-auto",
   "sdq-beauty-template": "/demo/sdq-dental",
   "sdq-construction-template": "/demo/constructora-aybar",
@@ -460,6 +462,40 @@ export default function PortfolioGrid() {
                             </div>
                             <div style={{ background: "#0EA5E9", color: "#fff", padding: "3px 6px", borderRadius: "3px", fontSize: "7px", fontWeight: 800, textAlign: "center" }}>
                               Consulta Confidencial →
+                            </div>
+                          </div>
+                        ) : project.id.includes("hache") ? (
+                          <div style={{ padding: "10px", background: "#1C1917", color: "#FAFAF9", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(217, 119, 6, 0.3)", paddingBottom: "4px" }}>
+                              <span style={{ fontSize: "8.5px", fontWeight: 900, color: "#F59E0B", letterSpacing: "0.08em" }}>HACHE DESIGN STUDIO</span>
+                              <span style={{ background: "rgba(245, 158, 11, 0.15)", color: "#F59E0B", padding: "1px 5px", borderRadius: "3px", fontSize: "6px", fontWeight: 900 }}>INTERIORISMO</span>
+                            </div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <div style={{ fontSize: "9.5px", fontWeight: 900, color: "#FFFFFF", lineHeight: "1.2" }}>Arquitectura &amp; Renders 3D</div>
+                                <div style={{ fontSize: "7px", color: "#A8A29E", marginTop: "2px" }}>Residencias de Lujo</div>
+                                <div style={{ fontSize: "7px", color: "#F59E0B", fontWeight: 800, marginTop: "4px" }}>Especificaciones por WhatsApp</div>
+                              </div>
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "50px", border: "1px solid rgba(245, 158, 11, 0.3)" }}>
+                                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="Hache Design interior" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              </div>
+                            </div>
+                          </div>
+                        ) : project.id.includes("laura-alba") ? (
+                          <div style={{ padding: "10px", background: "#0F172A", color: "#F8FAFC", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(212, 175, 55, 0.3)", paddingBottom: "4px" }}>
+                              <span style={{ fontSize: "8.5px", fontWeight: 900, color: "#D4AF37", letterSpacing: "0.08em" }}>LAURA ALBA REAL ESTATE</span>
+                              <span style={{ background: "#D4AF37", color: "#0F172A", padding: "1px 5px", borderRadius: "3px", fontSize: "6px", fontWeight: 900 }}>CAP CANA</span>
+                            </div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "8px", alignItems: "center" }}>
+                              <div>
+                                <div style={{ fontSize: "9.5px", fontWeight: 900, color: "#FFFFFF", lineHeight: "1.2" }}>Villas Frente al Mar</div>
+                                <div style={{ fontSize: "7px", color: "#38BDF8", marginTop: "2px" }}>Punta Cana &amp; Santo Domingo</div>
+                                <div style={{ fontSize: "7px", color: "#D4AF37", fontWeight: 800, marginTop: "4px" }}>Conversor USD / DOP</div>
+                              </div>
+                              <div style={{ borderRadius: "6px", overflow: "hidden", height: "50px", border: "1px solid rgba(212, 175, 55, 0.3)" }}>
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Laura Alba Real Estate luxury villa" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                              </div>
                             </div>
                           </div>
                         ) : project.id.includes("coffee") ? (

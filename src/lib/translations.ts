@@ -400,6 +400,34 @@ export const translations: Record<TranslationKey, TranslationDict> = {
           problem: "Investors want to inspect floor plans and construction timelines without waiting for email attachments.",
           solution: "Includes floor plan viewer, progress timeline tracker, automated brochure PDF requester, and WhatsApp sales rep connector.",
           tags: ["Floor Plans", "Progress Tracker", "Brochure Lead", "WhatsApp Sales"]
+        },
+        {
+          id: "hache-design-template",
+          title: "Hache Design Studio",
+          client: "Architecture & Interior Design Studio",
+          category: "pro",
+          industry: "Interior Design & Architecture",
+          badge: "Featured Portfolio Project",
+          speedBefore: "6.4s",
+          speedAfter: "0.3s",
+          desc: "High-end interior design and architectural development platform featuring luxury residential projects, 3D space visualizers, and project spec inquiries.",
+          problem: "Luxury interior design firms struggle to communicate spatial rendering quality and material finish options on slow portfolio sites.",
+          solution: "Built with 3D space visualizer cards, material finish selector, interactive project gallery, and direct WhatsApp project spec inquiries.",
+          tags: ["Interior Design", "3D Renders", "Project Showcase", "WhatsApp Spec"]
+        },
+        {
+          id: "laura-alba-realestate-template",
+          title: "Laura Alba Real Estate",
+          client: "Luxury Real Estate & Advisory",
+          category: "realestate",
+          industry: "Luxury Real Estate & Investments",
+          badge: "Live Enterprise Client",
+          speedBefore: "5.9s",
+          speedAfter: "0.4s",
+          desc: "Exclusive Dominican luxury real estate platform showcasing high-end oceanfront villas, Cap Cana penthouses, and investment properties.",
+          problem: "High-net-worth real estate buyers need multi-currency USD/DOP property listings, instant floor plan inspection, and VIP broker contact.",
+          solution: "Engineered with multi-currency USD/DOP price converter, beachfront property map filter, downloadable property sheets, and VIP WhatsApp advisory.",
+          tags: ["Luxury Real Estate", "Villa Listings", "USD/DOP Switcher", "VIP Advisory"]
         }
       ]
     }
@@ -652,7 +680,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         },
         {
           id: "sdq-construction-template",
-          title: "Plantilla Torres Santo Domingo",
+          title: "Constructora Aybar & Torres",
           client: "Modelo para Constructoras & Proyectos",
           category: "realestate",
           industry: "Construcción & Inmobiliaria",
@@ -663,6 +691,34 @@ export const translations: Record<TranslationKey, TranslationDict> = {
           problem: "Los inversionistas quieren revisar planos de apartamentos y avances de obra sin esperar adjuntos por correo.",
           solution: "Incluye visor de planos, cronograma de avance de construcción, captador de leads para brochures PDF y contacto con asesores por WhatsApp.",
           tags: ["Visor de Planos", "Avance de Obra", "Brochure PDF", "Ventas WhatsApp"]
+        },
+        {
+          id: "hache-design-template",
+          title: "Hache Design Studio",
+          client: "Estudio de Arquitectura e Interiorismo",
+          category: "pro",
+          industry: "Diseño de Interiores & Arquitectura",
+          badge: "Proyecto Destacado",
+          speedBefore: "6.4s",
+          speedAfter: "0.3s",
+          desc: "Plataforma de alta gama para estudio de diseño de interiores y arquitectura enfocada en residencia de lujo, renders 3D y cotización de proyectos.",
+          problem: "Los estudios de interiorismo pierden clientes cuando sus sitios web no muestran la calidad de acabado y renders en alta resolución.",
+          solution: "Construido con visor de renders 3D, catálogo de acabados de materiales, galería interactiva de obras y solicitud de especificaciones por WhatsApp.",
+          tags: ["Diseño Interiores", "Renders 3D", "Galería de Obras", "Presupuesto WhatsApp"]
+        },
+        {
+          id: "laura-alba-realestate-template",
+          title: "Laura Alba Real Estate",
+          client: "Inmobiliaria de Lujo & Asesoría",
+          category: "realestate",
+          industry: "Bienes Raíces de Lujo & Inversión",
+          badge: "Cliente Enterprise En Vivo",
+          speedBefore: "5.9s",
+          speedAfter: "0.4s",
+          desc: "Plataforma inmobiliaria de lujo para villas frente al mar, penthouses en Cap Cana y propiedades de alta rentabilidad en República Dominicana.",
+          problem: "Compradores e inversionistas de alto nivel necesitan conversor multimoneda USD/DOP, inspección de planos y asesoría VIP inmediata.",
+          solution: "Diseñada con conversor de moneda USD/DOP en tiempo real, filtro de villas frente al mar, ficha técnica en PDF y asesoría VIP por WhatsApp.",
+          tags: ["Bienes Raíces Lujo", "Villas Punta Cana", "Moneda USD/DOP", "Asesoría VIP"]
         }
       ]
     }
