@@ -66,6 +66,15 @@ export default function DemosPlaygroundPage() {
       url: "/demo/caribe-superfoods",
       badge: "Edición Orgánica & Suscripción",
       features: ["Suscripción Conuco Box (-15%)", "Mieles & Aceites de Constanza/Jarabacoa", "Trazabilidad de Fincas", "Carrito Slide-Out DOP/USD"]
+    },
+    {
+      id: "bavaro-swim",
+      title: "Bávaro Swim & Resortwear",
+      category: "E-Commerce Multi-Página de Lujo",
+      inspiredBy: "Frankies Bikinis & Cult Gaia",
+      url: "/demo/bavaro-swim",
+      badge: "Edición Multi-Página E-Commerce",
+      features: ["Navegación Multi-Página (/tienda, /colecciones, /lookbook)", "Selectores de Talla & Color", "Lookbook Shoppable con Popup", "Bolsa Slide-Out DOP/USD"]
     }
   ];
 

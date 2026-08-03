@@ -11,6 +11,7 @@ const demoRoutes: Record<string, string> = {
   "zona-tours-template": "/demo/punta-cana-villas",
   "terrenas-coffee-template": "/demo/terrenas-coffee",
   "caribe-superfoods-template": "/demo/caribe-superfoods",
+  "bavaro-swim-template": "/demo/bavaro-swim",
   "sdq-auto-template": "/demo/sdq-auto",
   "sdq-beauty-template": "/demo/sdq-dental",
   "sdq-construction-template": "/demo/constructora-aybar",
