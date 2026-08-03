@@ -10,6 +10,7 @@ const demoRoutes: Record<string, string> = {
   "naco-legal-template": "/demo/naco-legal",
   "zona-tours-template": "/demo/punta-cana-villas",
   "terrenas-coffee-template": "/demo/terrenas-coffee",
+  "caribe-superfoods-template": "/demo/caribe-superfoods",
   "sdq-auto-template": "/demo/sdq-auto",
   "sdq-beauty-template": "/demo/sdq-dental",
   "sdq-construction-template": "/demo/constructora-aybar",

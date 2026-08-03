@@ -53,10 +53,19 @@ export default function DemosPlaygroundPage() {
       id: "terrenas-coffee",
       title: "Café Terrenas Artisanal Store",
       category: "E-Commerce & Productos de Origen",
-      inspiredBy: "Artisanal Dominican Coffee",
+      inspiredBy: "LandToSeaNYC.com Standard",
       url: "/demo/terrenas-coffee",
       badge: "Edición Tienda",
       features: ["Carrito de Compras en Tiempo Real", "Pago con Stripe & Delivery", "Selección de Grano de Origen"]
+    },
+    {
+      id: "caribe-superfoods",
+      title: "CaribeSuperfoods & Organics",
+      category: "Superalimentos & Suscripciones",
+      inspiredBy: "Beekeeper's Naturals & Sakara Life",
+      url: "/demo/caribe-superfoods",
+      badge: "Edición Orgánica & Suscripción",
+      features: ["Suscripción Conuco Box (-15%)", "Mieles & Aceites de Constanza/Jarabacoa", "Trazabilidad de Fincas", "Carrito Slide-Out DOP/USD"]
     }
   ];
 
