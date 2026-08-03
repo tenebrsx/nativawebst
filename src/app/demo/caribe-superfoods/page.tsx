@@ -299,7 +299,7 @@ export default function CaribeSuperfoodsDemo() {
       
       {/* Sticky Altamar Demo Banner */}
       <DemoTopBar
-        templateName="CaribeSuperfoods & Organics (Inspirado en Beekeeper's Naturals & Sakara)"
+        templateName="CaribeSuperfoods & Organics"
         templateCategory="E-Commerce Orgánico & Suscripción Conuco Box"
         whatsappMessage="Hola Altamar, vi la plataforma de CaribeSuperfoods (#caribe-superfoods) y deseo cotizar una tienda e-commerce para mi marca."
         theme="villas"
