@@ -127,7 +127,7 @@ export function DemoTopBar({ templateName, templateCategory, whatsappMessage, th
   return (
     <div style={{
       position: "fixed",
-      top: "14px",
+      bottom: "16px",
       left: "50%",
       transform: "translateX(-50%)",
       width: "calc(100% - 32px)",
