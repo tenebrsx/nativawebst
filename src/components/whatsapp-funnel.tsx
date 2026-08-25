@@ -38,7 +38,7 @@ const COPY = {
       { id: "seo", label: "Google Maps / SEO" },
       { id: "store", label: "Tienda online" },
       { id: "crm", label: "CRM personal" },
-      { id: "agent", label: "Agente AI de marca" },
+      { id: "agent", label: "Agente IA de marca" },
       { id: "other", label: "Otra cosa" },
     ],
     industries: [

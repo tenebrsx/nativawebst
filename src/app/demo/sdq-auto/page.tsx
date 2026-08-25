@@ -126,11 +126,11 @@ export default function SDQAutoDemo() {
   return (
     <div style={{ background: "#080C14", color: "#F8FAFC", minHeight: "100vh", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="Plantilla Plataforma República Fleet & Auto (Midas Enterprise)"
         templateCategory="Automotriz & Flotas Comerciales"
-        whatsappMessage="Hola Altamar, vi la plataforma completa de República Fleet (#sdq-auto) y quiero cotizar una web empresarial idéntica para mi taller."
+        whatsappMessage="Hola Nativa, vi la plataforma completa de República Fleet (#sdq-auto) y quiero cotizar una web empresarial idéntica para mi taller."
       />
 
       {/* ─── TOP ANNOUNCEMENT BAR ───────────────────────────────── */}
@@ -705,7 +705,7 @@ export default function SDQAutoDemo() {
           <div>Av. Gustavo Mejía Ricart #88, Ensanche Naco, Santo Domingo · Av. España #12, Punta Cana</div>
           <div style={{ marginTop: "12px", color: "#64748B" }}>Teléfono: (809) 555-AUTO · Correo: contacto@republicafleet.com</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #111827", color: "#FFC72C", fontWeight: 800, fontSize: "11.5px" }}>
-            Demo Template Built by Altamar Web Studio · Inspired by Midas.com
+            Demo Template Built by Nativa Web Studio · Inspired by Midas.com
           </div>
         </div>
       </footer>

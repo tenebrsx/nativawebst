@@ -169,11 +169,11 @@ export default function TerrenasCoffeeDemo() {
   return (
     <div style={{ background: "#FDFBF7", color: "#2C1A11", minHeight: "100vh", fontFamily: "'Georgia', serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="Plantilla Café Terrenas · Artisanal Roastery"
         templateCategory="E-Commerce & Café de Especialidad"
-        whatsappMessage="Hola Altamar, vi la plantilla de Café Terrenas (#terrenas-coffee) y deseo cotizar una tienda online para mi café o marca."
+        whatsappMessage="Hola Nativa, vi la plantilla de Café Terrenas (#terrenas-coffee) y deseo cotizar una tienda online para mi café o marca."
         theme="coffee"
       />
 
@@ -552,7 +552,7 @@ export default function TerrenasCoffeeDemo() {
           <div>Calle Francisco Caamaño Deñó #14, Las Terrenas, Samaná, República Dominicana</div>
           <div style={{ marginTop: "12px", color: "#94A3B8" }}>contacto@cafeterrenas.do · Instagram: @cafeterrenas.do</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #2C1A11", color: "#D96B43", fontWeight: 800, fontSize: "11.5px" }}>
-            Plantilla Prototipo Desarrollada por Altamar Web Studio
+            Plantilla Prototipo Desarrollada por Nativa Web Studio
           </div>
         </div>
       </footer>

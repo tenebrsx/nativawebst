@@ -29,10 +29,10 @@ export default function AdsPage() {
         en: "Is your business losing clients because your website takes 5 seconds to load on mobile?"
       },
       body: {
-        es: "En Altamar construimos plataformas web de alto rendimiento orientadas a la acción local. Carga en 0.3 segundos, botón directo a WhatsApp y posicionamiento en Google Maps en Santo Domingo.\n\n⚡ Carga ultrarrápida (100/100 Google Móvil)\n💬 Agendamiento por WhatsApp sin fricción\n📍 SEO Local para destacar en tu zona\n\n👉 Haz clic en el enlace de la bio para configurar tu plataforma en 2 minutos.",
-        en: "At Altamar we build high-performance web platforms engineered for local action. 0.3s load speed, direct WhatsApp routing, and local Google Maps optimization.\n\n⚡ Ultra-fast load speed (100/100 Mobile Score)\n💬 Frictionless WhatsApp scheduling\n📍 Local SEO to dominate your area\n\n👉 Click the bio link to configure your estimate in 2 minutes."
+        es: "En Nativa construimos plataformas web de alto rendimiento orientadas a la acción local. Carga en 0.3 segundos, botón directo a WhatsApp y posicionamiento en Google Maps en Santo Domingo.\n\n⚡ Carga ultrarrápida (100/100 Google Móvil)\n💬 Agendamiento por WhatsApp sin fricción\n📍 SEO Local para destacar en tu zona\n\n👉 Haz clic en el enlace de la bio para configurar tu plataforma en 2 minutos.",
+        en: "At Nativa we build high-performance web platforms engineered for local action. 0.3s load speed, direct WhatsApp routing, and local Google Maps optimization.\n\n⚡ Ultra-fast load speed (100/100 Mobile Score)\n💬 Frictionless WhatsApp scheduling\n📍 Local SEO to dominate your area\n\n👉 Click the bio link to configure your estimate in 2 minutes."
       },
-      hashtags: "#DiseñoWebRD #SantoDomingo #SEOlocalRD #MarketingRD #PymeRD #AltamarWebStudio #WebStudioRD",
+      hashtags: "#DiseñoWebRD #SantoDomingo #SEOlocalRD #MarketingRD #PymeRD #NativaWebStudio #WebStudioRD",
       cta: {
         es: "Pedir Presupuesto Gratis 💬",
         en: "Get Free Quote Spec 💬"
@@ -44,7 +44,7 @@ export default function AdsPage() {
       mockGraphic: (
         <div style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", justifyContent: "center", height: "100%", padding: "20px" }}>
           <div style={{ fontSize: "11px", fontWeight: 800, color: "#0EA5E9", textTransform: "uppercase", letterSpacing: "0.15em" }}>
-            ALTAMAR WEB STUDIO
+            NATIVA WEB STUDIO
           </div>
           <h2 style={{ fontFamily: "var(--font-head)", fontSize: "22px", fontWeight: 900, color: "#ffffff", lineHeight: "1.25", margin: 0 }}>
             {adLang === "es" ? "¿Web Lenta = Clientes Perdidos?" : "Slow Site = Lost Clients?"}
@@ -64,7 +64,7 @@ export default function AdsPage() {
             </div>
             <div style={{ fontSize: "16px", color: "#0EA5E9" }}>➔</div>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "10px", color: "#10B981", fontWeight: 700 }}>Altamar</div>
+              <div style={{ fontSize: "10px", color: "#10B981", fontWeight: 700 }}>Nativa</div>
               <div style={{ fontSize: "16px", fontWeight: 900, color: "#10B981" }}>0.3s</div>
             </div>
           </div>
@@ -92,10 +92,10 @@ export default function AdsPage() {
         en: "When clients search for your services nearby... do you show up or does your competitor?"
       },
       body: {
-        es: "Estar de primero en los mapas de Google es la diferencia entre tener la agenda llena o perder ventas todos los días.\n\nEn Altamar optimizamos tu ficha de Google Maps y conectamos tu sitio web con marcado estructurado de negocio local.\n\n📍 Posicionamiento de 5 estrellas en tu sector\n📞 Botón directo de llamadas y WhatsApp\n⭐ Sin comisiones ni mensualidades ocultas\n\n👉 Escríbenos por WhatsApp y solicita tu auditoría de SEO gratis.",
-        en: "Ranking #1 on Google Maps is the difference between a full calendar and losing sales every day.\n\nAt Altamar we optimize your Google Maps listing and connect your site with structured local business schema.\n\n📍 5-star local search positioning\n📞 Direct call & WhatsApp button\n⭐ Zero hidden monthly fees\n\n👉 Message us on WhatsApp for a free local SEO audit."
+        es: "Estar de primero en los mapas de Google es la diferencia entre tener la agenda llena o perder ventas todos los días.\n\nEn Nativa optimizamos tu ficha de Google Maps y conectamos tu sitio web con marcado estructurado de negocio local.\n\n📍 Posicionamiento de 5 estrellas en tu sector\n📞 Botón directo de llamadas y WhatsApp\n⭐ Sin comisiones ni mensualidades ocultas\n\n👉 Escríbenos por WhatsApp y solicita tu auditoría de SEO gratis.",
+        en: "Ranking #1 on Google Maps is the difference between a full calendar and losing sales every day.\n\nAt Nativa we optimize your Google Maps listing and connect your site with structured local business schema.\n\n📍 5-star local search positioning\n📞 Direct call & WhatsApp button\n⭐ Zero hidden monthly fees\n\n👉 Message us on WhatsApp for a free local SEO audit."
       },
-      hashtags: "#GoogleMapsRD #SEOlocal #PaginasWebRD #SantoDomingoBusiness #AltamarWebStudio #Dominicana",
+      hashtags: "#GoogleMapsRD #SEOlocal #PaginasWebRD #SantoDomingoBusiness #NativaWebStudio #Dominicana",
       cta: {
         es: "Auditoría SEO Gratis 📍",
         en: "Free Local SEO Audit 📍"
@@ -142,7 +142,7 @@ export default function AdsPage() {
         es: "Convierte a tus seguidores de redes en clientes reales con un cotizador web automático.\n\nTus clientes seleccionan sus servicios en tu web en 30 segundos y reciben su desglose directamente en tu WhatsApp listo para cerrar.\n\n💬 Cero fricción de ventas\n📊 Cotizador interactivo personalizado\n⚡ Respuestas en segundos\n\n👉 Prueba el demo del cotizador en el enlace de nuestro perfil.",
         en: "Convert your social followers into paying clients with an automated web quote flow.\n\nYour clients select their services on your site in 30 seconds and receive a detailed breakdown straight to your WhatsApp.\n\n💬 Zero sales friction\n📊 Interactive custom quote builder\n⚡ Instant responses\n\n👉 Test the live quote demo link in our profile."
       },
-      hashtags: "#WhatsAppBusiness #VentasRD #CotizadorWeb #EmprendedoresRD #SantoDomingo #Altamar",
+      hashtags: "#WhatsAppBusiness #VentasRD #CotizadorWeb #EmprendedoresRD #SantoDomingo #Nativa",
       cta: {
         es: "Probar Cotizador Demo ⚡",
         en: "Test Live Quote Demo ⚡"
@@ -177,7 +177,7 @@ export default function AdsPage() {
         es: "Tenemos más de 12 plantillas web interactivas listos para usar en la República Dominicana: clínicas odontológicas, firmas de abogados, casas vacacionales, talleres y tiendas online.\n\n🚀 Diseños de alto impacto\n📱 100% optimizados para celulares\n⚡ Listos para publicar en 48 horas\n\n👉 Explora la tienda de plantillas interactivas en nuestro sitio web.",
         en: "We have 12+ interactive website blueprints ready to deploy in the Dominican Republic: dental clinics, law firms, luxury rentals, auto shops & online stores.\n\n🚀 High-impact modern design\n📱 100% mobile-optimized\n⚡ Ready to launch in 48 hours\n\n👉 Explore the interactive template blueprint showcase on our site."
       },
-      hashtags: "#PlantillasWeb #DiseñoWebSantoDomingo #AltamarWebStudio #DesarrolloWebRD #PymesRD",
+      hashtags: "#PlantillasWeb #DiseñoWebSantoDomingo #NativaWebStudio #DesarrolloWebRD #PymesRD",
       cta: {
         es: "Ver Plantillas en Vivo 🚀",
         en: "Inspect Live Templates 🚀"
@@ -189,7 +189,7 @@ export default function AdsPage() {
       mockGraphic: (
         <div style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", justifyContent: "center", height: "100%", padding: "20px" }}>
           <span style={{ fontSize: "10px", fontWeight: 800, color: "#FFB703", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-            ALTAMAR BLUEPRINTS
+            NATIVA BLUEPRINTS
           </span>
           <h2 style={{ fontFamily: "var(--font-head)", fontSize: "20px", fontWeight: 900, color: "#ffffff", lineHeight: "1.25", margin: 0 }}>
             {adLang === "es" ? "12+ Plantillas Web Listas para Usar" : "12+ Web Templates Ready to Deploy"}
@@ -219,7 +219,7 @@ export default function AdsPage() {
       }}>
         <div className="container header-bar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ textDecoration: "none", color: "#0A1128", display: "flex", alignItems: "center", gap: "8px", minWidth: 0 }}>
-            <span style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "20px" }}>Altamar</span>
+            <span style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "20px" }}>Nativa</span>
             <span className="hide-on-narrow" style={{ fontSize: "11px", background: "#FFB703", color: "#0A1128", padding: "2px 8px", borderRadius: "10px", fontWeight: 800 }}>
               Instagram Ad Studio
             </span>
@@ -413,7 +413,7 @@ export default function AdsPage() {
                     }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                         <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#0EA5E9", border: "1.5px solid #fff" }} />
-                        <span style={{ fontSize: "11px", fontWeight: 800, color: "#fff" }}>altamar.web</span>
+                        <span style={{ fontSize: "11px", fontWeight: 800, color: "#fff" }}>nativa.web</span>
                       </div>
                       <span style={{ fontSize: "9px", background: "rgba(255,255,255,0.2)", color: "#fff", padding: "2px 6px", borderRadius: "4px", fontWeight: 700 }}>
                         Sponsored

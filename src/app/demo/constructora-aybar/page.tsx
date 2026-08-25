@@ -130,11 +130,11 @@ export default function ConstructoraAybarDemo() {
   return (
     <div style={{ background: "#070B14", color: "#F8FAFC", minHeight: "100vh", fontFamily: "'Open Sans', system-ui, -apple-system, sans-serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="Plantilla Constructora Aybar & Torres (Grupo Aybar & Construger Standard)"
         templateCategory="Construcción & Desarrollo Inmobiliario"
-        whatsappMessage="Hola Altamar, vi la plantilla de Constructora Aybar (#sdq-construction) y deseo cotizar una web corporativa para mi constructora."
+        whatsappMessage="Hola Nativa, vi la plantilla de Constructora Aybar (#sdq-construction) y deseo cotizar una web corporativa para mi constructora."
         theme="gold"
       />
 
@@ -538,7 +538,7 @@ export default function ConstructoraAybarDemo() {
           <div>Torre Empresarial Piantini, Piso 14, Av. Winston Churchill #102, Santo Domingo, República Dominicana</div>
           <div style={{ marginTop: "12px", color: "#64748B" }}>Teléfono: (809) 547-3746 · Correo: info@grupoaybar.com · CODIA #48921</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #0F172A", color: "#D7A639", fontWeight: 800, fontSize: "11.5px" }}>
-            Demo Template Built by Altamar Web Studio · Inspired by GrupoAybar.com & Construger.com
+            Demo Template Built by Nativa Web Studio · Inspired by GrupoAybar.com & Construger.com
           </div>
         </div>
       </footer>

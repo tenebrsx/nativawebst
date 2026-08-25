@@ -16,11 +16,11 @@ export default function NacoLegalDemo() {
   return (
     <div style={{ background: "#0A1128", color: "#ffffff", minHeight: "100vh", fontFamily: "system-ui, sans-serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="Plantilla Naco Abogados & Asesores Corporativos"
         templateCategory="Abogados & Servicios"
-        whatsappMessage="Hola Altamar, vi el demo de Naco Law (#naco-legal) y quiero cotizar una plataforma corporativa legal para nuestra firma."
+        whatsappMessage="Hola Nativa, vi el demo de Naco Law (#naco-legal) y quiero cotizar una plataforma corporativa legal para nuestra firma."
       />
 
       {/* ─── LEGAL HEADER ───────────────────────────────────────── */}
@@ -120,7 +120,7 @@ export default function NacoLegalDemo() {
 
       <footer style={{ borderTop: "1px solid rgba(255,255,255,0.08)", padding: "40px 20px", textAlign: "center", fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
         Nolasco & Almonte Abogados · Torre Forum, Av. Tiradentes #42, Naco, Santo Domingo, R.D.<br/>
-        <span style={{ color: "#0EA5E9" }}>Demo Template Powered by Altamar Web Studio</span>
+        <span style={{ color: "#0EA5E9" }}>Demo Template Powered by Nativa Web Studio</span>
       </footer>
 
     </div>

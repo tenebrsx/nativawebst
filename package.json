@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "rm -rf out && next build && npx firebase-tools@latest deploy --only hosting"
   },
   "dependencies": {
     "firebase": "^12.16.0",

@@ -297,11 +297,11 @@ export default function CaribeSuperfoodsDemo() {
   return (
     <div style={{ background: "#F7F4EB", color: "#0B2B1B", minHeight: "100vh", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="CaribeSuperfoods & Organics"
         templateCategory="E-Commerce Orgánico & Suscripción Conuco Box"
-        whatsappMessage="Hola Altamar, vi la plataforma de CaribeSuperfoods (#caribe-superfoods) y deseo cotizar una tienda e-commerce para mi marca."
+        whatsappMessage="Hola Nativa, vi la plataforma de CaribeSuperfoods (#caribe-superfoods) y deseo cotizar una tienda e-commerce para mi marca."
         theme="villas"
       />
 
@@ -1007,7 +1007,7 @@ export default function CaribeSuperfoodsDemo() {
           <div>Carretera Constanza - Jarabacoa Km 14, La Vega, República Dominicana · RNC #132-84920-1</div>
           <div style={{ marginTop: "8px", color: "#94A3B8" }}>contacto@caribesuperfoods.do · Instagram: @caribesuperfoods.do</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#10B981", fontWeight: 800 }}>
-            Plantilla Prototipo Desarrollada por Altamar Web Studio
+            Plantilla Prototipo Desarrollada por Nativa Web Studio
           </div>
         </div>
       </footer>

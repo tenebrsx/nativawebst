@@ -87,14 +87,14 @@ export default function DemosPlaygroundPage() {
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", minWidth: 0 }}>
             <span style={{ fontSize: "24px" }}>🎮</span>
             <div>
-              <div style={{ fontWeight: 900, fontSize: "18px", color: "#FFFFFF" }}>ALTAMAR DEMO PLAYGROUND</div>
+              <div style={{ fontWeight: 900, fontSize: "18px", color: "#FFFFFF" }}>NATIVA DEMO PLAYGROUND</div>
               <div className="brand-tagline" style={{ fontSize: "10px", color: "#38BDF8", fontWeight: 800, letterSpacing: "0.1em" }}>PLANTILLAS VIVAS EN TIEMPO REAL</div>
             </div>
           </Link>
 
           <div className="split-header-actions" style={{ display: "flex", gap: "12px" }}>
             <Link href="/" style={{ background: "#1E293B", color: "#FFF", padding: "8px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 800, fontSize: "13px" }}>
-              ← Altamar Home
+              ← Nativa Home
             </Link>
             <Link href="/portfolio" style={{ background: "#0EA5E9", color: "#FFF", padding: "8px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 800, fontSize: "13px" }}>
               📋 Catálogo Completo
@@ -156,7 +156,7 @@ export default function DemosPlaygroundPage() {
 
       {/* Footer */}
       <footer style={{ background: "#070B14", color: "#64748B", padding: "40px 24px", textAlign: "center", fontSize: "12.5px", borderTop: "1px solid #1E293B" }}>
-        Altamar Web Studio · Todos los derechos reservados · Santo Domingo, R.D.
+        Nativa Web Studio · Todos los derechos reservados · Santo Domingo, R.D.
       </footer>
 
     </div>

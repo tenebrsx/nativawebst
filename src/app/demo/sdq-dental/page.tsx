@@ -42,11 +42,11 @@ export default function SDQDentalDemo() {
   return (
     <div style={{ background: "#FFFFFF", color: "#1E293B", minHeight: "100vh", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="Plantilla Dental BLU Clinic (Edición Profesional)"
         templateCategory="Salud & Odontología"
-        whatsappMessage="Hola Altamar, vi la plantilla profesional de Clínica Dental BLU (#sdq-dental) y quiero personalizarla para mi clínica."
+        whatsappMessage="Hola Nativa, vi la plantilla profesional de Clínica Dental BLU (#sdq-dental) y quiero personalizarla para mi clínica."
       />
 
       {/* ─── DENTAL BLU HEADER BAR ──────────────────────────────── */}
@@ -375,7 +375,7 @@ export default function SDQDentalDemo() {
           <div>Calle Manuel de Jesús Troncoso #14, Ensanche Naco, Santo Domingo, República Dominicana</div>
           <div style={{ marginTop: "12px", color: "#64748B" }}>Teléfono: (809) 555-0192 · Correo: citas@dentalblusdq.com</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #1E293B", color: "#38BDF8", fontWeight: 800, fontSize: "11.5px" }}>
-            Demo Template Built by Altamar Web Studio · Inspired by DentalBLU.com
+            Demo Template Built by Nativa Web Studio · Inspired by DentalBLU.com
           </div>
         </div>
       </footer>

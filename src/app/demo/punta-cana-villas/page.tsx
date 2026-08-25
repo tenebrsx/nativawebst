@@ -16,11 +16,11 @@ export default function PuntaCanaVillasDemo() {
   return (
     <div style={{ background: "#FAF7F2", color: "#0A1128", minHeight: "100vh", fontFamily: "system-ui, sans-serif" }}>
       
-      {/* Sticky Altamar Demo Banner */}
+      {/* Sticky Nativa Demo Banner */}
       <DemoTopBar
         templateName="Plantilla Punta Cana Luxury Villas & Alquileres"
         templateCategory="Bienes Raíces & Turismo"
-        whatsappMessage="Hola Altamar, vi el demo de Punta Cana Villas (#punta-cana-villas) y me interesa cotizar una plataforma vacacional como esta."
+        whatsappMessage="Hola Nativa, vi el demo de Punta Cana Villas (#punta-cana-villas) y me interesa cotizar una plataforma vacacional como esta."
       />
 
       {/* ─── VILLA HEADER ───────────────────────────────────────── */}
@@ -139,7 +139,7 @@ export default function PuntaCanaVillasDemo() {
 
       <footer style={{ background: "#0A1128", color: "#64748B", padding: "40px 20px", textAlign: "center", fontSize: "12px" }}>
         Punta Cana Coastal Escapes · Cap Cana Resort, Punta Cana, La Altagracia, R.D.<br/>
-        <span style={{ color: "#0EA5E9" }}>Demo Template Powered by Altamar Web Studio</span>
+        <span style={{ color: "#0EA5E9" }}>Demo Template Powered by Nativa Web Studio</span>
       </footer>
 
     </div>

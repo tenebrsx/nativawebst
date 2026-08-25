@@ -29,7 +29,7 @@ export const clientDemos: ClientDemo[] = [
     tags: ["Real Estate", "Vacation Rental", "Cap Cana", "High Conversion"],
     dateCreated: "2026-07-28",
     accentColor: "#0EA5E9",
-    whatsappMessage: "Hola Altamar, vi el demo de Punta Cana Villas (#punta-cana-villas) y me interesa cotizar una plataforma vacacional como esta.",
+    whatsappMessage: "Hola Nativa, vi el demo de Punta Cana Villas (#punta-cana-villas) y me interesa cotizar una plataforma vacacional como esta.",
     badge: "Populares"
   },
   {
@@ -45,7 +45,7 @@ export const clientDemos: ClientDemo[] = [
     tags: ["Firma Legal", "Derecho Corporativo", "Santo Domingo", "Executive UI"],
     dateCreated: "2026-07-30",
     accentColor: "#0A1128",
-    whatsappMessage: "Hola Altamar, vi el demo de Naco Law (#naco-legal) y quiero cotizar una plataforma corporativa legal para nuestra firma.",
+    whatsappMessage: "Hola Nativa, vi el demo de Naco Law (#naco-legal) y quiero cotizar una plataforma corporativa legal para nuestra firma.",
     badge: "Corporativo"
   },
   {
@@ -61,7 +61,7 @@ export const clientDemos: ClientDemo[] = [
     tags: ["Automotriz", "Importación", "Showroom", "Financiamiento"],
     dateCreated: "2026-07-31",
     accentColor: "#E11D48",
-    whatsappMessage: "Hola Altamar, vi el demo de SDQ Auto Import (#sdq-auto) y me interesa una plataforma digital para inventario de vehículos.",
+    whatsappMessage: "Hola Nativa, vi el demo de SDQ Auto Import (#sdq-auto) y me interesa una plataforma digital para inventario de vehículos.",
     badge: "Alto Tráfico"
   },
   {
@@ -77,7 +77,7 @@ export const clientDemos: ClientDemo[] = [
     tags: ["Odontología", "Salud", "Turismo Médico", "Citas Online"],
     dateCreated: "2026-08-01",
     accentColor: "#0D9488",
-    whatsappMessage: "Hola Altamar, vi el demo de SDQ Dental Studio (#sdq-dental) y deseo cotizar la web para nuestra clínica odontológica.",
+    whatsappMessage: "Hola Nativa, vi el demo de SDQ Dental Studio (#sdq-dental) y deseo cotizar la web para nuestra clínica odontológica.",
     badge: "Turismo Médico"
   },
   {
@@ -93,7 +93,7 @@ export const clientDemos: ClientDemo[] = [
     tags: ["E-Commerce", "Café de Especialidad", "Las Terrenas", "Suscripción"],
     dateCreated: "2026-08-02",
     accentColor: "#D97706",
-    whatsappMessage: "Hola Altamar, vi el demo de Café Las Terrenas (#terrenas-coffee) y quiero una tienda online para nuestra marca gastronómica.",
+    whatsappMessage: "Hola Nativa, vi el demo de Café Las Terrenas (#terrenas-coffee) y quiero una tienda online para nuestra marca gastronómica.",
     badge: "E-Commerce"
   }
 ];

@@ -6,6 +6,7 @@ export interface TranslationDict {
     process: string;
     pricing: string;
     portfolio: string;
+    proof: string;
     cta: string;
   };
   hero: {
@@ -42,7 +43,16 @@ export interface TranslationDict {
     label: string;
     title: string;
     sub: string;
-    items: Array<{ tag: string; title: string; body: string }>;
+    items: Array<{
+      tag: string;
+      title: string;
+      body: string;
+      before: string;
+      after: string;
+      chatFrom: string;
+      chatText: string;
+    }>;
+    cta: string;
   };
   process: {
     label: string;
@@ -158,6 +168,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       process: "Process",
       pricing: "Pricing",
       portfolio: "Work & Proof",
+      proof: "Proof",
       cta: "Get Free Quote"
     },
     hero: {
@@ -166,7 +177,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       title_1: "Websites Built for",
       title_2: "Local Action.",
       title_3: "Engineered for Growth.",
-      desc: "We build clean, high-speed platforms that rank where your customers look. Zero clutter, zero complexity. Just pure local performance.",
+      desc: "We build clean, high-speed websites that rank where your customers look. After you are live, we add a personal CRM and a brand AI agent on WhatsApp.",
       cta_launch: "Launch the Ship →",
       cta_price: "Configure Estimate",
       proof: "Clinic in Naco — live site, WhatsApp leads in 18 days.",
@@ -184,7 +195,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
     services: {
       label: "Core Modules",
       title: "Everything You Need. No Fluff.",
-      sub: "We build clean web structures and support them continuously so you can lead your market.",
+      sub: "Web, Maps, and WhatsApp first. Then a personal CRM and a brand AI agent once chats are landing.",
       items: [
         { icon: "🌐", title: "Website Design & Build", desc: "Fast, premium websites designed to convert visitors into paying customers. Live in under 3 weeks." },
         { icon: "📍", title: "Google Maps & Local SEO", desc: "When someone nearby searches your service, you show up first — with a tap to WhatsApp." },
@@ -198,14 +209,39 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       ]
     },
     proof: {
-      label: "How it lands",
+      label: "Proof",
       title: "The site is the door. WhatsApp is the close.",
-      sub: "Three verticals we build for, and what changes when the lead hits chat instead of a form.",
+      sub: "Same pattern in every vertical we ship: they find you, they tap, you get a chat — not a form sitting in an inbox.",
       items: [
-        { tag: "Clinic · Naco", title: "Appointments before 9am", body: "The site is live. A Maps tap opens WhatsApp with the treatment they want. You answer from the chair, not Instagram at 11pm." },
-        { tag: "Villas · Punta Cana", title: "Nights quoted, visits booked", body: "USD/DOP on the page. WhatsApp only for the walkthrough. Less tire-kickers, more qualified stays." },
-        { tag: "Shop · Santo Domingo", title: "The size is already in the chat", body: "They pick the product on mobile. The message arrives with the question attached. You quote. They pay." }
-      ]
+        {
+          tag: "Clinic · Naco",
+          title: "Appointments before 9am",
+          body: "Maps tap opens WhatsApp with the treatment. You answer from the chair, not Instagram at 11pm.",
+          before: "DMs on Instagram overnight",
+          after: "WhatsApp lead with the service named",
+          chatFrom: "Paciente",
+          chatText: "Hola, vi limpieza + carillas en la web. ¿Tienen cupo esta semana?"
+        },
+        {
+          tag: "Villas · Punta Cana",
+          title: "Nights quoted, visits booked",
+          body: "USD/DOP on the page. WhatsApp only for the walkthrough. Fewer tire-kickers.",
+          before: "“How much per night?” emails",
+          after: "Chat already has dates + villa",
+          chatFrom: "Huésped",
+          chatText: "Villa Marina, 12–18 dic, 8 personas. ¿Disponible en USD?"
+        },
+        {
+          tag: "Shop · Santo Domingo",
+          title: "The size is already in the chat",
+          body: "They pick it on mobile. The message arrives with the question. You quote. They pay.",
+          before: "Abandoned cart, no name",
+          after: "WhatsApp with product + size",
+          chatFrom: "Cliente",
+          chatText: "Quiero el enterizo arena, talla M. ¿Lo tienen para recoger en SDQ?"
+        }
+      ],
+      cta: "I want this for my business →"
     },
     process: {
       label: "The Pathway",
@@ -466,6 +502,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       process: "Proceso",
       pricing: "Precios",
       portfolio: "Plantillas & Demos",
+      proof: "Prueba",
       cta: "Presupuesto Gratis"
     },
     hero: {
@@ -474,7 +511,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       title_1: "Sitios Web Creados para",
       title_2: "Acción Local.",
       title_3: "Diseñados para Crecer.",
-      desc: "Construimos plataformas limpias y rápidas que posicionan donde buscan tus clientes. Sin rodeos, sin complejidades. Puro rendimiento local.",
+      desc: "Construimos sitios rápidos que posicionan donde buscan tus clientes. Cuando ya está viva, sumamos un CRM personal y un agente IA de marca por WhatsApp.",
       cta_launch: "Lanzar el Barco →",
       cta_price: "Configurar Presupuesto",
       proof: "Clínica en Naco — web viva, leads por WhatsApp en 18 días.",
@@ -492,7 +529,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
     services: {
       label: "Módulos Principales",
       title: "Todo lo que Necesitas. Sin Relleno.",
-      sub: "Construimos estructuras web limpias y las soportamos continuamente para que lideres tu mercado.",
+      sub: "Web, Maps y WhatsApp primero. Luego un CRM personal y un agente IA de marca cuando ya llegan los chats.",
       items: [
         { icon: "🌐", title: "Diseño & Desarrollo Web", desc: "Sitios rápidos, hechos para convertir visitas en clientes. En vivo en menos de 3 semanas." },
         { icon: "📍", title: "Google Maps & SEO Local", desc: "Cuando buscan tu servicio cerca, apareces primero — con un toque a WhatsApp." },
@@ -502,18 +539,43 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       stack_sub: "El mismo WhatsApp. Más control. Esto se suma cuando el sitio ya está mandando chats.",
       stack: [
         { icon: "📊", title: "CRM Personal", desc: "Los chats dejan de morir en la galería. Pipeline, seguimientos y notas — a la medida de tu marca.", need: "CRM personal" },
-        { icon: "⚡", title: "Agente AI de Marca", desc: "Responde, agenda y opera lo interno por WhatsApp para que tú no seas el cuello de botella.", need: "Agente AI de marca" }
+        { icon: "⚡", title: "Agente IA de Marca", desc: "Responde, agenda y opera lo interno por WhatsApp para que tú no seas el cuello de botella.", need: "Agente IA de marca" }
       ]
     },
     proof: {
-      label: "Cómo aterriza",
+      label: "Prueba",
       title: "La web es la puerta. WhatsApp es el cierre.",
-      sub: "Tres rubros que construimos, y lo que cambia cuando el lead llega al chat y no a un formulario.",
+      sub: "El mismo patrón en cada rubro: te encuentran, tocan, y te llega un chat — no un formulario en el correo.",
       items: [
-        { tag: "Clínica · Naco", title: "Citas antes de las 9am", body: "La web está viva. Un toque en Maps abre WhatsApp con el tratamiento. Contestas desde el sillón, no en Instagram a las 11pm." },
-        { tag: "Villas · Punta Cana", title: "Noches cotizadas, visitas agendadas", body: "USD/DOP en la página. WhatsApp solo para el recorrido. Menos curiosos, más estadías calificadas." },
-        { tag: "Tienda · Santo Domingo", title: "La talla ya viene en el chat", body: "Eligen el producto en el celular. El mensaje llega con la pregunta. Cotizas. Pagan." }
-      ]
+        {
+          tag: "Clínica · Naco",
+          title: "Citas antes de las 9am",
+          body: "Un toque en Maps abre WhatsApp con el tratamiento. Contestas desde el sillón, no en Instagram a las 11pm.",
+          before: "DMs de Instagram de madrugada",
+          after: "Lead de WhatsApp con el servicio",
+          chatFrom: "Paciente",
+          chatText: "Hola, vi limpieza + carillas en la web. ¿Tienen cupo esta semana?"
+        },
+        {
+          tag: "Villas · Punta Cana",
+          title: "Noches cotizadas, visitas agendadas",
+          body: "USD/DOP en la página. WhatsApp solo para el recorrido. Menos curiosos.",
+          before: "Mails de “¿cuánto la noche?”",
+          after: "Chat con fechas y villa",
+          chatFrom: "Huésped",
+          chatText: "Villa Marina, 12–18 dic, 8 personas. ¿Disponible en USD?"
+        },
+        {
+          tag: "Tienda · Santo Domingo",
+          title: "La talla ya viene en el chat",
+          body: "Eligen en el celular. El mensaje llega con la pregunta. Cotizas. Pagan.",
+          before: "Carrito abandonado, sin nombre",
+          after: "WhatsApp con producto y talla",
+          chatFrom: "Cliente",
+          chatText: "Quiero el enterizo arena, talla M. ¿Lo tienen para recoger en SDQ?"
+        }
+      ],
+      cta: "Quiero esto para mi negocio →"
     },
     process: {
       label: "El Camino",
@@ -522,7 +584,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       steps: [
         { num: "01", title: "Brief de 15 min", body: "WhatsApp o una llamada corta. Páginas, Maps, y cómo entran los leads a tu chat. Sin presentación." },
         { num: "02", title: "Preview privado", body: "Recibes un link en días — no un PDF. Lo abres en el celular como lo haría un cliente." },
-        { num: "03", title: "Clientes en WhatsApp", body: "La web sale. Maps conectado. Cada visita puede abrirte un chat. Después hablamos de CRM y el agente AI." }
+        { num: "03", title: "Clientes en WhatsApp", body: "La web sale. Maps conectado. Cada visita puede abrirte un chat. Después hablamos de CRM y el agente IA." }
       ]
     },
     jargon: {
@@ -553,7 +615,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       platform: "Plataforma",
       managed_support: "Soporte Gestionado",
       cta: "Lanzar el Barco →",
-      disclaimer: "Esto es un brief, no un cobro. CRM y Agente AI se cotizan cuando el sitio ya está mandando chats.",
+      disclaimer: "Esto es un brief, no un cobro. CRM y Agente IA se cotizan cuando el sitio ya está mandando chats.",
       tiers: {
         starter: { name: "Básico", desc: "Ideal para profesionales independientes, landing pages o portafolios sencillos.", pages: "1–3 Páginas" },
         standard: { name: "Estándar", desc: "Nuestro modelo más popular. Perfecto para negocios locales en crecimiento y clínicas.", pages: "Hasta 5 Páginas" },
@@ -565,7 +627,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
         whatsapp: { label: "Integración de Botón WhatsApp", desc: "Conecta a tus visitantes directamente con tu chat de WhatsApp." },
         bilingual: { label: "Sitio Web Bilingüe (EN / ES)", desc: "Traducción completa para captar tanto público local como internacional." },
         crm: { label: "CRM Personal (desde)", desc: "Pipeline para leads de WhatsApp, seguimientos y notas — construido alrededor de tu marca." },
-        agent: { label: "Agente AI de Marca (desde)", desc: "Responde, agenda y opera lo interno por WhatsApp. Se cotiza cuando el sitio ya manda chats." }
+        agent: { label: "Agente IA de Marca (desde)", desc: "Responde, agenda y opera lo interno por WhatsApp. Se cotiza cuando el sitio ya manda chats." }
       },
       support_label: "Plan de Soporte y Optimización",
       support_desc: "Incluye copias de seguridad diarias, velocidad optimizada, alojamiento seguro y cambios de texto/fotos ilimitados."
@@ -577,7 +639,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       bullet_1: "Una persona te responde por WhatsApp — casi siempre el mismo día",
       bullet_2: "Alineación de 15 minutos. Web, Maps, y cómo entra el chat",
       bullet_3: "Recibes un preview privado en tu celular",
-      bullet_4: "Salimos en vivo. Luego sumamos CRM y el agente AI si quieres el stack",
+      bullet_4: "Salimos en vivo. Luego sumamos CRM y el agente IA si quieres el stack",
       form_title: "Configuración Inicial",
       form_sub: "Alineemos los requerimientos de tu sistema. Sin jerga técnica.",
       lbl_name: "Tu Nombre *",

@@ -2,6 +2,16 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { GeoProvider } from "@/lib/geo-context";
 import WhatsappFunnel from "@/components/whatsapp-funnel";
+import { JsonLd } from "@/components/json-ld";
+import { organizationGraph } from "@/lib/json-ld";
+import {
+  SITE_DEFAULT_DESCRIPTION,
+  SITE_DEFAULT_TITLE,
+  SITE_KEYWORDS,
+  SITE_BRAND,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -11,26 +21,32 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Nativa | High-Performance Websites & Local SEO in Santo Domingo",
-  description: "We build blazing-fast websites and handle your local Google Maps optimization in Santo Domingo, Dominican Republic. No tech jargon, zero monthly platform fees.",
-  keywords: ["diseño web santo domingo", "paginas web dominicana", "desarrollo web rd", "google maps seo dominicana", "nativa web studio", "seo local santo domingo"],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_DEFAULT_TITLE,
+    template: `%s | ${SITE_BRAND}`,
+  },
+  description: SITE_DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: SITE_KEYWORDS,
   openGraph: {
-    title: "Nativa | High-Performance Websites & Local SEO",
-    description: "We build fast, professional websites and handle your Google Maps ranking. Based in Santo Domingo, DR.",
-    url: "https://nativa.studio",
-    siteName: "Nativa Web Studio",
+    title: SITE_DEFAULT_TITLE,
+    description: SITE_DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "es_DO",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nativa | High-Performance Websites & Local SEO",
-    description: "We build fast, professional websites and handle your Google Maps ranking. Santo Domingo, DR.",
+    title: SITE_DEFAULT_TITLE,
+    description: SITE_DEFAULT_DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
-  }
+  },
 };
 
 export default function RootLayout({
@@ -39,47 +55,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="es" className="h-full" suppressHydrationWarning>
       <body className="min-h-full" suppressHydrationWarning>
-        {/* Local Business Structured Data for Google */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Nativa Web Studio",
-              "image": "https://nativa.studio/og-image.jpg",
-              "@id": "https://nativa.studio/#website",
-              "url": "https://nativa.studio",
-              "telephone": "+18093588113",
-              "priceRange": "$$",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Av. Winston Churchill",
-                "addressLocality": "Santo Domingo",
-                "addressCountry": "DO"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 18.479,
-                "longitude": -69.939
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "18:00"
-              }
-            })
-          }}
-        />
+        <JsonLd data={organizationGraph()} />
         <GeoProvider>
           {children}
           <WhatsappFunnel />

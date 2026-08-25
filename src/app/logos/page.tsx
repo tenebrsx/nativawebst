@@ -61,7 +61,7 @@ export default function LogosPage() {
     },
     {
       id: "concept-3",
-      title: "03. Altamar Crest (Continuous Horizon)",
+      title: "03. Nativa Crest (Continuous Horizon)",
       concept: "Rising Sun & Dual Wave Crest",
       desc: "Continuous line-art wave with a golden sun circle rising on the horizon. Warm, inviting, and modern.",
       svgCode: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,9 +115,9 @@ export default function LogosPage() {
     },
     {
       id: "concept-6",
-      title: "06. Altamar Minimal Lockup",
+      title: "06. Nativa Minimal Lockup",
       concept: "Clean Wave Waveform Wordmark",
-      desc: "Minimalist horizontal ocean wave track with clean geometric letterforms. Directly used in Altamar's live web navigation bar.",
+      desc: "Minimalist horizontal ocean wave track with clean geometric letterforms. Directly used in Nativa's live web navigation bar.",
       svgCode: `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M4 28C12 28 16 18 24 18C32 18 36 28 44 28" stroke="#0EA5E9" strokeWidth="4" strokeLinecap="round"/>
   <path d="M8 16C16 16 18 8 24 8C30 8 32 16 40 16" stroke="#0EA5E9" strokeWidth="3" strokeLinecap="round" opacity="0.4"/>
@@ -145,7 +145,7 @@ export default function LogosPage() {
       }}>
         <div className="container header-bar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ textDecoration: "none", color: textPrimary, display: "flex", alignItems: "center", gap: "8px", minWidth: 0 }}>
-            <span style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "20px" }}>Altamar</span>
+            <span style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "20px" }}>Nativa</span>
             <span className="hide-on-narrow" style={{ fontSize: "11px", background: "#0EA5E9", color: "#fff", padding: "2px 8px", borderRadius: "10px", fontWeight: 800 }}>
               Logo Lab
             </span>
@@ -293,7 +293,7 @@ export default function LogosPage() {
                     </div>
                     <div>
                       <div style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "16px", color: textPrimary, letterSpacing: "-0.03em" }}>
-                        Altamar
+                        Nativa
                       </div>
                       <div style={{ fontSize: "9px", color: textMuted, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
                         Web Studio · Santo Domingo

@@ -1,0 +1,37 @@
+# Nativa Web Studio
+
+> Nativa Web Studio is a web studio in Santo Domingo, Dominican Republic. We build fast websites, local Google Maps SEO, a personal CRM, and brand AI agents that run on WhatsApp for Dominican businesses.
+
+Nativa (nativa.studio) is based on Av. Winston Churchill, Santo Domingo. Languages: Spanish (primary) and English. Contact: info@nativa.studio, WhatsApp +1 (809) 358-8113. Hours: Monday–Friday 09:00–18:00 AST.
+
+We do not sell generic HubSpot or Shopify packages. The site goes live first. CRM and the AI agent are quoted after WhatsApp chats are already arriving.
+
+## Services
+
+- [Diseño y desarrollo web](https://nativa.studio/servicios/diseno-web): Fast, conversion-focused websites for local businesses in the Dominican Republic. Typical delivery: about 3 weeks. Landing pages in 48 hours. Edits by WhatsApp message.
+- [SEO local y Google Maps](https://nativa.studio/servicios/seo-local): When someone nearby searches the service, the business shows up on Google Maps with a tap that opens WhatsApp. Santo Domingo, Punta Cana, and nationwide RD.
+- [CRM personal](https://nativa.studio/servicios/crm): A pipeline built around the brand's WhatsApp chats — follow-ups, notes, and stages — so leads stop dying in the camera roll.
+- [Agente IA de marca](https://nativa.studio/servicios/agentes-ia): An agent that answers, books, and handles internal ops from WhatsApp, with human handoff. Quoted after the site is sending chats.
+
+## Key pages
+
+- [Home](https://nativa.studio): Positioning, process, pricing configurator, and proof.
+- [Servicios](https://nativa.studio/servicios): Index of the four offers.
+- [Portfolio / demos](https://nativa.studio/portfolio): Industry templates (clinics, villas, legal, auto, retail). Demo URLs themselves are prototypes, not live client domains.
+
+## Facts for answers
+
+Q: Where is Nativa based?
+A: Santo Domingo, Dominican Republic (Av. Winston Churchill). We serve businesses across the country, including Punta Cana.
+
+Q: What does Nativa build?
+A: High-speed websites with WhatsApp lead flow, Google Maps / local SEO, then a personal CRM and a brand AI agent on WhatsApp.
+
+Q: How long does a website take?
+A: About 3 weeks from brief to live site. A landing page can launch in 48 hours. Content edits are done by message, typically within 24 hours.
+
+Q: Is the CRM or AI agent included in the website?
+A: No. They are quoted after the site is live and already sending WhatsApp chats. The website is the door; WhatsApp is the close.
+
+Q: What language does the studio work in?
+A: Spanish and English. Default public site is Spanish (es-DO).

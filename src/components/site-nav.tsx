@@ -35,9 +35,11 @@ export default function SiteNav() {
   }, []);
 
   const links = [
-    { href: "/#services", label: dict.nav.services },
+    { href: "/servicios", label: dict.nav.services },
+    { href: "/#proof", label: dict.nav.proof },
     { href: "/#how-it-works", label: dict.nav.process },
     { href: "/#pricing", label: dict.nav.pricing },
+    { href: "/portfolio", label: dict.nav.portfolio },
   ];
 
   return (
@@ -76,7 +78,7 @@ export default function SiteNav() {
               gap: "4px",
             }}
           >
-            <span className="site-logo">Altamar</span>
+            <span className="site-logo">Nativa</span>
             <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: "var(--coral-blue)", marginTop: "2px", flexShrink: 0 }}>
               <path d="M1 8.5C3.5 8.5 4.5 6 7 6C9.5 6 10.5 8.5 13 8.5C15.5 8.5 16.5 6 18 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
               <path d="M3 3C5.5 3 6.5 0.5 9 0.5C11.5 0.5 12.5 3 15 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
@@ -87,7 +89,7 @@ export default function SiteNav() {
           </div>
         </Link>
 
-        <div className="site-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+        <div className="site-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", justifyContent: "flex-end" }}>
           {links.map((link) => (
             <Link
               key={link.href}

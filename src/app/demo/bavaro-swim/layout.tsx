@@ -288,7 +288,7 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
           <div>Punta Cana Resort &amp; Club · Marina Cap Cana · BlueMall Santo Domingo</div>
           <div style={{ marginTop: "8px" }}>hola@bavaroswim.do · Instagram: @bavaroswim.do</div>
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#D4AF37", fontWeight: 800 }}>
-            Tienda E-Commerce Desarrollada por Altamar Web Studio
+            Tienda E-Commerce Desarrollada por Nativa Web Studio
           </div>
         </div>
       </footer>
@@ -297,7 +297,7 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
       <DemoTopBar
         templateName="Bávaro Swim & Resortwear"
         templateCategory="E-Commerce Multi-Página de Lujo"
-        whatsappMessage="Hola Altamar, vi la tienda multi-página de Bávaro Swim (#bavaro-swim) y deseo cotizar una tienda e-commerce para mi marca."
+        whatsappMessage="Hola Nativa, vi la tienda multi-página de Bávaro Swim (#bavaro-swim) y deseo cotizar una tienda e-commerce para mi marca."
         theme="villas"
       />
 
