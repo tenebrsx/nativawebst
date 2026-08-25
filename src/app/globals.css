@@ -318,10 +318,23 @@ a { text-decoration: none; color: inherit; }
   .brand-strip-container::-webkit-scrollbar {
     display: none !important;
   }
+  /* Store & Portfolio Responsive Grid Tweaks */
+  .store-grid-desktop {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .responsive-two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
 }
 
 @media (max-width: 500px) {
   .hero-grid a.btn {
     width: 100% !important;
   }
+  .container {
+    padding-inline: 16px !important;
+  }
 }
+

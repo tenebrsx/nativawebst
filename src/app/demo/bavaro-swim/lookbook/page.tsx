@@ -53,7 +53,7 @@ export default function BavaroLookbookPage() {
       </div>
 
       {/* Lookbook Gallery */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }} className="responsive-two-col-grid">
         {lookbookShots.map((shot, idx) => (
           <div
             key={idx}

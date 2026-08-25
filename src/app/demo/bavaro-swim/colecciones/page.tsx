@@ -53,7 +53,7 @@ export default function BavaroColeccionesPage() {
       </div>
 
       {/* Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }} className="responsive-two-col-grid">
         {collections.map((col, idx) => (
           <div key={idx} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E4E4E7", boxShadow: "0 6px 24px rgba(0,0,0,0.04)" }}>
             <div style={{ height: "300px", overflow: "hidden", position: "relative" }}>

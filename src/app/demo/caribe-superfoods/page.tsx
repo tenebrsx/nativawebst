@@ -381,7 +381,7 @@ export default function CaribeSuperfoodsDemo() {
       </header>
 
       {/* ─── HERO SECTION ────────────────────────────────────────── */}
-      <section style={{ padding: "80px 24px 60px", maxWidth: "1240px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+      <section style={{ padding: "80px 24px 60px", maxWidth: "1240px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }} className="responsive-two-col-grid">
         <div>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(16, 185, 129, 0.12)", color: "#065F46", padding: "6px 14px", borderRadius: "9999px", fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px" }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -651,7 +651,7 @@ export default function CaribeSuperfoodsDemo() {
 
       {/* ─── "EL CONUCO BOX" SUBSCRIPTION BUILDER ─────────────── */}
       <section id="conuco-box" style={{ background: "#0B2B1B", color: "#F7F4EB", padding: "80px 24px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }} className="responsive-two-col-grid">
           <div>
             <span style={{ background: "rgba(16, 185, 129, 0.2)", color: "#34D399", padding: "4px 12px", borderRadius: "9999px", fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Cesta Orgánica Automatizada

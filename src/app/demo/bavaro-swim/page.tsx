@@ -77,7 +77,7 @@ export default function BavaroSwimHomePage() {
         padding: "100px 32px 80px",
         overflow: "hidden"
       }}>
-        <div style={{ maxWidth: "1240px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div style={{ maxWidth: "1240px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }} className="responsive-two-col-grid">
           <div>
             <span style={{ background: "rgba(212, 175, 55, 0.2)", color: "#D4AF37", padding: "6px 14px", borderRadius: "9999px", fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>
               Colección Verano 2026
