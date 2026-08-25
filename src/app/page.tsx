@@ -307,7 +307,6 @@ export default function Home() {
                     color: "#fff",
                     cursor: "pointer",
                     fontWeight: 700,
-                    cursor: "pointer",
                     textDecoration: "none",
                     transition: "all 0.2s"
                   }}
