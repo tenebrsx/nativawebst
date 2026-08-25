@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DemoTopBar } from "@/components/demo-top-bar";
@@ -11,6 +11,7 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { currency, fmt } = useGeo();
   const { cart, cartOpen, setCartOpen, updateQty, totalDOP, totalUSD } = useBavaroCart();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleWhatsAppCheckout = () => {
     let msg = `Hola Bávaro Swim & Resortwear, deseo realizar la siguiente orden:\n\n`;
@@ -40,7 +41,7 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* ─── STICKY HEADER ────────────────────────────────────────── */}
-      <header style={{
+      <header className="header-bar" style={{
         position: "sticky",
         top: 0,
         zIndex: 99,
@@ -54,11 +55,11 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
         justifyContent: "space-between"
       }}>
         {/* Brand Logo */}
-        <Link href="/demo/bavaro-swim" style={{ textDecoration: "none" }}>
+        <Link href="/demo/bavaro-swim" style={{ textDecoration: "none", minWidth: 0 }}>
           <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 900, color: "#18181B", letterSpacing: "0.08em", lineHeight: "1" }}>
             BÁVARO <span style={{ color: "#D4AF37" }}>SWIM</span>
           </div>
-          <div style={{ fontSize: "9px", fontWeight: 800, color: "#0F766E", letterSpacing: "0.14em", textTransform: "uppercase", marginTop: "4px" }}>
+          <div className="brand-tagline" style={{ fontSize: "9px", fontWeight: 800, color: "#0F766E", letterSpacing: "0.14em", textTransform: "uppercase", marginTop: "4px" }}>
             Resort &amp; Beachwear · Punta Cana
           </div>
         </Link>
@@ -88,8 +89,21 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
         </nav>
 
         {/* Header Right Actions */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          {/* Cart Trigger */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+          <div className="site-nav-mobile">
+            <button
+              type="button"
+              className="nav-hamburger"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              style={{ borderColor: "rgba(24,24,27,0.12)", background: "#FFFFFF" }}
+            >
+              <span style={{ transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
+              <span style={{ opacity: menuOpen ? 0 : 1 }} />
+              <span style={{ transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
+            </button>
+          </div>
           <button
             onClick={() => setCartOpen(true)}
             style={{
@@ -97,7 +111,7 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
               color: "#FAF7F2",
               border: "none",
               borderRadius: "9999px",
-              padding: "9px 20px",
+              padding: "9px 16px",
               fontSize: "12px",
               fontWeight: 800,
               cursor: "pointer",
@@ -116,6 +130,27 @@ function BavaroLayoutInner({ children }: { children: React.ReactNode }) {
           </button>
         </div>
       </header>
+      {menuOpen && (
+        <div className="mobile-nav-drawer" style={{ background: "#FAF7F2", borderBottom: "1px solid rgba(24,24,27,0.08)" }}>
+          {navLinks.map(link => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                color: pathname === link.href ? "#D4AF37" : "#18181B",
+                textDecoration: "none",
+                fontSize: "16px",
+                fontWeight: 800,
+                padding: "12px 0",
+                borderBottom: "1px solid rgba(24,24,27,0.08)"
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
 
       {/* Main Content */}
       <main>

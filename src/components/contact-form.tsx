@@ -5,6 +5,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useEffect } from "react";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
+import { buildContactMessage, openWhatsApp, openWhatsAppFunnel } from "@/lib/whatsapp";
 
 export default function ContactForm() {
   const [mounted, setMounted] = useState(false);
@@ -49,6 +50,14 @@ export default function ContactForm() {
       <p style={{ fontSize: "14px", color: "var(--muted)", lineHeight: "1.7", maxWidth: "320px", margin: "0 auto 24px" }}>
         {dict.success_desc}
       </p>
+      <button
+        type="button"
+        className="btn btn-launch"
+        style={{ width: "100%", marginBottom: "12px" }}
+        onClick={() => openWhatsApp(buildContactMessage({ lang: lang === "en" ? "en" : "es", name: form.name, message: form.message, budget: form.budget }))}
+      >
+        {lang === "es" ? "Seguir ahora por WhatsApp →" : "Continue now on WhatsApp →"}
+      </button>
       <button onClick={() => setStatus("idle")} style={{
         fontSize: "13px", color: "var(--coral-blue)", fontWeight: 600,
         background: "none", border: "none", cursor: "pointer",
@@ -59,7 +68,7 @@ export default function ContactForm() {
   );
 
   return (
-    <form onSubmit={submit} className="card" style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "18px" }}>
+    <form onSubmit={submit} className="card contact-form-card" style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "18px" }}>
       <div>
         <div className="section-label">{dict.label}</div>
         <h3 style={{ fontFamily: "var(--font-head)", fontSize: "22px", fontWeight: 800, color: "var(--navy-trench)", margin: "0 0 4px" }}>
@@ -70,7 +79,7 @@ export default function ContactForm() {
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+      <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
         <div>
           <label style={{ display: "block", fontSize: "12px", fontWeight: 600, fontFamily: "var(--font-head)", marginBottom: "6px", color: "var(--navy-trench)" }}>
             {dict.lbl_name}
@@ -85,7 +94,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+      <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
         <div>
           <label style={{ display: "block", fontSize: "12px", fontWeight: 600, fontFamily: "var(--font-head)", marginBottom: "6px", color: "var(--navy-trench)" }}>
             {dict.lbl_phone}
@@ -132,6 +141,25 @@ export default function ContactForm() {
       <button type="submit" className="btn btn-navy" disabled={status === "loading"}
         style={{ width: "100%", padding: "16px", fontSize: "15px" }}>
         {status === "loading" ? dict.btn_submit_loading : dict.btn_submit_idle}
+      </button>
+
+      <button
+        type="button"
+        onClick={() => openWhatsAppFunnel("contact")}
+        style={{
+          width: "100%",
+          padding: "12px",
+          fontSize: "13px",
+          fontWeight: 800,
+          fontFamily: "var(--font-head)",
+          color: "#128C7E",
+          background: "rgba(37,211,102,0.1)",
+          border: "1.5px solid rgba(37,211,102,0.35)",
+          borderRadius: "var(--radius-sm)",
+          cursor: "pointer",
+        }}
+      >
+        {lang === "es" ? "Más rápido: brief de 20s → WhatsApp" : "Faster: 20s brief → WhatsApp"}
       </button>
 
       <p style={{ fontSize: "11px", color: "var(--gray-400)", textAlign: "center" }}>

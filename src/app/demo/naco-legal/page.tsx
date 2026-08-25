@@ -25,12 +25,12 @@ export default function NacoLegalDemo() {
 
       {/* ─── LEGAL HEADER ───────────────────────────────────────── */}
       <header style={{ background: "#0A1128", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "20px 0", position: "sticky", top: "42px", zIndex: 50 }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="header-bar" style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div>
             <div style={{ fontWeight: 900, fontSize: "20px", letterSpacing: "-0.02em", color: "#ffffff" }}>
               NOLASCO & ALMONTE
             </div>
-            <div style={{ fontSize: "9.5px", color: "#0EA5E9", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+            <div className="brand-tagline" style={{ fontSize: "9.5px", color: "#0EA5E9", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
               ABOGADOS Y ASESORES CORPORATIVOS · SANTO DOMINGO
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function NacoLegalDemo() {
           <h2 style={{ fontSize: "30px", fontWeight: 900, margin: "4px 0" }}>Soluciones Legales Integrales</h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: "24px" }}>
           {practices.map(p => (
             <div key={p.title} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "28px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>🏛️</div>

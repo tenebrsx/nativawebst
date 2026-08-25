@@ -161,7 +161,7 @@ export default function ConstructoraAybarDemo() {
 
       {/* ─── GRUPO AYBAR STICKY BRAND HEADER ───────────────────── */}
       <header style={{ background: "#0A1128", borderBottom: "1px solid #1E293B", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="header-bar" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
           {/* Official Aybar Style Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -174,7 +174,7 @@ export default function ConstructoraAybarDemo() {
               <div style={{ fontWeight: 900, fontSize: "20px", color: "#FFFFFF", letterSpacing: "-0.02em" }}>
                 CONSTRUCTORA <span style={{ color: "#D7A639" }}>AYBAR</span>
               </div>
-              <div style={{ fontSize: "9px", color: "#94A3B8", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+              <div className="brand-tagline" style={{ fontSize: "9px", color: "#94A3B8", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
                 EXCELENCIA EN LA CONSTRUCCIÓN · SANTO DOMINGO
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function ConstructoraAybarDemo() {
 
       {/* ─── HERO SECTION ───────────────────────────────────────── */}
       <section style={{ background: "linear-gradient(180deg, #0A1128 0%, #070B14 100%)", padding: "90px 24px", borderBottom: "1px solid #1E293B" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           <div>
             <span style={{ background: "#1E293B", color: "#D7A639", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 900, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               {t.tag}
@@ -313,7 +313,7 @@ export default function ConstructoraAybarDemo() {
         </div>
 
         {/* Projects Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: "32px" }}>
           {filteredProjects.map(p => (
             <div key={p.id} style={{ background: "#0A1128", border: "1px solid #1E293B", borderRadius: "20px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
               <img src={p.img} alt={p.name} style={{ width: "100%", height: "240px", objectFit: "cover" }} />
@@ -348,7 +348,7 @@ export default function ConstructoraAybarDemo() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "36px", alignItems: "center" }}>
+          <div className="responsive-two-col-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "36px", alignItems: "center" }}>
             
             {/* Config Controls */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -440,7 +440,7 @@ export default function ConstructoraAybarDemo() {
 
       {/* ─── CSR & SOCIAL CAUSE SECTION (Pádel Por Una Causa) ────── */}
       <section id="csr" style={{ padding: "90px 24px", maxWidth: "1280px", margin: "0 auto" }}>
-        <div style={{ background: "#111827", border: "1px solid #1E293B", borderRadius: "24px", padding: "40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ background: "#111827", border: "1px solid #1E293B", borderRadius: "24px", padding: "40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
           <div>
             <span style={{ background: "#D7A639", color: "#0A1128", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 900, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               COMPROMISO SOCIAL CORPORATIVO
@@ -505,7 +505,7 @@ export default function ConstructoraAybarDemo() {
                 <input type="text" placeholder="ej. Grupo Desarrollador Naco SRL" value={contactForm.company} onChange={(e) => setContactForm({ ...contactForm, company: e.target.value })} style={{ width: "100%", padding: "12px", borderRadius: "8px", border: "1px solid #334155", background: "#0A1128", color: "#FFF", fontSize: "13.5px", marginTop: "4px" }} />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div>
                   <label style={{ fontSize: "12px", fontWeight: 800, color: "#CBD5E1" }}>WhatsApp Directo *</label>
                   <input type="tel" required placeholder="809-555-0192" value={contactForm.phone} onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })} style={{ width: "100%", padding: "12px", borderRadius: "8px", border: "1px solid #334155", background: "#0A1128", color: "#FFF", fontSize: "13.5px", marginTop: "4px" }} />

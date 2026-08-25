@@ -4,81 +4,17 @@ import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import PortfolioGrid from "@/components/portfolio-grid";
 import Link from "next/link";
-import { RegionSelector } from "@/components/region-selector";
+import SiteNav from "@/components/site-nav";
 
 export default function PortfolioPage() {
-  const { lang, setLang, currency, setCurrency } = useGeo();
+  const { lang } = useGeo();
   const dict = translations[lang];
   const pageDict = dict.portfolioPage;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
 
-      {/* ─── NAVBAR ──────────────────────────────────────────────── */}
-      <nav style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        background: "var(--bg)",
-        borderBottom: "1px solid var(--border)",
-        boxShadow: "0 1px 8px rgba(10,17,40,0.02)",
-      }}>
-        <div className="container" style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "16px 24px",
-        }}>
-          {/* Logo */}
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <div style={{
-              fontFamily: "var(--font-head)",
-              fontWeight: 900,
-              fontSize: "20px",
-              color: "var(--navy-trench)",
-              letterSpacing: "-0.04em",
-              display: "flex",
-              alignItems: "center",
-              gap: "4px"
-            }}>
-              <span>Altamar</span>
-              <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: "var(--coral-blue)", marginTop: "2px" }}>
-                <path d="M1 8.5C3.5 8.5 4.5 6 7 6C9.5 6 10.5 8.5 13 8.5C15.5 8.5 16.5 6 18 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-                <path d="M3 3C5.5 3 6.5 0.5 9 0.5C11.5 0.5 12.5 3 15 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-              </svg>
-            </div>
-            <div style={{ fontSize: "9px", color: "var(--gray-400)", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700 }}>
-              {lang === "es" ? "Estudio Web · Santo Domingo, RD" : "Web Studio · Santo Domingo, DR"}
-            </div>
-          </Link>
-
-          {/* Nav links / Controls */}
-          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            <Link href="/#services" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)", textDecoration: "none" }}>
-              {dict.nav.services}
-            </Link>
-            <Link href="/#how-it-works" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)", textDecoration: "none" }}>
-              {dict.nav.process}
-            </Link>
-            <Link href="/#pricing" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)", textDecoration: "none" }}>
-              {dict.nav.pricing}
-            </Link>
-            <Link href="/portfolio" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 800, color: "var(--coral-blue)", fontFamily: "var(--font-head)", textDecoration: "none" }}>
-              {dict.nav.portfolio}
-            </Link>
-
-            {/* Language & Currency Controls */}
-            {/* Language & Currency Region Selector */}
-            <div style={{ display: "flex", gap: "10px", alignItems: "center", borderLeft: "1px solid var(--border)", paddingLeft: "16px" }}>
-              <RegionSelector />
-            </div>
-
-            <Link href="/#consultation" className="btn btn-navy" style={{ padding: "10px 20px", fontSize: "13px", textDecoration: "none" }}>
-              {dict.nav.cta}
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* ─── PORTFOLIO HERO ──────────────────────────────────────── */}
       <section style={{
@@ -114,9 +50,9 @@ export default function PortfolioPage() {
           </div>
 
           {/* Proof Stats Counter Strip */}
-          <div style={{
+          <div className="stats-strip" style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
             gap: "20px",
             background: "var(--surface)",
             border: "1.5px solid var(--border)",

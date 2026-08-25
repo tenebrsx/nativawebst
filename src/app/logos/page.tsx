@@ -143,15 +143,15 @@ export default function LogosPage() {
         borderBottom: `1px solid ${border}`,
         padding: "16px 0"
       }}>
-        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/" style={{ textDecoration: "none", color: textPrimary, display: "flex", alignItems: "center", gap: "8px" }}>
+        <div className="container header-bar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ textDecoration: "none", color: textPrimary, display: "flex", alignItems: "center", gap: "8px", minWidth: 0 }}>
             <span style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "20px" }}>Altamar</span>
-            <span style={{ fontSize: "11px", background: "#0EA5E9", color: "#fff", padding: "2px 8px", borderRadius: "10px", fontWeight: 800 }}>
+            <span className="hide-on-narrow" style={{ fontSize: "11px", background: "#0EA5E9", color: "#fff", padding: "2px 8px", borderRadius: "10px", fontWeight: 800 }}>
               Logo Lab
             </span>
           </Link>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", justifyContent: "flex-end" }}>
             {/* Dark / Light Canvas Switcher */}
             <div style={{
               display: "flex",
@@ -234,7 +234,7 @@ export default function LogosPage() {
         <div className="container">
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
             gap: "32px"
           }}>
             {concepts.map((c) => {

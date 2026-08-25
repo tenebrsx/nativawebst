@@ -51,7 +51,7 @@ export default function SDQDentalDemo() {
 
       {/* ─── DENTAL BLU HEADER BAR ──────────────────────────────── */}
       <header style={{ background: "#FFFFFF", borderBottom: "1px solid #E2E8F0", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="header-bar" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
           {/* Custom SVG Vector Dental BLU Brand Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -62,7 +62,7 @@ export default function SDQDentalDemo() {
             </svg>
             <div>
               <div style={{ fontWeight: 900, fontSize: "19px", color: "#0F172A", letterSpacing: "-0.02em" }}>DENTAL BLU</div>
-              <div style={{ fontSize: "9.5px", color: "#1E64C4", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+              <div className="brand-tagline" style={{ fontSize: "9.5px", color: "#1E64C4", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase" }}>
                 HIGHLAND HEIGHTS STANDARD · NACO, SANTO DOMINGO
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function SDQDentalDemo() {
 
       {/* ─── DENTAL BLU HERO SECTION ────────────────────────────── */}
       <section style={{ background: "linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)", padding: "80px 24px", borderBottom: "1px solid #E2E8F0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           <div>
             <span style={{ background: "#DBEAFE", color: "#1E64C4", padding: "4px 12px", borderRadius: "20px", fontSize: "11.5px", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase" }}>
               Cuidado Dental de Confianza · Naco, Santo Domingo
@@ -172,7 +172,7 @@ export default function SDQDentalDemo() {
 
       {/* ─── ABOUT SECTION ("Tu Sonrisa, Nuestra Pasión") ──────── */}
       <section id="about" style={{ padding: "90px 24px", maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           
           {/* Clinic Interior Photo Grid */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
@@ -214,7 +214,7 @@ export default function SDQDentalDemo() {
             <p style={{ fontSize: "15px", color: "#64748B" }}>Profesionales certificados dedicados al cuidado integral de tu salud bucal.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "32px" }}>
             {doctors.map(d => (
               <div key={d.name} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.04)" }}>
                 <img
@@ -270,7 +270,7 @@ export default function SDQDentalDemo() {
         </div>
 
         {/* Services Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 270px), 1fr))", gap: "24px" }}>
           {services[activeTab].map(s => (
             <div key={s.title} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
               <img
@@ -308,7 +308,7 @@ export default function SDQDentalDemo() {
             <h2 style={{ fontSize: "32px", fontWeight: 900, color: "#0F172A", margin: "4px 0" }}>Lo Que Dicen Nuestros Pacientes</h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "28px" }}>
+          <div className="responsive-two-col-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "28px" }}>
             {testimonials.map((t, idx) => (
               <div key={idx} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "32px", boxShadow: "0 6px 20px rgba(0,0,0,0.03)" }}>
                 <div style={{ color: "#F59E0B", fontSize: "16px", fontWeight: 900, marginBottom: "12px" }}>★★★★★</div>

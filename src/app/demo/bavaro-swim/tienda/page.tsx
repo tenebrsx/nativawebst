@@ -176,7 +176,7 @@ export default function BavaroTiendaPage() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))", gap: "24px" }}>
             {sortedProducts.map(product => {
               const selectedSize = selectedSizes[product.id] || product.sizes[0];
               const selectedColor = selectedColors[product.id] || product.colors[0];

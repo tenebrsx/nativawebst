@@ -83,16 +83,16 @@ export default function DemosPlaygroundPage() {
       
       {/* Header */}
       <header style={{ background: "#070B14", borderBottom: "1px solid #1E293B", padding: "20px 0" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <div className="split-header" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", minWidth: 0 }}>
             <span style={{ fontSize: "24px" }}>🎮</span>
             <div>
               <div style={{ fontWeight: 900, fontSize: "18px", color: "#FFFFFF" }}>ALTAMAR DEMO PLAYGROUND</div>
-              <div style={{ fontSize: "10px", color: "#38BDF8", fontWeight: 800, letterSpacing: "0.1em" }}>PLANTILLAS VIVAS EN TIEMPO REAL</div>
+              <div className="brand-tagline" style={{ fontSize: "10px", color: "#38BDF8", fontWeight: 800, letterSpacing: "0.1em" }}>PLANTILLAS VIVAS EN TIEMPO REAL</div>
             </div>
           </Link>
 
-          <div style={{ display: "flex", gap: "12px" }}>
+          <div className="split-header-actions" style={{ display: "flex", gap: "12px" }}>
             <Link href="/" style={{ background: "#1E293B", color: "#FFF", padding: "8px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 800, fontSize: "13px" }}>
               ← Altamar Home
             </Link>
@@ -120,7 +120,7 @@ export default function DemosPlaygroundPage() {
 
       {/* Grid */}
       <section style={{ padding: "80px 24px", maxWidth: "1280px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "28px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))", gap: "28px" }}>
           {demos.map(d => (
             <div key={d.id} style={{ background: "#0F172A", border: "1px solid #1E293B", borderRadius: "20px", padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
               <div>

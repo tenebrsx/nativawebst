@@ -217,15 +217,15 @@ export default function AdsPage() {
         borderBottom: "1px solid rgba(10,17,40,0.1)",
         padding: "16px 0"
       }}>
-        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/" style={{ textDecoration: "none", color: "#0A1128", display: "flex", alignItems: "center", gap: "8px" }}>
+        <div className="container header-bar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ textDecoration: "none", color: "#0A1128", display: "flex", alignItems: "center", gap: "8px", minWidth: 0 }}>
             <span style={{ fontFamily: "var(--font-head)", fontWeight: 900, fontSize: "20px" }}>Altamar</span>
-            <span style={{ fontSize: "11px", background: "#FFB703", color: "#0A1128", padding: "2px 8px", borderRadius: "10px", fontWeight: 800 }}>
+            <span className="hide-on-narrow" style={{ fontSize: "11px", background: "#FFB703", color: "#0A1128", padding: "2px 8px", borderRadius: "10px", fontWeight: 800 }}>
               Instagram Ad Studio
             </span>
           </Link>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
             {/* Ad Language Switcher */}
             <div style={{
               display: "flex",
@@ -353,7 +353,7 @@ export default function AdsPage() {
         <div className="container">
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",
             gap: "36px"
           }}>
             {ads.map((ad, idx) => {

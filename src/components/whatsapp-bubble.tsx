@@ -64,12 +64,13 @@ export default function WhatsappBubble() {
 
   return (
     <div style={{
-      width: "280px",
+      width: "100%",
+      maxWidth: "280px",
       background: "#111b21",
       borderRadius: "20px",
       overflow: "hidden",
       boxShadow: "0 20px 60px rgba(15,23,42,0.15)",
-      flexShrink: 0,
+      flexShrink: 1,
     }}>
       {/* Header */}
       <div style={{

@@ -17,7 +17,7 @@ export default function JargonCards() {
           <div
             key={i}
             onClick={() => setFlipped(open ? null : i)}
-            className="card card-hover"
+            className="card card-hover card-shine"
             style={{
               padding: "20px 24px",
               cursor: "pointer",

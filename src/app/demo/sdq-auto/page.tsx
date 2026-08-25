@@ -148,7 +148,7 @@ export default function SDQAutoDemo() {
 
       {/* ─── BRAND HEADER ───────────────────────────────────────── */}
       <header style={{ background: "#0F172A", borderBottom: "1px solid #1E293B", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="header-bar" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
           {/* Logo Mark */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -161,7 +161,7 @@ export default function SDQAutoDemo() {
               <div style={{ fontWeight: 900, fontSize: "21px", color: "#FFFFFF", letterSpacing: "-0.03em" }}>
                 REPÚBLICA <span style={{ color: "#FFC72C" }}>FLEET & AUTO</span>
               </div>
-              <div style={{ fontSize: "9.5px", color: "#94A3B8", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+              <div className="brand-tagline" style={{ fontSize: "9.5px", color: "#94A3B8", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
                 MIDAS STANDARD · SANTO DOMINGO & PUNTA CANA
               </div>
             </div>
@@ -238,7 +238,7 @@ export default function SDQAutoDemo() {
 
       {/* ─── HERO SECTION ───────────────────────────────────────── */}
       <section style={{ background: "linear-gradient(180deg, #0F172A 0%, #080C14 100%)", padding: "80px 24px", borderBottom: "1px solid #1E293B" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           <div>
             <span style={{ background: "#1E293B", color: "#FFC72C", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: 900, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               SERVICIOS AUTOMOTRICES DE NIVEL INTERNACIONAL
@@ -314,7 +314,7 @@ export default function SDQAutoDemo() {
           <h2 style={{ fontSize: "34px", fontWeight: 900, color: "#FFFFFF", margin: "4px 0" }}>Selecciona Tu Sucursal Cercana</h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "20px" }}>
           {branches.map(b => (
             <div
               key={b.id}
@@ -384,7 +384,7 @@ export default function SDQAutoDemo() {
           </div>
 
           {/* Services Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: "24px" }}>
             {filteredServices.map(s => {
               const isChecked = selectedServices.includes(s.id);
               return (
@@ -464,7 +464,7 @@ export default function SDQAutoDemo() {
         </div>
 
         {/* Tire Cards Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "24px" }}>
           {tireCatalog.map(t => {
             const isChecked = selectedTires.includes(t.id);
             return (
@@ -623,7 +623,7 @@ export default function SDQAutoDemo() {
 
       {/* ─── COMMERCIAL FLEETS SECTION ─────────────────────────── */}
       <section id="fleet" style={{ padding: "90px 24px", maxWidth: "1280px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
           <div>
             <span style={{ color: "#FFC72C", fontSize: "11px", fontWeight: 900, letterSpacing: "0.15em", textTransform: "uppercase" }}>
               CUENTAS CORPORATIVAS & FLOTAS

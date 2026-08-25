@@ -25,12 +25,12 @@ export default function PuntaCanaVillasDemo() {
 
       {/* ─── VILLA HEADER ───────────────────────────────────────── */}
       <header style={{ background: "#ffffff", borderBottom: "1px solid #E2E8F0", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="header-bar" style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div>
             <div style={{ fontWeight: 900, fontSize: "20px", fontFamily: "serif", letterSpacing: "0.05em", color: "#0A1128" }}>
               PUNTA CANA COASTAL ESCAPES
             </div>
-            <div style={{ fontSize: "9px", color: "#0EA5E9", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+            <div className="brand-tagline" style={{ fontSize: "9px", color: "#0EA5E9", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
               LUXURY VACATION VILLA COLLECTION
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function PuntaCanaVillasDemo() {
           <h2 style={{ fontFamily: "serif", fontSize: "32px", margin: "4px 0" }}>Villas Destacadas</h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "28px" }}>
           {villas.map(v => (
             <div key={v.name} style={{ background: "#ffffff", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.04)" }}>
               <div style={{ background: "#E2E8F0", height: "180px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "64px" }}>

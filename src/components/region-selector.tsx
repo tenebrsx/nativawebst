@@ -45,7 +45,7 @@ export function RegionSelector() {
         }}
       >
         <span>{flagEmoji}</span>
-        <span>{currency === "DOP" ? "RD$ DOP" : "$ USD"}</span>
+        <span>{currency === "DOP" ? <><span className="region-prefix">RD$ </span>DOP</> : <><span className="region-prefix">$ </span>USD</>}</span>
         <span style={{ color: "var(--coral-blue)", opacity: 0.6 }}>•</span>
         <span style={{ textTransform: "uppercase" }}>{lang}</span>
         <svg
@@ -65,11 +65,11 @@ export function RegionSelector() {
 
       {/* Dropdown Modal */}
       {open && (
-        <div style={{
+        <div className="region-dropdown" style={{
           position: "absolute",
           top: "calc(100% + 8px)",
           right: 0,
-          width: "280px",
+          width: "min(280px, calc(100vw - 24px))",
           background: "#FFFFFF",
           border: "1px solid rgba(0, 0, 0, 0.12)",
           borderRadius: "14px",

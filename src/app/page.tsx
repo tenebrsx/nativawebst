@@ -2,175 +2,105 @@
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import WhatsappBubble from "@/components/whatsapp-bubble";
-import JargonCards from "@/components/jargon-cards";
 import PricingBuilder from "@/components/pricing-builder";
-import ContactForm from "@/components/contact-form";
 import SailingRoadmap from "@/components/sailing-roadmap";
-import { RegionSelector } from "@/components/region-selector";
+import SiteNav from "@/components/site-nav";
+import Reveal from "@/components/reveal";
+import {
+  BrandMarquee,
+  CountStat,
+  HeroAtmosphere,
+  HorizonHalo,
+  PointerGlow,
+  ServiceGlyph,
+} from "@/components/home-visuals";
+import { openWhatsAppFunnel } from "@/lib/whatsapp";
+
+const PARTNERS = [
+  "SDQ Dental Care",
+  "Punta Cana Real Estate",
+  "Zona Colonial Tours",
+  "Naco Law Group",
+  "Las Terrenas Rentals",
+  "Bávaro Swim",
+  "Café Terrenas",
+];
 
 export default function Home() {
-  const { lang, setLang, currency, setCurrency } = useGeo();
+  const { lang } = useGeo();
   const dict = translations[lang];
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
-
-      {/* ─── NAVBAR ──────────────────────────────────────────────── */}
-      <nav style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        background: "var(--bg)",
-        borderBottom: "1px solid var(--border)",
-        boxShadow: "0 1px 8px rgba(10,17,40,0.02)",
-      }}>
-        <div className="container" style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "16px 24px",
-        }}>
-          {/* Logo */}
-          <div>
-            <div style={{
-              fontFamily: "var(--font-head)",
-              fontWeight: 900,
-              fontSize: "20px",
-              color: "var(--navy-trench)",
-              letterSpacing: "-0.04em",
-              display: "flex",
-              alignItems: "center",
-              gap: "4px"
-            }}>
-              <span>Altamar</span>
-              <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: "var(--coral-blue)", marginTop: "2px" }}>
-                <path d="M1 8.5C3.5 8.5 4.5 6 7 6C9.5 6 10.5 8.5 13 8.5C15.5 8.5 16.5 6 18 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-                <path d="M3 3C5.5 3 6.5 0.5 9 0.5C11.5 0.5 12.5 3 15 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-              </svg>
-            </div>
-            <div style={{ fontSize: "9px", color: "var(--gray-400)", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700 }}>
-              {lang === "es" ? "Estudio Web · Santo Domingo, RD" : "Web Studio · Santo Domingo, DR"}
-            </div>
-          </div>
-
-          {/* Nav links / Controls */}
-          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            <a href="#services" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)" }}>
-              {dict.nav.services}
-            </a>
-            <a href="#how-it-works" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)" }}>
-              {dict.nav.process}
-            </a>
-            <a href="#pricing" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)" }}>
-              {dict.nav.pricing}
-            </a>
-            <a href="/portfolio" className="nav-link-desktop" style={{ fontSize: "13px", fontWeight: 700, color: "var(--muted)", fontFamily: "var(--font-head)" }}>
-              {dict.nav.portfolio}
-            </a>
-
-            {/* Language & Currency Region Selector */}
-            <div style={{ display: "flex", gap: "10px", alignItems: "center", borderLeft: "1px solid var(--border)", paddingLeft: "16px" }}>
-              <RegionSelector />
-            </div>
-
-            <a href="#consultation" className="btn btn-navy" style={{ padding: "10px 20px", fontSize: "13px" }}>
-              {dict.nav.cta}
-            </a>
-          </div>
-        </div>
-      </nav>
+    <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative" }}>
+      <PointerGlow />
+      <SiteNav />
 
       {/* ─── HERO ────────────────────────────────────────────────── */}
-      <section style={{
-        background: "var(--bg)",
-        borderBottom: "1px solid var(--border)",
-        padding: "90px 0 70px",
-      }}>
+      <section className="hero-section">
+        <HeroAtmosphere />
         <div className="container">
-          {/* Micro Tagline */}
-          <div style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            background: "var(--coral-light)",
-            borderRadius: "100px",
-            padding: "6px 16px",
-            marginBottom: "32px",
-            border: "1px solid rgba(14,165,233,0.15)"
-          }}>
-            <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--coral-blue)", fontFamily: "var(--font-head)", letterSpacing: "0.05em" }}>
+          <div className="hero-badge hero-in">
+            <span className="live-dot" />
+            <span className="hero-badge-kicker">
               {dict.hero.badge_label}
             </span>
-            <span style={{ fontSize: "12px", color: "var(--navy-trench)", fontWeight: 600 }}>
+            <span className="hero-badge-sub">
               {dict.hero.badge_sub}
             </span>
           </div>
 
-          <div style={{
+          <div className="hero-grid" style={{
             display: "grid",
             gridTemplateColumns: "1fr auto",
             gap: "60px",
             alignItems: "center",
-          }} className="hero-grid">
-            {/* Left Column */}
-            <div style={{ maxWidth: "620px" }}>
-              <h1 style={{
-                fontSize: "clamp(2.4rem, 5vw, 3.5rem)",
-                fontWeight: 900,
-                lineHeight: 1.15,
-                letterSpacing: "-0.03em",
-                color: "var(--navy-trench)",
-                marginBottom: "20px",
-              }}>
+          }}>
+            <div style={{ maxWidth: "620px", width: "100%" }}>
+              <h1 className="hero-title hero-in hero-in-d2">
                 {dict.hero.title_1}<br />
                 <span className="wave-accent">{dict.hero.title_2}</span><br />
                 {dict.hero.title_3}
               </h1>
 
-              <p style={{
-                fontSize: "17px",
-                color: "var(--muted)",
-                lineHeight: "1.75",
-                marginBottom: "36px",
-                maxWidth: "500px",
-              }}>
+              <p className="hero-lede hero-in hero-in-d3">
                 {dict.hero.desc}
               </p>
 
-              {/* CTAs: Sun Yellow ONLY for "Launch the Ship" primary */}
-              <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginBottom: "40px" }}>
-                <a href="#consultation" className="btn btn-launch" style={{ fontSize: "15px", padding: "16px 32px" }}>
+              <div className="hero-ctas hero-in hero-in-d4">
+                <button
+                  type="button"
+                  className="btn btn-launch"
+                  style={{ fontSize: "15px", padding: "16px 32px" }}
+                  onClick={() => openWhatsAppFunnel("hero")}
+                >
                   {dict.hero.cta_launch}
-                </a>
+                </button>
                 <a href="#pricing" className="btn btn-outline" style={{ fontSize: "15px", padding: "14.5px 30.5px" }}>
                   {dict.hero.cta_price}
                 </a>
               </div>
+              <p className="hero-proof hero-in hero-in-d4">{dict.hero.proof}</p>
 
-              {/* Trust stats */}
-              <div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
+              <div className="hero-stats hero-in hero-in-d5" style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
                 {[
                   { num: dict.hero.stat_delivery, label: dict.hero.stat_delivery_lbl },
                   { num: dict.hero.stat_brands, label: dict.hero.stat_brands_lbl },
                   { num: dict.hero.stat_updates, label: dict.hero.stat_updates_lbl },
                 ].map(s => (
-                  <div key={s.label}>
-                    <div style={{ fontFamily: "var(--font-head)", fontWeight: 800, fontSize: "22px", color: "var(--navy-trench)" }}>
-                      {s.num}
-                    </div>
-                    <div style={{ fontSize: "12px", color: "var(--gray-400)", fontWeight: 600 }}>{s.label}</div>
-                  </div>
+                  <CountStat key={s.label} value={s.num} label={s.label} />
                 ))}
               </div>
             </div>
 
-            {/* Right Column (WhatsApp Simulator) */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
-              <WhatsappBubble />
-              <a
-                href={`https://wa.me/18093588113?text=${encodeURIComponent(lang === "es" ? "¡Hola Nativa! Me interesa programar un sitio web para mi negocio." : "Hi Nativa! I'm interested in building a website for my business.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="hero-in hero-in-d6" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+              <HorizonHalo>
+                <div className="float-phone">
+                  <WhatsappBubble />
+                </div>
+              </HorizonHalo>
+              <button
+                type="button"
+                onClick={() => openWhatsAppFunnel("hero-phone")}
                 style={{
                   fontSize: "11.5px",
                   color: "var(--gray-muted)",
@@ -180,78 +110,109 @@ export default function Home() {
                   textDecoration: "underline",
                   textUnderlineOffset: "3px",
                   cursor: "pointer",
-                  transition: "color 0.2s"
+                  background: "none",
+                  border: "none",
+                  position: "relative",
+                  zIndex: 1,
                 }}
               >
                 {dict.hero.whatsapp_footer}
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* ─── BRAND STRIP ────────────────────────────────────────── */}
-      <section style={{ background: "var(--gray-foam)", borderBottom: "1px solid var(--border)", padding: "24px 0", overflow: "hidden" }}>
+      <section style={{ background: "var(--gray-foam)", borderBottom: "1px solid var(--border)", padding: "22px 0", overflow: "hidden" }}>
         <div className="container">
-          <div className="brand-strip-container">
-            <span style={{ fontSize: "11px", color: "var(--gray-400)", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", flexShrink: 0 }}>
-              {dict.partners.label}
-            </span>
-            {["SDQ Dental Care", "Punta Cana Real Estate", "Zona Colonial Tours", "Naco Law Group", "Las Terrenas Rentals"].map(n => (
-              <span key={n} style={{
-                fontSize: "13px", fontWeight: 700, color: "var(--navy-trench)", opacity: 0.6,
-                fontFamily: "var(--font-head)", flexShrink: 0
-              }}>{n}</span>
-            ))}
-          </div>
+          <BrandMarquee label={dict.partners.label} names={PARTNERS} />
         </div>
       </section>
 
       {/* ─── SERVICES ────────────────────────────────────────────── */}
       <section id="services" style={{ padding: "90px 0", background: "var(--bg)", borderBottom: "1px solid var(--border)" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+          <Reveal style={{ textAlign: "center", marginBottom: "56px" }}>
             <div className="section-label">{dict.services.label}</div>
             <h2 className="section-title">{dict.services.title}</h2>
             <p className="section-sub" style={{ margin: "0 auto" }}>
               {dict.services.sub}
             </p>
-          </div>
+          </Reveal>
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
             gap: "24px",
           }}>
-            {dict.services.items.map(s => (
-              <div key={s.title} className="card card-hover" style={{ padding: "32px", background: "var(--white)", borderColor: "var(--border)" }}>
-                <h3 style={{ fontFamily: "var(--font-head)", fontSize: "16px", fontWeight: 800, color: "var(--navy-trench)", marginBottom: "10px" }}>
-                  {s.title}
-                </h3>
-                <p style={{ fontSize: "14px", lineHeight: "1.65", color: "var(--muted)" }}>{s.desc}</p>
-              </div>
+            {dict.services.items.map((s, i) => (
+              <Reveal key={s.title} delay={i * 70}>
+                <button
+                  type="button"
+                  className="card card-hover card-shine"
+                  onClick={() => openWhatsAppFunnel("services")}
+                  style={{ padding: "32px", background: "var(--white)", borderColor: "var(--border)", height: "100%", textAlign: "left", cursor: "pointer", width: "100%" }}
+                >
+                  <ServiceGlyph icon={s.icon} title={s.title} />
+                  <h3 style={{ fontFamily: "var(--font-head)", fontSize: "16px", fontWeight: 800, color: "var(--navy-trench)", marginBottom: "10px" }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontSize: "14px", lineHeight: "1.65", color: "var(--muted)" }}>{s.desc}</p>
+                </button>
+              </Reveal>
             ))}
           </div>
+
+          <Reveal delay={80}>
+            <div id="stack" style={{ marginTop: "48px", padding: "28px", background: "var(--gray-foam)", borderRadius: "var(--radius-lg)", border: "1px solid var(--border)" }}>
+              <div className="section-label" style={{ marginBottom: "8px" }}>{dict.services.stack_label}</div>
+              <p style={{ fontSize: "14px", color: "var(--muted)", marginBottom: "20px", maxWidth: "560px" }}>{dict.services.stack_sub}</p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))", gap: "16px" }}>
+                {dict.services.stack.map((s) => (
+                  <button
+                    key={s.title}
+                    type="button"
+                    className="card card-hover"
+                    onClick={() => openWhatsAppFunnel("stack", s.need)}
+                    style={{ padding: "22px", textAlign: "left", cursor: "pointer", width: "100%", background: "var(--white)" }}
+                  >
+                    <ServiceGlyph icon={s.icon} title={s.title} />
+                    <h3 style={{ fontFamily: "var(--font-head)", fontSize: "15px", fontWeight: 800, color: "var(--navy-trench)", marginBottom: "8px" }}>{s.title}</h3>
+                    <p style={{ fontSize: "13px", color: "var(--muted)", lineHeight: 1.6 }}>{s.desc}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ─── PROCESS (3 STEPS) ────────────────────────────────────── */}
       <SailingRoadmap />
 
-      {/* ─── JARGON TRANSLATOR ───────────────────────────────────── */}
-      <section style={{ padding: "90px 0", background: "var(--bg)", borderBottom: "1px solid var(--border)" }}>
+      <section style={{ padding: "90px 0", background: "var(--gray-foam)", borderBottom: "1px solid var(--border)" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }} className="jargon-grid">
-            <div>
-              <div className="section-label">{dict.jargon.label}</div>
-              <h2 className="section-title">
-                {dict.jargon.title}
-              </h2>
-              <p className="section-sub">
-                {dict.jargon.sub}
-              </p>
-            </div>
-            <JargonCards />
+          <Reveal style={{ textAlign: "center", marginBottom: "48px" }}>
+            <div className="section-label">{dict.proof.label}</div>
+            <h2 className="section-title">{dict.proof.title}</h2>
+            <p className="section-sub" style={{ margin: "0 auto" }}>{dict.proof.sub}</p>
+          </Reveal>
+          <div className="proof-grid">
+            {dict.proof.items.map((item, i) => (
+              <Reveal key={item.tag} delay={i * 80}>
+                <button
+                  type="button"
+                  className="card card-hover"
+                  onClick={() => openWhatsAppFunnel("proof")}
+                  style={{ padding: "28px", height: "100%", textAlign: "left", width: "100%", cursor: "pointer" }}
+                >
+                  <div className="section-label" style={{ marginBottom: "10px" }}>{item.tag}</div>
+                  <h3 style={{ fontFamily: "var(--font-head)", fontSize: "18px", fontWeight: 800, marginBottom: "10px" }}>{item.title}</h3>
+                  <p style={{ fontSize: "14px", color: "var(--muted)", lineHeight: 1.65 }}>{item.body}</p>
+                </button>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -259,52 +220,36 @@ export default function Home() {
       {/* ─── PRICING CONFIGURATOR ────────────────────────────────── */}
       <section id="pricing" style={{ padding: "90px 0", background: "var(--bg)", borderBottom: "1px solid var(--border)" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+          <Reveal style={{ textAlign: "center", marginBottom: "56px" }}>
             <div className="section-label">{dict.pricing.label}</div>
             <h2 className="section-title">{dict.pricing.title}</h2>
             <p className="section-sub" style={{ margin: "0 auto" }}>
               {dict.pricing.sub}
             </p>
-          </div>
+          </Reveal>
           <PricingBuilder />
         </div>
       </section>
 
       {/* ─── CONTACT FORM ────────────────────────────────────────── */}
       <section id="consultation" style={{ padding: "90px 0", background: "var(--bg)" }}>
-        <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }} className="contact-grid">
-            {/* Left */}
-            <div>
-              <div className="section-label">{dict.contact.label}</div>
-              <h2 className="section-title">
-                {dict.contact.title}
-              </h2>
-              <p style={{ fontSize: "15px", color: "var(--muted)", lineHeight: "1.75", marginBottom: "36px" }}>
-                {dict.contact.desc}
-              </p>
-
-              {/* Specs Checklists (using clean typographic bullets) */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {[
-                  dict.contact.bullet_1,
-                  dict.contact.bullet_2,
-                  dict.contact.bullet_3,
-                  dict.contact.bullet_4,
-                ].map((text) => {
-                  return (
-                    <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                      <span style={{ fontSize: "15px", flexShrink: 0, color: "var(--coral-blue)", fontWeight: 900 }}>—</span>
-                      <span style={{ fontSize: "14px", color: "var(--muted)", lineHeight: "1.6" }}>{text}</span>
-                    </div>
-                  );
-                })}
-              </div>
+        <div className="container" style={{ maxWidth: "760px" }}>
+          <Reveal style={{ textAlign: "center" }}>
+            <div className="section-label">{dict.contact.label}</div>
+            <h2 className="section-title">{dict.contact.title}</h2>
+            <p className="section-sub" style={{ margin: "0 auto 36px" }}>{dict.contact.desc}</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px", textAlign: "left", marginBottom: "32px" }}>
+              {[dict.contact.bullet_1, dict.contact.bullet_2, dict.contact.bullet_3, dict.contact.bullet_4].map((text, i) => (
+                <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                  <span style={{ fontFamily: "var(--font-head)", fontWeight: 800, color: "var(--coral-blue)", fontSize: "13px", flexShrink: 0 }}>{String(i + 1).padStart(2, "0")}</span>
+                  <span style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.6 }}>{text}</span>
+                </div>
+              ))}
             </div>
-
-            {/* Right Form */}
-            <ContactForm />
-          </div>
+            <button type="button" className="btn btn-launch" style={{ padding: "16px 32px", fontSize: "15px" }} onClick={() => openWhatsAppFunnel("close")}>
+              {dict.contact.cta}
+            </button>
+          </Reveal>
         </div>
       </section>
 
@@ -347,10 +292,9 @@ export default function Home() {
                   : "High-performance web platforms engineered locally in Santo Domingo to scale worldwide businesses."}
               </p>
               <div style={{ display: "flex", gap: "12px" }}>
-                <a
-                  href="https://wa.me/18093588113"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => openWhatsAppFunnel("footer")}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -361,6 +305,7 @@ export default function Home() {
                     padding: "8px 16px",
                     fontSize: "12.5px",
                     color: "#fff",
+                    cursor: "pointer",
                     fontWeight: 700,
                     cursor: "pointer",
                     textDecoration: "none",
@@ -368,7 +313,7 @@ export default function Home() {
                   }}
                 >
                   WhatsApp
-                </a>
+                </button>
               </div>
             </div>
 
@@ -381,9 +326,6 @@ export default function Home() {
                 <li><a href="#services" style={{ transition: "color 0.2s" }}>{dict.nav.services}</a></li>
                 <li><a href="#how-it-works" style={{ transition: "color 0.2s" }}>{dict.nav.process}</a></li>
                 <li><a href="#pricing" style={{ transition: "color 0.2s" }}>{dict.nav.pricing}</a></li>
-                <li><a href="/portfolio" style={{ transition: "color 0.2s" }}>{dict.nav.portfolio}</a></li>
-                <li><a href="/logos" style={{ transition: "color 0.2s" }}>Logos Lab</a></li>
-                <li><a href="/ads" style={{ transition: "color 0.2s" }}>Instagram Ads</a></li>
                 <li><a href="#consultation" style={{ transition: "color 0.2s" }}>{dict.nav.cta}</a></li>
               </ul>
             </div>

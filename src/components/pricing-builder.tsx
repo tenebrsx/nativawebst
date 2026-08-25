@@ -2,14 +2,17 @@
 import { useState, useMemo } from "react";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
+import { buildQuoteMessage, openWhatsApp } from "@/lib/whatsapp";
 
 type Tier = "starter" | "standard" | "growth";
 
 const ADDON_IDS = ["seo", "brand", "whatsapp", "bilingual"] as const;
+const STACK_IDS = ["crm", "agent"] as const;
 
 export default function PricingBuilder() {
   const [tier, setTier]     = useState<Tier>("standard");
   const [addons, setAddons] = useState<Set<string>>(new Set());
+  const [stack, setStack] = useState<Set<string>>(new Set());
   const [support, setSupport] = useState(false);
 
   const { lang, fmt } = useGeo();
@@ -33,6 +36,15 @@ export default function PricingBuilder() {
 
   const toggleAddon = (id: string) => {
     setAddons(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleStack = (id: string) => {
+    setStack(prev => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
       else next.add(id);
@@ -214,6 +226,48 @@ export default function PricingBuilder() {
           </div>
         </div>
 
+        <div>
+          <h3 style={{
+            fontFamily: "var(--font-head)",
+            fontSize: "18px",
+            fontWeight: 800,
+            color: "var(--navy-trench)",
+            marginBottom: "6px",
+          }}>
+            <span style={{ color: "var(--coral-blue)" }}>04</span> {lang === "es" ? "Stack (después de la web)" : "Stack (after the site)"}
+          </h3>
+          <p style={{ fontSize: "14px", color: "var(--muted)", marginBottom: "20px" }}>
+            {lang === "es"
+              ? "No se cobra aquí. Marcamos interés y lo cotizamos cuando el sitio ya manda chats."
+              : "Not billed here. We flag interest and quote once the site is sending chats."}
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="addons-grid">
+            {STACK_IDS.map((id) => {
+              const active = stack.has(id);
+              const val = dict.addons[id];
+              return (
+                <div
+                  key={id}
+                  onClick={() => toggleStack(id)}
+                  className="card-hover"
+                  style={{
+                    border: `1.5px solid ${active ? "var(--coral-blue)" : "var(--border)"}`,
+                    borderRadius: "var(--radius)",
+                    padding: "20px",
+                    background: active ? "var(--coral-light)" : "var(--white)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div style={{ fontFamily: "var(--font-head)", fontWeight: 700, fontSize: "14px", color: "var(--navy-trench)", marginBottom: "4px" }}>
+                    {val.label}
+                  </div>
+                  <p style={{ fontSize: "12px", color: "var(--muted)", lineHeight: "1.5" }}>{val.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Support Plan */}
         <div>
           <h3 style={{
@@ -234,6 +288,7 @@ export default function PricingBuilder() {
 
           <div
             onClick={() => setSupport(!support)}
+            className="card-hover support-plan-row"
             style={{
               border: `1.5px solid ${support ? "var(--coral-blue)" : "var(--border)"}`,
               borderRadius: "var(--radius)",
@@ -245,7 +300,6 @@ export default function PricingBuilder() {
               gap: "20px",
               transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)"
             }}
-            className="card-hover"
           >
             <div style={{
               width: "20px",
@@ -348,6 +402,17 @@ export default function PricingBuilder() {
             </>
           )}
 
+          {STACK_IDS.filter((id) => stack.has(id)).map((id) => (
+            <div key={id} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+              <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", maxWidth: "200px" }}>
+                + {dict.addons[id].label}
+              </span>
+              <span style={{ fontFamily: "var(--font-head)", fontWeight: 700, fontSize: "12px", color: "var(--sun-yellow)" }}>
+                {lang === "es" ? "A cotizar" : "To quote"}
+              </span>
+            </div>
+          ))}
+
         </div>
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", margin: "32px 0 24px" }} />
@@ -386,16 +451,30 @@ export default function PricingBuilder() {
           )}
         </div>
 
-        {/* Main CTA button: Sun Yellow */}
-        <a href="#consultation" className="btn btn-launch" style={{
-          width: "100%",
-          padding: "16px",
-          borderRadius: "var(--radius-sm)",
-          fontSize: "14px",
-          textAlign: "center"
-        }}>
-          {dict.cta}
-        </a>
+        <button
+          type="button"
+          className="btn btn-launch"
+          style={{
+            width: "100%",
+            padding: "16px",
+            borderRadius: "var(--radius-sm)",
+            fontSize: "14px",
+            textAlign: "center"
+          }}
+          onClick={() => {
+            openWhatsApp(buildQuoteMessage({
+              lang: lang === "en" ? "en" : "es",
+              tierName: dict.tiers[tier].name,
+              addonLabels: ADDON_IDS.filter((id) => addons.has(id)).map((id) => dict.addons[id].label),
+              stackLabels: STACK_IDS.filter((id) => stack.has(id)).map((id) => dict.addons[id].label),
+              support,
+              oneTime: fmt(totalOneTime),
+              monthly: `${fmt(supportPrice)}${dict.monthly_suffix}`,
+            }));
+          }}
+        >
+          {lang === "es" ? "Enviar este presupuesto por WhatsApp →" : "Send this quote on WhatsApp →"}
+        </button>
         <p style={{
           fontSize: "11px",
           color: "rgba(255,255,255,0.4)",

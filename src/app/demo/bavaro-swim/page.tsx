@@ -150,7 +150,7 @@ export default function BavaroSwimHomePage() {
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "28px" }}>
           {[
             {
               title: "Trajes de Baño UV50+",
@@ -221,7 +221,7 @@ export default function BavaroSwimHomePage() {
             </Link>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))", gap: "24px" }}>
             {swimProducts.map(product => {
               const selectedSize = selectedSizes[product.id] || product.sizes[0];
               const selectedColor = selectedColors[product.id] || product.colors[0];
@@ -333,7 +333,7 @@ export default function BavaroSwimHomePage() {
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "24px" }}>
           {[
             { name: "Punta Cana Resort & Club", loc: "Galerías Puntacana, Local 12", hours: "Lun - Dom: 9:00 AM - 8:00 PM" },
             { name: "Marina Cap Cana", loc: "Paseo del Puerto, Cap Cana", hours: "Lun - Dom: 10:00 AM - 9:00 PM" },

@@ -323,7 +323,7 @@ export default function CaribeSuperfoodsDemo() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between"
-      }}>
+      }} className="header-bar">
         {/* Brand Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ background: "#10B981", color: "#FFFFFF", width: "32px", height: "32px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -336,7 +336,7 @@ export default function CaribeSuperfoodsDemo() {
             <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 900, color: "#0B2B1B", letterSpacing: "0.02em", lineHeight: "1" }}>
               CARIBE SUPERFOODS
             </div>
-            <div style={{ fontSize: "9.5px", fontWeight: 800, color: "#10B981", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "3px" }}>
+            <div className="brand-tagline" style={{ fontSize: "9.5px", fontWeight: 800, color: "#10B981", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "3px" }}>
               Constanza & Jarabacoa · 100% Orgánico
             </div>
           </div>
@@ -435,7 +435,7 @@ export default function CaribeSuperfoodsDemo() {
           </div>
 
           {/* Key Metrics */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginTop: "40px", paddingTop: "24px", borderTop: "1px solid rgba(11, 43, 27, 0.12)" }}>
+          <div className="responsive-three-col-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginTop: "40px", paddingTop: "24px", borderTop: "1px solid rgba(11, 43, 27, 0.12)" }}>
             <div>
               <div style={{ fontSize: "20px", fontWeight: 900, color: "#10B981" }}>1,200m</div>
               <div style={{ fontSize: "11px", color: "#64748B", fontWeight: 700 }}>Altitud en Constanza</div>
@@ -529,7 +529,7 @@ export default function CaribeSuperfoodsDemo() {
         </div>
 
         {/* Products Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 270px), 1fr))", gap: "24px" }}>
           {filteredProducts.map(product => {
             const plan = selectedPlan[product.id] || "subscription";
             return (
@@ -835,7 +835,7 @@ export default function CaribeSuperfoodsDemo() {
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+        <div className="responsive-two-col-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
           {/* Farm 1: Constanza */}
           <div style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0", boxShadow: "0 6px 24px rgba(0,0,0,0.04)" }}>
             <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Finca Constanza" style={{ width: "100%", height: "240px", objectFit: "cover" }} />

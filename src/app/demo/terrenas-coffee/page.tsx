@@ -184,10 +184,10 @@ export default function TerrenasCoffeeDemo() {
 
       {/* ─── STICKY HEADER ──────────────────────────────────────── */}
       <header style={{ borderBottom: "1px solid #E5DEC9", padding: "18px 0", position: "sticky", top: "54px", background: "rgba(253, 251, 247, 0.95)", backdropFilter: "blur(12px)", zIndex: 50 }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="header-bar" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           
           {/* Left Nav */}
-          <div style={{ display: "flex", gap: "24px", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif", fontSize: "13px", fontWeight: 700 }}>
+          <div className="nav-link-desktop" style={{ display: "flex", gap: "24px", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif", fontSize: "13px", fontWeight: 700 }}>
             <a href="#shop" style={{ textDecoration: "none", color: "#2C1A11", transition: "color 0.2s" }}>Tienda de Café</a>
             <a href="#cafe" style={{ textDecoration: "none", color: "#2C1A11", transition: "color 0.2s" }}>Café & Bar</a>
             <a href="#events" style={{ textDecoration: "none", color: "#2C1A11", transition: "color 0.2s" }}>Eventos</a>
@@ -304,7 +304,7 @@ export default function TerrenasCoffeeDemo() {
         </div>
 
         {/* Product Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "32px" }}>
           {filteredProducts.map(p => (
             <div key={p.id} style={{ background: "#FFFFFF", border: "1px solid #E5DEC9", borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 24px rgba(44,26,17,0.06)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>
@@ -374,7 +374,7 @@ export default function TerrenasCoffeeDemo() {
 
       {/* ─── CAFÉ HOURS & LOCATION (FIXED HIGH CONTRAST) ─────────── */}
       <section id="cafe" style={{ background: "linear-gradient(135deg, #2C1A11 0%, #1A0F0A 100%)", color: "#FDFBF7", padding: "100px 24px", marginTop: "40px", borderTop: "1px solid #3D2619", borderBottom: "1px solid #3D2619" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "56px", alignItems: "center" }}>
+        <div className="responsive-two-col-grid" style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "56px", alignItems: "center" }}>
           <div>
             <span style={{ color: "#E27A54", fontFamily: "system-ui, sans-serif", fontSize: "11px", fontWeight: 900, letterSpacing: "0.18em", textTransform: "uppercase", background: "rgba(226, 122, 84, 0.15)", padding: "4px 12px", borderRadius: "9999px", border: "1px solid rgba(226, 122, 84, 0.3)" }}>
               VISÍTANOS EN LAS TERRENAS
@@ -432,7 +432,7 @@ export default function TerrenasCoffeeDemo() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))", gap: "32px" }}>
           {events.map(ev => (
             <div key={ev.id} style={{ background: "#FFFFFF", border: "1px solid #E5DEC9", borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 24px rgba(44,26,17,0.06)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>

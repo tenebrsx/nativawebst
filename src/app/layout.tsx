@@ -1,6 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { GeoProvider } from "@/lib/geo-context";
+import WhatsappFunnel from "@/components/whatsapp-funnel";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#faf7f2",
+};
 
 export const metadata: Metadata = {
   title: "Nativa | High-Performance Websites & Local SEO in Santo Domingo",
@@ -74,6 +82,7 @@ export default function RootLayout({
         />
         <GeoProvider>
           {children}
+          <WhatsappFunnel />
         </GeoProvider>
       </body>
     </html>
