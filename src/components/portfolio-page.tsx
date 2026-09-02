@@ -139,7 +139,7 @@ export default function PortfolioPage() {
               ? "Creamos una previsualización interactiva de 5 minutos adaptada exactamente al modelo de tu negocio sin ningún costo."
               : "We can engineer a custom 5-minute interactive preview tailored specifically to your business model at zero cost."}
           </p>
-          <Link href="/#consultation" className="btn btn-launch" style={{ textDecoration: "none", padding: "14px 32px" }}>
+          <Link href="/#pricing" className="btn btn-launch" style={{ textDecoration: "none", padding: "14px 32px" }}>
             {lang === "es" ? "Solicitar Previsualización Gratis →" : "Request Custom Preview →"}
           </Link>
         </div>

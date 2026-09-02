@@ -6,8 +6,15 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   return INDEXABLE_PATHS.map((path) => ({
     url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
-    lastModified: "2026-08-25",
+    lastModified: "2026-08-26",
     changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : path === "/servicios" ? 0.9 : 0.8,
+    priority:
+      path === "/"
+        ? 1
+        : path === "/servicios"
+          ? 0.9
+          : path === "/santo-domingo"
+            ? 0.85
+            : 0.8,
   }));
 }

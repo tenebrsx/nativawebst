@@ -6,12 +6,12 @@ export default function DemosPlaygroundPage() {
   const demos = [
     {
       id: "constructora-aybar",
-      title: "Constructora Aybar & Torres",
-      category: "Construcción & Desarrollo Inmobiliario",
-      inspiredBy: "GrupoAybar.com & Construger.com",
+      title: "Constructora Aybar",
+      category: "Construcción & Dirección de Obra",
+      inspiredBy: "Obra en Santo Domingo",
       url: "/demo/constructora-aybar",
       badge: "Edición Corporativa",
-      features: ["Cotizador de Proyectos m²", "Filtro de Obras Sismo-Resistentes", "Bilingüe ES/EN", "Expediente de Licitación"]
+      features: ["Visita por WhatsApp", "Torre 18 niveles en Naco", "m² y zona en el chat"]
     },
     {
       id: "sdq-auto",
@@ -51,12 +51,12 @@ export default function DemosPlaygroundPage() {
     },
     {
       id: "terrenas-coffee",
-      title: "Café Terrenas Artisanal Store",
-      category: "E-Commerce & Productos de Origen",
-      inspiredBy: "LandToSeaNYC.com Standard",
+      title: "Café Terrenas",
+      category: "E-Commerce & Café de Especialidad",
+      inspiredBy: "Tueste en Las Terrenas",
       url: "/demo/terrenas-coffee",
       badge: "Edición Tienda",
-      features: ["Carrito de Compras en Tiempo Real", "Pago con Stripe & Delivery", "Selección de Grano de Origen"]
+      features: ["Pedido por WhatsApp", "Geisha 2 kg a Piantini", "USD y DOP en la ficha"]
     },
     {
       id: "caribe-superfoods",
@@ -96,7 +96,7 @@ export default function DemosPlaygroundPage() {
             <Link href="/" style={{ background: "#1E293B", color: "#FFF", padding: "8px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 800, fontSize: "13px" }}>
               ← Nativa Home
             </Link>
-            <Link href="/portfolio" style={{ background: "#0EA5E9", color: "#FFF", padding: "8px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 800, fontSize: "13px" }}>
+            <Link href="/portfolio" style={{ background: "#1E4FD7", color: "#FFF", padding: "8px 16px", borderRadius: "4px", textDecoration: "none", fontWeight: 600, fontSize: "13px" }}>
               📋 Catálogo Completo
             </Link>
           </div>
@@ -125,7 +125,7 @@ export default function DemosPlaygroundPage() {
             <div key={d.id} style={{ background: "#0F172A", border: "1px solid #1E293B", borderRadius: "20px", padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
               <div>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                  <span style={{ background: "#0EA5E9", color: "#FFF", padding: "3px 10px", borderRadius: "6px", fontSize: "10.5px", fontWeight: 900, textTransform: "uppercase" }}>
+                  <span style={{ background: "#1E4FD7", color: "#FFF", padding: "3px 10px", borderRadius: "4px", fontSize: "10.5px", fontWeight: 600, textTransform: "uppercase" }}>
                     {d.badge}
                   </span>
                   <span style={{ fontSize: "11px", color: "#94A3B8", fontWeight: 700 }}>{d.inspiredBy}</span>
@@ -145,7 +145,7 @@ export default function DemosPlaygroundPage() {
 
               <Link
                 href={d.url}
-                style={{ background: "#0EA5E9", color: "#FFFFFF", display: "block", textAlign: "center", padding: "14px", borderRadius: "10px", fontWeight: 900, fontSize: "14.5px", textDecoration: "none", boxShadow: "0 4px 16px rgba(14,165,233,0.3)" }}
+                style={{ background: "#1E4FD7", color: "#FFFFFF", display: "block", textAlign: "center", padding: "14px", borderRadius: "4px", fontWeight: 600, fontSize: "14.5px", textDecoration: "none" }}
               >
                 🚀 Abrir Demo Viva →
               </Link>

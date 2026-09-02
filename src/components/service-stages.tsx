@@ -22,32 +22,32 @@ const CAPTION = {
     inbound: "Hola, vi carillas en Google. ¿Cupo esta semana?",
     outbound: "Sí — mañana 9am te sirve?",
     online: "En línea",
-    crm: "Inventario de leads. En movimiento.",
-    agent: "Una entrada. Tres salidas.",
-    pipeline: "Ops",
-    colNew: "Nuevo",
-    colFollow: "Seguir",
-    colBook: "Cita",
-    leadName: "María",
-    leadTag: "Carillas",
-    leadNote: "Prefiere mañana",
-    agentAsk: "¿Tienen cupo mañana?",
-    agentReply: "Sí — 9am u 11am. ¿Cuál te queda?",
-    agentBooked: "Cita · mañana 9:00",
-    agentName: "Agente Nativa",
-    agentTag: "IA",
-    crmIn: "Entrada",
-    crmRoute: "Ruta",
-    crmFile: "Archivo",
+    crm: "Leads, etapas y cifras — en un tablero, no en la galería.",
+    agent: "Le escribes a Nativa. Ella cuenta, suma y confirma.",
+    crmBrand: "CRM Nativa",
+    crmLive: "En vivo",
+    crmClose: "Cierre",
+    kpiLeads: "Leads",
+    kpiOpen: "En curso",
+    kpiWon: "Cierres",
+    kpiLeadsN: ["12", "16", "21"],
+    kpiOpenN: ["4", "6", "8"],
+    kpiWonN: ["2", "3", "5"],
+    kpiRateN: ["31%", "44%", "62%"],
     leads: [
-      { n: "María", k: "Carillas", s: "Nuevo" },
-      { n: "Luis", k: "Limpieza", s: "Seguir" },
-      { n: "Ana", k: "Brackets", s: "Cita" },
-      { n: "Joel", k: "Blanqueado", s: "Nuevo" },
+      { n: "María", k: "Carillas", s: "Nuevo", s2: "Seguir" },
+      { n: "Luis", k: "Limpieza", s: "Seguir", s2: "Cita" },
+      { n: "Ana", k: "Brackets", s: "Cita", s2: "Cita" },
     ],
-    agentOutReply: "Respuesta",
-    agentOutCal: "Agenda",
-    agentOutNote: "Nota CRM",
+    agentRole: "IA de marca · en línea",
+    agentAskStock: "¿Cuánto Café Geisha tenemos?",
+    agentStockReply: "Café Geisha — 42 unidades.",
+    agentAddTen: "Agrega 10 más al inventario",
+    agentAddReply: "Listo. Café Geisha — 52 unidades.",
+    agentSku: "Café Geisha",
+    agentUnit: "uds",
+    agentStockFrom: "42",
+    agentStockTo: "52",
   },
   en: {
     web: "Brief to live site — 3 weeks.",
@@ -63,32 +63,32 @@ const CAPTION = {
     inbound: "Hi — saw veneers on Google. Slot this week?",
     outbound: "Yes — tomorrow 9am work?",
     online: "Online",
-    crm: "Lead inventory. Always moving.",
-    agent: "One inbound. Three outputs.",
-    pipeline: "Ops",
-    colNew: "New",
-    colFollow: "Follow",
-    colBook: "Booked",
-    leadName: "María",
-    leadTag: "Veneers",
-    leadNote: "Prefers tomorrow",
-    agentAsk: "Any slots tomorrow?",
-    agentReply: "Yes — 9am or 11am. Which works?",
-    agentBooked: "Booked · tomorrow 9:00",
-    agentName: "Nativa Agent",
-    agentTag: "AI",
-    crmIn: "Inbox",
-    crmRoute: "Route",
-    crmFile: "File",
+    crm: "Leads, stages, and figures — on a board, not in the camera roll.",
+    agent: "You text Nativa. She counts, adds, and confirms.",
+    crmBrand: "Nativa CRM",
+    crmLive: "Live",
+    crmClose: "Close rate",
+    kpiLeads: "Leads",
+    kpiOpen: "In play",
+    kpiWon: "Closed",
+    kpiLeadsN: ["12", "16", "21"],
+    kpiOpenN: ["4", "6", "8"],
+    kpiWonN: ["2", "3", "5"],
+    kpiRateN: ["31%", "44%", "62%"],
     leads: [
-      { n: "María", k: "Veneers", s: "New" },
-      { n: "Luis", k: "Cleaning", s: "Follow" },
-      { n: "Ana", k: "Braces", s: "Booked" },
-      { n: "Joel", k: "Whitening", s: "New" },
+      { n: "María", k: "Veneers", s: "New", s2: "Follow" },
+      { n: "Luis", k: "Cleaning", s: "Follow", s2: "Booked" },
+      { n: "Ana", k: "Braces", s: "Booked", s2: "Booked" },
     ],
-    agentOutReply: "Reply",
-    agentOutCal: "Calendar",
-    agentOutNote: "CRM note",
+    agentRole: "Brand AI · online",
+    agentAskStock: "How much Café Geisha do we have?",
+    agentStockReply: "Café Geisha — 42 units.",
+    agentAddTen: "Add 10 more to inventory",
+    agentAddReply: "Done. Café Geisha — 52 units.",
+    agentSku: "Café Geisha",
+    agentUnit: "units",
+    agentStockFrom: "42",
+    agentStockTo: "52",
   },
 };
 
@@ -215,26 +215,58 @@ function ChatStage({ t }: { t: (typeof CAPTION)["es"] }) {
 }
 
 function CrmStage({ t }: { t: (typeof CAPTION)["es"] }) {
+  const kpis = [
+    { label: t.kpiLeads, steps: t.kpiLeadsN },
+    { label: t.kpiOpen, steps: t.kpiOpenN },
+    { label: t.kpiWon, steps: t.kpiWonN },
+  ];
   return (
     <Stage>
-      <div className="svc-ops">
-        <div className="svc-ops-beam" />
-        <div className="svc-ops-col">
-          <small>{t.crmIn}</small>
-          {t.leads.map((lead) => (
-            <div key={lead.n} className="svc-ops-pill">
-              <b>WA</b> {lead.n}
+      <div className="svc-crm">
+        <div className="svc-crm-head">
+          <b>{t.crmBrand}</b>
+          <span>{t.crmLive}</span>
+        </div>
+        <div className="svc-crm-kpis">
+          {kpis.map((kpi) => (
+            <div key={kpi.label} className="svc-crm-kpi">
+              <span className="svc-roll">
+                <span>
+                  {kpi.steps.map((n) => (
+                    <b key={`${kpi.label}-${n}`}>{n}</b>
+                  ))}
+                </span>
+              </span>
+              <small>{kpi.label}</small>
             </div>
           ))}
         </div>
-        <div className="svc-ops-core"><span /></div>
-        <div className="svc-ops-col svc-ops-file">
-          <small>{t.crmFile}</small>
+        <div className="svc-crm-meter">
+          <div className="svc-crm-meter-top">
+            <span>{t.crmClose}</span>
+            <em className="svc-roll svc-roll-sm">
+              <span>
+                {t.kpiRateN.map((n) => (
+                  <b key={n}>{n}</b>
+                ))}
+              </span>
+            </em>
+          </div>
+          <div className="svc-crm-track">
+            <i className="svc-crm-fill" />
+          </div>
+        </div>
+        <div className="svc-crm-feed">
           {t.leads.map((lead) => (
-            <div key={lead.n} className="svc-ops-row">
-              <span>{lead.n}</span>
+            <div key={lead.n} className="svc-crm-row">
+              <b>{lead.n}</b>
               <em>{lead.k}</em>
-              <i data-s={lead.s}>{lead.s}</i>
+              <i data-s={lead.s2}>
+                <span className="svc-crm-status">
+                  <span>{lead.s}</span>
+                  <span>{lead.s2}</span>
+                </span>
+              </i>
             </div>
           ))}
         </div>
@@ -246,27 +278,38 @@ function CrmStage({ t }: { t: (typeof CAPTION)["es"] }) {
 function AgentStage({ t }: { t: (typeof CAPTION)["es"] }) {
   return (
     <Stage>
-      <div className="svc-hub">
-        <div className="svc-hub-in">{t.agentAsk}</div>
-        <div className="svc-hub-core">
-          <span>{t.agentTag}</span>
+      <div className="svc-llm">
+        <div className="svc-llm-head">
+          <div className="svc-wa-av">N</div>
+          <div>
+            <b>Nativa</b>
+            <small>{t.agentRole}</small>
+          </div>
         </div>
-        <div className="svc-hub-rays" aria-hidden="true">
-          <i /><i /><i />
+        <div className="svc-llm-thread">
+          <div className="svc-llm-type svc-llm-t1" aria-hidden="true">
+            <i /><i /><i />
+          </div>
+          <div className="svc-llm-out svc-llm-m1">{t.agentAskStock}</div>
+          <div className="svc-llm-type svc-llm-t2" aria-hidden="true">
+            <i /><i /><i />
+          </div>
+          <div className="svc-llm-in svc-llm-m2">{t.agentStockReply}</div>
+          <div className="svc-llm-out svc-llm-m3">{t.agentAddTen}</div>
+          <div className="svc-llm-type svc-llm-t3" aria-hidden="true">
+            <i /><i /><i />
+          </div>
+          <div className="svc-llm-in svc-llm-m4">{t.agentAddReply}</div>
         </div>
-        <div className="svc-hub-out">
-          <div className="svc-hub-card svc-d1">
-            <small>{t.agentOutReply}</small>
-            <b>{t.agentReply}</b>
-          </div>
-          <div className="svc-hub-card svc-d2">
-            <small>{t.agentOutCal}</small>
-            <b>{t.agentBooked}</b>
-          </div>
-          <div className="svc-hub-card svc-d3">
-            <small>{t.agentOutNote}</small>
-            <b>{t.leadName} · {t.leadTag}</b>
-          </div>
+        <div className="svc-llm-stock">
+          <small>{t.agentSku}</small>
+          <span className="svc-roll svc-roll-sm svc-llm-count">
+            <span>
+              <b>{t.agentStockFrom}</b>
+              <b>{t.agentStockTo}</b>
+            </span>
+          </span>
+          <em>{t.agentUnit}</em>
         </div>
       </div>
     </Stage>

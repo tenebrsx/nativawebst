@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://nativa.studio";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://nativa.studio";
 export const SITE_NAME = "Nativa Web Studio";
 export const SITE_BRAND = "Nativa";
 export const SITE_EMAIL = "info@nativa.studio";
@@ -17,7 +18,7 @@ export const SITE_PRICE_RANGE = "$$";
 export const SITE_DEFAULT_TITLE =
   "Diseño Web, CRM y Agentes IA en Santo Domingo | Nativa";
 export const SITE_DEFAULT_DESCRIPTION =
-  "Nativa es un estudio web en Santo Domingo. Construimos sitios rápidos, SEO local en Google Maps, CRM personal y agentes IA por WhatsApp para negocios en República Dominicana.";
+  "Nativa es un estudio web en Santo Domingo. Sitios rápidos, SEO en Google Maps, CRM personal y Nativa — un agente IA de marca por WhatsApp — para negocios en República Dominicana.";
 
 export const SITE_KEYWORDS = [
   "diseño web santo domingo",
@@ -77,10 +78,12 @@ export const INDEXABLE_PATHS = [
   "/",
   "/servicios",
   ...SERVICES.map((s) => s.path),
+  "/santo-domingo",
+  "/industrias/clinicas",
   "/portfolio",
 ] as const;
 
-export const NOINDEX_PREFIXES = ["/ads", "/logos", "/demo", "/demos"] as const;
+export const NOINDEX_PREFIXES = ["/ads", "/logos", "/demo", "/demos", "/refined"] as const;
 
 export function absoluteUrl(path: string): string {
   if (path.startsWith("http")) return path;

@@ -1,49 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
-/* ─── Nativa Design System (Oscar Health Style Balance) ─────────── */
+/* ─── Nativa Design System (Atlantic ink) ─────────── */
 :root {
-  /* 60% Canvas - Sand & Foam (Light, Premium Sandy Off-White) */
-  --sand: #faf7f2;
-  /* Elegant clean off-white with subtle sand warmth */
+  --sand: #F7F8FA;
   --white: #ffffff;
-  --gray-foam: #f3ede2;
-  /* Foam / Soft wet sand */
-  --border-sand: #eae4d8;
-  /* Organic light sand borders */
+  --gray-foam: #EEF1F5;
+  --border-sand: #E3E6EC;
+  --gray-400: #8B929C;
 
-  /* 30% Deep Structure - Deep Trench Navy */
-  --navy-trench: #0a1128;
-  /* Ocean depths rich navy */
-  --navy-mid: #1c2541;
-  --gray-muted: #474f6e;
+  --navy-trench: #0B0D12;
+  --navy-mid: #1A1D26;
+  --gray-muted: #5C6470;
 
-  /* 10% Character - Tropical Coral Blue & Sun Yellow */
-  --sun-yellow: #ffb703;
-  /* Sunset yellow (Primary CTA ONLY) */
-  --sun-dark: #fb8500;
-  --coral-blue: #0ea5e9;
-  /* Vibrant tropical blue detail */
-  --coral-light: #e0f2fe;
+  --sun-yellow: #1E4FD7;
+  --sun-dark: #163DB0;
+  --coral-blue: #1E4FD7;
+  --coral-light: #E8EEFB;
 
-  /* Semantics */
   --bg: var(--sand);
   --surface: var(--white);
   --border: var(--border-sand);
   --text: var(--navy-trench);
   --muted: var(--gray-muted);
 
-  /* Typography */
-  --font-head: 'Montserrat', system-ui, sans-serif;
-  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-head: 'Instrument Sans', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
 
-  /* Radii & Shadows */
-  --radius-sm: 6px;
-  --radius: 12px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 2px 8px rgba(10, 17, 40, 0.03);
-  --shadow: 0 12px 32px rgba(10, 17, 40, 0.06);
-  --shadow-lg: 0 24px 48px rgba(10, 17, 40, 0.09);
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(11, 13, 18, 0.04);
+  --shadow: 0 8px 24px rgba(11, 13, 18, 0.06);
+  --shadow-lg: 0 16px 40px rgba(11, 13, 18, 0.08);
 }
 
 /* ─── Base Styles ────────────────────────────────────────────── */
@@ -93,8 +82,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-head);
-  font-weight: 800;
-  line-height: 1.25;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
   color: var(--navy-trench);
   margin: 0;
   overflow-wrap: break-word;
@@ -187,7 +177,7 @@ a {
   justify-content: center;
   gap: 8px;
   font-family: var(--font-head);
-  font-weight: 800;
+  font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.01em;
   border: none;
@@ -198,18 +188,17 @@ a {
   white-space: nowrap;
 }
 
-/* Main Ship Launcher CTA (Sun Yellow) */
 .btn-launch {
   background: var(--sun-yellow);
-  color: var(--navy-trench);
-  padding: 15px 32px;
-  box-shadow: 0 4px 14px rgba(255, 183, 3, 0.3);
+  color: var(--white);
+  padding: 14px 28px;
+  box-shadow: none;
 }
 
 .btn-launch:hover {
   background: var(--sun-dark);
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.4);
+  transform: translateY(-1px);
+  box-shadow: none;
 }
 
 /* Structural Navy button */
@@ -260,16 +249,16 @@ a {
   display: inline-block;
   font-family: var(--font-head);
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--coral-blue);
   margin-bottom: 12px;
 }
 
 .section-title {
-  font-size: clamp(1.85rem, 3vw, 2.6rem);
-  font-weight: 900;
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--navy-trench);
   margin-bottom: 14px;
@@ -322,7 +311,7 @@ a {
 
 .input:focus {
   border-color: var(--coral-blue);
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  box-shadow: 0 0 0 3px rgba(30, 79, 215, 0.12);
 }
 
 /* ─── Animations ─────────────────────────────────────────────── */
@@ -784,7 +773,7 @@ a {
   flex-direction: column;
   gap: 8px;
   background:
-    radial-gradient(circle at 20% 10%, rgba(14, 165, 233, 0.08), transparent 40%),
+    radial-gradient(circle at 20% 10%, rgba(30, 79, 215, 0.08), transparent 40%),
     #0b141a;
 }
 
@@ -920,6 +909,12 @@ a {
   filter: brightness(1.05);
 }
 
+@media (max-width: 768px) {
+  .wa-teaser {
+    display: none !important;
+  }
+}
+
 @media (max-width: 500px) {
   .wa-funnel {
     right: 12px;
@@ -959,10 +954,10 @@ a {
 }
 
 .hero-title {
-  font-size: clamp(1.85rem, 6vw, 3.5rem);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.85rem, 6vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   color: var(--navy-trench);
   margin-bottom: 20px;
 }
@@ -999,7 +994,7 @@ a {
   border-radius: 100px;
   padding: 6px 16px;
   margin-bottom: 32px;
-  border: 1px solid rgba(14, 165, 233, 0.15);
+  border: 1px solid rgba(30, 79, 215, 0.15);
 }
 
 .hero-badge-kicker {
@@ -1039,131 +1034,6 @@ a {
   color: rgba(255, 255, 255, 0.55);
 }
 
-.proof-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-.proof-metrics>div {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius);
-  padding: 20px 18px;
-  text-align: center;
-}
-
-.proof-metric-num {
-  font-family: var(--font-head);
-  font-weight: 900;
-  font-size: 22px;
-  color: #fff;
-  letter-spacing: -0.03em;
-}
-
-.proof-metric-lbl {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.proof-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius);
-  padding: 24px;
-  height: 100%;
-  text-align: left;
-}
-
-.proof-card h3 {
-  font-family: var(--font-head);
-  font-size: 18px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.proof-card p {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.65;
-  margin-bottom: 16px;
-}
-
-.proof-swap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.proof-swap>div {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.4;
-}
-
-.proof-swap span {
-  display: block;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.proof-swap>div:first-child span {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.proof-swap>div:last-child span {
-  color: #25d366;
-}
-
-.proof-chat {
-  background: #111b21;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-.proof-chat-from {
-  font-size: 10px;
-  font-weight: 800;
-  color: #8696a0;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.proof-chat-bubble {
-  background: #202c33;
-  color: #e9edef;
-  border-radius: 12px 12px 12px 4px;
-  padding: 8px 12px;
-  font-size: 12.5px;
-  line-height: 1.45;
-}
-
-@media (max-width: 768px) {
-
-  .proof-grid,
-  .proof-metrics {
-    grid-template-columns: 1fr;
-  }
-}
-
 .hero-atmosphere {
   position: absolute;
   inset: 0;
@@ -1187,7 +1057,7 @@ a {
 .hero-orb-coral {
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.38) 0%, rgba(14, 165, 233, 0) 70%);
+  background: radial-gradient(circle, rgba(30, 79, 215, 0.38) 0%, rgba(30, 79, 215, 0) 70%);
   top: -140px;
   right: 8%;
   animation: orb-drift 22s ease-in-out infinite;
@@ -1196,7 +1066,7 @@ a {
 .hero-orb-sun {
   width: 340px;
   height: 340px;
-  background: radial-gradient(circle, rgba(255, 183, 3, 0.32) 0%, rgba(255, 183, 3, 0) 70%);
+  background: radial-gradient(circle, rgba(30, 79, 215, 0.32) 0%, rgba(30, 79, 215, 0) 70%);
   top: 28%;
   left: -80px;
   animation: orb-drift 26s ease-in-out infinite reverse;
@@ -1269,7 +1139,7 @@ a {
     height: 560px;
     z-index: 2;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(255, 183, 3, 0.05) 32%, transparent 68%);
+    background: radial-gradient(circle, rgba(30, 79, 215, 0.12) 0%, rgba(30, 79, 215, 0.05) 32%, transparent 68%);
     mix-blend-mode: multiply;
   }
 }
@@ -1411,6 +1281,11 @@ a {
   pointer-events: none;
 }
 
+.btn-launch-static::after {
+  content: none;
+  animation: none;
+}
+
 @keyframes shine-sweep {
 
   0%,
@@ -1433,7 +1308,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(14, 165, 233, 0.09) 50%, transparent 60%);
+  background: linear-gradient(105deg, transparent 40%, rgba(30, 79, 215, 0.09) 50%, transparent 60%);
   transform: translateX(-120%);
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -1453,7 +1328,7 @@ a {
   margin-bottom: 16px;
   color: var(--coral-blue);
   background: var(--coral-light);
-  border: 1px solid rgba(14, 165, 233, 0.16);
+  border: 1px solid rgba(30, 79, 215, 0.16);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease;
 }
 
@@ -1495,7 +1370,7 @@ a {
   transform: translateX(-50%);
   pointer-events: none;
   animation: crest-float 5.5s ease-in-out infinite;
-  filter: drop-shadow(0 8px 16px rgba(255, 183, 3, 0.25));
+  filter: drop-shadow(0 8px 16px rgba(30, 79, 215, 0.18));
   z-index: 0;
 }
 
@@ -1610,22 +1485,22 @@ a {
   height: 7px;
   border-radius: 50%;
   background: var(--coral-blue);
-  box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.55);
+  box-shadow: 0 0 0 0 rgba(30, 79, 215, 0.55);
   animation: live-ping 2s ease-out infinite;
   flex-shrink: 0;
 }
 
 @keyframes live-ping {
   0% {
-    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.45);
+    box-shadow: 0 0 0 0 rgba(30, 79, 215, 0.45);
   }
 
   70% {
-    box-shadow: 0 0 0 8px rgba(14, 165, 233, 0);
+    box-shadow: 0 0 0 8px rgba(30, 79, 215, 0);
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+    box-shadow: 0 0 0 0 rgba(30, 79, 215, 0);
   }
 }
 
@@ -1730,3 +1605,5 @@ a {
     display: inline !important;
   }
 }
+
+/* Atlantic ink */

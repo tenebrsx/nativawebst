@@ -112,6 +112,12 @@ const COPY = {
 
 type Msg = { from: "bot" | "me"; text: string };
 
+const MOBILE_TEASER_MQ = "(max-width: 768px)";
+
+function isMobileViewport() {
+  return typeof window !== "undefined" && window.matchMedia(MOBILE_TEASER_MQ).matches;
+}
+
 export default function WhatsappFunnel() {
   const { lang } = useGeo();
   const pathname = usePathname() || "/";
@@ -196,7 +202,7 @@ export default function WhatsappFunnel() {
     };
 
     const maybeTease = () => {
-      if (prompted.current || seen() || open) return;
+      if (isMobileViewport() || prompted.current || seen() || open) return;
       prompted.current = true;
       setTeaser(true);
     };
@@ -213,7 +219,7 @@ export default function WhatsappFunnel() {
     const onExit = (e: MouseEvent) => {
       if (e.relatedTarget) return;
       if (e.clientY > 12) return;
-      if (prompted.current || seen() || open) return;
+      if (isMobileViewport() || prompted.current || seen() || open) return;
       prompted.current = true;
       openPanel("exit");
     };

@@ -16,6 +16,7 @@ import {
   PointerGlow,
 } from "@/components/home-visuals";
 import ServiceStories, { StackStories } from "@/components/service-stages";
+import ProofGallery, { ProofIntro } from "@/components/proof-gallery";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 
 const PARTNERS = [
@@ -41,16 +42,6 @@ export default function HomePage() {
       <section className="hero-section">
         <HeroAtmosphere />
         <div className="container">
-          <div className="hero-badge hero-in">
-            <span className="live-dot" />
-            <span className="hero-badge-kicker">
-              {dict.hero.badge_label}
-            </span>
-            <span className="hero-badge-sub">
-              {dict.hero.badge_sub}
-            </span>
-          </div>
-
           <div className="hero-grid" style={{
             display: "grid",
             gridTemplateColumns: "1fr auto",
@@ -160,99 +151,26 @@ export default function HomePage() {
       {/* ─── PROOF ───────────────────────────────────────────────── */}
       <section id="proof" className="proof-section">
         <div className="container">
-          <Reveal style={{ textAlign: "center", marginBottom: "48px" }}>
-            <div className="section-label">{dict.proof.label}</div>
-            <h2 className="section-title">{dict.proof.title}</h2>
-            <p className="section-sub" style={{ margin: "0 auto" }}>{dict.proof.sub}</p>
+          <Reveal>
+            <ProofIntro />
           </Reveal>
 
-          <div className="proof-metrics">
-            <div>
-              <div className="proof-metric-num">3 sem</div>
-              <div className="proof-metric-lbl">{lang === "es" ? "Brief → web viva" : "Brief → live site"}</div>
-            </div>
-            <div>
-              <div className="proof-metric-num">Maps + WA</div>
-              <div className="proof-metric-lbl">{lang === "es" ? "Te encuentran, te escriben" : "They find you, they text"}</div>
-            </div>
-            <div>
-              <div className="proof-metric-num">24h</div>
-              <div className="proof-metric-lbl">{lang === "es" ? "Cambios por mensaje" : "Edits by message"}</div>
-            </div>
-          </div>
-
-          <div className="proof-grid">
-            {dict.proof.items.map((item, i) => (
-              <Reveal key={item.tag} delay={i * 80}>
-                <article className="proof-card">
-                  <div className="section-label" style={{ marginBottom: "10px" }}>{item.tag}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                  <div className="proof-swap">
-                    <div>
-                      <span>{lang === "es" ? "Antes" : "Before"}</span>
-                      {item.before}
-                    </div>
-                    <div>
-                      <span>{lang === "es" ? "Después" : "After"}</span>
-                      {item.after}
-                    </div>
-                  </div>
-                  <div className="proof-chat">
-                    <div className="proof-chat-from">{item.chatFrom}</div>
-                    <div className="proof-chat-bubble">{item.chatText}</div>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={80}>
+            <ProofGallery />
+          </Reveal>
 
           <div style={{ textAlign: "center", marginTop: "40px" }}>
-            <button type="button" className="btn btn-launch" style={{ padding: "16px 32px" }} onClick={() => openWhatsAppFunnel("proof")}>
+            <button type="button" className="btn btn-launch btn-launch-static" style={{ padding: "16px 32px" }} onClick={() => openWhatsAppFunnel("proof")}>
               {dict.proof.cta}
             </button>
           </div>
         </div>
       </section>
 
+      <PricingBuilder />
+
       {/* ─── PROCESS (3 STEPS) ────────────────────────────────────── */}
       <LaunchJourney />
-
-      {/* ─── PRICING CONFIGURATOR ────────────────────────────────── */}
-      <section id="pricing" style={{ padding: "90px 0", background: "var(--bg)", borderBottom: "1px solid var(--border)" }}>
-        <div className="container">
-          <Reveal style={{ textAlign: "center", marginBottom: "56px" }}>
-            <div className="section-label">{dict.pricing.label}</div>
-            <h2 className="section-title">{dict.pricing.title}</h2>
-            <p className="section-sub" style={{ margin: "0 auto" }}>
-              {dict.pricing.sub}
-            </p>
-          </Reveal>
-          <PricingBuilder />
-        </div>
-      </section>
-
-      {/* ─── CONTACT FORM ────────────────────────────────────────── */}
-      <section id="consultation" style={{ padding: "90px 0", background: "var(--bg)" }}>
-        <div className="container" style={{ maxWidth: "760px" }}>
-          <Reveal style={{ textAlign: "center" }}>
-            <div className="section-label">{dict.contact.label}</div>
-            <h2 className="section-title">{dict.contact.title}</h2>
-            <p className="section-sub" style={{ margin: "0 auto 36px" }}>{dict.contact.desc}</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px", textAlign: "left", marginBottom: "32px" }}>
-              {[dict.contact.bullet_1, dict.contact.bullet_2, dict.contact.bullet_3, dict.contact.bullet_4].map((text, i) => (
-                <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                  <span style={{ fontFamily: "var(--font-head)", fontWeight: 800, color: "var(--coral-blue)", fontSize: "13px", flexShrink: 0 }}>{String(i + 1).padStart(2, "0")}</span>
-                  <span style={{ fontSize: "15px", color: "var(--muted)", lineHeight: 1.6 }}>{text}</span>
-                </div>
-              ))}
-            </div>
-            <button type="button" className="btn btn-launch" style={{ padding: "16px 32px", fontSize: "15px" }} onClick={() => openWhatsAppFunnel("close")}>
-              {dict.contact.cta}
-            </button>
-          </Reveal>
-        </div>
-      </section>
 
       <SiteFooter />
     </div>

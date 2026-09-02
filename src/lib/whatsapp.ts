@@ -66,7 +66,7 @@ export function buildQuoteMessage(opts: {
   lang: "es" | "en";
   tierName: string;
   addonLabels: string[];
-  stackLabels: string[];
+  stackLabels?: string[];
   support: boolean;
   oneTime: string;
   monthly: string;
@@ -76,11 +76,12 @@ export function buildQuoteMessage(opts: {
     : opts.lang === "es"
       ? "  – Ninguno"
       : "  – None";
-  const stack = opts.stackLabels.length
-    ? opts.stackLabels.map((l) => `  – ${l}`).join("\n")
-    : opts.lang === "es"
-      ? "  – Después, si encaja"
-      : "  – Later, if it fits";
+  const stackLines =
+    opts.stackLabels && opts.stackLabels.length
+      ? opts.lang === "es"
+        ? [`• Stack (CRM / AI):\n${opts.stackLabels.map((l) => `  – ${l}`).join("\n")}`]
+        : [`• Stack (CRM / AI):\n${opts.stackLabels.map((l) => `  – ${l}`).join("\n")}`]
+      : [];
 
   if (opts.lang === "es") {
     return [
@@ -89,7 +90,7 @@ export function buildQuoteMessage(opts: {
       "",
       `• Plan: ${opts.tierName}`,
       `• Extras:\n${extras}`,
-      `• Stack (CRM / AI):\n${stack}`,
+      ...stackLines,
       `• Soporte mensual: ${opts.support ? "Sí — " + opts.monthly : "No"}`,
       `• Inversión única (web): ${opts.oneTime}`,
       "",
@@ -103,7 +104,7 @@ export function buildQuoteMessage(opts: {
     "",
     `• Plan: ${opts.tierName}`,
     `• Add-ons:\n${extras}`,
-    `• Stack (CRM / AI):\n${stack}`,
+    ...stackLines,
     `• Monthly support: ${opts.support ? "Yes — " + opts.monthly : "No"}`,
     `• One-time (web): ${opts.oneTime}`,
     "",

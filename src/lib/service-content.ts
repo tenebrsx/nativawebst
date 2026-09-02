@@ -199,12 +199,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "📊",
       metaTitle: "CRM para negocios en República Dominicana",
       metaDescription:
-        "CRM personal sobre tus chats de WhatsApp: pipeline, seguimientos y notas a la medida de tu marca. Nativa lo arma cuando el sitio ya manda leads en RD.",
+        "CRM personal sobre tus chats de WhatsApp: pipeline, etapas y cifras a la medida de tu marca. Nativa lo arma cuando el sitio ya manda leads en RD.",
       label: "CRM personal",
       h1: "Un CRM a la medida de tus chats de WhatsApp",
       answer:
-        "El CRM de Nativa no es una licencia genérica de HubSpot. Es un pipeline construido alrededor de cómo ya cierras: WhatsApp. Los chats dejan de morir en la galería. Cada lead tiene etapa, nota y seguimiento. Lo cotizamos cuando el sitio ya está mandando conversaciones, para no inventar un tablero vacío. Sirve a clínicas, villas, talleres y tiendas que venden por mensaje en República Dominicana.",
-      sub: "Mismo WhatsApp. Más control. Sin que el cierre viva en la memoria de una sola persona.",
+        "El CRM de Nativa no es una licencia genérica de HubSpot. Es un tablero construido alrededor de cómo ya cierras: WhatsApp. Los chats dejan de morir en la galería. Cada lead tiene etapa, nota y un número que se mueve — nuevos, en curso, cerrados. Lo cotizamos cuando el sitio ya está mandando conversaciones, para no inventar un tablero vacío. Sirve a clínicas, villas, talleres y tiendas que venden por mensaje en República Dominicana.",
+      sub: "Mismo WhatsApp. Cifras que se ven. Sin que el cierre viva en la memoria de una sola persona.",
       problemsTitle: "Qué deja de pasar",
       problems: [
         {
@@ -266,12 +266,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "⚡",
       metaTitle: "Agentes IA y WhatsApp para empresas en RD",
       metaDescription:
-        "Agente IA de marca que responde, agenda y opera por WhatsApp. Nativa lo cotiza en Santo Domingo cuando tu web ya está mandando chats.",
+        "Agente IA de marca: le escribes a Nativa por WhatsApp, pide el inventario, suma stock, responde y agenda. Se cotiza en Santo Domingo cuando tu web ya manda chats.",
       label: "Agente IA",
-      h1: "Un agente de marca que responde y agenda por WhatsApp",
+      h1: "Le escribes a Nativa. Ella opera.",
       answer:
-        "El agente IA de Nativa no es un widget genérico de chat en la esquina de la web. Vive donde ya cierras: WhatsApp. Responde horarios, servicios y disponibilidad, puede agendar, y pasa a un humano cuando el caso no es rutinario. Lo cotizamos cuando el sitio ya manda conversaciones, para entrenarlo con preguntas reales — no con un guion inventado. Hecho para negocios en República Dominicana que no pueden estar 18 horas pegados al teléfono.",
-      sub: "Tú no eres el cuello de botella. El agente cubre lo repetido; el humano cierra lo que importa.",
+        "Nativa no es un widget genérico en la esquina de la web. Es el agente de tu marca, en WhatsApp, al que le escribes como a un socio. ¿Cuánto hay en inventario? Agrega diez más. ¿Hay cupo mañana? Agenda. Responde con la voz de tu negocio, ejecuta lo rutinario y pasa a un humano cuando el caso no lo es. Lo cotizamos cuando el sitio ya manda conversaciones, para entrenarlo con preguntas reales — no con un guion inventado.",
+      sub: "Inventario, citas, seguimiento. Tú no eres el cuello de botella.",
       problemsTitle: "Qué cubre el agente",
       problems: [
         {
@@ -284,7 +284,7 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
         {
           title: "Operación interna, no solo marketing",
-          body: "Avisos al equipo, resúmenes de leads, recordatorios. El agente trabaja el tubo, no un demo de feria.",
+          body: "Inventario, avisos al equipo, resúmenes de leads. Le escribes a Nativa: agrega un producto, suma diez más. Ella lo ejecuta.",
         },
       ],
       stepsTitle: "Cómo se entrena",
@@ -469,12 +469,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "📊",
       metaTitle: "CRM for businesses in the Dominican Republic",
       metaDescription:
-        "A personal CRM on top of your WhatsApp chats: pipeline, follow-ups, and notes built around your brand. Nativa quotes it once the site is sending leads in the DR.",
+        "A personal CRM on top of your WhatsApp chats: pipeline, stages, and live figures built around your brand. Nativa quotes it once the site is sending leads in the DR.",
       label: "Personal CRM",
       h1: "A CRM built around your WhatsApp chats",
       answer:
-        "Nativa’s CRM is not a generic HubSpot seat. It is a pipeline around how you already close: WhatsApp. Chats stop dying in the camera roll. Each lead has a stage, a note, and a follow-up. We quote it once the site is sending conversations, so we are not inventing an empty board. Built for clinics, villas, workshops, and shops that sell by message in the Dominican Republic.",
-      sub: "Same WhatsApp. More control. The close does not live in one person’s memory.",
+        "Nativa’s CRM is not a generic HubSpot seat. It is a board around how you already close: WhatsApp. Chats stop dying in the camera roll. Each lead has a stage, a note, and a number that moves — new, in play, closed. We quote it once the site is sending conversations, so we are not inventing an empty board. Built for clinics, villas, workshops, and shops that sell by message in the Dominican Republic.",
+      sub: "Same WhatsApp. Figures you can see. The close does not live in one person’s memory.",
       problemsTitle: "What stops happening",
       problems: [
         {
@@ -536,12 +536,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "⚡",
       metaTitle: "AI agents and WhatsApp for companies in the DR",
       metaDescription:
-        "A brand AI agent that answers, books, and operates on WhatsApp. Nativa quotes it in Santo Domingo once your site is sending chats.",
+        "A brand AI you text on WhatsApp: ask Nativa the inventory, add stock, answer, book. Quoted in Santo Domingo once your site is sending chats.",
       label: "AI agent",
-      h1: "A brand agent that answers and books on WhatsApp",
+      h1: "You text Nativa. She operates.",
       answer:
-        "Nativa’s AI agent is not a generic chat widget in the corner of the site. It lives where you already close: WhatsApp. It answers hours, services, and availability, can book, and hands off to a human when the case is not routine. We quote it once the site is sending conversations, so we train it on real questions — not an invented script. Built for Dominican businesses that cannot sit on the phone for 18 hours.",
-      sub: "You are not the bottleneck. The agent covers the repeats; a human closes what matters.",
+        "Nativa is not a generic chat widget in the corner of the site. She is your brand agent on WhatsApp, the one you text like a partner. How much is in stock? Add ten more. Any slots tomorrow? Book it. She answers in your voice, runs the routine, and hands off to a human when the case is not. We quote it once the site is sending conversations, so we train her on real questions — not an invented script.",
+      sub: "Inventory, bookings, follow-up. You are not the bottleneck.",
       problemsTitle: "What the agent covers",
       problems: [
         {
@@ -554,7 +554,7 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
         {
           title: "Internal ops, not just marketing",
-          body: "Team pings, lead summaries, reminders. The agent works the pipe, not a trade-show demo.",
+          body: "Inventory, team pings, lead summaries. You text Nativa: add a product, add ten more. She does it.",
         },
       ],
       stepsTitle: "How it is trained",

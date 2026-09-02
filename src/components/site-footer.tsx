@@ -50,8 +50,8 @@ export default function SiteFooter() {
             </div>
             <p style={{ fontSize: "13px", lineHeight: "1.7", marginBottom: "24px", maxWidth: "300px" }}>
               {lang === "es"
-                ? "Sitios web, SEO local, CRM y agentes IA construidos en Santo Domingo para marcas de República Dominicana."
-                : "Websites, local SEO, CRM and AI agents engineered in Santo Domingo for businesses across the Dominican Republic."}
+                ? "Sitios rápidos, Maps, CRM y Nativa — un agente IA de marca — hechos en Santo Domingo para negocios de República Dominicana."
+                : "Fast sites, Maps, CRM, and Nativa — a brand AI agent — built in Santo Domingo for businesses across the Dominican Republic."}
             </p>
             <button
               type="button"
@@ -102,6 +102,16 @@ export default function SiteFooter() {
               <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
               <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
               <li><Link href="/#pricing" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.pricing}</Link></li>
+              <li>
+                <Link href="/santo-domingo" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  Santo Domingo
+                </Link>
+              </li>
+              <li>
+                <Link href="/industrias/clinicas" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  {lang === "es" ? "Clínicas" : "Clinics"}
+                </Link>
+              </li>
               <li><Link href="/portfolio" style={{ color: "var(--coral-blue)", textDecoration: "none", fontWeight: 700 }}>{dict.nav.portfolio}</Link></li>
             </ul>
           </div>
@@ -159,7 +169,7 @@ export default function SiteFooter() {
             © {new Date().getFullYear()} Nativa Web Studio. Santo Domingo, Dominican Republic.
           </p>
           <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "11px", margin: 0 }}>
-            {lang === "es" ? "Diseñado con alto contraste de ingeniería." : "Built with high engineering contrast."}
+            {lang === "es" ? "Hecho en Santo Domingo." : "Made in Santo Domingo."}
           </p>
         </div>
       </div>

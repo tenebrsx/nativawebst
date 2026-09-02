@@ -15,8 +15,8 @@ export default function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#0a1128",
-          color: "#faf7f2",
+          background: "#0B0D12",
+          color: "#F7F8FA",
           fontFamily: "sans-serif",
           position: "relative",
         }}
@@ -29,7 +29,7 @@ export default function Image() {
             width: 420,
             height: 420,
             borderRadius: 999,
-            background: "rgba(14,165,233,0.18)",
+            background: "rgba(30,79,215,0.18)",
             display: "flex",
           }}
         />
@@ -41,7 +41,7 @@ export default function Image() {
             width: 360,
             height: 360,
             borderRadius: 999,
-            background: "rgba(255,183,3,0.12)",
+            background: "rgba(30,79,215,0.10)",
             display: "flex",
           }}
         />
@@ -64,7 +64,7 @@ export default function Image() {
               fontWeight: 700,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#0ea5e9",
+              color: "#1E4FD7",
             }}
           >
             Nativa Web Studio

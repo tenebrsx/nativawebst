@@ -8,66 +8,62 @@ import "./launch-journey.css";
 
 const COPY = {
   es: {
-    cta: "Háblame por WhatsApp",
+    cta: "Hablemos por WhatsApp",
     beats: [
-      {
-        kicker: "01",
-        title: "Brief de 15 min",
-        cap: "WhatsApp. Páginas, Maps, y cómo entra el lead.",
-      },
-      {
-        kicker: "02",
-        title: "Preview en el celular",
-        cap: "Un link vivo en días. Lo abres como lo haría un cliente.",
-      },
-      {
-        kicker: "03",
-        title: "Clientes en el chat",
-        cap: "La web sale. Maps conectado. Cada visita puede escribirte.",
-      },
+      { kicker: "01", title: "Brief de 15 min", cap: "Tú describes el sitio. Nativa responde con páginas, Maps y cómo entra el lead." },
+      { kicker: "02", title: "Tu propio demo", cap: "Un link vivo en días. Lo abres como lo haría un cliente." },
+      { kicker: "03", title: "Tu website en vivo", cap: "El sitio sale completo. Apareces en Maps. Empiezan a llegar clientes." },
     ],
-    need: "Sitio web nuevo",
-    industry: "Clínica / Salud",
-    timing: "Este mes",
+    online: "en línea",
+    pitch1: "Tengo una clínica en Naco. Quiero un sitio con citas, el equipo y los tratamientos.",
+    pitch2: "Y que me encuentren en Maps — no en un PDF.",
+    reply: "Listo. Landing + Maps + WhatsApp. En 15 min cerramos páginas y cómo cae el lead al chat.",
     url: "preview.nativa.studio",
     liveUrl: "clinica-naco.do",
     clinic: "Clínica Naco",
     hero: "Citas hoy.",
     search: "clínica cerca de mí",
-    ping: "1 lead",
+    openNow: "Abierto ahora",
+    ctaBook: "Pedir cita",
+    treat1: "Limpieza",
+    treat2: "Carillas",
+    treat3: "RX",
+    mapsMeta: "4.9 · Naco · Abierto",
+    lead1: "Nueva cita · 16:30",
+    lead2: "WhatsApp desde Maps",
+    lead3: "+3 clientes hoy",
   },
   en: {
     cta: "Message me on WhatsApp",
     beats: [
-      {
-        kicker: "01",
-        title: "15-min brief",
-        cap: "WhatsApp. Pages, Maps, and how the lead arrives.",
-      },
-      {
-        kicker: "02",
-        title: "Preview on your phone",
-        cap: "A live link in days. You tap it like a customer would.",
-      },
-      {
-        kicker: "03",
-        title: "Clients in chat",
-        cap: "Site live. Maps on. Every visit can write you.",
-      },
+      { kicker: "01", title: "15-min brief", cap: "You describe the site. Nativa replies with pages, Maps, and how the lead arrives." },
+      { kicker: "02", title: "Your own demo", cap: "A live link in days. You tap it like a customer would." },
+      { kicker: "03", title: "Your site, live", cap: "A complete website. You’re on Maps. Clients start walking in." },
     ],
-    need: "New website",
-    industry: "Clinic / Health",
-    timing: "This month",
+    online: "online",
+    pitch1: "I run a clinic in Naco. I need a site with bookings, the team, and treatments.",
+    pitch2: "And I want to show up on Maps — not in a PDF.",
+    reply: "Got it. Landing + Maps + WhatsApp. In 15 min we lock pages and how the lead hits the chat.",
     url: "preview.nativa.studio",
     liveUrl: "naco-clinic.do",
     clinic: "Naco Clinic",
     hero: "Book today.",
     search: "clinic near me",
-    ping: "1 lead",
+    openNow: "Open now",
+    ctaBook: "Book now",
+    treat1: "Cleaning",
+    treat2: "Veneers",
+    treat3: "X-ray",
+    mapsMeta: "4.9 · Naco · Open",
+    lead1: "New booking · 4:30",
+    lead2: "WhatsApp from Maps",
+    lead3: "+3 clients today",
   },
-};
+} as const;
 
-function BriefScene({ t }: { t: (typeof COPY)["es"] }) {
+type JourneyCopy = (typeof COPY)[keyof typeof COPY];
+
+function BriefScene({ t }: { t: JourneyCopy }) {
   return (
     <div className="lj-scene lj-brief">
       <div className="lj-wa">
@@ -75,23 +71,36 @@ function BriefScene({ t }: { t: (typeof COPY)["es"] }) {
           <span className="lj-av">N</span>
           <div>
             <b>Nativa</b>
-            <small>{t.beats[0].title}</small>
+            <small>
+              <i className="lj-online" />
+              {t.online}
+            </small>
           </div>
         </div>
         <div className="lj-wa-body">
-          <div className="lj-chip lj-d1">{t.need}</div>
-          <div className="lj-chip lj-d2">{t.industry}</div>
-          <div className="lj-chip lj-d3">{t.timing}</div>
+          <div className="lj-out lj-d0">
+            {t.pitch1}
+            <em className="lj-ticks" aria-hidden="true" />
+          </div>
+          <div className="lj-out lj-d1">
+            {t.pitch2}
+            <em className="lj-ticks" aria-hidden="true" />
+          </div>
+          <div className="lj-type" aria-hidden="true">
+            <span /><span /><span />
+          </div>
+          <div className="lj-in lj-d2">{t.reply}</div>
         </div>
       </div>
     </div>
   );
 }
 
-function PreviewScene({ t }: { t: (typeof COPY)["es"] }) {
+function PreviewScene({ t }: { t: JourneyCopy }) {
   return (
     <div className="lj-scene lj-preview">
       <div className="lj-phone">
+        <span className="lj-notch" aria-hidden="true" />
         <div className="lj-phone-bar">{t.url}</div>
         <div className="lj-site">
           <div className="lj-site-nav lj-d1">
@@ -102,24 +111,67 @@ function PreviewScene({ t }: { t: (typeof COPY)["es"] }) {
           <div className="lj-site-media lj-d3">
             <span /><span /><span />
           </div>
+          <div className="lj-site-cta lj-d3">WA</div>
         </div>
+        <span className="lj-home" aria-hidden="true" />
       </div>
     </div>
   );
 }
 
-function LiveScene({ t }: { t: (typeof COPY)["es"] }) {
+function LiveScene({ t }: { t: JourneyCopy }) {
   return (
     <div className="lj-scene lj-live">
-      <div className="lj-map">
-        <div className="lj-search lj-d1">{t.search}</div>
-        <span className="lj-pin" />
-        <div className="lj-card lj-d3">
-          <div>
-            <strong>{t.clinic}</strong>
-            <small>{t.liveUrl}</small>
+      <div className="lj-live-board">
+        <div className="lj-mini lj-d1">
+          <div className="lj-mini-nav">
+            <b>{t.clinic}</b>
+            <i>WA</i>
           </div>
-          <span className="lj-ping">{t.ping}</span>
+          <div className="lj-mini-hero">
+            <em>
+              <span className="lj-open-dot" />
+              {t.openNow}
+            </em>
+            <strong>{t.hero}</strong>
+            <span className="lj-mini-cta">{t.ctaBook}</span>
+          </div>
+          <div className="lj-mini-rows">
+            <span>{t.treat1}</span>
+            <span>{t.treat2}</span>
+            <span>{t.treat3}</span>
+          </div>
+        </div>
+
+        <div className="lj-map lj-d2">
+          <div className="lj-streets" aria-hidden="true" />
+          <span className="lj-park lj-park-a" aria-hidden="true" />
+          <span className="lj-park lj-park-b" aria-hidden="true" />
+          <div className="lj-search">{t.search}</div>
+          <span className="lj-pin" />
+          <span className="lj-pin-halo" aria-hidden="true" />
+          <div className="lj-card">
+            <div>
+              <strong>{t.clinic}</strong>
+              <small>{t.mapsMeta}</small>
+            </div>
+            <span className="lj-open">{t.openNow}</span>
+          </div>
+        </div>
+
+        <div className="lj-traffic lj-d3">
+          <div className="lj-flow" aria-hidden="true">
+            <span className="lj-person lj-p1" />
+            <span className="lj-person lj-p2" />
+            <span className="lj-person lj-p3" />
+            <span className="lj-person lj-p4" />
+            <span className="lj-door" />
+          </div>
+          <div className="lj-leads">
+            <span className="lj-lead lj-lead-a">{t.lead1}</span>
+            <span className="lj-lead lj-lead-b">{t.lead2}</span>
+            <b className="lj-lead-count">{t.lead3}</b>
+          </div>
         </div>
       </div>
     </div>
@@ -138,7 +190,7 @@ export default function LaunchJourney() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       setBeat((n) => (n + 1) % 3);
-    }, 5200);
+    }, 5800);
     return () => window.clearInterval(id);
   }, [pinned]);
 
@@ -151,7 +203,8 @@ export default function LaunchJourney() {
           <p className="lj-sub">{dict.sub}</p>
         </div>
 
-        <div className="lj-rail" role="tablist">
+        <div className="lj-rail" role="tablist" data-beat={beat}>
+          <span className="lj-rail-glider" aria-hidden="true" />
           {t.beats.map((b, i) => (
             <button
               key={b.kicker}

@@ -33,7 +33,7 @@ export function ServiciosHubView() {
           </div>
         </div>
       </section>
-      <section style={{ padding: "56px 0 80px" }}>
+      <section style={{ padding: "56px 0 48px" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))", gap: "20px" }}>
             {SERVICES.map((service, i) => {
@@ -50,6 +50,33 @@ export function ServiciosHubView() {
                 </Reveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+      <section style={{ padding: "0 0 80px" }}>
+        <div className="container">
+          <h2 className="section-title" style={{ marginBottom: "24px" }}>
+            {lang === "es" ? "Dónde y para quién" : "Where and for whom"}
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))", gap: "16px" }}>
+            <Link href="/santo-domingo" className="card card-hover" style={{ padding: "20px", textDecoration: "none" }}>
+              <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", marginBottom: "6px" }}>Santo Domingo</div>
+              <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>
+                {lang === "es"
+                  ? "El estudio está en Churchill. Maps, NAP y WhatsApp para la capital."
+                  : "The studio is on Churchill. Maps, NAP, and WhatsApp for the capital."}
+              </p>
+            </Link>
+            <Link href="/industrias/clinicas" className="card card-hover" style={{ padding: "20px", textDecoration: "none" }}>
+              <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", marginBottom: "6px" }}>
+                {lang === "es" ? "Clínicas" : "Clinics"}
+              </div>
+              <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>
+                {lang === "es"
+                  ? "El paciente busca cerca, toca, y la cita llega al chat."
+                  : "The patient searches nearby, taps, and the appointment lands in chat."}
+              </p>
+            </Link>
           </div>
         </div>
       </section>

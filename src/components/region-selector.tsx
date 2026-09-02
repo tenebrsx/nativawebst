@@ -107,7 +107,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: currency === "DOP" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: currency === "DOP" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: currency === "DOP" ? "#F0F9FF" : "#F8FAFC",
                   color: currency === "DOP" ? "#0284C7" : "#475569",
                   cursor: "pointer"
@@ -122,7 +122,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: currency === "USD" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: currency === "USD" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: currency === "USD" ? "#F0F9FF" : "#F8FAFC",
                   color: currency === "USD" ? "#0284C7" : "#475569",
                   cursor: "pointer"
@@ -146,7 +146,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: lang === "es" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: lang === "es" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: lang === "es" ? "#F0F9FF" : "#F8FAFC",
                   color: lang === "es" ? "#0284C7" : "#475569",
                   cursor: "pointer"
@@ -161,7 +161,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: lang === "en" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: lang === "en" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: lang === "en" ? "#F0F9FF" : "#F8FAFC",
                   color: lang === "en" ? "#0284C7" : "#475569",
                   cursor: "pointer"

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useGeo } from "@/lib/geo-context";
 import Link from "next/link";
+import { RemotionVideoStudio } from "@/components/remotion-video-studio";
 
 type Format = "feed" | "story";
 type AdLang = "es" | "en";
@@ -351,6 +352,27 @@ export default function AdsPage() {
       {/* ─── ADS SHOWCASE GRID ───────────────────────────────────── */}
       <section style={{ padding: "20px 0 90px" }}>
         <div className="container">
+          {/* Live Interactive Remotion Studio & Player */}
+          <RemotionVideoStudio />
+
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "24px",
+            borderBottom: "1px solid rgba(10,17,40,0.1)",
+            paddingBottom: "12px"
+          }}>
+            <div>
+              <h3 style={{ fontFamily: "var(--font-head)", fontSize: "18px", fontWeight: 800, color: "#0A1128", margin: 0 }}>
+                Copy & Static Graphics Kit
+              </h3>
+              <p style={{ fontSize: "13px", color: "#64748B", margin: "2px 0 0" }}>
+                Textos publicitarios listos para copiar y pegar en Meta Ads Manager o publicaciones orgánicas.
+              </p>
+            </div>
+          </div>
+
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",

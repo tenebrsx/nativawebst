@@ -2,6 +2,7 @@ import {
   SITE_CITY,
   SITE_COUNTRY,
   SITE_COUNTRY_NAME,
+  SITE_REGION,
   SITE_DEFAULT_DESCRIPTION,
   SITE_EMAIL,
   SITE_LAT,
@@ -48,6 +49,7 @@ export function organizationGraph() {
           "@type": "PostalAddress",
           streetAddress: SITE_STREET,
           addressLocality: SITE_CITY,
+          addressRegion: SITE_REGION,
           addressCountry: SITE_COUNTRY,
         },
         geo: {
@@ -206,6 +208,72 @@ export function serviciosHubGraph() {
           position: i + 1,
           name: service.nameEs,
           url: absoluteUrl(service.path),
+        })),
+      },
+    ],
+  };
+}
+
+export function answerPageGraph({
+  id,
+  name,
+  description,
+  path,
+  faqs,
+  crumbs,
+  areaServed,
+  serviceType,
+}: {
+  id: string;
+  name: string;
+  description: string;
+  path: string;
+  faqs: FaqItem[];
+  crumbs: Array<{ name: string; path: string }>;
+  areaServed: { "@type": "City" | "Country"; name: string };
+  serviceType: string;
+}) {
+  const url = absoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#page`,
+        url,
+        name,
+        description,
+        isPartOf: { "@id": websiteId() },
+        about: { "@id": orgId() },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#${id}`,
+        name: serviceType,
+        description,
+        url,
+        provider: { "@id": orgId() },
+        areaServed,
+        serviceType,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: crumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          item: absoluteUrl(crumb.path),
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
         })),
       },
     ],

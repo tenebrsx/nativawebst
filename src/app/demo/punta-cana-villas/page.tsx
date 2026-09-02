@@ -1,147 +1,214 @@
 "use client";
 
-import { useState } from "react";
-import { DemoTopBar } from "@/components/demo-top-bar";
+import Link from "next/link";
+import { BASE, BRAND, EXPERIENCES, IMG, REVIEWS, VILLAS, holdUrl, money, nightsBetween } from "./data";
+import { useStay } from "./context";
+import Hero from "./hero";
+import StayBar from "./stay-bar";
+import VillaCard from "./villa-card";
+import { Reveal } from "./reveal";
 
-export default function PuntaCanaVillasDemo() {
-  const [curr, setCurr] = useState<"USD" | "DOP">("USD");
-  const [inquired, setInquired] = useState(false);
-
-  const villas = [
-    { name: "Villa Marina Cap Cana", beds: "6 Habitaciones", guests: "12 Huéspedes", priceUSD: 1450, priceDOP: 87000, img: "🏖️" },
-    { name: "Punta Cana Beachfront Sanctuary", beds: "4 Habitaciones", guests: "8 Huéspedes", priceUSD: 950, priceDOP: 57000, img: "🌅" },
-    { name: "Bávaro Palms Luxury Estate", beds: "5 Habitaciones", guests: "10 Huéspedes", priceUSD: 1200, priceDOP: 72000, img: "🍹" }
-  ];
+export default function PuntaCanaVillasHome() {
+  const stay = useStay();
+  const marina = VILLAS[0];
+  const nights = nightsBetween(stay.checkIn, stay.checkOut);
 
   return (
-    <div style={{ background: "#FAF7F2", color: "#0A1128", minHeight: "100vh", fontFamily: "system-ui, sans-serif" }}>
-      
-      {/* Sticky Nativa Demo Banner */}
-      <DemoTopBar
-        templateName="Plantilla Punta Cana Luxury Villas & Alquileres"
-        templateCategory="Bienes Raíces & Turismo"
-        whatsappMessage="Hola Nativa, vi el demo de Punta Cana Villas (#punta-cana-villas) y me interesa cotizar una plataforma vacacional como esta."
-      />
+    <>
+      <Hero />
+      <StayBar />
 
-      {/* ─── VILLA HEADER ───────────────────────────────────────── */}
-      <header style={{ background: "#ffffff", borderBottom: "1px solid #E2E8F0", padding: "16px 0", position: "sticky", top: "42px", zIndex: 50 }}>
-        <div className="header-bar" style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div>
-            <div style={{ fontWeight: 900, fontSize: "20px", fontFamily: "serif", letterSpacing: "0.05em", color: "#0A1128" }}>
-              PUNTA CANA COASTAL ESCAPES
+      <section className="pcv-section">
+        <div className="pcv-wrap">
+          <Reveal className="pcv-section-head">
+            <div className="pcv-kicker">
+              <i />
+              Colección
             </div>
-            <div className="brand-tagline" style={{ fontSize: "9px", color: "#0EA5E9", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase" }}>
-              LUXURY VACATION VILLA COLLECTION
-            </div>
+            <h2>Seis casas. Ningún mostrador.</h2>
+            <p>Elige por muelle, fairway, Juanillo o acantilado. El precio es por noche. El chat cierra el hold.</p>
+          </Reveal>
+          <div className="pcv-reel">
+            {VILLAS.map((v, i) => (
+              <VillaCard key={v.slug} villa={v} index={i} />
+            ))}
           </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            {/* Currency Switcher */}
-            <div style={{ display: "flex", background: "#F1F5F9", padding: "2px", borderRadius: "6px" }}>
-              <button
-                onClick={() => setCurr("USD")}
-                style={{ background: curr === "USD" ? "#0A1128" : "transparent", color: curr === "USD" ? "#fff" : "#0A1128", border: "none", padding: "4px 8px", borderRadius: "4px", fontSize: "11px", fontWeight: 800, cursor: "pointer" }}
-              >
-                USD ($)
-              </button>
-              <button
-                onClick={() => setCurr("DOP")}
-                style={{ background: curr === "DOP" ? "#0A1128" : "transparent", color: curr === "DOP" ? "#fff" : "#0A1128", border: "none", padding: "4px 8px", borderRadius: "4px", fontSize: "11px", fontWeight: 800, cursor: "pointer" }}
-              >
-                DOP (RD$)
-              </button>
-            </div>
-
-            <a
-              href="https://wa.me/18093588113?text=Hola%20Punta%20Cana%20Escapes,%20quiero%20consultar%20disponibilidad"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ background: "#0A1128", color: "#fff", padding: "8px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 800, fontSize: "12px" }}
-            >
-              Concierge WhatsApp 💬
-            </a>
-          </div>
-        </div>
-      </header>
-
-      {/* ─── VILLA HERO ─────────────────────────────────────────── */}
-      <section style={{ background: "linear-gradient(135deg, #0A1128 0%, #1E293B 100%)", color: "#fff", padding: "80px 20px", textAlign: "center" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <span style={{ color: "#FFB703", fontSize: "11px", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-            CAP CANA · BÁVARO · LOS CORALES
-          </span>
-          <h1 style={{ fontFamily: "serif", fontSize: "clamp(34px, 5vw, 52px)", fontWeight: 400, margin: "16px 0 12px", lineHeight: "1.1" }}>
-            Exclusividad y Privacidad en el Caribe
-          </h1>
-          <p style={{ fontSize: "15px", color: "#94A3B8", lineHeight: "1.6", margin: "0 0 32px" }}>
-            Villas privadas con servicio de chef personal, piscina infinity y acceso exclusivo a campos de golf en Punta Cana.
-          </p>
         </div>
       </section>
 
-      {/* ─── VILLA CATALOG ──────────────────────────────────────── */}
-      <section style={{ padding: "60px 20px", maxWidth: "1100px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <span style={{ fontSize: "11px", fontWeight: 800, color: "#0EA5E9", textTransform: "uppercase", letterSpacing: "0.1em" }}>Colección 2026</span>
-          <h2 style={{ fontFamily: "serif", fontSize: "32px", margin: "4px 0" }}>Villas Destacadas</h2>
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "28px" }}>
-          {villas.map(v => (
-            <div key={v.name} style={{ background: "#ffffff", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.04)" }}>
-              <div style={{ background: "#E2E8F0", height: "180px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "64px" }}>
-                {v.img}
-              </div>
-              <div style={{ padding: "24px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                  <span style={{ fontSize: "11px", color: "#64748B", fontWeight: 700 }}>{v.beds} · {v.guests}</span>
-                  <span style={{ fontSize: "14px", fontWeight: 900, color: "#0A1128" }}>
-                    {curr === "USD" ? `$${v.priceUSD.toLocaleString()} / noche` : `RD$ ${v.priceDOP.toLocaleString()} / noche`}
-                  </span>
-                </div>
-                <h3 style={{ fontFamily: "serif", fontSize: "20px", margin: "0 0 16px" }}>{v.name}</h3>
-                
-                <button
-                  onClick={() => setInquired(true)}
-                  style={{ width: "100%", background: "#0A1128", color: "#fff", border: "none", padding: "12px", borderRadius: "8px", fontWeight: 800, fontSize: "13px", cursor: "pointer" }}
-                >
-                  Consultar Disponibilidad 🗓️
-                </button>
-              </div>
+      <section className="pcv-section" style={{ paddingTop: 0 }}>
+        <div className="pcv-wrap">
+          <Reveal className="pcv-section-head">
+            <div className="pcv-kicker">
+              <i />
+              El hold
             </div>
-          ))}
+            <h2>Tres toques. Sin “¿cuánto la noche?”.</h2>
+          </Reveal>
+          <div className="pcv-steps">
+            <Reveal>
+              <article className="pcv-step">
+                <h3>Fechas y gente</h3>
+                <p>Llegada, salida, cuántos. Queda en la barra. No en un mail.</p>
+              </article>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <article className="pcv-step">
+                <h3>La villa</h3>
+                <p>Marina, Palmera, Coral, Brisa, Luna, Caletón. USD o DOP, a la vista.</p>
+              </article>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <article className="pcv-step">
+                <h3>El recorrido</h3>
+                <p>WhatsApp abre con la casa, las noches y la moneda. Eso es el hold.</p>
+              </article>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* ─── INQUIRY MODAL SIMULATOR ────────────────────────────── */}
-      {inquired && (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px", zIndex: 9000 }}>
-          <div style={{ background: "#fff", borderRadius: "16px", padding: "32px", maxWidth: "440px", width: "100%" }}>
-            <h3 style={{ fontFamily: "serif", fontSize: "22px", margin: "0 0 8px" }}>Reserva de Concierge</h3>
-            <p style={{ fontSize: "13px", color: "#64748B", margin: "0 0 20px" }}>
-              Indica tus fechas tentativas y número de huéspedes. Nuestro equipo coordinará tu transporte VIP y reserva por WhatsApp.
+      <section className="pcv-section" style={{ paddingTop: 0 }}>
+        <div className="pcv-wrap pcv-feature">
+          <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={marina.hero} alt={marina.name} />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="pcv-kicker">
+              <i />
+              Destacada
+            </div>
+            <h2 style={{ fontSize: "clamp(2.4rem, 4vw, 4rem)", fontStyle: "italic", margin: "12px 0" }}>{marina.name}</h2>
+            <p className="pcv-lede" style={{ maxWidth: "none" }}>
+              {marina.body}
             </p>
-            <button
-              onClick={() => setInquired(false)}
-              style={{ background: "#25D366", color: "#fff", width: "100%", padding: "14px", border: "none", borderRadius: "8px", fontWeight: 900, fontSize: "14px", cursor: "pointer" }}
-            >
-              Enviar Solicitud por WhatsApp 💬
-            </button>
-            <button
-              onClick={() => setInquired(false)}
-              style={{ background: "transparent", color: "#64748B", width: "100%", padding: "10px", border: "none", fontSize: "12px", fontWeight: 700, marginTop: "8px", cursor: "pointer" }}
-            >
-              Cerrar
-            </button>
+            <div className="pcv-stats">
+              <div>
+                <b>{marina.guests}</b>
+                <span>Huéspedes</span>
+              </div>
+              <div>
+                <b>{nights}</b>
+                <span>Noches en tu barra</span>
+              </div>
+              <div>
+                <b>{money(marina.nightUsd * nights, stay.currency)}</b>
+                <span>Estimado</span>
+              </div>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <Link href={`${BASE}/villas/marina`} className="pcv-btn pcv-btn-night">
+                Ver Villa Marina
+              </Link>
+              <a
+                className="pcv-btn pcv-btn-wa"
+                href={holdUrl({
+                  villa: marina.name,
+                  checkIn: stay.checkIn,
+                  checkOut: stay.checkOut,
+                  guests: stay.guests,
+                  currency: stay.currency,
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hold por WhatsApp
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pcv-section pcv-night">
+        <div className="pcv-wrap pcv-split">
+          <Reveal>
+            <div className="pcv-kicker">
+              <i />
+              El lugar
+            </div>
+            <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontStyle: "italic", margin: "12px 0" }}>
+              Cap Cana no es un resort. Es un recinto.
+            </h2>
+            <p className="pcv-lede" style={{ color: "rgba(247,243,235,0.7)", maxWidth: "none" }}>
+              Marina, Punta Espada, Juanillo, Caletón. Las villas están dentro. Maps apunta a la caseta. El concierge abre el portón cuando el hold está en el chat.
+            </p>
+            <Link href={`${BASE}/cap-cana`} className="pcv-btn pcv-btn-brass" style={{ marginTop: 20 }}>
+              Cómo se llega
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${IMG}/marina-aerial.jpg`} alt="Marina de Cap Cana al atardecer" />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pcv-section">
+        <div className="pcv-wrap">
+          <Reveal className="pcv-section-head">
+            <div className="pcv-kicker">
+              <i />
+              En la casa
+            </div>
+            <h2>Chef, yate, mesa. En el mismo hilo.</h2>
+          </Reveal>
+          <div className="pcv-xp">
+            {EXPERIENCES.map((x, i) => (
+              <Reveal key={x.title} delay={i * 0.08}>
+                <article>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={x.img} alt={x.title} />
+                  <h3>{x.title}</h3>
+                  <p>{x.body}</p>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
-      )}
+      </section>
 
-      <footer style={{ background: "#0A1128", color: "#64748B", padding: "40px 20px", textAlign: "center", fontSize: "12px" }}>
-        Punta Cana Coastal Escapes · Cap Cana Resort, Punta Cana, La Altagracia, R.D.<br/>
-        <span style={{ color: "#0EA5E9" }}>Demo Template Powered by Nativa Web Studio</span>
-      </footer>
+      <section className="pcv-section" style={{ paddingTop: 0 }}>
+        <div className="pcv-wrap">
+          <Reveal className="pcv-section-head">
+            <div className="pcv-kicker">
+              <i />
+              Huéspedes
+            </div>
+            <h2>El chat ya tenía las fechas.</h2>
+          </Reveal>
+          <div className="pcv-reviews">
+            {REVIEWS.map((r, i) => (
+              <Reveal key={r.name} delay={i * 0.08}>
+                <blockquote className="pcv-quote">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={r.img} alt="" />
+                  <p>“{r.text}”</p>
+                  <b>{r.name}</b>
+                  <span>{r.stay}</span>
+                </blockquote>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    </div>
+      <section className="pcv-section pcv-night">
+        <div className="pcv-wrap" style={{ display: "flex", justifyContent: "space-between", gap: 24, flexWrap: "wrap", alignItems: "end" }}>
+          <div>
+            <div className="pcv-kicker">
+              <i />
+              {BRAND.kicker}
+            </div>
+            <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)", fontStyle: "italic", marginTop: 12 }}>
+              Pide el recorrido. La villa ya va en el mensaje.
+            </h2>
+          </div>
+          <Link href={`${BASE}/reservar`} className="pcv-btn pcv-btn-brass">
+            Armar el hold
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }

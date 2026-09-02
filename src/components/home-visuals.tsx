@@ -12,12 +12,12 @@ export function HeroAtmosphere() {
       <svg className="hero-horizon-svg" viewBox="0 0 1440 220" preserveAspectRatio="none">
         <defs>
           <linearGradient id="waveFillA" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.04" />
+            <stop offset="0%" stopColor="#1E4FD7" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="#1E4FD7" stopOpacity="0.03" />
           </linearGradient>
           <linearGradient id="waveFillB" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0a1128" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#0a1128" stopOpacity="0.02" />
+            <stop offset="0%" stopColor="#0B0D12" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#0B0D12" stopOpacity="0.02" />
           </linearGradient>
         </defs>
         <g className="wave-layer wave-layer-slow">
@@ -44,7 +44,7 @@ export function HeroAtmosphere() {
           className="horizon-stroke"
           d="M0,108 C240,78 420,138 720,108 C1020,78 1200,132 1440,108"
           fill="none"
-          stroke="#0ea5e9"
+          stroke="#1E4FD7"
           strokeOpacity="0.35"
           strokeWidth="1.5"
         />
@@ -167,15 +167,15 @@ export function HorizonHalo({ children }: { children: ReactNode }) {
   return (
     <div className="horizon-halo">
       <svg className="horizon-ring" viewBox="0 0 320 320" aria-hidden="true">
-        <circle cx="160" cy="160" r="148" fill="none" stroke="rgba(14,165,233,0.38)" strokeWidth="1.2" strokeDasharray="5 9" />
-        <circle cx="160" cy="160" r="118" fill="none" stroke="rgba(255,183,3,0.42)" strokeWidth="1.2" strokeDasharray="2 11" />
-        <circle cx="160" cy="12" r="4" fill="#ffb703" />
-        <circle cx="160" cy="308" r="3" fill="#0ea5e9" />
+        <circle cx="160" cy="160" r="148" fill="none" stroke="rgba(30,79,215,0.35)" strokeWidth="1.2" strokeDasharray="5 9" />
+        <circle cx="160" cy="160" r="118" fill="none" stroke="rgba(11,13,18,0.18)" strokeWidth="1.2" strokeDasharray="2 11" />
+        <circle cx="160" cy="12" r="4" fill="#1E4FD7" />
+        <circle cx="160" cy="308" r="3" fill="#1E4FD7" />
       </svg>
       <svg className="horizon-crest" viewBox="0 0 120 56" aria-hidden="true">
-        <circle cx="60" cy="22" r="10" fill="#FFB703" opacity="0.9" />
-        <path d="M8 32C22 24 36 40 60 28C84 16 100 34 112 30" stroke="#0EA5E9" strokeWidth="3" fill="none" strokeLinecap="round" />
-        <path d="M8 42C24 34 38 46 62 38C86 30 100 44 112 42" stroke="#0EA5E9" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.45" />
+        <circle cx="60" cy="22" r="10" fill="#FFFFFF" opacity="0.92" />
+        <path d="M8 32C22 24 36 40 60 28C84 16 100 34 112 30" stroke="#1E4FD7" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <path d="M8 42C24 34 38 46 62 38C86 30 100 44 112 42" stroke="#1E4FD7" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.45" />
       </svg>
       {children}
     </div>
