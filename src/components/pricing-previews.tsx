@@ -107,23 +107,62 @@ function OtherSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
   );
 }
 
+function ClinicMark() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path
+        d="M16 3.2c-3.2 0-5.8 2-7.1 5.1C7.5 11.2 7 14.4 7 17.2c0 4.2 2.1 7.6 5.2 9.2.9.5 1.9.8 2.9.8h1.8c1 0 2-.3 2.9-.8 3.1-1.6 5.2-5 5.2-9.2 0-2.8-.5-6-1.9-8.9C21.8 5.2 19.2 3.2 16 3.2Z"
+        fill="#fff"
+      />
+      <path
+        d="M12.2 12.4c.4-1.6 1.5-2.7 3.8-2.7s3.4 1.1 3.8 2.7c.3 1.2-.1 2.4-.9 3.1-.6.5-1 .9-1 1.8v1.1c0 .6-.5 1.1-1.1 1.1h-.6c-.6 0-1.1-.5-1.1-1.1v-1.1c0-.9-.4-1.3-1-1.8-.8-.7-1.2-1.9-.9-3.1Z"
+        fill="#0a4f4d"
+      />
+    </svg>
+  );
+}
+
 function ClinicSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"; es: boolean; alt: "es" | "en" }) {
   return (
     <div className="lp-site lp-cl">
       <nav className="lp-nav lp-cl-nav">
-        <div className="lp-mark" aria-hidden="true" />
-        <b>{t.brand}</b>
+        <div className="lp-cl-brand">
+          <div className="lp-mark lp-cl-mark" aria-hidden="true">
+            <ClinicMark />
+          </div>
+          <div>
+            <b>{t.brand}</b>
+            <small>Naco · Santo Domingo</small>
+          </div>
+        </div>
         <div className="lp-nav-links">
-          {t.nav.map((n) => <span key={n.es}>{tx(n, lang)}</span>)}
+          {t.nav.map((n, i) => (
+            <span key={n.es} className={i === 0 ? "is-on" : undefined}>
+              {tx(n, lang)}
+            </span>
+          ))}
+        </div>
+        <div className="lp-cl-nav-cta">
+          <em>(809) 555-0192</em>
+          <div className="lp-cta">{es ? "Agendar" : "Book"}</div>
         </div>
       </nav>
 
       <div className="lp-cl-hero">
         <div className="lp-cl-copy">
-          <em>{tx(t.hero.kicker, lang)}</em>
+          <em className="lp-cl-kicker">
+            <i />
+            {tx(t.hero.kicker, lang)}
+          </em>
           <h3>{tx(t.hero.title, lang)}</h3>
           <p>{tx(t.hero.sub, lang)}</p>
           <p className="lp-alt">{tx(t.hero.title, alt)}</p>
+          <div className="lp-cl-actions">
+            <div className="lp-cta">{tx(t.hero.cta, lang)}</div>
+            <div className="lp-cl-wa">
+              {es ? "WhatsApp · cupo esta semana" : "WhatsApp · slot this week"}
+            </div>
+          </div>
           <div className="lp-cl-trust">
             {t.stats.map((s) => (
               <span key={s.n + s.l.es}>
@@ -132,70 +171,19 @@ function ClinicSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en
               </span>
             ))}
           </div>
-          <div className="lp-cta">{tx(t.hero.cta, lang)}</div>
         </div>
         <div className="lp-cl-visual">
           <img src={t.hero.img} alt="" />
-          <div className="lp-cl-toast">
-            <b>{tx(t.toast.label, lang)}</b>
-            <span>{tx(t.toast.text, lang)}</span>
-          </div>
         </div>
       </div>
 
-      <div className="lp-cl-treats">
-        <div className="lp-cl-treats-head">
-          <b>{es ? "Tratamientos" : "Treatments"}</b>
-          <span>{es ? "Precios orientativos" : "Guide prices"}</span>
-        </div>
-        <div className="lp-cl-treats-list">
-          {t.cards.map((c) => (
-            <article key={c.title.es}>
-              <img src={c.img} alt="" />
-              <div>
-                <small>{tx(c.tag, lang)}</small>
-                <b>{tx(c.title, lang)}</b>
-              </div>
-              <em>{c.meta}</em>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div className="lp-cl-case">
-        <div className="lp-cl-case-copy">
-          <small>{es ? "Estética dental" : "Cosmetic dentistry"}</small>
-          <b>{es ? "Carillas en 2 visitas" : "Veneers in 2 visits"}</b>
-        </div>
-        <div className="lp-cl-ba">
-          <figure>
-            <img src="/demo/sdq-dental/case-veneers-before.jpg" alt="" />
-            <figcaption>{es ? "Antes" : "Before"}</figcaption>
-          </figure>
-          <figure>
-            <img src="/demo/sdq-dental/case-veneers-after.jpg" alt="" />
-            <figcaption>{es ? "Después" : "After"}</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div className="lp-cl-team">
-        {t.strip.map((p) => (
-          <figure key={p.name}>
-            <img src={p.img} alt="" />
-            <figcaption>
-              <b>{p.name}</b>
-              <small>{tx(p.role, lang)}</small>
-            </figcaption>
-          </figure>
+      <div className="lp-cl-chips">
+        {t.cards.map((c) => (
+          <span key={c.title.es}>
+            {tx(c.title, lang)} · {c.meta}
+          </span>
         ))}
-        <div className="lp-info">
-          <b>{tx(t.info.title, lang)}</b>
-          {t.info.lines.map((line) => <span key={line}>{line}</span>)}
-        </div>
       </div>
-
-      <MapBit name={t.map.name} meta={tx(t.map.meta, lang)} />
     </div>
   );
 }
@@ -395,7 +383,7 @@ export function LandingPreview({
   const t = template;
   const props = { t, lang, es, alt };
 
-  return (
+  const frame = (
     <div
       className="lp"
       data-tpl={t.id}
@@ -410,6 +398,12 @@ export function LandingPreview({
        t.id === "constructora" ? <BuildSite {...props} /> :
        t.id === "otro" ? <OtherSite {...props} /> :
        <ClinicSite {...props} />}
+    </div>
+  );
+
+  return (
+    <div className="lp-fit">
+      <div className="lp-fit-inner">{frame}</div>
     </div>
   );
 }

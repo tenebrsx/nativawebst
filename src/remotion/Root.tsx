@@ -46,7 +46,7 @@ export const RemotionRoot: React.FC = () => {
           headline: "¿Tu web tarda 5s en cargar en celular?",
           subheadline:
             "El 53% de clientes en Santo Domingo abandonan webs lentas.",
-          ctaText: "Pedir Presupuesto Gratis 💬",
+          ctaText: "Pedir cotización 💬",
           deliveryBadge: "LANZAMIENTO EN 48 HORAS",
           whatsappPhone: "+1 (829) 000-0000",
         }}

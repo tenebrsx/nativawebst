@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
-import { SERVICES, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY, SITE_STREET } from "@/lib/site";
+import { SERVICES, SITE_CITATION, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY, SITE_STREET } from "@/lib/site";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 
 export default function SiteFooter() {
@@ -99,17 +99,47 @@ export default function SiteFooter() {
               {lang === "es" ? "Navegación" : "Sitemap"}
             </h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px" }}>
-              <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
-              <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
               <li><Link href="/#pricing" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.pricing}</Link></li>
+              <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
+              <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
+              <li>
+                <Link href="/por-que-nosotros" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  {lang === "es" ? "Por qué nosotros" : "Why us"}
+                </Link>
+              </li>
               <li>
                 <Link href="/santo-domingo" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
                   Santo Domingo
                 </Link>
               </li>
               <li>
+                <Link href="/punta-cana" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  Punta Cana
+                </Link>
+              </li>
+              <li>
                 <Link href="/industrias/clinicas" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
                   {lang === "es" ? "Clínicas" : "Clinics"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/industrias/legal" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  Legal
+                </Link>
+              </li>
+              <li>
+                <Link href="/industrias/villas" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  Villas
+                </Link>
+              </li>
+              <li>
+                <Link href="/guias" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  {lang === "es" ? "Guías" : "Guides"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/casos" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  {lang === "es" ? "Casos" : "Cases"}
                 </Link>
               </li>
               <li><Link href="/portfolio" style={{ color: "var(--coral-blue)", textDecoration: "none", fontWeight: 700 }}>{dict.nav.portfolio}</Link></li>
@@ -130,6 +160,9 @@ export default function SiteFooter() {
               </li>
               <li>
                 <a href={`tel:${SITE_PHONE}`} style={{ fontWeight: 600, color: "#fff", textDecoration: "none" }}>{SITE_PHONE_DISPLAY}</a>
+              </li>
+              <li style={{ color: "rgba(255,255,255,0.45)", fontSize: "11.5px", lineHeight: 1.55 }}>
+                {SITE_CITATION}
               </li>
             </ul>
             <div
@@ -168,6 +201,23 @@ export default function SiteFooter() {
           <p style={{ color: "rgba(255,255,255,0.3)", margin: 0 }}>
             © {new Date().getFullYear()} Nativa Web Studio. Santo Domingo, Dominican Republic.
           </p>
+          <nav
+            aria-label={lang === "es" ? "Legal" : "Legal"}
+            style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px", alignItems: "center" }}
+          >
+            <Link href="/legal" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              Legal
+            </Link>
+            <Link href="/legal/privacidad" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              {lang === "es" ? "Privacidad" : "Privacy"}
+            </Link>
+            <Link href="/legal/terminos" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              {lang === "es" ? "Términos" : "Terms"}
+            </Link>
+            <Link href="/legal/cookies" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+              Cookies
+            </Link>
+          </nav>
           <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "11px", margin: 0 }}>
             {lang === "es" ? "Hecho en Santo Domingo." : "Made in Santo Domingo."}
           </p>

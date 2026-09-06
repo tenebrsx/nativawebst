@@ -23,13 +23,13 @@ export const clientDemos: ClientDemo[] = [
     clientName: "Punta Cana Villas",
     industry: "Bienes Raíces & Alquiler de Lujo",
     category: "realestate",
-    description: "Colección privada en Cap Cana: fechas y moneda en la ficha, hold por WhatsApp con la villa ya escrita.",
-    highlights: ["Hold por WhatsApp", "USD y DOP en la ficha", "Seis villas en Cap Cana", "Fechas en el chat"],
+    description: "Colección privada en Cap Cana: fechas y moneda en la ficha, reserva por WhatsApp con la villa ya escrita.",
+    highlights: ["Reserva por WhatsApp", "USD y DOP en la ficha", "Seis villas en Cap Cana", "Fechas en el chat"],
     demoUrl: "/demo/punta-cana-villas",
     tags: ["Real Estate", "Vacation Rental", "Cap Cana", "High Conversion"],
     dateCreated: "2026-07-28",
     accentColor: "#C4A36A",
-    whatsappMessage: "Hola Nativa, vi Punta Cana Villas (#punta-cana-villas) y quiero una colección así: fechas, USD/DOP y hold por WhatsApp.",
+    whatsappMessage: "Hola Nativa, vi Punta Cana Villas (#punta-cana-villas) y quiero una colección así: fechas, USD/DOP y reserva por WhatsApp.",
     badge: "Populares"
   },
   {

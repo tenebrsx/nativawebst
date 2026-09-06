@@ -111,47 +111,55 @@ export default function WhatsappBubble() {
           flexDirection: "column",
           gap: "8px",
           scrollbarWidth: "none",
+          textAlign: "left",
         }}
       >
-        {visible.map((msg, i) => (
-          <div key={i} className="animate-up" style={{
-            display: "flex",
-            justifyContent: msg.from === "us" ? "flex-end" : "flex-start",
-          }}>
-            <div style={{
-              maxWidth: "80%",
-              padding: "8px 12px",
-              borderRadius: msg.from === "us" ? "12px 12px 2px 12px" : "12px 12px 12px 2px",
-              background: msg.from === "us" ? "#005c4b" : "#202c33",
-              color: "#e9edef",
-              fontSize: "12px",
-              lineHeight: "1.5",
-              fontFamily: "var(--font-body)",
+        {visible.map((msg, i) => {
+          const mine = msg.from === "client";
+          return (
+            <div key={i} className="animate-up" style={{
+              display: "flex",
+              justifyContent: mine ? "flex-end" : "flex-start",
+              width: "100%",
             }}>
-              {msg.text}
-              <div style={{ textAlign: "right", color: "#8696a0", fontSize: "10px", marginTop: "4px" }}>
-                {new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                {msg.from === "us" && " ✓✓"}
+              <div style={{
+                maxWidth: "80%",
+                padding: "8px 12px",
+                borderRadius: mine ? "12px 12px 2px 12px" : "12px 12px 12px 2px",
+                background: mine ? "#005c4b" : "#202c33",
+                color: "#e9edef",
+                fontSize: "12px",
+                lineHeight: "1.5",
+                fontFamily: "var(--font-body)",
+                textAlign: "left",
+              }}>
+                {msg.text}
+                <div style={{ textAlign: "right", color: "#8696a0", fontSize: "10px", marginTop: "4px" }}>
+                  {new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                  {mine && <span style={{ color: "#53bdeb", marginLeft: 4 }}>✓✓</span>}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {typing && (
           <div className="animate-up" style={{
             display: "flex",
-            justifyContent: typer === "us" ? "flex-end" : "flex-start",
+            justifyContent: typer === "client" ? "flex-end" : "flex-start",
+            width: "100%",
           }}>
             <div style={{
               padding: "8px 14px",
-              borderRadius: "12px",
-              background: "#202c33",
+              borderRadius: typer === "client" ? "12px 12px 2px 12px" : "12px 12px 12px 2px",
+              background: typer === "client" ? "#005c4b" : "#202c33",
               display: "flex", gap: "4px", alignItems: "center",
             }}>
               {[0,1,2].map(n => (
                 <span key={n} className={`dot-${n+1}`} style={{
                   width: "6px", height: "6px", borderRadius: "50%",
-                  background: "#8696a0", display: "inline-block",
+                  background: typer === "client" ? "#a7c4bc" : "#8696a0",
+                  display: "inline-block",
                 }} />
               ))}
             </div>

@@ -10,14 +10,14 @@ const COPY = {
   es: {
     cta: "Hablemos por WhatsApp",
     beats: [
-      { kicker: "01", title: "Brief de 15 min", cap: "Tú describes el sitio. Nativa responde con páginas, Maps y cómo entra el lead." },
+      { kicker: "01", title: "Charla de 15 min", cap: "Tú describes el sitio. Nativa responde con páginas, Maps y cómo entra el cliente." },
       { kicker: "02", title: "Tu propio demo", cap: "Un link vivo en días. Lo abres como lo haría un cliente." },
-      { kicker: "03", title: "Tu website en vivo", cap: "El sitio sale completo. Apareces en Maps. Empiezan a llegar clientes." },
+      { kicker: "03", title: "Tu sitio en vivo", cap: "El sitio sale completo. Apareces en Maps. Empiezan a llegar clientes." },
     ],
     online: "en línea",
     pitch1: "Tengo una clínica en Naco. Quiero un sitio con citas, el equipo y los tratamientos.",
     pitch2: "Y que me encuentren en Maps — no en un PDF.",
-    reply: "Listo. Landing + Maps + WhatsApp. En 15 min cerramos páginas y cómo cae el lead al chat.",
+    reply: "Listo. Página + Maps + WhatsApp. En 15 min cerramos páginas y cómo cae el cliente al chat.",
     url: "preview.nativa.studio",
     liveUrl: "clinica-naco.do",
     clinic: "Clínica Naco",
@@ -29,9 +29,12 @@ const COPY = {
     treat2: "Carillas",
     treat3: "RX",
     mapsMeta: "4.9 · Naco · Abierto",
-    lead1: "Nueva cita · 16:30",
-    lead2: "WhatsApp desde Maps",
-    lead3: "+3 clientes hoy",
+    mVisits: "Vistas en mapas",
+    mBookings: "Clientes nuevos",
+    mRevenue: "Revenue",
+    mVisitsN: ["12", "28", "47"],
+    mBookingsN: ["4", "18", "36"],
+    mRevenueN: ["RD$ 48k", "RD$ 120k", "RD$ 280k"],
   },
   en: {
     cta: "Message me on WhatsApp",
@@ -55,9 +58,12 @@ const COPY = {
     treat2: "Veneers",
     treat3: "X-ray",
     mapsMeta: "4.9 · Naco · Open",
-    lead1: "New booking · 4:30",
-    lead2: "WhatsApp from Maps",
-    lead3: "+3 clients today",
+    mVisits: "Map views",
+    mBookings: "New clients",
+    mRevenue: "Revenue",
+    mVisitsN: ["12", "28", "47"],
+    mBookingsN: ["4", "18", "36"],
+    mRevenueN: ["RD$ 48k", "RD$ 120k", "RD$ 280k"],
   },
 } as const;
 
@@ -160,17 +166,35 @@ function LiveScene({ t }: { t: JourneyCopy }) {
         </div>
 
         <div className="lj-traffic lj-d3">
-          <div className="lj-flow" aria-hidden="true">
-            <span className="lj-person lj-p1" />
-            <span className="lj-person lj-p2" />
-            <span className="lj-person lj-p3" />
-            <span className="lj-person lj-p4" />
-            <span className="lj-door" />
+          <div className="lj-metric">
+            <span>{t.mVisits}</span>
+            <b className="lj-metric-n" aria-hidden="true">
+              <i>
+                {t.mVisitsN.map((n) => (
+                  <span key={n}>{n}</span>
+                ))}
+              </i>
+            </b>
           </div>
-          <div className="lj-leads">
-            <span className="lj-lead lj-lead-a">{t.lead1}</span>
-            <span className="lj-lead lj-lead-b">{t.lead2}</span>
-            <b className="lj-lead-count">{t.lead3}</b>
+          <div className="lj-metric">
+            <span>{t.mBookings}</span>
+            <b className="lj-metric-n" aria-hidden="true">
+              <i>
+                {t.mBookingsN.map((n) => (
+                  <span key={n}>{n}</span>
+                ))}
+              </i>
+            </b>
+          </div>
+          <div className="lj-metric is-hot">
+            <span>{t.mRevenue}</span>
+            <b className="lj-metric-n" aria-hidden="true">
+              <i>
+                {t.mRevenueN.map((n) => (
+                  <span key={n}>{n}</span>
+                ))}
+              </i>
+            </b>
           </div>
         </div>
       </div>
@@ -187,7 +211,6 @@ export default function LaunchJourney() {
 
   useEffect(() => {
     if (pinned) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
       setBeat((n) => (n + 1) % 3);
     }, 5800);

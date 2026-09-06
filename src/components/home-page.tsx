@@ -1,8 +1,6 @@
 "use client";
-import Link from "next/link";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
-import WhatsappBubble from "@/components/whatsapp-bubble";
 import PricingBuilder from "@/components/pricing-builder";
 import LaunchJourney from "@/components/launch-journey";
 import SiteNav from "@/components/site-nav";
@@ -12,7 +10,7 @@ import {
   BrandMarquee,
   CountStat,
   HeroAtmosphere,
-  HorizonHalo,
+  HeroSiteScene,
   PointerGlow,
 } from "@/components/home-visuals";
 import ServiceStories, { StackStories } from "@/components/service-stages";
@@ -34,7 +32,7 @@ export default function HomePage() {
   const dict = translations[lang];
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", position: "relative" }}>
+    <div style={{ minHeight: "100dvh", background: "var(--bg)", position: "relative" }}>
       <PointerGlow />
       <SiteNav />
 
@@ -42,17 +40,22 @@ export default function HomePage() {
       <section className="hero-section">
         <HeroAtmosphere />
         <div className="container">
-          <div className="hero-grid" style={{
-            display: "grid",
-            gridTemplateColumns: "1fr auto",
-            gap: "60px",
-            alignItems: "center",
-          }}>
-            <div style={{ maxWidth: "620px", width: "100%" }}>
+          <div className="hero-grid">
+            <div className="hero-copy">
               <h1 className="hero-title hero-in hero-in-d2">
-                {dict.hero.title_1}<br />
-                <span className="wave-accent">{dict.hero.title_2}</span><br />
-                {dict.hero.title_3}
+                {dict.hero.title_1}
+                {dict.hero.title_2 ? (
+                  <>
+                    <br />
+                    <span className="wave-accent">{dict.hero.title_2}</span>
+                  </>
+                ) : null}
+                {dict.hero.title_3 ? (
+                  <>
+                    <br />
+                    {dict.hero.title_3}
+                  </>
+                ) : null}
               </h1>
 
               <p className="hero-lede hero-in hero-in-d3">
@@ -80,38 +83,11 @@ export default function HomePage() {
                   { num: dict.hero.stat_brands, label: dict.hero.stat_brands_lbl },
                   { num: dict.hero.stat_updates, label: dict.hero.stat_updates_lbl },
                 ].map(s => (
-                  <CountStat key={s.label} value={s.num} label={s.label} />
+                  <CountStat key={`${s.num}-${s.label}`} value={s.num} label={s.label} />
                 ))}
               </div>
             </div>
-
-            <div className="hero-in hero-in-d6" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
-              <HorizonHalo>
-                <div className="float-phone">
-                  <WhatsappBubble />
-                </div>
-              </HorizonHalo>
-              <button
-                type="button"
-                onClick={() => openWhatsAppFunnel("hero-phone")}
-                style={{
-                  fontSize: "11.5px",
-                  color: "var(--gray-muted)",
-                  textAlign: "center",
-                  maxWidth: "220px",
-                  lineHeight: "1.45",
-                  textDecoration: "underline",
-                  textUnderlineOffset: "3px",
-                  cursor: "pointer",
-                  background: "none",
-                  border: "none",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                {dict.hero.whatsapp_footer}
-              </button>
-            </div>
+            <HeroSiteScene lang={lang === "en" ? "en" : "es"} />
           </div>
         </div>
       </section>
@@ -148,6 +124,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <PricingBuilder />
+
       {/* ─── PROOF ───────────────────────────────────────────────── */}
       <section id="proof" className="proof-section">
         <div className="container">
@@ -166,8 +144,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <PricingBuilder />
 
       {/* ─── PROCESS (3 STEPS) ────────────────────────────────────── */}
       <LaunchJourney />

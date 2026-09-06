@@ -52,42 +52,51 @@ const DENTAL = "/demo/sdq-dental";
 const VILLAS = "/demo/punta-cana-villas";
 const LEGAL = "/demo/naco-legal";
 const BUILD = "/demo/constructora-aybar";
-const SWIM = "/demo/bavaro-swim";
+const LINA = "/demo/lina";
+const LINA_P = `${LINA}/preview`;
 const COFFEE = "/demo/terrenas-coffee";
-const BRISA = "/demo/terrenas-coffee";
+const BRISA = "/demo/brisa";
+const BRISA_P = `${BRISA}/preview`;
 const AURA = "/demo/aura-atelier";
 const NODO = "/demo/nodo";
+const HOME_P = `${VILLAS}/preview`;
 
 export const TEMPLATES: Template[] = [
   {
     id: "clinica",
     kind: "landing",
     cat: { es: "Clínica", en: "Clinic" },
-    brand: "SDQ Dental",
+    brand: "SDQ Dental Care",
     domain: "sdqdental.do",
     nav: [
-      { es: "Clínica", en: "Clinic" },
+      { es: "Inicio", en: "Home" },
+      { es: "Tratamientos", en: "Treatments" },
       { es: "Equipo", en: "Team" },
+      { es: "La clínica", en: "Clinic" },
+      { es: "Casos", en: "Cases" },
       { es: "Citas", en: "Book" },
     ],
     hero: {
-      img: `${DENTAL}/smile.jpg`,
-      kicker: { es: "Naco · Santo Domingo", en: "Naco · Santo Domingo" },
+      img: `${DENTAL}/hero-operatory.jpg`,
+      kicker: { es: "Clínica odontológica · Ensanche Naco", en: "Dental clinic · Ensanche Naco" },
       title: { es: "Tu mejor sonrisa, hoy.", en: "Your best smile, today." },
       sub: {
-        es: "Odontología familiar y estética. El tratamiento ya va en el chat de WhatsApp.",
-        en: "Family and cosmetic dentistry. The treatment is already in the WhatsApp chat.",
+        es: "Odontología en Ensanche Naco. Elige limpieza, carillas o implante — pide cupo por WhatsApp y te confirmamos en el día.",
+        en: "Dentistry in Ensanche Naco. Pick cleaning, veneers, or an implant — request a slot on WhatsApp and we confirm the same day.",
       },
-      cta: { es: "Pedir cita", en: "Book now" },
+      cta: { es: "Agendar evaluación", en: "Book consult" },
     },
     toast: {
-      label: { es: "Nueva cita", en: "New booking" },
-      text: { es: "Limpieza + carillas · hoy 16:30", en: "Cleaning + veneers · today 4:30" },
+      label: { es: "Paciente", en: "Patient" },
+      text: {
+        es: "Hola, vi limpieza + carillas en la web. ¿Tienen cupo esta semana?",
+        en: "Hi — saw cleaning + veneers on the site. Slot this week?",
+      },
     },
     stats: [
-      { n: "18", l: { es: "días a live", en: "days to live" } },
-      { n: "4.9", l: { es: "en Maps", en: "on Maps" } },
-      { n: "350+", l: { es: "reseñas", en: "reviews" } },
+      { n: "4.9 ★", l: { es: "350+ reseñas en Google", en: "350+ Google reviews" } },
+      { n: "Naco", l: { es: "18 min desde Piantini", en: "18 min from Piantini" } },
+      { n: "24 h", l: { es: "Confirmación por WhatsApp", en: "WhatsApp confirmation" } },
     ],
     cards: [
       {
@@ -97,16 +106,22 @@ export const TEMPLATES: Template[] = [
         meta: "RD$ 2,500",
       },
       {
-        img: `${DENTAL}/case-veneers-after.jpg`,
+        img: `${DENTAL}/imaging.jpg`,
+        tag: { es: "Clínica", en: "Clinic" },
+        title: { es: "Endodoncia", en: "Root canal" },
+        meta: "RD$ 12,000",
+      },
+      {
+        img: `${DENTAL}/smile.jpg`,
         tag: { es: "Estética", en: "Aesthetic" },
-        title: { es: "Carillas", en: "Veneers" },
+        title: { es: "Carillas de porcelana", en: "Porcelain veneers" },
         meta: "RD$ 18,000",
       },
       {
-        img: `${DENTAL}/imaging.jpg`,
-        tag: { es: "Diagnóstico", en: "Imaging" },
-        title: { es: "Examen + RX", en: "Exam + X-ray" },
-        meta: "RD$ 1,800",
+        img: `${DENTAL}/case-whitening-after.jpg`,
+        tag: { es: "Estética", en: "Aesthetic" },
+        title: { es: "Blanqueamiento LED", en: "LED whitening" },
+        meta: "RD$ 7,500",
       },
     ],
     strip: [
@@ -137,8 +152,8 @@ export const TEMPLATES: Template[] = [
       kicker: { es: "Cap Cana · Punta Cana", en: "Cap Cana · Punta Cana" },
       title: { es: "Seis villas. Fechas reales.", en: "Six villas. Real dates." },
       sub: {
-        es: "USD o DOP en la ficha. El hold llega por WhatsApp con la villa y las noches ya escritas.",
-        en: "USD or DOP on the page. The hold lands on WhatsApp with villa and nights already written.",
+        es: "Cap Cana. Elige villa y noches en USD o DOP. Te confirmamos la reserva por WhatsApp.",
+        en: "Cap Cana. Pick a villa and nights in USD or DOP. We confirm your hold on WhatsApp.",
       },
       cta: { es: "Ver disponibilidad", en: "Check dates" },
     },
@@ -160,7 +175,7 @@ export const TEMPLATES: Template[] = [
       },
       {
         img: `${VILLAS}/palmera.jpg`,
-        tag: { es: "Fairway", en: "Fairway" },
+        tag: { es: "Campo de golf", en: "Fairway" },
         title: { es: "Villa Palmera", en: "Villa Palmera" },
         meta: "US$ 1,180",
       },
@@ -172,7 +187,7 @@ export const TEMPLATES: Template[] = [
       },
     ],
     strip: [
-      { img: `${VILLAS}/living.jpg`, name: "Sala", role: { es: "Abierta al fairway", en: "Open to the fairway" } },
+      { img: `${VILLAS}/living.jpg`, name: "Sala", role: { es: "Abierta al campo", en: "Open to the fairway" } },
       { img: `${VILLAS}/bedroom.jpg`, name: "Recámaras", role: { es: "Cinco suites", en: "Five suites" } },
       { img: `${VILLAS}/pool.jpg`, name: "Piscina", role: { es: "Borde infinito", en: "Infinity edge" } },
     ],
@@ -199,8 +214,8 @@ export const TEMPLATES: Template[] = [
       kicker: { es: "Ensanche Naco · Santo Domingo", en: "Ensanche Naco · Santo Domingo" },
       title: { es: "Consulta esta semana.", en: "Consult this week." },
       sub: {
-        es: "Societario, laboral, inmobiliario. El caso entra al chat con nombre y fecha, no por la recepción.",
-        en: "Corporate, labor, real estate. The case lands in the chat with a name and a date, not via reception.",
+        es: "Societario, laboral e inmobiliario en Naco. Agenda con el área y la fecha que necesitas.",
+        en: "Corporate, labor, and real estate in Naco. Book with the practice area and date you need.",
       },
       cta: { es: "Agendar consulta", en: "Book a consult" },
     },
@@ -229,7 +244,7 @@ export const TEMPLATES: Template[] = [
       {
         img: `${LEGAL}/reception.jpg`,
         tag: { es: "Inmobiliario", en: "Real estate" },
-        title: { es: "Due diligence", en: "Due diligence" },
+        title: { es: "Revisión legal", en: "Due diligence" },
         meta: "RD$ 45,000",
       },
     ],
@@ -261,8 +276,8 @@ export const TEMPLATES: Template[] = [
       kicker: { es: "Santo Domingo · RD", en: "Santo Domingo · DR" },
       title: { es: "12.400 m² en obra.", en: "12,400 m² under way." },
       sub: {
-        es: "Torres, plazas y villas. El metraje y el presupuesto entran antes de la visita.",
-        en: "Towers, plazas, villas. Square meters and budget arrive before the site visit.",
+        es: "Torres, plazas y villas en Santo Domingo. Cuéntanos el metraje y la zona — coordinamos la visita a obra.",
+        en: "Towers, plazas, and villas in Santo Domingo. Tell us square meters and zone — we coordinate the site visit.",
       },
       cta: { es: "Agendar visita", en: "Book a visit" },
     },
@@ -321,10 +336,10 @@ export const TEMPLATES: Template[] = [
     hero: {
       img: `${VILLAS}/living.jpg`,
       kicker: { es: "Piantini · Santo Domingo", en: "Piantini · Santo Domingo" },
-      title: { es: "Presencia que convence.", en: "Presence that converts." },
+      title: { es: "Proyectos que se sienten en casa.", en: "Projects that feel like home." },
       sub: {
-        es: "Un sitio claro, local y listo para WhatsApp. El cliente entiende qué haces antes de escribir.",
-        en: "A clear, local site built for WhatsApp. They understand what you do before they write.",
+        es: "Diseño residencial en Piantini. Cuéntanos el proyecto — respondemos el mismo día.",
+        en: "Residential design in Piantini. Share the brief — we reply the same day.",
       },
       cta: { es: "Agendar llamada", en: "Book a call" },
     },
@@ -333,38 +348,38 @@ export const TEMPLATES: Template[] = [
       text: { es: "Proyecto residencial · hoy 16:30", en: "Residential project · today 4:30" },
     },
     stats: [
-      { n: "24h", l: { es: "respuesta", en: "response" } },
-      { n: "4.9", l: { es: "en Maps", en: "on Maps" } },
-      { n: "3 sem", l: { es: "al aire", en: "to live" } },
+      { n: "48", l: { es: "proyectos", en: "projects" } },
+      { n: "4.9", l: { es: "reseñas", en: "reviews" } },
+      { n: "24h", l: { es: "respuesta", en: "reply" } },
     ],
     cards: [
       {
         img: `${BUILD}/office.jpg`,
-        tag: { es: "Estrategia", en: "Strategy" },
+        tag: { es: "Brief", en: "Brief" },
         title: { es: "Consulta inicial", en: "Discovery call" },
         meta: "RD$ 3,500",
       },
       {
         img: `${COFFEE}/terrace.jpg`,
-        tag: { es: "Experiencia", en: "Experience" },
-        title: { es: "Visita guiada", en: "Guided visit" },
+        tag: { es: "Obra", en: "Site" },
+        title: { es: "Visita al proyecto", en: "Project visit" },
         meta: "RD$ 1,800",
       },
       {
         img: `${LEGAL}/library.jpg`,
-        tag: { es: "Entrega", en: "Delivery" },
-        title: { es: "Plan completo", en: "Full plan" },
+        tag: { es: "Plan", en: "Plan" },
+        title: { es: "Propuesta completa", en: "Full proposal" },
         meta: "RD$ 12,000",
       },
     ],
     strip: [
-      { img: `${BUILD}/plaza.jpg`, name: "01", role: { es: "Te encuentran", en: "They find you" } },
-      { img: `${VILLAS}/pool.jpg`, name: "02", role: { es: "Entienden", en: "They get it" } },
-      { img: `${COFFEE}/barista.jpg`, name: "03", role: { es: "Te escriben", en: "They write" } },
+      { img: `${BUILD}/plaza.jpg`, name: "Ana Cruz", role: { es: "Dirección", en: "Direction" } },
+      { img: `${VILLAS}/pool.jpg`, name: "Luis Peña", role: { es: "Obra", en: "Build" } },
+      { img: `${COFFEE}/barista.jpg`, name: "María Sol", role: { es: "Interiores", en: "Interiors" } },
     ],
     info: {
       title: { es: "Horario", en: "Hours" },
-      lines: ["Lun–Vie 9:00–18:00", "Av. Abraham Lincoln", "WhatsApp directo"],
+      lines: ["Lun–Vie 9:00–18:00", "Av. Abraham Lincoln", "Citas por WhatsApp"],
     },
     map: { name: "Casa Norte", meta: { es: "4.9 · Piantini · Abierto", en: "4.9 · Piantini · Open" } },
   },
@@ -373,57 +388,57 @@ export const TEMPLATES: Template[] = [
     id: "moda",
     kind: "shop",
     cat: { es: "Moda / Ropa", en: "Fashion / Apparel" },
-    brand: "Bávaro Swim",
-    domain: "bavaroswim.do",
-    logo: "BÁVARO",
+    brand: "Lina",
+    domain: "lina.do",
+    logo: "LINA",
     pills: [
-      { es: "Todo", en: "All" },
-      { es: "Enterizos", en: "One-piece" },
-      { es: "Bikinis", en: "Bikinis" },
-      { es: "Lino", en: "Linen" },
+      { es: "Look", en: "Look" },
+      { es: "Prendas", en: "Pieces" },
+      { es: "Talla", en: "Size" },
+      { es: "Bolsa", en: "Bag" },
     ],
     drop: {
-      img: `${SWIM}/enterizo-arena.jpg`,
-      name: "Enterizo Arena",
-      price: "RD$ 5,800",
-      stock: 12,
-      tag: { es: "NUEVO", en: "NEW" },
+      img: `${LINA_P}/blazer.webp`,
+      name: "Blazer Sastre",
+      price: "RD$ 8,900",
+      stock: 6,
+      tag: { es: "LOOK", en: "LOOK" },
     },
     picks: [
-      { img: `${SWIM}/bikini-sal.jpg`, name: "Bikini Sal", price: "RD$ 5,200", stock: 8 },
-      { img: `${SWIM}/camisa-lino.jpg`, name: "Camisa Lino", price: "RD$ 6,500", stock: 3, low: true },
+      { img: `${LINA_P}/pantalon.webp`, name: "Pantalón Pinza", price: "RD$ 5,400", stock: 8 },
+      { img: `${LINA_P}/denim.webp`, name: "Denim Recto", price: "RD$ 4,200", stock: 3, low: true },
     ],
-    geo: "BlueMall · Santo Domingo",
+    geo: "Naco · BlueMall",
     pdp: {
-      img: `${SWIM}/vestido-cala.jpg`,
-      tag: { es: "Atardecer", en: "Sunset" },
-      name: "Vestido Cala",
-      price: "RD$ 8,900",
+      img: `${LINA_P}/vestido.webp`,
+      tag: { es: "Día", en: "Day" },
+      name: "Vestido Lino",
+      price: "RD$ 7,400",
       body: {
-        es: "Caída de lino. Se pide con talla. El chat cierra con el nombre de la pieza.",
-        en: "Linen drape. Ordered with a size. The chat closes with the piece name.",
+        es: "Corte recto, lino lavado. Elige talla y pide recogida en Naco o BlueMall.",
+        en: "Straight cut, washed linen. Pick a size and request Naco or BlueMall pickup.",
       },
-      specs: ["Lino", "XS–L", "Cap Cana"],
-      stock: 7,
+      specs: ["XS", "S", "M", "L"],
+      stock: 9,
     },
     bag: {
       rows: [
         {
-          img: `${SWIM}/enterizo-arena.jpg`,
-          name: "Enterizo Arena",
+          img: `${LINA_P}/blazer.webp`,
+          name: "Blazer Sastre",
           variant: { es: "M · Arena", en: "M · Sand" },
-          price: "RD$ 5,800",
-          stock: 12,
+          price: "RD$ 8,900",
+          stock: 6,
         },
         {
-          img: `${SWIM}/pareo.jpg`,
-          name: "Pareo Arena",
-          variant: { es: "Talla única", en: "One size" },
-          price: "RD$ 3,700",
-          stock: 9,
+          img: `${LINA_P}/zapato.webp`,
+          name: "Zapato Naco",
+          variant: { es: "38 · Cuero", en: "38 · Leather" },
+          price: "RD$ 6,200",
+          stock: 5,
         },
       ],
-      subtotal: "RD$ 9,500",
+      subtotal: "RD$ 15,100",
     },
   },
 
@@ -441,25 +456,25 @@ export const TEMPLATES: Template[] = [
       { es: "Origen", en: "Origin" },
     ],
     drop: {
-      img: `${BRISA}/farm.jpg`,
+      img: `${BRISA_P}/aji.webp`,
       name: "Ají bravo en conserva",
       price: "RD$ 780",
       stock: 18,
       tag: { es: "TEMPORADA", en: "SEASON" },
     },
     picks: [
-      { img: `${BRISA}/beans.jpg`, name: "Cacao El Limón 250g", price: "RD$ 1,140", stock: 11 },
-      { img: `${BRISA}/cup.jpg`, name: "Miel de abeja 320g", price: "RD$ 640", stock: 4, low: true },
+      { img: `${BRISA_P}/cacao.webp`, name: "Cacao El Limón 250g", price: "RD$ 1,140", stock: 11 },
+      { img: `${BRISA_P}/miel.webp`, name: "Miel de abeja 320g", price: "RD$ 640", stock: 4, low: true },
     ],
     geo: "Mercado de Samaná",
     pdp: {
-      img: `${BRISA}/roaster.jpg`,
+      img: `${BRISA_P}/aceite.webp`,
       tag: { es: "Mesa", en: "Table" },
       name: "Aceite de coco virgen",
       price: "RD$ 890",
       body: {
-        es: "Prensado en frío. Se pide por jarra. El chat cierra con el lote y el destino.",
-        en: "Cold-pressed. Ordered by jar. The chat closes with the lot and the destination.",
+        es: "Prensado en frío. Pide por jarra con envío a tu zona.",
+        en: "Cold-pressed. Order by jar with delivery to your area.",
       },
       specs: ["500 ml", "Cibao", "Vidrio"],
       stock: 9,
@@ -467,14 +482,14 @@ export const TEMPLATES: Template[] = [
     bag: {
       rows: [
         {
-          img: `${BRISA}/beans.jpg`,
+          img: `${BRISA_P}/cacao.webp`,
           name: "Cacao El Limón",
           variant: { es: "250 g · grano", en: "250 g · nibs" },
           price: "RD$ 1,140",
           stock: 11,
         },
         {
-          img: `${BRISA}/geisha.jpg`,
+          img: `${BRISA_P}/sal.webp`,
           name: "Sal marina Brisa",
           variant: { es: "200 g · escamas", en: "200 g · flakes" },
           price: "RD$ 420",
@@ -499,25 +514,25 @@ export const TEMPLATES: Template[] = [
       { es: "Sets", en: "Sets" },
     ],
     drop: {
-      img: `${AURA}/lip-cereza.png`,
+      img: `${AURA}/lip-cereza.webp`,
       name: "Labial Cereza",
       price: "RD$ 1,890",
       stock: 14,
       tag: { es: "NUEVO", en: "NEW" },
     },
     picks: [
-      { img: `${AURA}/paleta-atardecer.png`, name: "Paleta Atardecer", price: "RD$ 3,240", stock: 6 },
-      { img: `${AURA}/gloss-nube.png`, name: "Gloss Nube", price: "RD$ 1,120", stock: 3, low: true },
+      { img: `${AURA}/paleta-atardecer.webp`, name: "Paleta Atardecer", price: "RD$ 3,240", stock: 6 },
+      { img: `${AURA}/gloss-nube.webp`, name: "Gloss Nube", price: "RD$ 1,120", stock: 3, low: true },
     ],
     geo: "Ágora Mall · Santo Domingo",
     pdp: {
-      img: `${AURA}/lip-pdp.png`,
+      img: `${AURA}/lip-pdp.webp`,
       tag: { es: "Labios", en: "Lips" },
       name: "Labial Cereza",
       price: "RD$ 1,890",
       body: {
-        es: "Mate satinado. Eliges el tono en la ficha. WhatsApp llega con el nombre del labial, no un “info?”.",
-        en: "Satin matte. You pick the shade on the page. WhatsApp lands with the lipstick name, not “info?”.",
+        es: "Mate satinado. Elige el tono en la ficha y pídelo por WhatsApp.",
+        en: "Satin matte. Pick the shade on the page and order it on WhatsApp.",
       },
       specs: ["3.4 g", "Mate", "Vegano"],
       stock: 14,
@@ -525,14 +540,14 @@ export const TEMPLATES: Template[] = [
     bag: {
       rows: [
         {
-          img: `${AURA}/lip-cereza.png`,
+          img: `${AURA}/lip-cereza.webp`,
           name: "Labial Cereza",
           variant: { es: "Tono 04 · Cereza", en: "Shade 04 · Cherry" },
           price: "RD$ 1,890",
           stock: 14,
         },
         {
-          img: `${AURA}/paleta-atardecer.png`,
+          img: `${AURA}/paleta-atardecer.webp`,
           name: "Paleta Atardecer",
           variant: { es: "6 tonos", en: "6 shades" },
           price: "RD$ 3,240",
@@ -554,28 +569,28 @@ export const TEMPLATES: Template[] = [
       { es: "GPU", en: "GPU" },
       { es: "CPU", en: "CPU" },
       { es: "RAM", en: "RAM" },
-      { es: "Prebuilds", en: "Prebuilds" },
+      { es: "PCs armados", en: "Prebuilds" },
     ],
     drop: {
-      img: `${NODO}/gpu-hero.png`,
+      img: `${NODO}/gpu-hero.webp`,
       name: "RTX 4070 Super",
       price: "RD$ 42,900",
       stock: 4,
       tag: { es: "EN STOCK", en: "IN STOCK" },
     },
     picks: [
-      { img: `${NODO}/cpu-box.png`, name: "Ryzen 7 7800X3D", price: "RD$ 18,500", stock: 9 },
-      { img: `${NODO}/ram-kit.png`, name: "DDR5 32GB Kit", price: "RD$ 6,800", stock: 2, low: true },
+      { img: `${NODO}/cpu-box.webp`, name: "Ryzen 7 7800X3D", price: "RD$ 18,500", stock: 9 },
+      { img: `${NODO}/ram-kit.webp`, name: "DDR5 32GB Kit", price: "RD$ 6,800", stock: 2, low: true },
     ],
     geo: "Piantini · Santo Domingo",
     pdp: {
-      img: `${NODO}/prebuild-tower.png`,
+      img: `${NODO}/prebuild-tower.webp`,
       tag: { es: "Prebuild", en: "Prebuild" },
       name: "Forge RTX · Prebuild",
       price: "RD$ 89,900",
       body: {
-        es: "4070 Super + 7800X3D + 32GB DDR5. El SKU ya va en el chat. No un “info?” genérico.",
-        en: "4070 Super + 7800X3D + 32GB DDR5. The SKU is already in the chat. Not a generic “info?”.",
+        es: "4070 Super + 7800X3D + 32GB DDR5. Disponible en Piantini — consulta stock por WhatsApp.",
+        en: "4070 Super + 7800X3D + 32GB DDR5. Available in Piantini — check stock on WhatsApp.",
       },
       specs: ["RTX 4070S", "7800X3D", "32GB DDR5"],
       stock: 3,
@@ -583,14 +598,14 @@ export const TEMPLATES: Template[] = [
     bag: {
       rows: [
         {
-          img: `${NODO}/gpu-hero.png`,
+          img: `${NODO}/gpu-hero.webp`,
           name: "RTX 4070 Super",
           variant: { es: "ASUS · 12GB", en: "ASUS · 12GB" },
           price: "RD$ 42,900",
           stock: 4,
         },
         {
-          img: `${NODO}/ram-kit.png`,
+          img: `${NODO}/ram-kit.webp`,
           name: "DDR5 32GB Kit",
           variant: { es: "6000 MHz · CL30", en: "6000 MHz · CL30" },
           price: "RD$ 6,800",
@@ -615,25 +630,25 @@ export const TEMPLATES: Template[] = [
       { es: "Luz", en: "Light" },
     ],
     drop: {
-      img: `${VILLAS}/living.jpg`,
+      img: `${HOME_P}/living.webp`,
       name: "Sofá Arena",
       price: "RD$ 48,000",
       stock: 2,
       tag: { es: "PIEZA", en: "PIECE" },
     },
     picks: [
-      { img: `${VILLAS}/kitchen.jpg`, name: "Mesa Noguera", price: "RD$ 32,500", stock: 3 },
-      { img: `${VILLAS}/bedroom.jpg`, name: "Ropa de cama Lino", price: "RD$ 6,800", stock: 6, low: true },
+      { img: `${HOME_P}/kitchen.webp`, name: "Mesa Noguera", price: "RD$ 32,500", stock: 3 },
+      { img: `${HOME_P}/bedroom.webp`, name: "Ropa de cama Lino", price: "RD$ 6,800", stock: 6, low: true },
     ],
     geo: "Showroom Piantini",
     pdp: {
-      img: `${VILLAS}/dining.jpg`,
+      img: `${HOME_P}/dining.webp`,
       tag: { es: "Iluminación", en: "Lighting" },
       name: "Lámpara Nogal",
       price: "RD$ 9,400",
       body: {
-        es: "Nogal y lino. Se pide con medida. El chat cierra con la pieza y el acabado.",
-        en: "Walnut and linen. Ordered with a size. The chat closes with the piece and finish.",
+        es: "Nogal y lino. Elige medida y acabado; coordinamos entrega desde el showroom.",
+        en: "Walnut and linen. Pick size and finish; we coordinate delivery from the showroom.",
       },
       specs: ["Nogal", "E27", "1.2 m"],
       stock: 4,
@@ -641,14 +656,14 @@ export const TEMPLATES: Template[] = [
     bag: {
       rows: [
         {
-          img: `${VILLAS}/bedroom.jpg`,
+          img: `${HOME_P}/bedroom.webp`,
           name: "Ropa de cama Lino",
           variant: { es: "Queen · arena", en: "Queen · sand" },
           price: "RD$ 6,800",
           stock: 6,
         },
         {
-          img: `${VILLAS}/pool.jpg`,
+          img: `${HOME_P}/pool.webp`,
           name: "Jarrón Piedra",
           variant: { es: "Alto 42 cm", en: "42 cm tall" },
           price: "RD$ 3,200",
@@ -690,8 +705,8 @@ export const TEMPLATES: Template[] = [
       name: "—",
       price: "SKU · 03",
       body: {
-        es: "Tu catálogo. Tu marca. El visitante pide por WhatsApp con el SKU ya escrito.",
-        en: "Your catalog. Your brand. The visitor orders on WhatsApp with the SKU already written.",
+        es: "Tu producto aquí: nombre, precio y stock. Listo para pedir por WhatsApp.",
+        en: "Your product here: name, price, and stock. Ready to order on WhatsApp.",
       },
       specs: ["SKU", "Stock", "Checkout"],
       stock: 0,
@@ -722,7 +737,11 @@ export type PlanId = "landing" | "site" | "shop";
 
 export function templatesFor(kind: "landing" | "shop" | PlanId) {
   const visual = kind === "shop" ? "shop" : "landing";
-  return TEMPLATES.filter((t) => t.kind === visual);
+  const list = TEMPLATES.filter((t) => t.kind === visual);
+  if (visual !== "landing") return list;
+  const preferred = list.find((t) => t.id === "constructora");
+  if (!preferred) return list;
+  return [preferred, ...list.filter((t) => t.id !== "constructora")];
 }
 
 export function findTemplate(id: string) {

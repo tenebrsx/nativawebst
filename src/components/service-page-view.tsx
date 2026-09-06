@@ -67,6 +67,14 @@ export function ServiciosHubView() {
                   : "The studio is on Churchill. Maps, NAP, and WhatsApp for the capital."}
               </p>
             </Link>
+            <Link href="/punta-cana" className="card card-hover" style={{ padding: "20px", textDecoration: "none" }}>
+              <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", marginBottom: "6px" }}>Punta Cana</div>
+              <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>
+                {lang === "es"
+                  ? "Villas, clínicas y negocios en el este — mismo estándar."
+                  : "Villas, clinics, and businesses in the east — same standard."}
+              </p>
+            </Link>
             <Link href="/industrias/clinicas" className="card card-hover" style={{ padding: "20px", textDecoration: "none" }}>
               <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", marginBottom: "6px" }}>
                 {lang === "es" ? "Clínicas" : "Clinics"}
@@ -75,6 +83,26 @@ export function ServiciosHubView() {
                 {lang === "es"
                   ? "El paciente busca cerca, toca, y la cita llega al chat."
                   : "The patient searches nearby, taps, and the appointment lands in chat."}
+              </p>
+            </Link>
+            <Link href="/industrias/legal" className="card card-hover" style={{ padding: "20px", textDecoration: "none" }}>
+              <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", marginBottom: "6px" }}>
+                {lang === "es" ? "Legal" : "Legal"}
+              </div>
+              <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>
+                {lang === "es"
+                  ? "Áreas claras; la consulta llega por WhatsApp."
+                  : "Clear practice areas; the consult lands on WhatsApp."}
+              </p>
+            </Link>
+            <Link href="/casos" className="card card-hover" style={{ padding: "20px", textDecoration: "none" }}>
+              <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", marginBottom: "6px" }}>
+                {lang === "es" ? "Casos" : "Case studies"}
+              </div>
+              <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>
+                {lang === "es"
+                  ? "Solo proyectos reales cuando existan — cero casos inventados."
+                  : "Real projects only when they exist — zero invented cases."}
               </p>
             </Link>
           </div>

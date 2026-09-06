@@ -119,15 +119,13 @@ export function CountStat({ value, label }: { value: string; label: string }) {
   const started = useRef(false);
 
   useEffect(() => {
+    started.current = false;
+    setN(0);
     const el = ref.current;
     if (!el) return;
     const run = () => {
       if (started.current) return;
       started.current = true;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        setN(target);
-        return;
-      }
       const duration = 1100;
       const start = performance.now();
       const step = (now: number) => {
@@ -149,7 +147,7 @@ export function CountStat({ value, label }: { value: string; label: string }) {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [target]);
+  }, [target, value]);
 
   const formatted = target >= 1000 ? n.toLocaleString("en-US") : String(n);
 
@@ -159,6 +157,63 @@ export function CountStat({ value, label }: { value: string; label: string }) {
         {prefix}{formatted}{suffix}
       </div>
       <div className="stat-lbl" style={{ fontSize: "12px", fontWeight: 600 }}>{label}</div>
+    </div>
+  );
+}
+
+export function HeroSiteScene({ lang }: { lang: "es" | "en" }) {
+  const es = lang === "es";
+  return (
+    <div className="hero-scene" aria-hidden="true">
+      <div className="hero-scene-glow" />
+
+      <div className="hero-scene-browser">
+        <div className="hero-scene-chrome">
+          <i /><i /><i />
+          <span>{es ? "su-empresa.do" : "yourcompany.com"}</span>
+        </div>
+        <div className="hero-scene-page">
+          <div className="hero-scene-nav">
+            <b>{es ? "ATLAS" : "ATLAS"}</b>
+            <em>{es ? "Proyectos" : "Work"}</em>
+            <em>{es ? "Equipo" : "Team"}</em>
+            <em>{es ? "Contacto" : "Contact"}</em>
+          </div>
+          <div className="hero-scene-shots">
+            <img src="/demo/naco-legal/facade.jpg" alt="" />
+            <img src="/demo/constructora-aybar/office.jpg" alt="" />
+          </div>
+          <div className="hero-scene-bars">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+      </div>
+
+      <div className="hero-scene-orb hero-scene-orb-b">
+        <img src="/brand/wordpress.png" alt="" />
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-c">
+        <img src="/brand/shopify.png" alt="" />
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-d">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M6 12h12M12 4c2.4 2.8 2.4 12.2 0 16M12 4c-2.4 2.8-2.4 12.2 0 16" stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-e">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M8 8l-4 4 4 4M16 8l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-f">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M12 5v2M12 17v2M5 12h2M17 12h2M7.2 7.2l1.4 1.4M15.4 15.4l1.4 1.4M7.2 16.8l1.4-1.4M15.4 8.6l1.4-1.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+      </div>
     </div>
   );
 }

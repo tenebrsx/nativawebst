@@ -31,12 +31,13 @@ const ADDON_ONE_TIME: Record<OneTimeAddon, number> = {
 };
 
 const SUPPORT_PRICE = dop(3_000);
-const SITE_CRM_PRICE = dop(12_000);
-const SITE_AI_PRICE = dop(6_000);
-const SITE_MONTHLY = SITE_CRM_PRICE + SITE_AI_PRICE + SUPPORT_PRICE;
+const CRM_SETUP_PRICE = dop(10_000);
+const CRM_MONTHLY_PER_USER = dop(2_000);
+const SITE_AI_PRICE = dop(4_000);
+const SITE_MONTHLY = CRM_MONTHLY_PER_USER + SITE_AI_PRICE + SUPPORT_PRICE;
 
 const ADDON_MONTHLY: Record<MonthlyAddon, number> = {
-  crm: SITE_CRM_PRICE,
+  crm: CRM_MONTHLY_PER_USER,
   ai: SITE_AI_PRICE,
 };
 
@@ -46,6 +47,22 @@ function isMonthlyAddon(id: AddonId): id is MonthlyAddon {
 
 function addonAmount(id: AddonId) {
   return isMonthlyAddon(id) ? ADDON_MONTHLY[id] : ADDON_ONE_TIME[id];
+}
+
+function formatCrmAddonPrice(
+  fmt: (n: number) => string,
+  dict: typeof translations.es.pricing,
+) {
+  return `+${dict.starting_at} ${fmt(CRM_SETUP_PRICE)} ${dict.setup_suffix} · ${dict.about} ${fmt(CRM_MONTHLY_PER_USER)}${dict.per_user_suffix}`;
+}
+
+function formatMonthlyAddonPrice(
+  id: MonthlyAddon,
+  fmt: (n: number) => string,
+  dict: typeof translations.es.pricing,
+) {
+  if (id === "crm") return formatCrmAddonPrice(fmt, dict);
+  return `+${dict.starting_at} ${fmt(ADDON_MONTHLY.ai)}${dict.monthly_suffix}`;
 }
 
 function addonsFor(plan: Plan): AddonId[] {
@@ -62,13 +79,17 @@ function askStepsFor(plan: Plan) {
 }
 
 export default function PricingBuilder() {
+  "use no memo";
   const [plan, setPlan] = useState<Plan>("landing");
-  const [tplId, setTplId] = useState("clinica");
+  const [tplId, setTplId] = useState("constructora");
   const [addons, setAddons] = useState<Set<string>>(new Set());
   const [support, setSupport] = useState(false);
   const [open, setOpen] = useState(false);
   const [ask, setAsk] = useState(0);
+  const [entered, setEntered] = useState(true);
   const scroller = useRef<HTMLDivElement>(null);
+  const secRef = useRef<HTMLElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
 
   const { lang, fmt } = useGeo();
   const dict = translations[lang].pricing;
@@ -79,7 +100,9 @@ export default function PricingBuilder() {
 
   const template = useMemo(() => {
     const list = templatesFor(plan);
-    return list.find((t) => t.id === tplId) ?? list[0];
+    return list.find((t) => t.id === tplId)
+      ?? list.find((t) => t.id === "constructora")
+      ?? list[0];
   }, [plan, tplId]);
 
   useEffect(() => {
@@ -102,6 +125,61 @@ export default function PricingBuilder() {
     setAsk((i) => Math.min(i, askSteps.length - 1));
   }, [askSteps.length]);
 
+  useEffect(() => {
+    const el = secRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setEntered(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setEntered(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.22, rootMargin: "0px 0px -8% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const pin = pinRef.current;
+    if (!pin) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const nav = document.querySelector("nav");
+      const navH = nav instanceof HTMLElement ? Math.round(nav.getBoundingClientRect().height) : 88;
+      pin.style.setProperty("--pb-nav", `${navH}px`);
+
+      const travel = pin.offsetHeight - (window.innerHeight - navH);
+      if (travel <= 1) {
+        pin.style.setProperty("--pb-hold", "0");
+        pin.classList.remove("is-held");
+        return;
+      }
+      const p = Math.min(1, Math.max(0, (navH - pin.getBoundingClientRect().top) / travel));
+      pin.style.setProperty("--pb-hold", p.toFixed(4));
+      pin.classList.toggle("is-held", p > 0.02 && p < 0.98);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const toggleAddon = (id: string, on?: boolean) => {
     setAddons((prev) => {
       const next = new Set(prev);
@@ -120,6 +198,7 @@ export default function PricingBuilder() {
       if (isMonthlyAddon(id)) monthly += ADDON_MONTHLY[id];
       else oneTime += ADDON_ONE_TIME[id];
     });
+    if (addons.has("crm") && plan !== "site") oneTime += CRM_SETUP_PRICE;
     if (plan === "site") monthly = SITE_MONTHLY;
     else if (support) monthly += SUPPORT_PRICE;
     return {
@@ -163,10 +242,12 @@ export default function PricingBuilder() {
         stackLabels: (() => {
           const rows: string[] = [];
           if (plan === "site" || addons.has("crm")) {
-            rows.push(`${stackCrm} — ${fmt(SITE_CRM_PRICE)}${dict.monthly_suffix}`);
+            rows.push(
+              `${stackCrm} — ${dict.starting_at} ${fmt(CRM_SETUP_PRICE)} ${dict.setup_suffix}, ${dict.about} ${fmt(CRM_MONTHLY_PER_USER)}${dict.per_user_suffix}`,
+            );
           }
           if (plan === "site" || addons.has("ai")) {
-            rows.push(`${stackAi} — ${fmt(SITE_AI_PRICE)}${dict.monthly_suffix}`);
+            rows.push(`${stackAi} — ${dict.starting_at} ${fmt(SITE_AI_PRICE)}${dict.monthly_suffix}`);
           }
           if (plan === "site") {
             rows.push(`${stackCare} — ${fmt(SUPPORT_PRICE)}${dict.monthly_suffix}`);
@@ -205,7 +286,9 @@ export default function PricingBuilder() {
       });
     }
     const list = templatesFor(key);
-    if (!list.some((t) => t.id === tplId)) setTplId(list[0].id);
+    if (!list.some((t) => t.id === tplId)) {
+      setTplId(list.find((t) => t.id === "constructora")?.id ?? list[0].id);
+    }
     if (advance !== undefined) goAsk(advance);
   };
 
@@ -293,37 +376,45 @@ export default function PricingBuilder() {
 
   return (
     <>
-      <section id="pricing" className="pb-sec">
-        <div className="container pb-sec-inner">
+      <div id="pricing" className="pb-pin" ref={pinRef}>
+        <section className={`pb-sec${entered ? " is-in" : ""}`} ref={secRef}>
+          <div className="container pb-sec-inner">
           <div className="pb-sec-head">
             <span className="section-label">{dict.label}</span>
-            <h2>{dict.preview_title}</h2>
+            <div className="pb-sec-title">
+              <h2>{dict.title}</h2>
+              <button type="button" className="pb-peek" onClick={() => setOpen(true)}>
+                {dict.ask_peek}
+              </button>
+            </div>
             <p>{dict.sub}</p>
             {planTabs}
             {categories}
           </div>
 
-          <div className="pb-teaser" onClick={() => setOpen(true)}>
+          <div
+            className={`pb-teaser${entered ? " is-on" : ""}`}
+            onClick={() => setOpen(true)}
+          >
+            <button type="button" className="pb-teaser-go" onClick={() => setOpen(true)}>
+              {es ? "Abrir el estudio →" : "Open the studio →"}
+            </button>
+            <span className="pb-teaser-copy">
+              <b>{dict.ask_open}</b>
+              <em>
+                {es ? "Desde" : "From"} {fmt(PLAN_PRICE[plan])}
+                {sitePlan ? ` · ${fmt(SITE_MONTHLY)}${dict.monthly_suffix}` : ""}
+              </em>
+            </span>
             <div className="pb-teaser-stage" data-plan={plan}>
               <div className="pb-frame is-live" key={`teaser-${template.id}`}>
                 {preview}
               </div>
             </div>
-            <div className="pb-teaser-bar">
-              <span className="pb-teaser-copy">
-                <b>{dict.ask_open}</b>
-                <em>
-                  {es ? "Desde" : "From"} {fmt(PLAN_PRICE[plan])}
-                  {sitePlan ? ` · ${fmt(SITE_MONTHLY)}${dict.monthly_suffix}` : ""}
-                </em>
-              </span>
-              <button type="button" className="pb-teaser-go" onClick={() => setOpen(true)}>
-                {es ? "Abrir el estudio →" : "Open the studio →"}
-              </button>
-            </div>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
 
       {open ? (
         <div className="pb-studio" role="dialog" aria-modal="true" aria-label={dict.title}>
@@ -418,14 +509,14 @@ export default function PricingBuilder() {
                     <span>
                       {stackCrm}
                       <i>
-                        {fmt(SITE_CRM_PRICE)}
-                        {dict.monthly_suffix}
+                        {dict.starting_at} {fmt(CRM_SETUP_PRICE)} {dict.setup_suffix} · {dict.about} {fmt(CRM_MONTHLY_PER_USER)}
+                        {dict.per_user_suffix}
                       </i>
                     </span>
                     <span>
                       {stackAi}
                       <i>
-                        {fmt(SITE_AI_PRICE)}
+                        {dict.starting_at} {fmt(SITE_AI_PRICE)}
                         {dict.monthly_suffix}
                       </i>
                     </span>
@@ -452,8 +543,9 @@ export default function PricingBuilder() {
                     >
                       {dict.addons[id].label}
                       <i>
-                        +{fmt(addonAmount(id))}
-                        {isMonthlyAddon(id) ? dict.monthly_suffix : ""}
+                        {isMonthlyAddon(id)
+                          ? formatMonthlyAddonPrice(id, fmt, dict)
+                          : `+${fmt(addonAmount(id))}`}
                       </i>
                     </button>
                   ))}
@@ -502,7 +594,7 @@ export default function PricingBuilder() {
               </div>
 
               <div className="pb-ask-scroller" ref={scroller} onScroll={onAskScroll}>
-                <article className="pb-ask-pane">
+                <article className="pb-ask-pane is-plans">
                   <p className="pb-ask-kicker">
                     01 / {String(askSteps.length).padStart(2, "0")}
                   </p>
@@ -537,7 +629,7 @@ export default function PricingBuilder() {
                   </div>
                 </article>
 
-                <article className="pb-ask-pane">
+                <article className="pb-ask-pane is-cats">
                   <p className="pb-ask-kicker">
                     02 / {String(askSteps.length).padStart(2, "0")}
                   </p>
@@ -549,7 +641,7 @@ export default function PricingBuilder() {
                         key={t.id}
                         type="button"
                         className={`pb-cat${template.id === t.id ? " is-on" : ""}`}
-                        onClick={() => pickTemplate(t, 2)}
+                        onClick={() => pickTemplate(t)}
                       >
                         {tx(t.cat, es ? "es" : "en")}
                       </button>
@@ -558,7 +650,7 @@ export default function PricingBuilder() {
                 </article>
 
                 {addonIds.map((id, i) => (
-                  <article className="pb-ask-pane" key={id}>
+                  <article className="pb-ask-pane is-choice" key={id}>
                     <p className="pb-ask-kicker">
                       {String(i + 3).padStart(2, "0")} / {String(askSteps.length).padStart(2, "0")}
                     </p>
@@ -566,8 +658,9 @@ export default function PricingBuilder() {
                     <p>
                       {dict.addons[id].desc}{" "}
                       <b>
-                        +{fmt(addonAmount(id))}
-                        {isMonthlyAddon(id) ? dict.monthly_suffix : ""}
+                        {isMonthlyAddon(id)
+                          ? formatMonthlyAddonPrice(id, fmt, dict)
+                          : `+${fmt(addonAmount(id))}`}
                       </b>
                     </p>
                     <div className="pb-ask-choice">
@@ -596,7 +689,7 @@ export default function PricingBuilder() {
                 ))}
 
                 {sitePlan ? null : (
-                  <article className="pb-ask-pane">
+                  <article className="pb-ask-pane is-choice">
                     <p className="pb-ask-kicker">
                       {String(askSteps.length - 1).padStart(2, "0")} / {String(askSteps.length).padStart(2, "0")}
                     </p>
@@ -633,7 +726,7 @@ export default function PricingBuilder() {
                   </article>
                 )}
 
-                <article className="pb-ask-pane">
+                <article className="pb-ask-pane is-sum">
                   <p className="pb-ask-kicker">
                     {String(askSteps.length).padStart(2, "0")} / {String(askSteps.length).padStart(2, "0")}
                   </p>

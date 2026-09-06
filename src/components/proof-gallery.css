@@ -671,17 +671,3 @@
     display: none;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .pg-card,
-  .pg-card:hover {
-    transition: none;
-    transform: none;
-  }
-
-  .proof-head.is-on .proof-note.is-fresh,
-  .proof-head.is-on .proof-note.is-fresh p,
-  .proof-head.is-on .proof-inbox-bar span {
-    animation: none !important;
-  }
-}

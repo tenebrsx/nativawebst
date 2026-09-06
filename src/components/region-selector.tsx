@@ -19,7 +19,7 @@ export function RegionSelector() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const flagEmoji = isDR ? "🇩🇴" : country === "US" ? "🇺🇸" : "🌐";
+  const flagEmoji = isDR ? null : country === "US" ? "🇺🇸" : "🌐";
 
   return (
     <div ref={dropdownRef} style={{ position: "relative", display: "inline-block" }}>
@@ -44,7 +44,7 @@ export function RegionSelector() {
           transition: "all 0.2s ease"
         }}
       >
-        <span>{flagEmoji}</span>
+        {flagEmoji ? <span>{flagEmoji}</span> : null}
         <span>{currency === "DOP" ? <><span className="region-prefix">RD$ </span>DOP</> : <><span className="region-prefix">$ </span>USD</>}</span>
         <span style={{ color: "var(--coral-blue)", opacity: 0.6 }}>•</span>
         <span style={{ textTransform: "uppercase" }}>{lang}</span>
@@ -86,7 +86,7 @@ export function RegionSelector() {
               Región Detectada / Region
             </div>
             <div style={{ fontSize: "13px", fontWeight: 900, color: "#0F172A", marginTop: "2px", display: "flex", alignItems: "center", gap: "6px" }}>
-              <span>{flagEmoji}</span>
+              {flagEmoji ? <span>{flagEmoji}</span> : null}
               <span>{loading ? "Detectando..." : countryName}</span>
               <span style={{ fontSize: "10px", background: isDR ? "#DCFCE7" : "#E0F2FE", color: isDR ? "#166534" : "#0369A1", padding: "1px 6px", borderRadius: "9999px", fontWeight: 800 }}>
                 {isDR ? "R.D." : "Global"}
@@ -113,7 +113,7 @@ export function RegionSelector() {
                   cursor: "pointer"
                 }}
               >
-                🇩🇴 RD$ (DOP)
+                RD$ (DOP)
               </button>
               <button
                 onClick={() => setCurrency("USD")}
