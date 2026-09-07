@@ -15,7 +15,7 @@
 /* Shared chrome tokens (dark default). Light overrides via [data-pb-theme="light"]. */
 .pb-pin,
 .pb-studio {
-  --pb-ink: #05060a;
+  --pb-ink: #0b0d12;
   --pb-sand: #f7f8fa;
   --pb-blue: #1e4fd7;
   --shop-gold: #f5c400;
@@ -465,9 +465,10 @@
     height: auto;
     min-height: 0;
     overflow: visible;
-    padding: 28px 0 40px;
+    padding: 48px 0 96px;
     justify-content: flex-start;
     transform: none;
+    border-bottom: none;
   }
 
   .pb-sec-inner.container {
