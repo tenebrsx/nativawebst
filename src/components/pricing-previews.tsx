@@ -1,4 +1,5 @@
 import { tx, type LandingTemplate } from "@/lib/pricing-templates";
+import { LpFit } from "@/components/lp-fit";
 
 type Flags = {
   seo: boolean;
@@ -401,11 +402,7 @@ export function LandingPreview({
     </div>
   );
 
-  return (
-    <div className="lp-fit">
-      <div className="lp-fit-inner">{frame}</div>
-    </div>
-  );
+  return <LpFit>{frame}</LpFit>;
 }
 
 export { ShopPreview } from "@/components/pricing-shop-previews";

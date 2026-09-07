@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { tx, type ShopTemplate } from "@/lib/pricing-templates";
+import { LpFit } from "@/components/lp-fit";
 
 export type ShopFlags = {
   seo: boolean;
@@ -262,8 +263,7 @@ export function LinaShop({ template: t, lang, ...flags }: Props) {
   const sizes = t.pdp.specs.map((spec, i) => ({ spec, on: i === 1 }));
 
   return (
-    <div className="lp-fit">
-      <div className="lp-fit-inner">
+    <LpFit>
         <div className="shop shop-site shop-lina" {...flagAttrs({ ...flags, lang })}>
           <ShopChrome domain={t.domain} />
           <div className="sl-site">
@@ -375,8 +375,7 @@ export function LinaShop({ template: t, lang, ...flags }: Props) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </LpFit>
   );
 }
 
@@ -394,8 +393,7 @@ export function GastroShop({ template: t, lang, ...flags }: Props) {
   ];
 
   return (
-    <div className="lp-fit">
-      <div className="lp-fit-inner">
+    <LpFit>
         <div className="shop shop-site shop-gastro" {...flagAttrs({ ...flags, lang })}>
           <ShopChrome domain={t.domain} />
           <div className="sg-site">
@@ -518,8 +516,7 @@ export function GastroShop({ template: t, lang, ...flags }: Props) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </LpFit>
   );
 }
 
