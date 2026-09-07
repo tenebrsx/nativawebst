@@ -98,7 +98,7 @@
   gap: 22px;
   flex: 1 1 auto;
   min-height: 0;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .pb-sec-head {
@@ -463,29 +463,29 @@
     position: relative;
     top: auto;
     height: auto;
-    min-height: calc(100dvh - var(--pb-nav));
+    min-height: 0;
     overflow: visible;
-    padding: 36px 0 44px;
-    justify-content: center;
+    padding: 28px 0 40px;
+    justify-content: flex-start;
     transform: none;
   }
 
   .pb-sec-inner.container {
     display: grid;
     grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.28fr);
-    gap: 28px 36px;
-    align-items: stretch;
+    gap: 24px 32px;
+    align-items: start;
     max-width: min(1320px, calc(100vw - 48px));
     flex: none;
     justify-content: stretch;
-    min-height: min(720px, calc(100dvh - var(--pb-nav) - 80px));
+    min-height: 0;
   }
 
   .pb-sec-main {
     justify-content: flex-start;
     gap: 22px;
-    padding: 8px 0;
-    align-self: center;
+    padding: 0;
+    align-self: start;
   }
 
   .pb-sec-head h2 {
@@ -520,22 +520,24 @@
 
   .pb-teaser {
     flex: none;
-    height: 100%;
+    width: 100%;
+    height: auto;
     min-height: 0;
-    padding: 16px;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-self: start;
   }
 
   .pb-teaser-stage {
-    flex: 0 1 auto;
+    flex: none;
     width: 100%;
     height: auto;
-    max-height: 100%;
     min-height: 0;
     aspect-ratio: 1280 / 780;
     align-self: stretch;
+    border-radius: 16px;
   }
 
   .pb-teaser-stage[data-plan="shop"] {
@@ -581,6 +583,7 @@
     height: 780px;
     transform: scale(var(--lp-s));
     transform-origin: top left;
+    filter: none;
   }
 }
 
