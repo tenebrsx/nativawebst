@@ -5403,24 +5403,32 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .pb-teaser {
+    flex: none;
     width: min(100%, 380px);
+    height: auto;
     margin-inline: auto;
     min-height: 0;
     padding: 0;
+    overflow: visible;
   }
 
   .pb-teaser-stage {
+    flex: none;
     width: 100%;
-    min-height: 0;
+    height: auto;
+    min-height: min(70dvh, 560px);
+    max-height: min(78dvh, 680px);
     aspect-ratio: 9 / 16;
-    max-height: min(68dvh, 620px);
+    align-self: stretch;
     border-radius: 16px;
   }
 
   .pb-teaser-stage[data-plan="shop"] {
+    flex: none;
+    height: auto;
+    min-height: min(72dvh, 580px);
+    max-height: min(80dvh, 700px);
     aspect-ratio: 9 / 16;
-    min-height: 0;
-    max-height: min(72dvh, 660px);
   }
 
   .pb-body {
@@ -6045,18 +6053,24 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .pb-plan em { font-size: 12px; margin-top: 5px; }
 
   .pb-teaser {
+    flex: none;
     min-height: 0;
     width: min(100%, 360px);
+    height: auto;
   }
 
   .pb-teaser-stage {
-    min-height: 0;
-    max-height: min(64dvh, 580px);
+    flex: none;
+    height: auto;
+    min-height: min(68dvh, 540px);
+    max-height: min(76dvh, 640px);
   }
 
   .pb-teaser-stage[data-plan="shop"] {
-    min-height: 0;
-    max-height: min(68dvh, 620px);
+    flex: none;
+    height: auto;
+    min-height: min(70dvh, 560px);
+    max-height: min(78dvh, 660px);
   }
 }
 
@@ -6123,5 +6137,12 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .shop-gastro .shop-screen,
   .shop-beauty .shop-screen {
     transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 980px) {
+  .pb-teaser-stage,
+  .pb-teaser-stage[data-plan="shop"] {
+    height: auto;
   }
 }
