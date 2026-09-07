@@ -19,8 +19,7 @@ export function LpFit({ children }: { children: ReactNode }) {
 
     const apply = () => {
       const fluid = window.matchMedia("(max-width: 980px)").matches;
-      const keepScale = !!el.querySelector(".shop-site");
-      if (fluid && !keepScale) {
+      if (fluid) {
         el.style.setProperty("--lp-s", "1");
         return;
       }

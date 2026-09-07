@@ -282,6 +282,9 @@ export function LinaShop({ template: t, lang, ...flags }: Props) {
                     ))}
                   </nav>
                   <span className="shop-lang">ES | EN</span>
+                  <span className="sl-menu" aria-hidden="true">
+                    <i /><i /><i />
+                  </span>
                 </header>
 
                 <div className="sl-look">
