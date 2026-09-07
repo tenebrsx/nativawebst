@@ -116,7 +116,11 @@ export default function PricingBuilder() {
       if (e.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", onKey);
+    const raf = window.requestAnimationFrame(() => {
+      scroller.current?.scrollTo({ left: 0 });
+    });
     return () => {
+      window.cancelAnimationFrame(raf);
       document.body.style.overflow = prevOverflow;
       delete document.body.dataset.pbOpen;
       window.removeEventListener("keydown", onKey);
@@ -335,21 +339,6 @@ export default function PricingBuilder() {
     </div>
   );
 
-  const categories = (
-    <div className="pb-cats">
-      {templatesFor(plan).map((t) => (
-        <button
-          key={t.id}
-          type="button"
-          className={`pb-cat${template.id === t.id ? " is-on" : ""}`}
-          onClick={() => pickTemplate(t)}
-        >
-          {tx(t.cat, es ? "es" : "en")}
-        </button>
-      ))}
-    </div>
-  );
-
   const summaryBits = [
     dict.tiers[plan].name,
     tx(template.cat, es ? "es" : "en"),
@@ -376,7 +365,7 @@ export default function PricingBuilder() {
               {planTabs}
 
               <div className="pb-sec-cta">
-                <button type="button" className="pb-teaser-go" onClick={() => setOpen(true)}>
+                <button type="button" className="pb-teaser-go" onClick={() => { setAsk(0); setOpen(true); }}>
                   {es ? "Configura tu precio →" : "Set your price →"}
                 </button>
               </div>
@@ -384,12 +373,13 @@ export default function PricingBuilder() {
 
             <div
               className={`pb-teaser${entered ? " is-on" : ""}`}
-              onClick={() => setOpen(true)}
+              onClick={() => { setAsk(0); setOpen(true); }}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
+                  setAsk(0);
                   setOpen(true);
                 }
               }}
@@ -449,92 +439,6 @@ export default function PricingBuilder() {
               </div>
             </div>
 
-            <aside className="pb-rail">
-              <div>
-                <div className="pb-kicker">{es ? "Plan" : "Plan"}</div>
-                <div className="pb-tiers">
-                  {PLANS.map((key) => {
-                    const val = dict.tiers[key];
-                    return (
-                      <button
-                        key={key}
-                        type="button"
-                        className={`pb-tier${plan === key ? " is-on" : ""}`}
-                        onClick={() => pickPlan(key)}
-                      >
-                        <span>
-                          <h4>{val.name}</h4>
-                          <small>{val.pages}</small>
-                        </span>
-                        <em>
-                          {fmt(planAmount(key))}
-                        </em>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div>
-                <div className="pb-kicker">{dict.ask_tpl_label}</div>
-                {categories}
-              </div>
-
-              {plan === "shop" ? (
-                <div>
-                  <div className="pb-kicker">{es ? "Incluido" : "Included"}</div>
-                  <div className="pb-included">
-                    <span>{es ? "Catálogo y bolsa" : "Catalog and bag"}</span>
-                  </div>
-                </div>
-              ) : null}
-
-              <div>
-                <div className="pb-kicker">{es ? "Módulos" : "Modules"}</div>
-                <div className="pb-mods">
-                  {addonIds.map((id) => (
-                    <button
-                      key={id}
-                      type="button"
-                      className={`pb-chip${addons.has(id) ? " is-on" : ""}`}
-                      onClick={() => toggleAddon(id)}
-                    >
-                      {dict.addons[id].label}
-                      <i>
-                        {isMonthlyAddon(id)
-                          ? formatMonthlyAddonPrice(id, fmt, dict)
-                          : `+${fmt(addonAmount(id))}`}
-                      </i>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <div className="pb-kicker">{es ? "Cuidado" : "Care"}</div>
-                <div className="pb-mods">
-                  <button
-                    type="button"
-                    className={`pb-chip${support ? " is-on" : ""}`}
-                    onClick={() => setSupport(!support)}
-                  >
-                    {dict.support_label}
-                    <i>
-                      +{fmt(SUPPORT_PRICE)}
-                      {dict.monthly_suffix}
-                    </i>
-                  </button>
-                </div>
-              </div>
-
-              <div className="pb-rail-foot">
-                <button type="button" className="btn btn-launch btn-launch-static pb-send" onClick={sendBrief}>
-                  {sendLabel}
-                </button>
-                <p>{dict.disclaimer}</p>
-              </div>
-            </aside>
-
             <div className="pb-ask">
               <i className="pb-ask-handle" />
               <div className="pb-ask-dots" aria-hidden="true">
@@ -591,7 +495,7 @@ export default function PricingBuilder() {
                         key={t.id}
                         type="button"
                         className={`pb-cat${template.id === t.id ? " is-on" : ""}`}
-                        onClick={() => pickTemplate(t)}
+                        onClick={() => pickTemplate(t, 2)}
                       >
                         {tx(t.cat, es ? "es" : "en")}
                       </button>
