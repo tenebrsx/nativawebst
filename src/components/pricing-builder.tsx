@@ -4,11 +4,11 @@ import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import { buildQuoteMessage, openWhatsApp } from "@/lib/whatsapp";
 import { LandingPreview, ShopPreview } from "@/components/pricing-previews";
-import { templatesFor, tx, type PlanId, type Template } from "@/lib/pricing-templates";
+import { templatesFor, tx, type Template } from "@/lib/pricing-templates";
 import "./pricing-builder.css";
 
-const PLANS = ["landing", "shop", "site"] as const;
-type Plan = PlanId;
+const PLANS = ["landing", "shop"] as const;
+type Plan = (typeof PLANS)[number];
 type OneTimeAddon = "seo" | "brand" | "bilingual" | "shopify";
 type MonthlyAddon = "crm" | "ai";
 type AddonId = OneTimeAddon | MonthlyAddon;
@@ -17,11 +17,17 @@ const BASE_ADDONS: OneTimeAddon[] = ["seo", "brand", "bilingual"];
 const DOP = 60;
 const dop = (n: number) => n / DOP;
 
-const PLAN_PRICE: Record<Plan, number> = {
-  landing: 349,
-  site: dop(100_000),
-  shop: dop(35_000),
-};
+/** Landing is a USD floor. Shop keeps RD$ 35,000 in DOP and $549 in USD. */
+const LANDING_USD = 349;
+const SHOP_USD = 549;
+const SHOP_DOP = 35_000;
+
+function planPriceUsd(plan: Plan, currency: "DOP" | "USD", rate: number) {
+  if (plan === "shop") {
+    return currency === "DOP" ? SHOP_DOP / rate : SHOP_USD;
+  }
+  return LANDING_USD;
+}
 
 const ADDON_ONE_TIME: Record<OneTimeAddon, number> = {
   seo: dop(5_000),
@@ -34,7 +40,6 @@ const SUPPORT_PRICE = dop(3_000);
 const CRM_SETUP_PRICE = dop(10_000);
 const CRM_MONTHLY_PER_USER = dop(2_000);
 const SITE_AI_PRICE = dop(4_000);
-const SITE_MONTHLY = CRM_MONTHLY_PER_USER + SITE_AI_PRICE + SUPPORT_PRICE;
 
 const ADDON_MONTHLY: Record<MonthlyAddon, number> = {
   crm: CRM_MONTHLY_PER_USER,
@@ -67,15 +72,12 @@ function formatMonthlyAddonPrice(
 
 function addonsFor(plan: Plan): AddonId[] {
   if (plan === "shop") return ["shopify", "brand", "bilingual", "seo"];
-  if (plan === "site") return ["brand", "bilingual"];
   return [...BASE_ADDONS, "crm", "ai"];
 }
 
 function askStepsFor(plan: Plan) {
   const extras = addonsFor(plan);
-  return plan === "site"
-    ? (["plan", "template", ...extras, "send"] as const)
-    : (["plan", "template", ...extras, "support", "send"] as const);
+  return ["plan", "template", ...extras, "support", "send"] as const;
 }
 
 export default function PricingBuilder() {
@@ -91,12 +93,12 @@ export default function PricingBuilder() {
   const secRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
 
-  const { lang, fmt } = useGeo();
+  const { lang, fmt, currency, rate } = useGeo();
   const dict = translations[lang].pricing;
   const es = lang === "es";
   const addonIds = addonsFor(plan);
   const askSteps = askStepsFor(plan);
-  const sitePlan = plan === "site";
+  const planAmount = (key: Plan = plan) => planPriceUsd(key, currency, rate);
 
   const template = useMemo(() => {
     const list = templatesFor(plan);
@@ -191,30 +193,29 @@ export default function PricingBuilder() {
   };
 
   const { totalOneTime, totalMonthly } = useMemo(() => {
-    let oneTime = PLAN_PRICE[plan];
+    let oneTime = planPriceUsd(plan, currency, rate);
     let monthly = 0;
     addonsFor(plan).forEach((id) => {
       if (!addons.has(id)) return;
       if (isMonthlyAddon(id)) monthly += ADDON_MONTHLY[id];
       else oneTime += ADDON_ONE_TIME[id];
     });
-    if (addons.has("crm") && plan !== "site") oneTime += CRM_SETUP_PRICE;
-    if (plan === "site") monthly = SITE_MONTHLY;
-    else if (support) monthly += SUPPORT_PRICE;
+    if (addons.has("crm")) oneTime += CRM_SETUP_PRICE;
+    if (support) monthly += SUPPORT_PRICE;
     return {
       totalOneTime: oneTime,
       totalMonthly: monthly,
     };
-  }, [plan, addons, support]);
+  }, [plan, addons, support, currency, rate]);
 
   const flags = {
-    seo: sitePlan || addons.has("seo"),
+    seo: addons.has("seo"),
     brand: addons.has("brand"),
     bilingual: addons.has("bilingual"),
-    support: sitePlan || support,
+    support,
     shopify: addons.has("shopify"),
-    crm: sitePlan || addons.has("crm"),
-    ai: sitePlan || addons.has("ai"),
+    crm: addons.has("crm"),
+    ai: addons.has("ai"),
     lang: (lang === "en" ? "en" : "es") as "es" | "en",
   };
 
@@ -224,42 +225,33 @@ export default function PricingBuilder() {
 
   const stackCrm = es ? "CRM personal" : "Personal CRM";
   const stackAi = es ? "IA personalizada sincronizada con CRM" : "Brand AI synced with CRM";
-  const stackCare = es ? "Mantenimiento y cambios" : "Maintenance and changes";
 
   const sendBrief = useCallback(() => {
     openWhatsApp(
       buildQuoteMessage({
         lang: es ? "es" : "en",
         tierName: `${dict.tiers[plan].name} · ${tx(template.cat, es ? "es" : "en")}`,
-        addonLabels: [
-          ...addonsFor(plan)
-            .filter((id) => addons.has(id) && !isMonthlyAddon(id))
-            .map((id) => dict.addons[id].label),
-          ...(plan === "site"
-            ? [es ? "Google Maps y SEO (incluido)" : "Google Maps and SEO (included)"]
-            : []),
-        ],
+        addonLabels: addonsFor(plan)
+          .filter((id) => addons.has(id) && !isMonthlyAddon(id))
+          .map((id) => dict.addons[id].label),
         stackLabels: (() => {
           const rows: string[] = [];
-          if (plan === "site" || addons.has("crm")) {
+          if (addons.has("crm")) {
             rows.push(
               `${stackCrm} — ${dict.starting_at} ${fmt(CRM_SETUP_PRICE)} ${dict.setup_suffix}, ${dict.about} ${fmt(CRM_MONTHLY_PER_USER)}${dict.per_user_suffix}`,
             );
           }
-          if (plan === "site" || addons.has("ai")) {
+          if (addons.has("ai")) {
             rows.push(`${stackAi} — ${dict.starting_at} ${fmt(SITE_AI_PRICE)}${dict.monthly_suffix}`);
-          }
-          if (plan === "site") {
-            rows.push(`${stackCare} — ${fmt(SUPPORT_PRICE)}${dict.monthly_suffix}`);
           }
           return rows.length ? rows : undefined;
         })(),
-        support: plan === "site" || support,
+        support,
         oneTime: fmt(totalOneTime),
         monthly: `${fmt(totalMonthly)}${dict.monthly_suffix}`,
       })
     );
-  }, [addons, dict, es, fmt, plan, stackAi, stackCare, stackCrm, support, template, totalOneTime, totalMonthly]);
+  }, [addons, dict, es, fmt, plan, stackAi, stackCrm, support, template, totalOneTime, totalMonthly]);
 
   const goAsk = (i: number) => {
     const next = Math.max(0, Math.min(askSteps.length - 1, i));
@@ -335,13 +327,7 @@ export default function PricingBuilder() {
             <b>{val.name}</b>
             <small>{val.pages}</small>
             <em>
-              {fmt(PLAN_PRICE[key])}
-              {key === "site" ? (
-                <span className="pb-plan-mo">
-                  {fmt(SITE_MONTHLY)}
-                  {dict.monthly_suffix}
-                </span>
-              ) : null}
+              {fmt(planAmount(key))}
             </em>
           </button>
         );
@@ -368,56 +354,65 @@ export default function PricingBuilder() {
     dict.tiers[plan].name,
     tx(template.cat, es ? "es" : "en"),
     ...addonIds.filter((id) => addons.has(id)).map((id) => dict.addons[id].label),
-    ...(sitePlan ? [dict.addons.seo.label, stackCrm, stackAi, stackCare] : []),
-    ...(!sitePlan && addons.has("crm") ? [stackCrm] : []),
-    ...(!sitePlan && addons.has("ai") ? [stackAi] : []),
-    ...(!sitePlan && support ? [dict.support_label] : []),
+    ...(addons.has("crm") ? [stackCrm] : []),
+    ...(addons.has("ai") ? [stackAi] : []),
+    ...(support ? [dict.support_label] : []),
   ];
 
   return (
     <>
-      <div id="pricing" className="pb-pin" ref={pinRef}>
+      <div id="pricing" className="pb-pin" ref={pinRef} data-pb-theme="dark">
         <section className={`pb-sec${entered ? " is-in" : ""}`} ref={secRef}>
           <div className="container pb-sec-inner">
-          <div className="pb-sec-head">
-            <span className="section-label">{dict.label}</span>
-            <div className="pb-sec-title">
-              <h2>{dict.title}</h2>
-              <button type="button" className="pb-peek" onClick={() => setOpen(true)}>
-                {dict.ask_peek}
-              </button>
-            </div>
-            <p>{dict.sub}</p>
-            {planTabs}
-            {categories}
-          </div>
+            <div className="pb-sec-main">
+              <div className="pb-sec-head">
+                <span className="section-label">{dict.label}</span>
+                <div className="pb-sec-title">
+                  <h2>{dict.title}</h2>
+                </div>
+                <p>{dict.sub}</p>
+              </div>
 
-          <div
-            className={`pb-teaser${entered ? " is-on" : ""}`}
-            onClick={() => setOpen(true)}
-          >
-            <button type="button" className="pb-teaser-go" onClick={() => setOpen(true)}>
-              {es ? "Abrir el estudio →" : "Open the studio →"}
-            </button>
-            <span className="pb-teaser-copy">
-              <b>{dict.ask_open}</b>
-              <em>
-                {es ? "Desde" : "From"} {fmt(PLAN_PRICE[plan])}
-                {sitePlan ? ` · ${fmt(SITE_MONTHLY)}${dict.monthly_suffix}` : ""}
-              </em>
-            </span>
-            <div className="pb-teaser-stage" data-plan={plan}>
-              <div className="pb-frame is-live" key={`teaser-${template.id}`}>
-                {preview}
+              {planTabs}
+
+              <div className="pb-sec-cta">
+                <button type="button" className="pb-teaser-go" onClick={() => setOpen(true)}>
+                  {es ? "Configura tu precio →" : "Set your price →"}
+                </button>
               </div>
             </div>
-          </div>
+
+            <div
+              className={`pb-teaser${entered ? " is-on" : ""}`}
+              onClick={() => setOpen(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setOpen(true);
+                }
+              }}
+              aria-label={es ? "Abrir el estudio" : "Open the studio"}
+            >
+              <div className="pb-teaser-stage" data-plan={plan}>
+                <div className="pb-frame is-live" key={`teaser-${template.id}`}>
+                  {preview}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
 
       {open ? (
-        <div className="pb-studio" role="dialog" aria-modal="true" aria-label={dict.title}>
+        <div
+          className="pb-studio"
+          role="dialog"
+          aria-modal="true"
+          aria-label={dict.title}
+          data-pb-theme="dark"
+        >
           <header className="pb-top">
             <div className="pb-top-copy">
               <span className="pb-kicker">
@@ -472,13 +467,7 @@ export default function PricingBuilder() {
                           <small>{val.pages}</small>
                         </span>
                         <em>
-                          {fmt(PLAN_PRICE[key])}
-                          {key === "site" ? (
-                            <span className="pb-tier-mo">
-                              {fmt(SITE_MONTHLY)}
-                              {dict.monthly_suffix}
-                            </span>
-                          ) : null}
+                          {fmt(planAmount(key))}
                         </em>
                       </button>
                     );
@@ -496,37 +485,6 @@ export default function PricingBuilder() {
                   <div className="pb-kicker">{es ? "Incluido" : "Included"}</div>
                   <div className="pb-included">
                     <span>{es ? "Catálogo y bolsa" : "Catalog and bag"}</span>
-                  </div>
-                </div>
-              ) : sitePlan ? (
-                <div>
-                  <div className="pb-kicker">{es ? "Incluido" : "Included"}</div>
-                  <div className="pb-included is-stack">
-                    <span>
-                      {dict.addons.seo.label}
-                      <i>{es ? "Incluido" : "Included"}</i>
-                    </span>
-                    <span>
-                      {stackCrm}
-                      <i>
-                        {dict.starting_at} {fmt(CRM_SETUP_PRICE)} {dict.setup_suffix} · {dict.about} {fmt(CRM_MONTHLY_PER_USER)}
-                        {dict.per_user_suffix}
-                      </i>
-                    </span>
-                    <span>
-                      {stackAi}
-                      <i>
-                        {dict.starting_at} {fmt(SITE_AI_PRICE)}
-                        {dict.monthly_suffix}
-                      </i>
-                    </span>
-                    <span>
-                      {stackCare}
-                      <i>
-                        {fmt(SUPPORT_PRICE)}
-                        {dict.monthly_suffix}
-                      </i>
-                    </span>
                   </div>
                 </div>
               ) : null}
@@ -552,24 +510,22 @@ export default function PricingBuilder() {
                 </div>
               </div>
 
-              {sitePlan ? null : (
-                <div>
-                  <div className="pb-kicker">{es ? "Cuidado" : "Care"}</div>
-                  <div className="pb-mods">
-                    <button
-                      type="button"
-                      className={`pb-chip${support ? " is-on" : ""}`}
-                      onClick={() => setSupport(!support)}
-                    >
-                      {dict.support_label}
-                      <i>
-                        +{fmt(SUPPORT_PRICE)}
-                        {dict.monthly_suffix}
-                      </i>
-                    </button>
-                  </div>
+              <div>
+                <div className="pb-kicker">{es ? "Cuidado" : "Care"}</div>
+                <div className="pb-mods">
+                  <button
+                    type="button"
+                    className={`pb-chip${support ? " is-on" : ""}`}
+                    onClick={() => setSupport(!support)}
+                  >
+                    {dict.support_label}
+                    <i>
+                      +{fmt(SUPPORT_PRICE)}
+                      {dict.monthly_suffix}
+                    </i>
+                  </button>
                 </div>
-              )}
+              </div>
 
               <div className="pb-rail-foot">
                 <button type="button" className="btn btn-launch btn-launch-static pb-send" onClick={sendBrief}>
@@ -615,13 +571,7 @@ export default function PricingBuilder() {
                             <small>{val.pages}</small>
                           </span>
                           <em>
-                            {fmt(PLAN_PRICE[key])}
-                            {key === "site" ? (
-                              <span className="pb-tier-mo">
-                                {fmt(SITE_MONTHLY)}
-                                {dict.monthly_suffix}
-                              </span>
-                            ) : null}
+                            {fmt(planAmount(key))}
                           </em>
                         </button>
                       );
@@ -688,8 +638,7 @@ export default function PricingBuilder() {
                   </article>
                 ))}
 
-                {sitePlan ? null : (
-                  <article className="pb-ask-pane is-choice">
+                <article className="pb-ask-pane is-choice">
                     <p className="pb-ask-kicker">
                       {String(askSteps.length - 1).padStart(2, "0")} / {String(askSteps.length).padStart(2, "0")}
                     </p>
@@ -724,7 +673,6 @@ export default function PricingBuilder() {
                       </button>
                     </div>
                   </article>
-                )}
 
                 <article className="pb-ask-pane is-sum">
                   <p className="pb-ask-kicker">

@@ -278,7 +278,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       cta: "Launch the Ship →",
       disclaimer: "This is a brief, not a charge. We confirm the spec in 15 minutes before anything is built.",
       tiers: {
-        landing: { name: "Basic", desc: "A designed landing page: brand, hours, treatments, the team — one page that already looks like the business.", pages: "Landing page" },
+        landing: { name: "Essential", desc: "A designed landing page: brand, hours, treatments, the team — one page that already looks like the business.", pages: "Landing page" },
         site: { name: "Complete", desc: "The full stack: site, Google Maps and SEO, a personal CRM, and a brand AI synced to it. One setup, then monthly care.", pages: "Web + CRM + AI" },
         shop: { name: "Ecommerce", desc: "A store that starts simple: catalog and bag. Add Shopify when you are ready to take payment.", pages: "Online store" }
       },
@@ -607,9 +607,9 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       cta: "Escríbenos por WhatsApp →",
       disclaimer: "Esto es un estimado, no un cobro. Confirmamos el alcance en 15 minutos antes de construir.",
       tiers: {
-        landing: { name: "Básico", desc: "Una página diseñada: marca, horarios, tratamientos, el equipo — ya se ve como el negocio.", pages: "Página de aterrizaje" },
+        landing: { name: "Esencial", desc: "Una página diseñada: marca, horarios, tratamientos, el equipo — ya se ve como el negocio.", pages: "Página de aterrizaje" },
         site: { name: "Completo", desc: "Todo junto: sitio, Google Maps y SEO, CRM personal e IA de marca sincronizada. Una instalación, luego el cuidado mensual.", pages: "Web + CRM + IA" },
-        shop: { name: "Ecommerece", desc: "Una tienda que empieza simple: catálogo y bolsa. Suma Shopify cuando quieras cobrar.", pages: "Tienda online" }
+        shop: { name: "Ecommerce", desc: "Una tienda que empieza simple: catálogo y bolsa. Suma Shopify cuando quieras cobrar.", pages: "Tienda online" }
       },
       addons: {
         seo: { label: "Google Maps y SEO", desc: "Apareces en el mapa. Sales cuando buscan cerca." },

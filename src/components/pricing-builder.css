@@ -191,7 +191,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 /* ── Template categories (studio / ask only) ─────────────────── */
@@ -482,9 +482,10 @@
   }
 
   .pb-sec-main {
-    justify-content: center;
-    gap: 24px;
+    justify-content: flex-start;
+    gap: 22px;
     padding: 8px 0;
+    align-self: center;
   }
 
   .pb-sec-head h2 {
@@ -507,17 +508,14 @@
     gap: 12px;
   }
 
-  .pb-theme {
-    margin-bottom: 0;
-  }
-
   .pb-plans {
     max-width: 340px;
   }
 
   .pb-sec-cta {
-    gap: 14px;
-    padding-top: 8px;
+    gap: 0;
+    padding-top: 0;
+    margin-top: 2px;
   }
 
   .pb-teaser {
