@@ -1181,76 +1181,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
     font-size: 2rem;
   }
 
-  .lp-fit .lp-bu {
-    grid-template-rows: auto auto minmax(0, 1.8fr) minmax(0, 0.85fr);
-  }
-
-  .lp-fit .lp-bu-hero {
-    min-height: 0;
-    height: auto;
-  }
-
-  .lp-fit .lp-bu-copy h3 {
-    font-size: 2.15rem;
-  }
-
-  .lp-fit .lp-bu-ticker {
-    padding: 5px 22px;
-    font-size: 9px;
-  }
-
-  .lp-fit .lp-bu .lp-nav {
-    padding: 10px 24px;
-  }
-
-  .lp-fit .lp-bu-copy p {
-    display: none;
-  }
-
-  .lp-fit .lp-bu-nums div {
-    padding: 8px 18px;
-  }
-
-  .lp-fit .lp-bu-masonry {
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-    min-height: 0;
-    gap: 8px;
-    padding: 8px 24px 10px;
-  }
-
-  .lp-fit .lp-bu-crew,
-  .lp-fit .lp-bu .lp-map {
-    display: none;
-  }
-
-  .lp-fit .shop-lina .shop-screen {
-    padding: 10px 18px 10px;
-  }
-
-  .lp-fit .shop-lina .sl-head {
-    margin-bottom: 8px;
-  }
-
-  .lp-fit .shop-lina .sl-look {
-    gap: 8px;
-  }
-
-  .lp-fit .shop-lina .sl-hero img {
-    object-position: 50% 22%;
-  }
-
-  .lp-fit .shop-lina .sl-rail img {
-    height: 108px;
-  }
-
-  .lp-fit .shop-lina .sl-cta {
-    margin-top: 8px;
-    padding: 8px 12px;
-  }
-
-  .lp-fit .shop-lina .shop-geo {
-    display: none;
-  }
+  /* Aybar + Lina desktop teaser/studio: see compact-preview block below */
 
   .lp-fit .lp-ot {
     grid-template-rows: minmax(0, 1.45fr) minmax(0, 0.95fr) auto auto;
@@ -3302,6 +3233,196 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 }
 
 .shop-lina .shop-geo i { background: var(--sl-oxblood); }
+
+/*
+ * Desktop artboard (1280×780): shrink chrome/type so photos keep height.
+ * Mobile teaser/studio layouts are unchanged (max-width: 980px).
+ */
+@media (min-width: 981px) {
+  .lp-fit .lp-chrome,
+  .lp-fit .shop-chrome {
+    padding: 6px 12px;
+    gap: 5px;
+  }
+
+  .lp-fit .lp-url,
+  .lp-fit .shop-url {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+
+  .lp-fit .lp-bu {
+    overflow: hidden;
+    grid-template-rows: auto auto minmax(0, 1.9fr) minmax(0, 1fr);
+  }
+
+  .lp-fit .lp-bu-ticker {
+    padding: 3px 16px;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  .lp-fit .lp-bu .lp-nav {
+    padding: 6px 16px;
+  }
+
+  .lp-fit .lp-bu .lp-nav b {
+    font-size: 13px;
+  }
+
+  .lp-fit .lp-bu .lp-nav-links {
+    gap: 16px;
+    font-size: 8px;
+  }
+
+  .lp-fit .lp-bu-hero {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .lp-fit .lp-bu-hero img {
+    object-position: 50% 36%;
+  }
+
+  .lp-fit .lp-bu-toast,
+  .lp-fit .lp-bu-copy p {
+    display: none;
+  }
+
+  .lp-fit .lp-bu-copy {
+    left: 18px;
+    top: 10px;
+    bottom: 40px;
+    max-width: 30ch;
+  }
+
+  .lp-fit .lp-bu-copy em {
+    font-size: 8px;
+    margin-bottom: 4px;
+  }
+
+  .lp-fit .lp-bu-copy h3 {
+    font-size: 1.5rem;
+  }
+
+  .lp-fit .lp-bu .lp-cta {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .lp-fit .lp-bu-nums div {
+    padding: 4px 12px;
+  }
+
+  .lp-fit .lp-bu-nums b {
+    font-size: 1rem;
+  }
+
+  .lp-fit .lp-bu-nums span {
+    font-size: 9px;
+  }
+
+  .lp-fit .lp-bu-masonry {
+    overflow: hidden;
+    min-height: 0;
+    gap: 6px;
+    padding: 6px 14px 8px;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .lp-fit .lp-bu-masonry b {
+    font-size: 13px;
+  }
+
+  .lp-fit .lp-bu-crew,
+  .lp-fit .lp-bu .lp-map {
+    display: none;
+  }
+
+  .lp-fit .shop-lina .shop-screen {
+    padding: 8px 16px 8px;
+  }
+
+  .lp-fit .shop-lina .sl-head {
+    margin-bottom: 4px;
+  }
+
+  .lp-fit .shop-lina .sl-brand b {
+    font-size: 17px;
+  }
+
+  .lp-fit .shop-lina .sl-nav span {
+    font-size: 8px;
+  }
+
+  .lp-fit .shop-lina .sl-look {
+    grid-template-rows: minmax(0, 1.8fr) minmax(0, 0.9fr);
+    gap: 8px;
+    min-height: 0;
+  }
+
+  .lp-fit .shop-lina .sl-hero img {
+    object-position: 50% 18%;
+  }
+
+  .lp-fit .shop-lina .sl-hero figcaption {
+    left: 14px;
+    bottom: 10px;
+    right: 14px;
+  }
+
+  .lp-fit .shop-lina .sl-hero h3 {
+    font-size: 1.2rem;
+    margin: 2px 0 4px;
+  }
+
+  .lp-fit .shop-lina .sl-hero .shop-stock {
+    display: none;
+  }
+
+  .lp-fit .shop-lina .sl-rail {
+    min-height: 0;
+    height: 100%;
+    gap: 8px;
+    align-content: stretch;
+  }
+
+  .lp-fit .shop-lina .sl-rail article {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    height: 100%;
+    min-height: 0;
+    gap: 3px;
+  }
+
+  .lp-fit .shop-lina .sl-rail img {
+    height: 100%;
+    min-height: 0;
+    align-self: stretch;
+  }
+
+  .lp-fit .shop-lina .sl-rail b {
+    font-size: 11px;
+  }
+
+  .lp-fit .shop-lina .sl-rail span {
+    font-size: 11px;
+  }
+
+  .lp-fit .shop-lina .sl-rail .shop-stock {
+    display: none;
+  }
+
+  .lp-fit .shop-lina .sl-cta {
+    margin-top: 6px;
+    padding: 6px 12px;
+    font-size: 9px;
+  }
+
+  .lp-fit .shop-lina .shop-geo {
+    display: none;
+  }
+}
 
 .shop-lina .sl-pdp {
   display: grid;
