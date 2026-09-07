@@ -3253,6 +3253,8 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 
   .lp-fit .lp-bu {
     overflow: hidden;
+    min-height: 0;
+    height: 100%;
     grid-template-rows: auto auto minmax(0, 2.35fr) minmax(0, 1fr);
   }
 
@@ -3325,9 +3327,19 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .lp-fit .lp-bu-masonry {
     overflow: hidden;
     min-height: 0;
+    height: 100%;
     gap: 6px;
     padding: 8px 14px 10px;
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .lp-fit .lp-bu-masonry article {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .lp-fit .lp-bu-masonry img {
+    min-height: 0;
   }
 
   .lp-fit .lp-bu-masonry b {
@@ -3341,6 +3353,8 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 
   .lp-fit .shop-lina .shop-screen {
     padding: 8px 14px 8px;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .lp-fit .shop-lina .shop-screen.is-home {
@@ -3364,6 +3378,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
     grid-template-rows: minmax(0, 1fr);
     gap: 10px;
     min-height: 0;
+    overflow: hidden;
   }
 
   .lp-fit .shop-lina .sl-hero img {
@@ -3390,16 +3405,17 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
     grid-template-rows: repeat(3, minmax(0, 1fr));
     min-height: 0;
     height: 100%;
+    overflow: hidden;
     gap: 8px;
   }
 
   .lp-fit .shop-lina .sl-rail article {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    grid-template-rows: auto auto;
-    align-content: center;
+    grid-template-rows: minmax(0, 1fr) auto;
     height: 100%;
     min-height: 0;
+    overflow: hidden;
     gap: 2px 8px;
   }
 
@@ -3408,6 +3424,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
     height: 100%;
     min-height: 0;
     width: 100%;
+    object-fit: cover;
   }
 
   .lp-fit .shop-lina .sl-rail b {
