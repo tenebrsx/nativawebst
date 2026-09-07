@@ -525,17 +525,24 @@
     height: 100%;
     min-height: 0;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .pb-teaser-stage {
-    height: 100%;
+    flex: 0 1 auto;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 1280 / 780;
+    align-self: stretch;
   }
 
   .pb-teaser-stage[data-plan="shop"] {
     min-height: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 1280 / 780;
   }
 
   /* Fit 1280×780 artboard into the preview pane (same slot pattern as studio) */
