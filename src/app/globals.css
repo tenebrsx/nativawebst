@@ -1139,7 +1139,7 @@ a {
 
 .proof-section {
   padding: 90px 0;
-  background: var(--navy-trench);
+  background: #05060a;
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
