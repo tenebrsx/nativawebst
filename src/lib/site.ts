@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://nativa.studio";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://nativa.studio";
 export const SITE_NAME = "Nativa Web Studio";
 export const SITE_BRAND = "Nativa";
 export const SITE_EMAIL = "info@nativa.studio";
@@ -13,15 +14,31 @@ export const SITE_COUNTRY = "DO";
 export const SITE_COUNTRY_NAME = "República Dominicana";
 export const SITE_LAT = 18.479;
 export const SITE_LNG = -69.939;
+export const SITE_POSTAL_CODE = "10148";
+export const SITE_CITATION =
+  "Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio";
+
+/** Social / GBP profiles — only non-empty URLs are emitted in JSON-LD sameAs */
+export const SITE_SAME_AS = [
+  process.env.NEXT_PUBLIC_GBP_URL,
+  process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+  process.env.NEXT_PUBLIC_LINKEDIN_URL,
+].filter((url): url is string => Boolean(url && url.startsWith("http")));
+
+export const SITE_LOGO = `${SITE_URL}/opengraph-image`;
 export const SITE_PRICE_RANGE = "$$";
 export const SITE_DEFAULT_TITLE =
   "Diseño Web, CRM y Agentes IA en Santo Domingo | Nativa";
 export const SITE_DEFAULT_DESCRIPTION =
-  "Nativa es un estudio web en Santo Domingo. Construimos sitios rápidos, SEO local en Google Maps, CRM personal y agentes IA por WhatsApp para negocios en República Dominicana.";
+  "Nativa es un estudio web en Santo Domingo que prioriza calidad y estilo: sitios terminados y funcionales, SEO en Google Maps, CRM personal y un agente IA de marca por WhatsApp — sin plantillas viejas ni proyectos a medias.";
 
 export const SITE_KEYWORDS = [
   "diseño web santo domingo",
   "páginas web república dominicana",
+  "mejor estudio web santo domingo",
+  "por qué nativa web studio",
+  "agencia web calidad RD",
+  "páginas web con diseño República Dominicana",
   "agencia web RD",
   "SEO local santo domingo",
   "google maps SEO dominicana",
@@ -73,14 +90,36 @@ export const SERVICES: Array<{
   },
 ];
 
+export const GUIDE_SLUGS = [
+  "elegir-estudio-web-santo-domingo",
+  "seo-local-google-maps-rd",
+  "whatsapp-vs-formulario-rd",
+  "que-incluye-sitio-web-profesional-rd",
+] as const;
+
+export type GuideSlug = (typeof GUIDE_SLUGS)[number];
+
 export const INDEXABLE_PATHS = [
   "/",
   "/servicios",
   ...SERVICES.map((s) => s.path),
+  "/santo-domingo",
+  "/punta-cana",
+  "/por-que-nosotros",
+  "/industrias/clinicas",
+  "/industrias/legal",
+  "/industrias/villas",
+  "/casos",
+  "/guias",
+  ...GUIDE_SLUGS.map((slug) => `/guias/${slug}`),
   "/portfolio",
+  "/legal",
+  "/legal/privacidad",
+  "/legal/terminos",
+  "/legal/cookies",
 ] as const;
 
-export const NOINDEX_PREFIXES = ["/ads", "/logos", "/demo", "/demos"] as const;
+export const NOINDEX_PREFIXES = ["/ads", "/logos", "/demo", "/demos", "/refined", "/visualmockup"] as const;
 
 export function absoluteUrl(path: string): string {
   if (path.startsWith("http")) return path;

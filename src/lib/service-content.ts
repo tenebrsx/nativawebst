@@ -36,22 +36,22 @@ export const hubCopy: Record<TranslationKey, HubCopy> = {
   es: {
     metaTitle: "Servicios web, SEO local, CRM y agentes IA en RD",
     metaDescription:
-      "Nativa en Santo Domingo: sitios web rápidos, SEO en Google Maps, CRM personal y agentes IA por WhatsApp para negocios en República Dominicana.",
+      "Nativa en Santo Domingo: sitios con estilo y calidad, SEO en Google Maps, CRM personal y agentes IA por WhatsApp — entregas terminadas para negocios en RD.",
     label: "Servicios",
     h1: "Sitios web, SEO local, CRM y agentes IA en República Dominicana",
     answer:
-      "Nativa es un estudio web en Santo Domingo. Primero ponemos el negocio en una web rápida que abre WhatsApp. Luego lo hacemos visible en Google Maps. Cuando ya llegan chats, armamos un CRM a la medida y un agente IA de marca que responde y agenda. Un solo equipo, en español, para pymes de RD.",
-    cta: "Pedir brief por WhatsApp",
-    portfolio: "Ver plantillas y demos",
+      "Nativa es un estudio web en Santo Domingo que prioriza calidad y estilo. Primero ponemos el negocio en una web terminada que abre WhatsApp. Luego lo hacemos visible en Google Maps. Cuando ya llegan chats, armamos un CRM a la medida y un agente IA de marca que responde y agenda. Un solo equipo, en español, para pymes de RD — sin plantillas viejas ni proyectos a medias.",
+    cta: "Pedir cotización por WhatsApp",
+    portfolio: "Ver trabajos y demos",
   },
   en: {
     metaTitle: "Web, local SEO, CRM and AI agents in the DR",
     metaDescription:
-      "Nativa in Santo Domingo: fast websites, Google Maps SEO, a personal CRM, and WhatsApp AI agents for businesses in the Dominican Republic.",
+      "Nativa in Santo Domingo: design-led finished websites, Google Maps SEO, a personal CRM, and WhatsApp AI agents for Dominican businesses.",
     label: "Services",
     h1: "Websites, local SEO, CRM and AI agents in the Dominican Republic",
     answer:
-      "Nativa is a web studio in Santo Domingo. First we put the business on a fast site that opens WhatsApp. Then we make it findable on Google Maps. Once chats arrive, we build a personal CRM and a brand AI agent that answers and books. One team, in Spanish or English, for Dominican SMBs.",
+      "Nativa is a design-led web studio in Santo Domingo. First we put the business on a finished site that opens WhatsApp. Then we make it findable on Google Maps. Once chats arrive, we build a personal CRM and a brand AI agent that answers and books. One team, in Spanish or English, for Dominican SMBs — not outdated templates or half-finished work.",
     cta: "Send a WhatsApp brief",
     portfolio: "See templates and demos",
   },
@@ -65,37 +65,37 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "🌐",
       metaTitle: "Diseño web en Santo Domingo",
       metaDescription:
-        "Páginas web rápidas para negocios en República Dominicana. En vivo en unas 3 semanas, con flujo a WhatsApp. Estudio Nativa en Santo Domingo.",
+        "Páginas web rápidas y con estilo para negocios en República Dominicana. Entrega terminada, flujo a WhatsApp. Estudio Nativa en Santo Domingo.",
       label: "Diseño web",
       h1: "Páginas web rápidas para negocios en Santo Domingo",
       answer:
-        "Diseñamos y publicamos sitios que cargan en el celular, muestran el servicio en español (y inglés si hace falta) y mandan al visitante a WhatsApp. El brief es de 15 minutos. Una landing puede salir en 48 horas; un sitio de varias páginas, en unas 3 semanas. No cobramos plataforma mensual por el hosting de plantilla. Los cambios de texto, fotos y horarios se piden por mensaje.",
-      sub: "La web es la puerta. WhatsApp es el cierre. Hecho para clínicas, villas, talleres, estudios y tiendas en RD.",
+        "Diseñamos y publicamos sitios con criterio visual que cargan en el celular, muestran el servicio en español (y inglés si hace falta) y mandan al visitante a WhatsApp. Priorizamos calidad y estilo: producto terminado, no plantilla vieja ni entrega a medias. La conversación inicial es de 15 minutos. Una página puede salir en 48 horas; un sitio de varias páginas, en unas 3 semanas. No cobramos plataforma mensual por el hosting de plantilla. Los cambios de texto, fotos y horarios se piden por mensaje.",
+      sub: "La web es la puerta. WhatsApp es el cierre. Hecho para clínicas, villas, talleres, estudios y tiendas en RD que quieren verse bien — y funcionar.",
       problemsTitle: "Para qué sirve, de verdad",
       problems: [
         {
           title: "Carga en el celular, no en una laptop de agencia",
-          body: "La mayoría de tus clientes te buscan desde el teléfono. El sitio se construye mobile-first, con un toque a chat — no un formulario que nadie llena.",
+          body: "La mayoría de tus clientes te buscan desde el teléfono. El sitio se construye primero para celular, con un toque a chat — no un formulario que nadie llena.",
         },
         {
-          title: "Bilingüe cuando el mercado lo pide",
-          body: "Turismo, villas y clínicas en Punta Cana o la capital suelen necesitar ES/EN. Lo dejamos listo, no como un extra escondido al final.",
+          title: "Estilo con intención, no plantilla desactualizada",
+          body: "Tipografía, jerarquía y atmósfera de marca. No un tema genérico de hace años que se ve igual en diez negocios distintos.",
         },
         {
-          title: "Lista para Maps y el stack siguiente",
-          body: "Marcamos el negocio para Google y dejamos el tubo de WhatsApp. Después se suma CRM y el agente IA, cuando ya hay chats.",
+          title: "Lista para Maps y lo que sigue",
+          body: "Marcamos el negocio para Google y dejamos el camino a WhatsApp. Después se suma CRM y el agente IA, cuando ya hay chats — trato justo, sin upsell el día uno.",
         },
       ],
       stepsTitle: "Cómo se lanza",
       steps: [
         {
           num: "01",
-          title: "Brief de 15 minutos",
-          body: "WhatsApp o una llamada corta. Páginas, fotos, cómo debe caer el lead. Sin deck de 40 slides.",
+          title: "Charla de 15 minutos",
+          body: "WhatsApp o una llamada corta. Páginas, fotos, cómo debe caer el cliente. Sin presentación de 40 diapositivas.",
         },
         {
           num: "02",
-          title: "Preview en tu teléfono",
+          title: "Vista previa en tu teléfono",
           body: "Recibes un enlace real en días, no un PDF. Lo abres como lo abriría un cliente en Naco o Bávaro.",
         },
         {
@@ -107,7 +107,11 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       faqs: [
         {
           q: "¿Cuánto tarda una página web con Nativa?",
-          a: "Una landing puede lanzarse en 48 horas. Un sitio de varias páginas suele ir del brief al aire en unas 3 semanas.",
+          a: "Una página puede lanzarse en 48 horas. Un sitio de varias páginas suele ir de la conversación al aire en unas 3 semanas.",
+        },
+        {
+          q: "¿Por qué Nativa y no otra agencia web en República Dominicana?",
+          a: "Porque priorizamos calidad y estilo sobre volumen: sitios terminados, funcionales en el celular, con diseño intencional y precios transparentes. No entregamos plantillas desactualizadas ni proyectos a medias, y no empujamos CRM o IA hasta que ya haya chats.",
         },
         {
           q: "¿Hacen páginas web en Santo Domingo y el interior?",
@@ -115,7 +119,7 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
         {
           q: "¿El sitio incluye tienda o solo informativo?",
-          a: "Hacemos informativos, landings y catálogos que cotizan por WhatsApp. E-commerce completo se cotiza aparte según el inventario.",
+          a: "Hacemos informativos, páginas y catálogos que cotizan por WhatsApp. Tienda completa se cotiza aparte según el inventario.",
         },
         {
           q: "¿Incluye CRM o agente de inteligencia artificial?",
@@ -199,21 +203,21 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "📊",
       metaTitle: "CRM para negocios en República Dominicana",
       metaDescription:
-        "CRM personal sobre tus chats de WhatsApp: pipeline, seguimientos y notas a la medida de tu marca. Nativa lo arma cuando el sitio ya manda leads en RD.",
+        "CRM personal sobre tus chats de WhatsApp: etapas y cifras a la medida de tu marca. Nativa lo arma cuando el sitio ya manda clientes en RD.",
       label: "CRM personal",
       h1: "Un CRM a la medida de tus chats de WhatsApp",
       answer:
-        "El CRM de Nativa no es una licencia genérica de HubSpot. Es un pipeline construido alrededor de cómo ya cierras: WhatsApp. Los chats dejan de morir en la galería. Cada lead tiene etapa, nota y seguimiento. Lo cotizamos cuando el sitio ya está mandando conversaciones, para no inventar un tablero vacío. Sirve a clínicas, villas, talleres y tiendas que venden por mensaje en República Dominicana.",
-      sub: "Mismo WhatsApp. Más control. Sin que el cierre viva en la memoria de una sola persona.",
+        "El CRM de Nativa no es una licencia genérica de HubSpot. Es un tablero construido alrededor de cómo ya cierras: WhatsApp. Los chats dejan de perderse en el celular. Cada cliente tiene etapa, nota y un número que se mueve — nuevos, en curso, cerrados. Lo cotizamos cuando el sitio ya está mandando conversaciones, para no inventar un tablero vacío. Sirve a clínicas, villas, talleres y tiendas que venden por mensaje en República Dominicana.",
+      sub: "Mismo WhatsApp. Cifras que se ven. Sin que el cierre viva en la memoria de una sola persona.",
       problemsTitle: "Qué deja de pasar",
       problems: [
         {
-          title: "El lead quedó en el rollo de cámara",
-          body: "Capturas de chat no son un pipeline. El CRM guarda de quién es, qué pidió y cuándo hay que escribirle otra vez.",
+          title: "El cliente quedó en el rollo de cámara",
+          body: "Capturas de chat no son un embudo. El CRM guarda de quién es, qué pidió y cuándo hay que escribirle otra vez.",
         },
         {
           title: "Solo una persona sabe el estado",
-          body: "Si el vendedor no está, el lead se enfría. Etapas visibles: nuevo, cotizado, agendado, cerrado.",
+          body: "Si el vendedor no está, el cliente se enfría. Etapas visibles: nuevo, cotizado, agendado, cerrado.",
         },
         {
           title: "Seguimientos que nunca salen",
@@ -225,16 +229,16 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         {
           num: "01",
           title: "Primero la web y el chat",
-          body: "Sin leads, un CRM es un cascarón. Lanzamos el sitio y el toque a WhatsApp.",
+          body: "Sin conversaciones, un CRM es un cascarón. Lanzamos el sitio y el toque a WhatsApp.",
         },
         {
           num: "02",
           title: "Mapeamos cómo cierras hoy",
-          body: "Etapas reales de tu rubro — cita, villa, cotización de gomas — no un funnel copiado de SaaS.",
+          body: "Etapas reales de tu rubro — cita, villa, cotización de gomas — no un embudo copiado de software genérico.",
         },
         {
           num: "03",
-          title: "Pipeline a tu marca",
+          title: "Embudo a tu marca",
           body: "Se arma a la medida. Luego, si quieres, el agente IA escribe en las mismas etapas.",
         },
       ],
@@ -245,7 +249,7 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
         {
           q: "¿Puedo comprar solo el CRM sin web?",
-          a: "Se cotiza después de que el sitio (nuestro o el que ya tengas) está mandando chats. Sin conversaciones, no hay pipeline que valga.",
+          a: "Se cotiza después de que el sitio (nuestro o el que ya tengas) está mandando chats. Sin conversaciones, no hay embudo que valga.",
         },
         {
           q: "¿El CRM incluye el agente de inteligencia artificial?",
@@ -266,12 +270,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "⚡",
       metaTitle: "Agentes IA y WhatsApp para empresas en RD",
       metaDescription:
-        "Agente IA de marca que responde, agenda y opera por WhatsApp. Nativa lo cotiza en Santo Domingo cuando tu web ya está mandando chats.",
+        "Agente IA de marca: le escribes a Nativa por WhatsApp, pide el inventario, suma stock, responde y agenda. Se cotiza en Santo Domingo cuando tu web ya manda chats.",
       label: "Agente IA",
-      h1: "Un agente de marca que responde y agenda por WhatsApp",
+      h1: "Le escribes a Nativa. Ella opera.",
       answer:
-        "El agente IA de Nativa no es un widget genérico de chat en la esquina de la web. Vive donde ya cierras: WhatsApp. Responde horarios, servicios y disponibilidad, puede agendar, y pasa a un humano cuando el caso no es rutinario. Lo cotizamos cuando el sitio ya manda conversaciones, para entrenarlo con preguntas reales — no con un guion inventado. Hecho para negocios en República Dominicana que no pueden estar 18 horas pegados al teléfono.",
-      sub: "Tú no eres el cuello de botella. El agente cubre lo repetido; el humano cierra lo que importa.",
+        "Nativa no es un widget genérico en la esquina de la web. Es el agente de tu marca, en WhatsApp, al que le escribes como a un socio. ¿Cuánto hay en inventario? Agrega diez más. ¿Hay cupo mañana? Agenda. Responde con la voz de tu negocio, ejecuta lo rutinario y pasa a un humano cuando el caso no lo es. Lo cotizamos cuando el sitio ya manda conversaciones, para entrenarlo con preguntas reales — no con un guion inventado.",
+      sub: "Inventario, citas, seguimiento. Tú no eres el cuello de botella.",
       problemsTitle: "Qué cubre el agente",
       problems: [
         {
@@ -284,7 +288,7 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
         {
           title: "Operación interna, no solo marketing",
-          body: "Avisos al equipo, resúmenes de leads, recordatorios. El agente trabaja el tubo, no un demo de feria.",
+          body: "Inventario, avisos al equipo, resúmenes de clientes. Le escribes a Nativa: agrega un producto, suma diez más. Ella lo ejecuta.",
         },
       ],
       stepsTitle: "Cómo se entrena",
@@ -335,12 +339,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "🌐",
       metaTitle: "Web design in Santo Domingo",
       metaDescription:
-        "Fast websites for businesses in the Dominican Republic. Live in about 3 weeks, with WhatsApp lead flow. Nativa, Santo Domingo.",
+        "Design-led websites for businesses in the Dominican Republic. Finished delivery, WhatsApp lead flow. Nativa studio in Santo Domingo.",
       label: "Web design",
       h1: "Fast websites for businesses in Santo Domingo",
       answer:
-        "We design and ship sites that load on a phone, explain the service in Spanish (and English when needed), and send the visitor to WhatsApp. The brief is 15 minutes. A landing page can go live in 48 hours; a multi-page site in about 3 weeks. No monthly page-builder fee. Copy, photos, and hours change by message.",
-      sub: "The site is the door. WhatsApp is the close. Built for clinics, villas, workshops, studios, and shops in the DR.",
+        "We design and ship sites with visual craft that load on a phone, explain the service in Spanish (and English when needed), and send the visitor to WhatsApp. Quality and style first: a finished product, not an old template or a half handoff. The brief is 15 minutes. A landing page can go live in 48 hours; a multi-page site in about 3 weeks. No monthly page-builder fee. Copy, photos, and hours change by message.",
+      sub: "The site is the door. WhatsApp is the close. Built for DR businesses that want to look good — and work.",
       problemsTitle: "What it actually does",
       problems: [
         {
@@ -348,12 +352,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
           body: "Most customers search on mobile. The site is mobile-first, with a tap to chat — not a form nobody submits.",
         },
         {
-          title: "Bilingual when the market needs it",
-          body: "Tourism, villas, and clinics in Punta Cana or the capital often need ES/EN. We ship it, not as a buried add-on.",
+          title: "Intentional style, not an outdated template",
+          body: "Typography, hierarchy, and brand atmosphere. Not a generic theme from years ago that looks identical on ten shops.",
         },
         {
           title: "Ready for Maps and the next stack",
-          body: "We mark the business for Google and leave the WhatsApp pipe in place. CRM and the AI agent come once chats exist.",
+          body: "We mark the business for Google and leave the WhatsApp pipe in place. CRM and the AI agent come once chats exist — fair, no day-one upsell.",
         },
       ],
       stepsTitle: "How it launches",
@@ -378,6 +382,10 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         {
           q: "How long does a Nativa website take?",
           a: "A landing page can launch in 48 hours. A multi-page site usually goes from brief to live in about 3 weeks.",
+        },
+        {
+          q: "Why Nativa instead of another web agency in the Dominican Republic?",
+          a: "Because we prioritize quality and style over volume: finished sites that work on phones, look intentional, and use transparent pricing. We do not ship outdated templates or half-finished projects, and we do not push CRM or AI until chats already exist.",
         },
         {
           q: "Do you build sites only in Santo Domingo?",
@@ -469,12 +477,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "📊",
       metaTitle: "CRM for businesses in the Dominican Republic",
       metaDescription:
-        "A personal CRM on top of your WhatsApp chats: pipeline, follow-ups, and notes built around your brand. Nativa quotes it once the site is sending leads in the DR.",
+        "A personal CRM on top of your WhatsApp chats: pipeline, stages, and live figures built around your brand. Nativa quotes it once the site is sending leads in the DR.",
       label: "Personal CRM",
       h1: "A CRM built around your WhatsApp chats",
       answer:
-        "Nativa’s CRM is not a generic HubSpot seat. It is a pipeline around how you already close: WhatsApp. Chats stop dying in the camera roll. Each lead has a stage, a note, and a follow-up. We quote it once the site is sending conversations, so we are not inventing an empty board. Built for clinics, villas, workshops, and shops that sell by message in the Dominican Republic.",
-      sub: "Same WhatsApp. More control. The close does not live in one person’s memory.",
+        "Nativa’s CRM is not a generic HubSpot seat. It is a board around how you already close: WhatsApp. Chats stop dying in the camera roll. Each lead has a stage, a note, and a number that moves — new, in play, closed. We quote it once the site is sending conversations, so we are not inventing an empty board. Built for clinics, villas, workshops, and shops that sell by message in the Dominican Republic.",
+      sub: "Same WhatsApp. Figures you can see. The close does not live in one person’s memory.",
       problemsTitle: "What stops happening",
       problems: [
         {
@@ -536,12 +544,12 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       icon: "⚡",
       metaTitle: "AI agents and WhatsApp for companies in the DR",
       metaDescription:
-        "A brand AI agent that answers, books, and operates on WhatsApp. Nativa quotes it in Santo Domingo once your site is sending chats.",
+        "A brand AI you text on WhatsApp: ask Nativa the inventory, add stock, answer, book. Quoted in Santo Domingo once your site is sending chats.",
       label: "AI agent",
-      h1: "A brand agent that answers and books on WhatsApp",
+      h1: "You text Nativa. She operates.",
       answer:
-        "Nativa’s AI agent is not a generic chat widget in the corner of the site. It lives where you already close: WhatsApp. It answers hours, services, and availability, can book, and hands off to a human when the case is not routine. We quote it once the site is sending conversations, so we train it on real questions — not an invented script. Built for Dominican businesses that cannot sit on the phone for 18 hours.",
-      sub: "You are not the bottleneck. The agent covers the repeats; a human closes what matters.",
+        "Nativa is not a generic chat widget in the corner of the site. She is your brand agent on WhatsApp, the one you text like a partner. How much is in stock? Add ten more. Any slots tomorrow? Book it. She answers in your voice, runs the routine, and hands off to a human when the case is not. We quote it once the site is sending conversations, so we train her on real questions — not an invented script.",
+      sub: "Inventory, bookings, follow-up. You are not the bottleneck.",
       problemsTitle: "What the agent covers",
       problems: [
         {
@@ -554,7 +562,7 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
         {
           title: "Internal ops, not just marketing",
-          body: "Team pings, lead summaries, reminders. The agent works the pipe, not a trade-show demo.",
+          body: "Inventory, team pings, lead summaries. You text Nativa: add a product, add ten more. She does it.",
         },
       ],
       stepsTitle: "How it is trained",

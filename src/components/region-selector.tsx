@@ -19,7 +19,7 @@ export function RegionSelector() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const flagEmoji = isDR ? "🇩🇴" : country === "US" ? "🇺🇸" : "🌐";
+  const flagEmoji = isDR ? null : country === "US" ? "🇺🇸" : "🌐";
 
   return (
     <div ref={dropdownRef} style={{ position: "relative", display: "inline-block" }}>
@@ -44,7 +44,7 @@ export function RegionSelector() {
           transition: "all 0.2s ease"
         }}
       >
-        <span>{flagEmoji}</span>
+        {flagEmoji ? <span>{flagEmoji}</span> : null}
         <span>{currency === "DOP" ? <><span className="region-prefix">RD$ </span>DOP</> : <><span className="region-prefix">$ </span>USD</>}</span>
         <span style={{ color: "var(--coral-blue)", opacity: 0.6 }}>•</span>
         <span style={{ textTransform: "uppercase" }}>{lang}</span>
@@ -86,7 +86,7 @@ export function RegionSelector() {
               Región Detectada / Region
             </div>
             <div style={{ fontSize: "13px", fontWeight: 900, color: "#0F172A", marginTop: "2px", display: "flex", alignItems: "center", gap: "6px" }}>
-              <span>{flagEmoji}</span>
+              {flagEmoji ? <span>{flagEmoji}</span> : null}
               <span>{loading ? "Detectando..." : countryName}</span>
               <span style={{ fontSize: "10px", background: isDR ? "#DCFCE7" : "#E0F2FE", color: isDR ? "#166534" : "#0369A1", padding: "1px 6px", borderRadius: "9999px", fontWeight: 800 }}>
                 {isDR ? "R.D." : "Global"}
@@ -107,13 +107,13 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: currency === "DOP" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: currency === "DOP" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: currency === "DOP" ? "#F0F9FF" : "#F8FAFC",
                   color: currency === "DOP" ? "#0284C7" : "#475569",
                   cursor: "pointer"
                 }}
               >
-                🇩🇴 RD$ (DOP)
+                RD$ (DOP)
               </button>
               <button
                 onClick={() => setCurrency("USD")}
@@ -122,7 +122,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: currency === "USD" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: currency === "USD" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: currency === "USD" ? "#F0F9FF" : "#F8FAFC",
                   color: currency === "USD" ? "#0284C7" : "#475569",
                   cursor: "pointer"
@@ -146,7 +146,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: lang === "es" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: lang === "es" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: lang === "es" ? "#F0F9FF" : "#F8FAFC",
                   color: lang === "es" ? "#0284C7" : "#475569",
                   cursor: "pointer"
@@ -161,7 +161,7 @@ export function RegionSelector() {
                   borderRadius: "8px",
                   fontSize: "11.5px",
                   fontWeight: 800,
-                  border: lang === "en" ? "2px solid #0EA5E9" : "1px solid #E2E8F0",
+                  border: lang === "en" ? "2px solid #1E4FD7" : "1px solid #E2E8F0",
                   background: lang === "en" ? "#F0F9FF" : "#F8FAFC",
                   color: lang === "en" ? "#0284C7" : "#475569",
                   cursor: "pointer"

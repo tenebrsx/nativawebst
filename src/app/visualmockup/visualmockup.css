@@ -1,0 +1,600 @@
+/* Scoped to /visualmockup. Do not leak into the live homepage. */
+
+.vm-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.vm-labbar {
+  background: var(--navy-trench);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vm-labbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 8px;
+  min-height: 36px;
+}
+
+.vm-labbar-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.vm-lab-pill {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--coral-blue);
+}
+
+.vm-lab-note {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vm-lab-links {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.vm-lab-live,
+.vm-lab-back {
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vm-intro {
+  padding: 48px 0 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.vm-intro h1 {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  max-width: 18ch;
+  margin-bottom: 12px;
+}
+
+.vm-intro p {
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.vm-problem {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--gray-foam);
+  color: var(--navy-mid);
+  font-size: 13.5px;
+  font-weight: 500;
+  max-width: 62ch;
+}
+
+.vm-switch {
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.vm-switch-inner {
+  display: flex;
+  gap: 6px;
+  padding-block: 10px;
+  overflow-x: auto;
+}
+
+.vm-tab {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.vm-tab.is-on {
+  background: var(--navy-trench);
+  border-color: var(--navy-trench);
+  color: #fff;
+}
+
+.vm-why {
+  margin: 0;
+  padding: 14px 0;
+  background: var(--gray-foam);
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.vm-why .container {
+  display: block;
+  max-width: 72ch;
+}
+
+#mock {
+  scroll-margin-top: 148px;
+}
+
+.vm-pricing {
+  scroll-margin-top: 148px;
+}
+
+/* ── Compressed services closer ─────────────────────────────── */
+.vm-services {
+  padding: 64px 0 48px;
+  background: var(--bg);
+}
+
+.vm-services-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.vm-services-head .section-sub {
+  margin-inline: auto;
+}
+
+.vm-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.vm-svc-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 10px 18px;
+}
+
+.vm-svc-stage {
+  height: 92px;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, var(--coral-light), var(--gray-foam));
+  border: 1px solid rgba(10, 17, 40, 0.05);
+}
+
+.vm-svc-card h3 {
+  font-size: 15px;
+  margin: 14px 10px 6px;
+}
+
+.vm-svc-card p {
+  margin: 0 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.vm-stack {
+  margin-top: 28px;
+  padding: 22px 24px;
+  background: var(--gray-foam);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.vm-stack p {
+  margin-top: 6px;
+  font-size: 14px;
+  max-width: 42ch;
+}
+
+/* ── Shared pricing pieces ──────────────────────────────────── */
+.vm-pricing {
+  padding: 0 0 80px;
+  background: var(--bg);
+}
+
+.vm-sec-head {
+  padding: 36px 0 8px;
+}
+
+.vm-sec-head h2,
+.vm-handoff h2,
+.vm-work-copy h2,
+.vm-ink-head h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  letter-spacing: -0.035em;
+  margin: 8px 0 10px;
+  max-width: 18ch;
+}
+
+.vm-sec-head p,
+.vm-handoff p,
+.vm-work-copy > p,
+.vm-ink-head p {
+  max-width: 48ch;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.vm-plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0 12px;
+}
+
+.vm-plan,
+.vm-cat {
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.vm-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--text);
+}
+
+.vm-plan b {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.vm-plan small {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.vm-plan em {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vm-plan em span {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.vm-plan.is-on {
+  background: var(--coral-blue);
+  border-color: var(--coral-blue);
+  color: #fff;
+}
+
+.vm-plan.is-on small,
+.vm-plan.is-on em span {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.vm-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.vm-cats-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 4px;
+}
+
+.vm-cat {
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.vm-cat.is-on {
+  background: var(--navy-trench);
+  border-color: var(--navy-trench);
+  color: #fff;
+}
+
+.vm-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(11, 13, 18, 0.08);
+  background: #111318;
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
+}
+
+.vm-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.vm-frame .lp-fit {
+  height: 100%;
+}
+
+.vm-quote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+
+.vm-quote small {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.vm-quote strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.vm-quote em {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.vm-note {
+  margin-top: 10px;
+  font-size: 12.5px;
+}
+
+.vm-paper-well,
+.vm-door-open {
+  margin-top: 8px;
+  padding: 22px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* ── A. Bridge ──────────────────────────────────────────────── */
+.vm-bridge .vm-horizon {
+  height: 28px;
+  background:
+    radial-gradient(80% 120% at 50% -20%, rgba(30, 79, 215, 0.16), transparent 70%),
+    var(--gray-foam);
+  border-top: 1px solid var(--border);
+}
+
+.vm-handoff {
+  background: var(--gray-foam);
+  padding: 28px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.vm-bridge .vm-paper-well {
+  margin-top: -18px;
+}
+
+/* ── B. Doors ───────────────────────────────────────────────── */
+.vm-door-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 8px;
+}
+
+.vm-door {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vm-door:hover,
+.vm-door.is-on {
+  border-color: var(--coral-blue);
+  box-shadow: var(--shadow);
+}
+
+.vm-door-shot {
+  height: 148px;
+  overflow: hidden;
+  background: var(--gray-foam);
+}
+
+.vm-door-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vm-door-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px 16px;
+}
+
+.vm-door-meta b {
+  font-size: 16px;
+}
+
+.vm-door-meta small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.vm-door-meta em {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.vm-door-cta {
+  margin-top: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--coral-blue);
+}
+
+.vm-door.is-on .vm-door-cta {
+  color: var(--navy-trench);
+}
+
+/* ── C. Workbench ───────────────────────────────────────────── */
+.vm-work {
+  padding-top: 36px;
+}
+
+.vm-work-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.18fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.vm-work-preview .vm-stage {
+  min-height: 420px;
+  aspect-ratio: 5 / 4;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── D. Ink well ────────────────────────────────────────────── */
+.vm-well {
+  padding-top: 28px;
+}
+
+.vm-ink {
+  background: #05060a;
+  color: #fff;
+  border-radius: 24px;
+  padding: 32px 28px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(11, 13, 18, 0.18);
+}
+
+.vm-ink .section-label {
+  color: #7ea0f0;
+}
+
+.vm-ink-head h2 {
+  color: #fff;
+}
+
+.vm-ink-head p {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.vm-ink .vm-plan,
+.vm-ink .vm-cat,
+.vm-ink .vm-quote {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.vm-ink .vm-plan small,
+.vm-ink .vm-plan em span,
+.vm-ink .vm-quote small,
+.vm-ink .vm-quote em,
+.vm-ink .vm-cats-label,
+.vm-ink .vm-note {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.vm-ink .vm-plan.is-on,
+.vm-ink .vm-cat.is-on {
+  background: var(--coral-blue);
+  border-color: var(--coral-blue);
+  color: #fff;
+}
+
+.vm-ink .vm-quote {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 900px) {
+  .vm-svc-grid,
+  .vm-door-grid,
+  .vm-plans,
+  .vm-work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-work-preview .vm-stage {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .vm-quote .btn {
+    width: 100%;
+  }
+
+  .vm-ink {
+    padding: 22px 16px 18px;
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-door,
+  .vm-tab {
+    transition: none;
+  }
+}

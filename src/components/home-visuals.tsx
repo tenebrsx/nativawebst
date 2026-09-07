@@ -12,12 +12,12 @@ export function HeroAtmosphere() {
       <svg className="hero-horizon-svg" viewBox="0 0 1440 220" preserveAspectRatio="none">
         <defs>
           <linearGradient id="waveFillA" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.04" />
+            <stop offset="0%" stopColor="#1E4FD7" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="#1E4FD7" stopOpacity="0.03" />
           </linearGradient>
           <linearGradient id="waveFillB" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0a1128" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#0a1128" stopOpacity="0.02" />
+            <stop offset="0%" stopColor="#0B0D12" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#0B0D12" stopOpacity="0.02" />
           </linearGradient>
         </defs>
         <g className="wave-layer wave-layer-slow">
@@ -44,7 +44,7 @@ export function HeroAtmosphere() {
           className="horizon-stroke"
           d="M0,108 C240,78 420,138 720,108 C1020,78 1200,132 1440,108"
           fill="none"
-          stroke="#0ea5e9"
+          stroke="#1E4FD7"
           strokeOpacity="0.35"
           strokeWidth="1.5"
         />
@@ -119,15 +119,13 @@ export function CountStat({ value, label }: { value: string; label: string }) {
   const started = useRef(false);
 
   useEffect(() => {
+    started.current = false;
+    setN(0);
     const el = ref.current;
     if (!el) return;
     const run = () => {
       if (started.current) return;
       started.current = true;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        setN(target);
-        return;
-      }
       const duration = 1100;
       const start = performance.now();
       const step = (now: number) => {
@@ -149,7 +147,7 @@ export function CountStat({ value, label }: { value: string; label: string }) {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [target]);
+  }, [target, value]);
 
   const formatted = target >= 1000 ? n.toLocaleString("en-US") : String(n);
 
@@ -163,19 +161,76 @@ export function CountStat({ value, label }: { value: string; label: string }) {
   );
 }
 
+export function HeroSiteScene({ lang }: { lang: "es" | "en" }) {
+  const es = lang === "es";
+  return (
+    <div className="hero-scene" aria-hidden="true">
+      <div className="hero-scene-glow" />
+
+      <div className="hero-scene-browser">
+        <div className="hero-scene-chrome">
+          <i /><i /><i />
+          <span>{es ? "su-empresa.do" : "yourcompany.com"}</span>
+        </div>
+        <div className="hero-scene-page">
+          <div className="hero-scene-nav">
+            <b>{es ? "ATLAS" : "ATLAS"}</b>
+            <em>{es ? "Proyectos" : "Work"}</em>
+            <em>{es ? "Equipo" : "Team"}</em>
+            <em>{es ? "Contacto" : "Contact"}</em>
+          </div>
+          <div className="hero-scene-shots">
+            <img src="/demo/naco-legal/facade.jpg" alt="" />
+            <img src="/demo/constructora-aybar/office.jpg" alt="" />
+          </div>
+          <div className="hero-scene-bars">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+      </div>
+
+      <div className="hero-scene-orb hero-scene-orb-b">
+        <img src="/brand/wordpress.png" alt="" />
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-c">
+        <img src="/brand/shopify.png" alt="" />
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-d">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M6 12h12M12 4c2.4 2.8 2.4 12.2 0 16M12 4c-2.4 2.8-2.4 12.2 0 16" stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-e">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M8 8l-4 4 4 4M16 8l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+      </div>
+      <div className="hero-scene-orb hero-scene-orb-f">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M12 5v2M12 17v2M5 12h2M17 12h2M7.2 7.2l1.4 1.4M15.4 15.4l1.4 1.4M7.2 16.8l1.4-1.4M15.4 8.6l1.4-1.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 export function HorizonHalo({ children }: { children: ReactNode }) {
   return (
     <div className="horizon-halo">
       <svg className="horizon-ring" viewBox="0 0 320 320" aria-hidden="true">
-        <circle cx="160" cy="160" r="148" fill="none" stroke="rgba(14,165,233,0.38)" strokeWidth="1.2" strokeDasharray="5 9" />
-        <circle cx="160" cy="160" r="118" fill="none" stroke="rgba(255,183,3,0.42)" strokeWidth="1.2" strokeDasharray="2 11" />
-        <circle cx="160" cy="12" r="4" fill="#ffb703" />
-        <circle cx="160" cy="308" r="3" fill="#0ea5e9" />
+        <circle cx="160" cy="160" r="148" fill="none" stroke="rgba(30,79,215,0.35)" strokeWidth="1.2" strokeDasharray="5 9" />
+        <circle cx="160" cy="160" r="118" fill="none" stroke="rgba(11,13,18,0.18)" strokeWidth="1.2" strokeDasharray="2 11" />
+        <circle cx="160" cy="12" r="4" fill="#1E4FD7" />
+        <circle cx="160" cy="308" r="3" fill="#1E4FD7" />
       </svg>
       <svg className="horizon-crest" viewBox="0 0 120 56" aria-hidden="true">
-        <circle cx="60" cy="22" r="10" fill="#FFB703" opacity="0.9" />
-        <path d="M8 32C22 24 36 40 60 28C84 16 100 34 112 30" stroke="#0EA5E9" strokeWidth="3" fill="none" strokeLinecap="round" />
-        <path d="M8 42C24 34 38 46 62 38C86 30 100 44 112 42" stroke="#0EA5E9" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.45" />
+        <circle cx="60" cy="22" r="10" fill="#FFFFFF" opacity="0.92" />
+        <path d="M8 32C22 24 36 40 60 28C84 16 100 34 112 30" stroke="#1E4FD7" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <path d="M8 42C24 34 38 46 62 38C86 30 100 44 112 42" stroke="#1E4FD7" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.45" />
       </svg>
       {children}
     </div>

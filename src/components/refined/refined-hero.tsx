@@ -129,7 +129,7 @@ export default function RefinedHero() {
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path
                   d="M9 16s-5.5-5.4-5.5-8.6a5.5 5.5 0 1 1 11 0C14.5 10.6 9 16 9 16z"
-                  fill="#0ea5e9"
+                  fill="#1E4FD7"
                 />
                 <circle cx="9" cy="7.4" r="1.8" fill="#fff" />
               </svg>

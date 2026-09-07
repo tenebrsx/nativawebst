@@ -1,0 +1,135 @@
+/* ─── Simplified & High-Impact Aftermath Section ────────────────── */
+.aftermath-simple-section {
+  padding: 80px 0 90px;
+  background: var(--bg);
+  position: relative;
+}
+
+.aftermath-simple-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.aftermath-simple-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.aftermath-simple-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(30, 79, 215, 0.4);
+  box-shadow: 0 10px 24px rgba(10, 17, 40, 0.06);
+}
+
+.aftermath-simple-card:nth-child(1):hover { border-color: #25d366; }
+.aftermath-simple-card:nth-child(2):hover { border-color: var(--coral-blue); }
+.aftermath-simple-card:nth-child(3):hover { border-color: var(--sun-yellow); }
+.aftermath-simple-card:nth-child(4):hover { border-color: #22c55e; }
+
+.aftermath-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aftermath-badge-num {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--navy-trench);
+  background: var(--gray-foam);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+/* ─── Lightweight Animated Micro-Pills ──────────────────────────── */
+.am-pill {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-head);
+  padding: 4px 9px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.02em;
+}
+
+.am-pill-wa {
+  background: rgba(37, 211, 102, 0.12);
+  color: #128c7e;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.am-pill-wa .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #25d366;
+  animation: am-blink 1.8s infinite;
+}
+
+.am-pill-bp {
+  background: rgba(30, 79, 215, 0.1);
+  color: var(--coral-blue);
+  border: 1px solid rgba(30, 79, 215, 0.25);
+}
+
+.am-pill-pv {
+  background: rgba(30, 79, 215, 0.12);
+  color: #163DB0;
+  border: 1px solid rgba(30, 79, 215, 0.3);
+}
+
+.am-pill-lv {
+  background: rgba(34, 197, 94, 0.1);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.aftermath-card-title {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy-trench);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.aftermath-card-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@keyframes am-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .aftermath-simple-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 540px) {
+  .aftermath-simple-grid {
+    grid-template-columns: 1fr;
+  }
+}

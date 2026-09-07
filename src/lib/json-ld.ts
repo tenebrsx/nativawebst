@@ -2,15 +2,20 @@ import {
   SITE_CITY,
   SITE_COUNTRY,
   SITE_COUNTRY_NAME,
+  SITE_REGION,
   SITE_DEFAULT_DESCRIPTION,
   SITE_EMAIL,
   SITE_LAT,
   SITE_LNG,
   SITE_NAME,
+  SITE_BRAND,
   SITE_PHONE,
   SITE_PRICE_RANGE,
   SITE_STREET,
   SITE_URL,
+  SITE_POSTAL_CODE,
+  SITE_LOGO,
+  SITE_SAME_AS,
   SERVICES,
   WEEKDAYS,
   absoluteUrl,
@@ -39,7 +44,12 @@ export function organizationGraph() {
         "@type": ["ProfessionalService", "LocalBusiness"],
         "@id": orgId(),
         name: SITE_NAME,
-        image: `${SITE_URL}/opengraph-image`,
+        alternateName: ["Nativa", "Nativa Studio"],
+        description: SITE_DEFAULT_DESCRIPTION,
+        slogan:
+          "Calidad y estilo primero: sitios terminados para negocios en República Dominicana.",
+        image: SITE_LOGO,
+        logo: SITE_LOGO,
         url: SITE_URL,
         telephone: SITE_PHONE,
         email: SITE_EMAIL,
@@ -48,6 +58,8 @@ export function organizationGraph() {
           "@type": "PostalAddress",
           streetAddress: SITE_STREET,
           addressLocality: SITE_CITY,
+          addressRegion: SITE_REGION,
+          postalCode: SITE_POSTAL_CODE,
           addressCountry: SITE_COUNTRY,
         },
         geo: {
@@ -72,12 +84,21 @@ export function organizationGraph() {
         },
         knowsAbout: [
           "Diseño web",
+          "Diseño web Santo Domingo",
+          "Páginas web República Dominicana",
           "SEO local",
           "Google Maps",
           "CRM",
           "Agentes de inteligencia artificial",
           "WhatsApp Business",
+          "Calidad de producto digital",
+          "Diseño de marca para PyMEs",
         ],
+        brand: {
+          "@type": "Brand",
+          name: SITE_BRAND,
+        },
+        ...(SITE_SAME_AS.length > 0 ? { sameAs: SITE_SAME_AS } : {}),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Servicios Nativa",
@@ -206,6 +227,72 @@ export function serviciosHubGraph() {
           position: i + 1,
           name: service.nameEs,
           url: absoluteUrl(service.path),
+        })),
+      },
+    ],
+  };
+}
+
+export function answerPageGraph({
+  id,
+  name,
+  description,
+  path,
+  faqs,
+  crumbs,
+  areaServed,
+  serviceType,
+}: {
+  id: string;
+  name: string;
+  description: string;
+  path: string;
+  faqs: FaqItem[];
+  crumbs: Array<{ name: string; path: string }>;
+  areaServed: { "@type": "City" | "Country"; name: string };
+  serviceType: string;
+}) {
+  const url = absoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#page`,
+        url,
+        name,
+        description,
+        isPartOf: { "@id": websiteId() },
+        about: { "@id": orgId() },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#${id}`,
+        name: serviceType,
+        description,
+        url,
+        provider: { "@id": orgId() },
+        areaServed,
+        serviceType,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: crumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          item: absoluteUrl(crumb.path),
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.a,
+          },
         })),
       },
     ],

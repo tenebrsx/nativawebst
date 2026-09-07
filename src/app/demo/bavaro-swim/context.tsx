@@ -1,90 +1,68 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import type { Product } from "./data";
 
-export interface SwimProduct {
-  id: string;
-  title: string;
-  category: "bikinis" | "lino" | "vestidos" | "accesorios";
-  desc: string;
-  priceDOP: number;
-  priceUSD: number;
-  sizes: string[];
-  colors: string[];
-  badge: string;
-  rating: string;
-  img: string;
-}
+export type Currency = "USD" | "DOP";
 
-export interface CartItem {
-  id: string;
-  title: string;
-  priceDOP: number;
-  priceUSD: number;
+export type CartItem = {
+  slug: string;
+  name: string;
+  usd: number;
+  dop: number;
   size: string;
   color: string;
   qty: number;
   img: string;
-}
+};
 
-interface BavaroCartContextType {
+type Ctx = {
+  currency: Currency;
+  setCurrency: (c: Currency) => void;
   cart: CartItem[];
-  cartOpen: boolean;
-  setCartOpen: (open: boolean) => void;
-  addToCart: (product: SwimProduct, size: string, color: string) => void;
-  updateQty: (id: string, size: string, color: string, delta: number) => void;
-  totalDOP: number;
-  totalUSD: number;
-}
+  open: boolean;
+  setOpen: (v: boolean) => void;
+  add: (p: Product, size: string, color: string) => void;
+  delta: (slug: string, size: string, color: string, n: number) => void;
+  totalUsd: number;
+  totalDop: number;
+};
 
-const BavaroCartContext = createContext<BavaroCartContextType | undefined>(undefined);
+const CartContext = createContext<Ctx | null>(null);
 
-export function BavaroCartProvider({ children }: { children: React.ReactNode }) {
+export function CartProvider({ children }: { children: ReactNode }) {
+  const [currency, setCurrency] = useState<Currency>("USD");
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [cartOpen, setCartOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const addToCart = (product: SwimProduct, size: string, color: string) => {
-    setCart(prev => {
-      const existing = prev.find(i => i.id === product.id && i.size === size && i.color === color);
-      if (existing) {
-        return prev.map(i => i.id === product.id && i.size === size && i.color === color ? { ...i, qty: i.qty + 1 } : i);
-      }
-      return [...prev, {
-        id: product.id,
-        title: product.title,
-        priceDOP: product.priceDOP,
-        priceUSD: product.priceUSD,
-        size,
-        color,
-        qty: 1,
-        img: product.img
-      }];
+  const add = (p: Product, size: string, color: string) => {
+    setCart((prev) => {
+      const hit = prev.find((i) => i.slug === p.slug && i.size === size && i.color === color);
+      if (hit) return prev.map((i) => (i === hit ? { ...i, qty: i.qty + 1 } : i));
+      return [...prev, { slug: p.slug, name: p.name, usd: p.usd, dop: p.dop, size, color, qty: 1, img: p.hero }];
     });
-    setCartOpen(true);
+    setOpen(true);
   };
 
-  const updateQty = (id: string, size: string, color: string, delta: number) => {
-    setCart(prev => prev.map(item => {
-      if (item.id === id && item.size === size && item.color === color) {
-        const newQty = item.qty + delta;
-        return newQty > 0 ? { ...item, qty: newQty } : null;
-      }
-      return item;
-    }).filter(Boolean) as CartItem[]);
+  const delta = (slug: string, size: string, color: string, n: number) => {
+    setCart((prev) =>
+      prev
+        .map((i) => (i.slug === slug && i.size === size && i.color === color ? { ...i, qty: i.qty + n } : i))
+        .filter((i) => i.qty > 0),
+    );
   };
 
-  const totalDOP = cart.reduce((sum, item) => sum + item.priceDOP * item.qty, 0);
-  const totalUSD = cart.reduce((sum, item) => sum + item.priceUSD * item.qty, 0);
+  const value = useMemo<Ctx>(() => {
+    const totalUsd = cart.reduce((s, i) => s + i.usd * i.qty, 0);
+    const totalDop = cart.reduce((s, i) => s + i.dop * i.qty, 0);
+    return { currency, setCurrency, cart, open, setOpen, add, delta, totalUsd, totalDop };
+  }, [currency, cart, open]);
 
-  return (
-    <BavaroCartContext.Provider value={{ cart, cartOpen, setCartOpen, addToCart, updateQty, totalDOP, totalUSD }}>
-      {children}
-    </BavaroCartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
-export function useBavaroCart() {
-  const context = useContext(BavaroCartContext);
-  if (!context) throw new Error("useBavaroCart must be used within a BavaroCartProvider");
-  return context;
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart needs CartProvider");
+  return ctx;
 }

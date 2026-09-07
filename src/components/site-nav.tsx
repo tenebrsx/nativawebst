@@ -22,7 +22,7 @@ export default function SiteNav() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth > 768) setOpen(false);
+      if (window.innerWidth > 900) setOpen(false);
     };
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
@@ -36,10 +36,10 @@ export default function SiteNav() {
 
   const links = [
     { href: "/servicios", label: dict.nav.services },
-    { href: "/#proof", label: dict.nav.proof },
-    { href: "/#how-it-works", label: dict.nav.process },
+    { href: "/santo-domingo", label: dict.nav.local },
+    { href: "/por-que-nosotros", label: dict.nav.why },
     { href: "/#pricing", label: dict.nav.pricing },
-    { href: "/portfolio", label: dict.nav.portfolio },
+    { href: "/#how-it-works", label: dict.nav.process },
   ];
 
   return (
@@ -124,42 +124,32 @@ export default function SiteNav() {
           <RegionSelector />
           <button
             type="button"
-            className="nav-hamburger"
+            className={`nav-hamburger${open ? " is-open" : ""}`}
             aria-label={open ? (lang === "es" ? "Cerrar menú" : "Close menu") : (lang === "es" ? "Abrir menú" : "Open menu")}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            <span style={{ transform: open ? "translateY(7px) rotate(45deg)" : "none" }} />
-            <span style={{ opacity: open ? 0 : 1 }} />
-            <span style={{ transform: open ? "translateY(-7px) rotate(-45deg)" : "none" }} />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
       </div>
 
-      {open && (
-        <div className="mobile-nav-drawer">
+      <div className={`mobile-nav-drawer${open ? " is-open" : ""}`} aria-hidden={!open}>
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              style={{
-                fontFamily: "var(--font-head)",
-                fontWeight: 800,
-                fontSize: "18px",
-                color: "var(--navy-trench)",
-                textDecoration: "none",
-                padding: "12px 0",
-                borderBottom: "1px solid var(--border)",
-              }}
+              className="mobile-nav-link"
             >
               {link.label}
             </Link>
           ))}
           <button
             type="button"
-            className="btn btn-navy"
-            style={{ marginTop: "16px", width: "100%", padding: "14px 20px", fontSize: "15px" }}
+            className="btn btn-navy mobile-nav-cta"
             onClick={() => {
               setOpen(false);
               openWhatsAppFunnel("nav-mobile");
@@ -167,8 +157,7 @@ export default function SiteNav() {
           >
             {dict.nav.cta}
           </button>
-        </div>
-      )}
+      </div>
     </nav>
   );
 }

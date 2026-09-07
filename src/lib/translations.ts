@@ -7,6 +7,8 @@ export interface TranslationDict {
     pricing: string;
     portfolio: string;
     proof: string;
+    local: string;
+    why: string;
     cta: string;
   };
   hero: {
@@ -43,15 +45,9 @@ export interface TranslationDict {
     label: string;
     title: string;
     sub: string;
-    items: Array<{
-      tag: string;
-      title: string;
-      body: string;
-      before: string;
-      after: string;
-      chatFrom: string;
-      chatText: string;
-    }>;
+    before: string;
+    after: string;
+    view: string;
     cta: string;
   };
   process: {
@@ -81,6 +77,10 @@ export interface TranslationDict {
     one_time: string;
     monthly: string;
     monthly_suffix: string;
+    per_user_suffix: string;
+    setup_suffix: string;
+    about: string;
+    starting_at: string;
     platform: string;
     managed_support: string;
     cta: string;
@@ -89,6 +89,21 @@ export interface TranslationDict {
     addons: Record<string, { label: string; desc: string }>;
     support_label: string;
     support_desc: string;
+    preview_title: string;
+    ask_open: string;
+    ask_peek: string;
+    ask_close: string;
+    ask_tpl: string;
+    ask_tpl_sub: string;
+    ask_tpl_label: string;
+    ask_plan: string;
+    ask_plan_sub: string;
+    ask_yes: string;
+    ask_no: string;
+    ask_next: string;
+    ask_back: string;
+    ask_ready: string;
+    ask_ready_sub: string;
   };
   contact: {
     label: string;
@@ -169,22 +184,24 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       pricing: "Pricing",
       portfolio: "Work & Proof",
       proof: "Proof",
+      local: "Santo Domingo",
+      why: "Why us",
       cta: "Get Free Quote"
     },
     hero: {
-      badge_label: "NATIVA WEB ENGINE",
-      badge_sub: "· Simple interfaces built with high engineering contrast",
+      badge_label: "NATIVA · SANTO DOMINGO",
+      badge_sub: "· Live site. Chat that closes.",
       title_1: "Websites Built for",
       title_2: "Local Action.",
-      title_3: "Engineered for Growth.",
-      desc: "We build clean, high-speed websites that rank where your customers look. After you are live, we add a personal CRM and a brand AI agent on WhatsApp.",
+      title_3: "Designed to Close.",
+      desc: "Fast sites that show up on Maps and open WhatsApp. Once chats are landing, we add a personal CRM — and Nativa, a brand AI you text like a partner.",
       cta_launch: "Launch the Ship →",
-      cta_price: "Configure Estimate",
+      cta_price: "See an estimate",
       proof: "Clinic in Naco — live site, WhatsApp leads in 18 days.",
       stat_delivery: "3 Weeks",
-      stat_delivery_lbl: "Brief to live site",
+      stat_delivery_lbl: "Page live",
       stat_brands: "48h",
-      stat_brands_lbl: "Landing-page launch",
+      stat_brands_lbl: "Free demo",
       stat_updates: "24h",
       stat_updates_lbl: "Edits by message",
       whatsapp_footer: "Want to change text, add images, or adjust hours? Just text us."
@@ -193,64 +210,38 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       label: "Anchor partners:"
     },
     services: {
-      label: "Core Modules",
-      title: "Everything You Need. No Fluff.",
-      sub: "Web, Maps, and WhatsApp first. Then a personal CRM and a brand AI agent once chats are landing.",
+      label: "What we build",
+      title: "They find you. Then they write you.",
+      sub: "Web, Maps, and WhatsApp open the pipe. The CRM and Nativa come in once the chat is already alive.",
       items: [
-        { icon: "🌐", title: "Website Design & Build", desc: "Fast, premium websites designed to convert visitors into paying customers. Live in under 3 weeks." },
+        { icon: "🌐", title: "Website Design & Build", desc: "A fast site that explains the work and sends the visit to WhatsApp. Live in under 3 weeks." },
         { icon: "📍", title: "Google Maps & Local SEO", desc: "When someone nearby searches your service, you show up first — with a tap to WhatsApp." },
-        { icon: "📱", title: "WhatsApp Lead Flow", desc: "Every visit lands in your chat. No forms. No waiting. The conversation starts on their phone." }
+        { icon: "📱", title: "24/7 Support", desc: "Change hours, photos, or copy by message. We reply and publish — usually the same day." }
       ],
-      stack_label: "After you’re live",
-      stack_sub: "Same WhatsApp. More control. We add these once the site is sending chats.",
+      stack_label: "Once the chat is live",
+      stack_sub: "Same WhatsApp. Numbers you can see. An agent you can text.",
       stack: [
-        { icon: "📊", title: "Personal CRM", desc: "Your chats stop dying in the camera roll. Pipeline, follow-ups, and notes — built for your brand.", need: "Personal CRM" },
-        { icon: "⚡", title: "Brand AI Agent", desc: "Answers, books, and runs internal ops from WhatsApp so you are not the bottleneck.", need: "Brand AI Agent" }
+        { icon: "📊", title: "Personal CRM", desc: "Pipeline, stages, and figures that move with every message. Leads stop dying in the camera roll.", need: "Personal CRM" },
+        { icon: "⚡", title: "Brand AI Agent", desc: "You text Nativa like a partner: how much is in stock? Add ten more. She answers — and does it.", need: "Brand AI Agent" }
       ]
     },
     proof: {
       label: "Proof",
-      title: "The site is the door. WhatsApp is the close.",
-      sub: "Same pattern in every vertical we ship: they find you, they tap, you get a chat — not a form sitting in an inbox.",
-      items: [
-        {
-          tag: "Clinic · Naco",
-          title: "Appointments before 9am",
-          body: "Maps tap opens WhatsApp with the treatment. You answer from the chair, not Instagram at 11pm.",
-          before: "DMs on Instagram overnight",
-          after: "WhatsApp lead with the service named",
-          chatFrom: "Paciente",
-          chatText: "Hola, vi limpieza + carillas en la web. ¿Tienen cupo esta semana?"
-        },
-        {
-          tag: "Villas · Punta Cana",
-          title: "Nights quoted, visits booked",
-          body: "USD/DOP on the page. WhatsApp only for the walkthrough. Fewer tire-kickers.",
-          before: "“How much per night?” emails",
-          after: "Chat already has dates + villa",
-          chatFrom: "Huésped",
-          chatText: "Villa Marina, 12–18 dic, 8 personas. ¿Disponible en USD?"
-        },
-        {
-          tag: "Shop · Santo Domingo",
-          title: "The size is already in the chat",
-          body: "They pick it on mobile. The message arrives with the question. You quote. They pay.",
-          before: "Abandoned cart, no name",
-          after: "WhatsApp with product + size",
-          chatFrom: "Cliente",
-          chatText: "Quiero el enterizo arena, talla M. ¿Lo tienen para recoger en SDQ?"
-        }
-      ],
+      title: "See how they text you.",
+      sub: "The treatment, the dates, the size. Not “hi, info?”.",
+      before: "Before",
+      after: "After",
+      view: "Open site →",
       cta: "I want this for my business →"
     },
     process: {
-      label: "The Pathway",
-      title: "Structured Journey to Launch",
-      sub: "A straightforward progression from concept to live deployment.",
+      label: "What happens next",
+      title: "From a 15-minute brief to clients in chat",
+      sub: "You describe the site on WhatsApp. You get your own demo. Then the website goes live — Maps, and clients start arriving.",
       steps: [
-        { num: "01", title: "15-min brief", body: "WhatsApp or a short call. Pages, Maps, and how leads should hit your chat. No slide deck." },
-        { num: "02", title: "Private preview", body: "You get a live link in days — not a PDF. You tap it on your phone like a customer would." },
-        { num: "03", title: "Clients on WhatsApp", body: "The site goes live. Maps is connected. Every visit can open a chat with you. Then we talk CRM and AI." }
+        { num: "01", title: "15-min brief", body: "You describe the site. We reply with pages, Maps, and how leads hit the chat." },
+        { num: "02", title: "Your own demo", body: "A live link in days — not a PDF. You open it on your phone like a customer would." },
+        { num: "03", title: "Your site, live", body: "A complete website, open on Maps, and new clients walking in." }
       ]
     },
     jargon: {
@@ -265,9 +256,9 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       hint: "👆 Click any card to translate"
     },
     pricing: {
-      label: "Interactive Configurator",
-      title: "Configure Your Platform",
-      sub: "Select your structural base, toggle growth modules, and view real-time estimates instantly.",
+      label: "Estimate",
+      title: "Build your own website",
+      sub: "Pick your industry. Open the studio and build the plan. The preview is live — it changes with every option.",
       step_1: "01 Select Model Size",
       step_1_sub: "Choose the baseline foundation that matches your business needs.",
       step_2: "02 Add Custom Options",
@@ -278,25 +269,44 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       one_time: "One-Time Investment",
       monthly: "Monthly Support Plan",
       monthly_suffix: "/month",
+      per_user_suffix: "/user/month",
+      setup_suffix: "setup",
+      about: "~",
+      starting_at: "from",
       platform: "Platform",
       managed_support: "Managed Support Care",
       cta: "Launch the Ship →",
-      disclaimer: "This is a brief, not a charge. CRM and AI Agent are quoted after the site is sending chats.",
+      disclaimer: "This is a brief, not a charge. We confirm the spec in 15 minutes before anything is built.",
       tiers: {
-        starter: { name: "Starter", desc: "Perfect for local service providers, single-page operations, or simple portfolios.", pages: "1–3 Pages" },
-        standard: { name: "Standard", desc: "Our most popular setup. Perfect for growing local businesses and medical clinics.", pages: "Up to 5 Pages" },
-        growth: { name: "Growth", desc: "Complete digital presence with advanced lead flows, rich integrations & custom sections.", pages: "Up to 10 Pages" }
+        landing: { name: "Basic", desc: "A designed landing page: brand, hours, treatments, the team — one page that already looks like the business.", pages: "Landing page" },
+        site: { name: "Complete", desc: "The full stack: site, Google Maps and SEO, a personal CRM, and a brand AI synced to it. One setup, then monthly care.", pages: "Web + CRM + AI" },
+        shop: { name: "Ecommerce", desc: "A store that starts simple: catalog and bag. Add Shopify when you are ready to take payment.", pages: "Online store" }
       },
       addons: {
-        seo: { label: "Google Maps & Local SEO Setup", desc: "Target top local search queries to stand out locally." },
-        brand: { label: "Logo & Branding Assets", desc: "Premium color palette, typography guidelines & logo files." },
-        whatsapp: { label: "WhatsApp Contact Integration", desc: "Connect your visitors to instant WhatsApp chats." },
-        bilingual: { label: "Multi-language (EN / ES)", desc: "Full translation support to serve diverse global markets." },
-        crm: { label: "Personal CRM (from)", desc: "Pipeline for WhatsApp leads, follow-ups, and notes — built around your brand." },
-        agent: { label: "Brand AI Agent (from)", desc: "Answers, books, and internal ops from WhatsApp. Quoted after the site is live." }
+        seo: { label: "Google Maps and SEO optimization", desc: "Show up on the map. Rank when they search nearby." },
+        brand: { label: "Design & identity", desc: "Mark, palette, and type — the site wears the brand, not a template." },
+        bilingual: { label: "Bilingual site EN / ES", desc: "The same site in both languages. Locals and visitors both read it." },
+        shopify: { label: "Shopify integration", desc: "Catalog, bag, and checkout on Shopify — when you are ready to sell." },
+        crm: { label: "Personal CRM", desc: "From RD$ 10,000 setup, then ~RD$ 2,000 per user/month — leads, stages, and notes on a board." },
+        ai: { label: "Brand AI synced with CRM", desc: "Answers routine chats and books. Scales with your volume — starting at RD$ 4,000/month." }
       },
       support_label: "Managed Support & Optimization Care",
-      support_desc: "Includes daily backups, performance scaling, secure edge hosting, and unlimited text-to-update content changes."
+      support_desc: "Includes daily backups, performance scaling, secure edge hosting, and unlimited text-to-update content changes.",
+      preview_title: "See how your site would look",
+      ask_open: "See how your site would look",
+      ask_peek: "See how it would look →",
+      ask_close: "Close the studio",
+      ask_tpl: "What kind of business?",
+      ask_tpl_sub: "The preview switches to that template.",
+      ask_tpl_label: "Template",
+      ask_plan: "What are we building?",
+      ask_plan_sub: "The preview updates as you choose.",
+      ask_yes: "Yes, add it",
+      ask_no: "Not now",
+      ask_next: "Next",
+      ask_back: "Back",
+      ask_ready: "Your brief is ready",
+      ask_ready_sub: "This is a range, not a charge. We lock the spec in 15 minutes."
     },
     contact: {
       label: "After you tap WhatsApp",
@@ -306,8 +316,8 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       bullet_2: "15-minute alignment. We map the site, Maps, and the chat flow",
       bullet_3: "You get a private preview link on your phone",
       bullet_4: "Go live. Then we add CRM and the AI agent if you want the stack",
-      form_title: "Begin Project Config",
-      form_sub: "Let's align on your system specifications. No tech jargon.",
+      form_title: "Tell us what you need",
+      form_sub: "Plain words. We map the site, Maps, and how the chat should land.",
       lbl_name: "Your Name *",
       lbl_email: "Email *",
       lbl_phone: "WhatsApp / Phone *",
@@ -501,24 +511,26 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       services: "Servicios",
       process: "Proceso",
       pricing: "Precios",
-      portfolio: "Plantillas & Demos",
-      proof: "Prueba",
-      cta: "Presupuesto Gratis"
+      portfolio: "Trabajos y demos",
+      proof: "Casos",
+      local: "Santo Domingo",
+      why: "Por qué nosotros",
+      cta: "Pedir cotización"
     },
     hero: {
-      badge_label: "SISTEMA WEB NATIVA",
-      badge_sub: "· Interfaces simples construidas con alto contraste de ingeniería",
-      title_1: "Sitios Web Creados para",
-      title_2: "Acción Local.",
-      title_3: "Diseñados para Crecer.",
-      desc: "Construimos sitios rápidos que posicionan donde buscan tus clientes. Cuando ya está viva, sumamos un CRM personal y un agente IA de marca por WhatsApp.",
-      cta_launch: "Lanzar el Barco →",
-      cta_price: "Configurar Presupuesto",
-      proof: "Clínica en Naco — web viva, leads por WhatsApp en 18 días.",
-      stat_delivery: "3 Semanas",
-      stat_delivery_lbl: "Del brief al sitio vivo",
+      badge_label: "NATIVA · SANTO DOMINGO",
+      badge_sub: "· Sitio en vivo. Chat que cierra.",
+      title_1: "Presencia Digital que tu",
+      title_2: "Negocio Merece.",
+      title_3: "",
+      desc: "Apareces en Google Maps cuando buscan tu servicio. Un toque abre WhatsApp. Cuando ya llegan mensajes, sumamos un CRM personal y Nativa: un agente de IA al que le escribes como a un socio.",
+      cta_launch: "Escríbenos por WhatsApp →",
+      cta_price: "Ver presupuesto",
+      proof: "Clínica en Naco — sitio en vivo, clientes por WhatsApp en 18 días.",
+      stat_delivery: "3 semanas",
+      stat_delivery_lbl: "Página lista",
       stat_brands: "48h",
-      stat_brands_lbl: "Landing lista",
+      stat_brands_lbl: "Demo gratis",
       stat_updates: "24h",
       stat_updates_lbl: "Cambios por mensaje",
       whatsapp_footer: "¿Quieres cambiar texto, agregar fotos o ajustar horarios? Solo envíanos un mensaje."
@@ -527,305 +539,298 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       label: "Empresas aliadas:"
     },
     services: {
-      label: "Módulos Principales",
-      title: "Todo lo que Necesitas. Sin Relleno.",
-      sub: "Web, Maps y WhatsApp primero. Luego un CRM personal y un agente IA de marca cuando ya llegan los chats.",
+      label: "Qué construimos",
+      title: "Optimizamos tu presencia online.",
+      sub: "Web, Maps y WhatsApp abren el camino. El CRM y Nativa entran cuando el chat ya está vivo.",
       items: [
-        { icon: "🌐", title: "Diseño & Desarrollo Web", desc: "Sitios rápidos, hechos para convertir visitas en clientes. En vivo en menos de 3 semanas." },
-        { icon: "📍", title: "Google Maps & SEO Local", desc: "Cuando buscan tu servicio cerca, apareces primero — con un toque a WhatsApp." },
-        { icon: "💬", title: "Flujo de Leads por WhatsApp", desc: "Cada visita cae en tu chat. Sin formularios. Sin espera. La conversación empieza en su celular." }
+        { icon: "🌐", title: "Diseño y desarrollo web", desc: "Una página que explica el oficio y manda la visita a WhatsApp. Lista en unas 3 semanas." },
+        { icon: "📍", title: "Google Maps y SEO local", desc: "Cuando buscan tu servicio cerca, apareces primero — con un toque a WhatsApp." },
+        { icon: "💬", title: "Soporte 24/7", desc: "Cambias horarios, fotos o textos por mensaje. Contestamos y lo publicamos — casi siempre el mismo día." }
       ],
-      stack_label: "Cuando ya está viva",
-      stack_sub: "El mismo WhatsApp. Más control. Esto se suma cuando el sitio ya está mandando chats.",
+      stack_label: "Cuando ya llega el chat",
+      stack_sub: "El mismo WhatsApp. Números que se ven. Un agente al que le escribes.",
       stack: [
-        { icon: "📊", title: "CRM Personal", desc: "Los chats dejan de morir en la galería. Pipeline, seguimientos y notas — a la medida de tu marca.", need: "CRM personal" },
-        { icon: "⚡", title: "Agente IA de Marca", desc: "Responde, agenda y opera lo interno por WhatsApp para que tú no seas el cuello de botella.", need: "Agente IA de marca" }
+        { icon: "📊", title: "CRM personal", desc: "Etapas y cifras que se mueven con cada mensaje. Los clientes dejan de perderse en el celular.", need: "CRM personal" },
+        { icon: "⚡", title: "Agente IA de marca", desc: "Le escribes a Nativa como a un socio: ¿cuánto hay en inventario? Agrega diez más. Ella responde — y lo ejecuta.", need: "Agente IA de marca" }
       ]
     },
     proof: {
-      label: "Prueba",
-      title: "La web es la puerta. WhatsApp es el cierre.",
-      sub: "El mismo patrón en cada rubro: te encuentran, tocan, y te llega un chat — no un formulario en el correo.",
-      items: [
-        {
-          tag: "Clínica · Naco",
-          title: "Citas antes de las 9am",
-          body: "Un toque en Maps abre WhatsApp con el tratamiento. Contestas desde el sillón, no en Instagram a las 11pm.",
-          before: "DMs de Instagram de madrugada",
-          after: "Lead de WhatsApp con el servicio",
-          chatFrom: "Paciente",
-          chatText: "Hola, vi limpieza + carillas en la web. ¿Tienen cupo esta semana?"
-        },
-        {
-          tag: "Villas · Punta Cana",
-          title: "Noches cotizadas, visitas agendadas",
-          body: "USD/DOP en la página. WhatsApp solo para el recorrido. Menos curiosos.",
-          before: "Mails de “¿cuánto la noche?”",
-          after: "Chat con fechas y villa",
-          chatFrom: "Huésped",
-          chatText: "Villa Marina, 12–18 dic, 8 personas. ¿Disponible en USD?"
-        },
-        {
-          tag: "Tienda · Santo Domingo",
-          title: "La talla ya viene en el chat",
-          body: "Eligen en el celular. El mensaje llega con la pregunta. Cotizas. Pagan.",
-          before: "Carrito abandonado, sin nombre",
-          after: "WhatsApp con producto y talla",
-          chatFrom: "Cliente",
-          chatText: "Quiero el enterizo arena, talla M. ¿Lo tienen para recoger en SDQ?"
-        }
-      ],
+      label: "Casos",
+      title: "Mira cómo te escriben.",
+      sub: "El tratamiento, las fechas, la talla. No un “hola, info?”.",
+      before: "Antes",
+      after: "Después",
+      view: "Abrir sitio →",
       cta: "Quiero esto para mi negocio →"
     },
     process: {
-      label: "El Camino",
-      title: "Un Viaje Estructurado al Lanzamiento",
-      sub: "Una progresión directa y transparente desde el concepto hasta la puesta en marcha.",
+      label: "Qué pasa después",
+      title: "De una charla de 15 minutos a clientes en el chat",
+      sub: "Describes el sitio por WhatsApp. Ves tu propio demo. El sitio sale en vivo — Maps, y empiezan a llegar clientes.",
       steps: [
-        { num: "01", title: "Brief de 15 min", body: "WhatsApp o una llamada corta. Páginas, Maps, y cómo entran los leads a tu chat. Sin presentación." },
-        { num: "02", title: "Preview privado", body: "Recibes un link en días — no un PDF. Lo abres en el celular como lo haría un cliente." },
-        { num: "03", title: "Clientes en WhatsApp", body: "La web sale. Maps conectado. Cada visita puede abrirte un chat. Después hablamos de CRM y el agente IA." }
+        { num: "01", title: "Charla de 15 min", body: "Tú describes el sitio. Respondemos con páginas, Maps y cómo entra el cliente al chat." },
+        { num: "02", title: "Tu propio demo", body: "Un link vivo en días — no un PDF. Lo abres en el celular como lo haría un cliente." },
+        { num: "03", title: "Tu sitio en vivo", body: "Un sitio completo, abierto en Maps, y clientes nuevos entrando." }
       ]
     },
     jargon: {
-      label: "Hablando Claro",
-      title: "Eliminando la Jerga Técnica",
-      sub: "Las agencias a menudo se esconden detrás de términos complejos. Nos enfocamos en la claridad absoluta. Haz clic para ver el significado real.",
+      label: "En claro",
+      title: "Sin jerga técnica",
+      sub: "Otras agencias se esconden detrás de términos complicados. Nosotros hablamos claro. Toca una tarjeta para ver qué significa de verdad.",
       cards: [
-        { tech: "Encriptación SSL y HTTPS", plain: "El Candado de Seguridad", why: "Evita que Google muestre una advertencia roja de 'No Seguro' a tus clientes y protege sus datos.", icon: "🔒" },
-        { tech: "Diseño Responsivo", plain: "Funciona Perfecto en Celulares", why: "El 60% de tus clientes busca desde su celular. Hacemos que tu botón de llamada y reservas estén a un toque de distancia.", icon: "📱" },
-        { tech: "Caché Edge CDN", plain: "Carga Antes de que Parpadeen", why: "Las webs lentas pierden al 50% de las visitas. Alojamos tu web globalmente para que cargue al instante en cualquier red.", icon: "⚡" }
+        { tech: "Encriptación SSL y HTTPS", plain: "El candado de seguridad", why: "Evita que Google muestre una advertencia roja de 'No seguro' a tus clientes y protege sus datos.", icon: "🔒" },
+        { tech: "Diseño responsivo", plain: "Se ve bien en el celular", why: "El 60% de tus clientes busca desde el celular. Hacemos que tu número y tus reservas estén a un toque.", icon: "📱" },
+        { tech: "Caché Edge CDN", plain: "Carga antes de que parpadeen", why: "Los sitios lentos pierden la mitad de las visitas. Alojamos tu web para que cargue rápido en cualquier red.", icon: "⚡" }
       ],
-      hint: "👆 Haz clic en cualquier tarjeta para traducir"
+      hint: "👆 Toca cualquier tarjeta para traducir"
     },
     pricing: {
-      label: "Configurador Interactivo",
-      title: "Configura tu Plataforma",
-      sub: "Selecciona tu base estructural, añade módulos de crecimiento y mira estimaciones reales al instante.",
-      step_1: "01 Selecciona Tamaño",
-      step_1_sub: "Elige la base estructural que se adapte mejor a tus objetivos comerciales.",
-      step_2: "02 Agrega Opciones",
-      step_2_sub: "Añade herramientas avanzadas para potenciar tu presencia y alcance local.",
-      step_3: "03 Soporte Continuo",
-      step_3_sub: "Suma nuestro plan de soporte sin estrés. Actualizaciones por chat en 24 horas.",
-      summary_title: "Configuración Nativa",
-      one_time: "Inversión Única",
-      monthly: "Plan de Soporte Mensual",
+      label: "Presupuesto",
+      title: "Como se viera tu Propio Sitio Web",
+      sub: "Elige tu industria. Entra al estudio y arma el plan. La vista previa es real: cambia con cada opción.",
+      step_1: "01 Elige el plan",
+      step_1_sub: "Escoge la base que mejor encaje con tu negocio.",
+      step_2: "02 Suma opciones",
+      step_2_sub: "Agrega lo que te ayude a aparecer cerca y a cerrar por chat.",
+      step_3: "03 Soporte continuo",
+      step_3_sub: "Suma el plan de cuidado sin estrés. Cambios por chat en 24 horas.",
+      summary_title: "Tu configuración",
+      one_time: "Inversión única",
+      monthly: "Plan de soporte mensual",
       monthly_suffix: "/mes",
+      per_user_suffix: "/usuario/mes",
+      setup_suffix: "de instalación",
+      about: "~",
+      starting_at: "desde",
       platform: "Plataforma",
-      managed_support: "Soporte Gestionado",
-      cta: "Lanzar el Barco →",
-      disclaimer: "Esto es un brief, no un cobro. CRM y Agente IA se cotizan cuando el sitio ya está mandando chats.",
+      managed_support: "Soporte continuo",
+      cta: "Escríbenos por WhatsApp →",
+      disclaimer: "Esto es un estimado, no un cobro. Confirmamos el alcance en 15 minutos antes de construir.",
       tiers: {
-        starter: { name: "Básico", desc: "Ideal para profesionales independientes, landing pages o portafolios sencillos.", pages: "1–3 Páginas" },
-        standard: { name: "Estándar", desc: "Nuestro modelo más popular. Perfecto para negocios locales en crecimiento y clínicas.", pages: "Hasta 5 Páginas" },
-        growth: { name: "Crecimiento", desc: "Presencia digital completa con flujos de leads, integraciones avanzadas y secciones a medida.", pages: "Hasta 10 Páginas" }
+        landing: { name: "Básico", desc: "Una página diseñada: marca, horarios, tratamientos, el equipo — ya se ve como el negocio.", pages: "Página de aterrizaje" },
+        site: { name: "Completo", desc: "Todo junto: sitio, Google Maps y SEO, CRM personal e IA de marca sincronizada. Una instalación, luego el cuidado mensual.", pages: "Web + CRM + IA" },
+        shop: { name: "Ecommerece", desc: "Una tienda que empieza simple: catálogo y bolsa. Suma Shopify cuando quieras cobrar.", pages: "Tienda online" }
       },
       addons: {
-        seo: { label: "Ficha Google Maps y SEO Local", desc: "Aparece de primero cuando los clientes busquen tus servicios en tu zona." },
-        brand: { label: "Diseño de Logotipo e Identidad", desc: "Paleta de colores, tipografías y archivos de logotipo para tu marca." },
-        whatsapp: { label: "Integración de Botón WhatsApp", desc: "Conecta a tus visitantes directamente con tu chat de WhatsApp." },
-        bilingual: { label: "Sitio Web Bilingüe (EN / ES)", desc: "Traducción completa para captar tanto público local como internacional." },
-        crm: { label: "CRM Personal (desde)", desc: "Pipeline para leads de WhatsApp, seguimientos y notas — construido alrededor de tu marca." },
-        agent: { label: "Agente IA de Marca (desde)", desc: "Responde, agenda y opera lo interno por WhatsApp. Se cotiza cuando el sitio ya manda chats." }
+        seo: { label: "Google Maps y SEO", desc: "Apareces en el mapa. Sales cuando buscan cerca." },
+        brand: { label: "Diseño y identidad", desc: "Marca, paleta y tipo — el sitio viste la marca, no una plantilla." },
+        bilingual: { label: "Sitio bilingüe EN / ES", desc: "El mismo sitio en los dos idiomas. Locales y visitantes lo leen." },
+        shopify: { label: "Integración con Shopify", desc: "Catálogo, bolsa y cobro en Shopify — cuando estés listo para vender." },
+        crm: { label: "CRM personal", desc: "Desde RD$ 10,000 de instalación, luego ~RD$ 2,000 por usuario/mes — clientes, etapas y notas en un tablero." },
+        ai: { label: "IA de marca sincronizada con CRM", desc: "Responde lo rutinario y agenda. Crece con tu volumen — desde RD$ 4,000/mes." }
       },
-      support_label: "Plan de Soporte y Optimización",
-      support_desc: "Incluye copias de seguridad diarias, velocidad optimizada, alojamiento seguro y cambios de texto/fotos ilimitados."
+      support_label: "Plan de soporte y optimización",
+      support_desc: "Incluye copias de seguridad diarias, velocidad optimizada, alojamiento seguro y cambios de texto/fotos ilimitados.",
+      preview_title: "Como se viera tu Propio Sitio Web",
+      ask_open: "Como se viera tu Propio Sitio Web",
+      ask_peek: "Ver cómo se vería →",
+      ask_close: "Cerrar el estudio",
+      ask_tpl: "¿Qué tipo de negocio?",
+      ask_tpl_sub: "La vista previa cambia a esa plantilla.",
+      ask_tpl_label: "Plantilla",
+      ask_plan: "¿Qué vamos a construir?",
+      ask_plan_sub: "La vista previa cambia al instante.",
+      ask_yes: "Sí, súmalo",
+      ask_no: "Ahora no",
+      ask_next: "Siguiente",
+      ask_back: "Atrás",
+      ask_ready: "Tu estimado está listo",
+      ask_ready_sub: "Esto es un rango, no un cobro. Confirmamos el alcance en 15 minutos."
     },
     contact: {
       label: "Después de WhatsApp",
       title: "Qué pasa después",
-      desc: "Sin formulario. Mandas un brief de 20 segundos, respondemos en minutos, y solo construimos si el encaje es real.",
+      desc: "Sin formulario. Mandas un mensaje de 20 segundos, respondemos en minutos, y solo construimos si el encaje es real.",
       bullet_1: "Una persona te responde por WhatsApp — casi siempre el mismo día",
-      bullet_2: "Alineación de 15 minutos. Web, Maps, y cómo entra el chat",
-      bullet_3: "Recibes un preview privado en tu celular",
-      bullet_4: "Salimos en vivo. Luego sumamos CRM y el agente IA si quieres el stack",
-      form_title: "Configuración Inicial",
-      form_sub: "Alineemos los requerimientos de tu sistema. Sin jerga técnica.",
-      lbl_name: "Tu Nombre *",
-      lbl_email: "Correo Electrónico *",
+      bullet_2: "Alineación de 15 minutos. Web, Maps y cómo entra el chat",
+      bullet_3: "Recibes una vista previa privada en tu celular",
+      bullet_4: "Salimos en vivo. Luego sumamos CRM y el agente de IA si quieres el paquete completo",
+      form_title: "Cuéntanos qué necesitas",
+      form_sub: "En claro. Armamos el sitio, Maps y cómo debe caer el chat.",
+      lbl_name: "Tu nombre *",
+      lbl_email: "Correo electrónico *",
       lbl_phone: "WhatsApp / Teléfono *",
-      lbl_budget: "Presupuesto Estimado",
+      lbl_budget: "Presupuesto estimado",
       lbl_message: "¿A qué se dedica tu negocio?",
       placeholder_name: "ej. María González",
       placeholder_message: "Cuéntanos brevemente qué hace tu negocio y qué necesitas en tu web.",
-      btn_submit_idle: "Enviar Requerimientos →",
-      btn_submit_loading: "Enviando Especificaciones...",
+      btn_submit_idle: "Enviar mensaje →",
+      btn_submit_loading: "Enviando…",
       success_title: "¡Recibido!",
-      success_desc: "Responderemos en menos de 4 horas laborables. Analizaremos tus objetivos e incluiremos una auditoría de velocidad gratis.",
+      success_desc: "Responderemos en menos de 4 horas laborables. Revisamos tus metas e incluimos una revisión rápida de velocidad.",
       success_btn: "Enviar otra consulta →",
-      disclaimer: "🔒 Tus especificaciones son privadas. Respuesta en 4 horas laborables.",
-      cta: "Mandar el brief por WhatsApp →"
+      disclaimer: "🔒 Tu mensaje es privado. Respuesta en 4 horas laborables.",
+      cta: "Mandar el mensaje por WhatsApp →"
     },
     portfolioPage: {
-      label: "Plantillas Interactivas",
-      title: "Modelos Web Listos para Lanzar",
-      sub: "Explora nuestros modelos interactivos diseñados para empresas en la República Dominicana. Selecciona una plantilla, prueba la vista previa y lánzala en 48 horas.",
+      label: "Plantillas listas",
+      title: "Sitios listos para lanzar",
+      sub: "Plantillas hechas para negocios en República Dominicana. Elige una, pruébala en vivo y lánzala en 48 horas.",
       stat_built: "12+",
-      stat_built_lbl: "Plantillas Listas",
+      stat_built_lbl: "Plantillas listas",
       stat_speed: "48h",
-      stat_speed_lbl: "Tiempo de Entrega",
+      stat_speed_lbl: "Tiempo de entrega",
       stat_score: "100/100",
-      stat_score_lbl: "Velocidad Google Móvil",
-      search_placeholder: "Buscar plantilla (ej. Clínica, Bienes Raíces, Abogados, WhatsApp, Barbería)...",
+      stat_score_lbl: "Velocidad en celular",
+      search_placeholder: "Buscar plantilla (ej. clínica, villas, abogados, WhatsApp, tienda)…",
       categories: {
-        all: "Todas las Plantillas",
-        smb: "Salud & Clínicas",
-        realestate: "Bienes Raíces & Villas",
-        pro: "Abogados & Servicios",
-        ecom: "Tiendas & Alimentos"
+        all: "Todas las plantillas",
+        smb: "Salud y clínicas",
+        realestate: "Bienes raíces y villas",
+        pro: "Abogados y servicios",
+        ecom: "Tiendas y alimentos"
       },
       labels: {
         view_mode: "Vista previa:",
-        turnaround: "Tiempo de Entrega",
-        modules: "Módulos Integrados",
-        features: "Características Principales",
-        spec: "Especificaciones del Modelo",
-        cta_modal: "Usar Esta Plantilla & Configurar →",
-        close: "Cerrar Previsualización",
-        view_demo: "Inspeccionar Plantilla →",
-        no_results: "No encontramos plantillas con ese criterio. Prueba con otra palabra clave."
+        turnaround: "Tiempo de entrega",
+        modules: "Qué incluye",
+        features: "Lo que destaca",
+        spec: "Detalle de la plantilla",
+        cta_modal: "Usar esta plantilla →",
+        close: "Cerrar vista previa",
+        view_demo: "Ver plantilla →",
+        no_results: "No encontramos plantillas con ese criterio. Prueba con otra palabra."
       },
       projects: [
         {
           id: "sdq-clinic-template",
-          title: "Plantilla SDQ Clínica Médica & Odontológica",
-          client: "Modelo para Salud & Odontología",
+          title: "Clínica médica y odontológica",
+          client: "Plantilla para salud",
           category: "smb",
-          industry: "Clínica Médica & Odontológica",
-          badge: "Lista en 48 Horas",
+          industry: "Clínica médica y odontológica",
+          badge: "Lista en 48 horas",
           speedBefore: "5.2s",
           speedAfter: "0.3s",
-          desc: "Plataforma clínica bilingüe ultrarrápida con agendamiento directo por WhatsApp y posicionamiento local en Google Maps.",
-          problem: "Las clínicas pierden pacientes cuando las líneas están ocupadas o el formulario tarda minutos en cargar en celulares.",
-          solution: "Preconfigurada con citas por WhatsApp, catálogo de especialistas, esquema de Google Maps local y formularios de ingreso.",
-          tags: ["Citas por WhatsApp", "SEO Local", "Directorio Médico", "Bilingüe EN/ES"]
+          desc: "Plantilla bilingüe para clínicas: citas por WhatsApp y visibilidad en Google Maps.",
+          problem: "Las clínicas pierden pacientes cuando las líneas están ocupadas o el formulario tarda en cargar en el celular.",
+          solution: "Citas por WhatsApp, perfiles del equipo, Maps local y formularios cortos.",
+          tags: ["Citas por WhatsApp", "SEO local", "Directorio médico", "Bilingüe EN/ES"]
         },
         {
           id: "punta-cana-villa-template",
-          title: "Plantilla Punta Cana Villas & Alquileres",
-          client: "Modelo para Turismo & Bienes Raíces",
+          title: "Villas y alquileres en Punta Cana",
+          client: "Plantilla para turismo y villas",
           category: "realestate",
-          industry: "Bienes Raíces & Alquileres Vacacionales",
-          badge: "Lista en 48 Horas",
+          industry: "Bienes raíces y alquileres vacacionales",
+          badge: "Lista en 48 horas",
           speedBefore: "6.1s",
           speedAfter: "0.4s",
-          desc: "Catálogo de alquileres de lujo con calendario de disponibilidad, selector multimoneda (USD/DOP) y consultas por WhatsApp.",
-          problem: "Las fotos pesadas en redes móviles hacen que los huéspedes abandonen antes de consultar precios o disponibilidad.",
-          solution: "Incluye galería con CDN de alta velocidad, selector de moneda USD/DOP, desglose de tarifas por temporada y reservas por WhatsApp.",
-          tags: ["CDN de Fotos", "Selector USD/DOP", "Calendario", "WhatsApp Directo"]
+          desc: "Catálogo de alquileres con calendario, precios en USD/DOP y consultas por WhatsApp.",
+          problem: "Las fotos pesadas hacen que los huéspedes se vayan antes de preguntar por fechas o tarifas.",
+          solution: "Galería rápida, selector USD/DOP, tarifas por temporada y reserva por WhatsApp.",
+          tags: ["Fotos rápidas", "USD/DOP", "Calendario", "WhatsApp directo"]
         },
         {
           id: "naco-legal-template",
-          title: "Plantilla Naco Abogados & Asesores",
-          client: "Modelo para Firmas de Abogados",
+          title: "Abogados y asesores en Naco",
+          client: "Plantilla para firmas legales",
           category: "pro",
-          industry: "Firma de Abogados Corporativos",
-          badge: "Lista en 48 Horas",
+          industry: "Firma de abogados",
+          badge: "Lista en 48 horas",
           speedBefore: "4.8s",
           speedAfter: "0.3s",
-          desc: "Sitio web corporativo de alto contraste con desglose de áreas de práctica, perfiles de socios y formulario de consultas directas.",
-          problem: "Los clientes corporativos abandonan los sitios de abogados llenos de jerga compleja y sin canales rápidos de contacto.",
-          solution: "Diseñada con tipografía corporativa de alto contraste, esquema estructurado de Google para abogados y agendamiento en 1 toque.",
-          tags: ["Áreas de Práctica", "Perfiles de Socios", "Captación de Leads", "SEO Local"]
+          desc: "Sitio claro para firmas: áreas de práctica, perfiles del equipo y consulta en un toque.",
+          problem: "Los clientes se van de sitios llenos de jerga y sin un canal rápido para escribir.",
+          solution: "Tipografía limpia, perfiles de socios y agendamiento de consulta en un toque.",
+          tags: ["Áreas de práctica", "Perfiles", "Consulta rápida", "SEO local"]
         },
         {
           id: "zona-tours-template",
-          title: "Plantilla Excursiones Zona Colonial",
-          client: "Modelo para Turismo & Experiencias",
+          title: "Excursiones Zona Colonial",
+          client: "Plantilla para tours",
           category: "realestate",
-          industry: "Turismo & Excursiones",
-          badge: "Lista en 48 Horas",
+          industry: "Turismo y excursiones",
+          badge: "Lista en 48 horas",
           speedBefore: "3.9s",
           speedAfter: "0.4s",
-          desc: "Plataforma de reservas de tours optimizada para móviles con selección instantánea de boletos, soporte bilingüe (EN/ES) y alertas por WhatsApp.",
-          problem: "Los turistas caminando por zonas históricas quieren reservar un tour en 30 segundos sin crear cuentas ni esperar correos.",
-          solution: "Incluye selector de boletos instantáneo, notificación de guías por WhatsApp, pasarela Stripe y selector bilingüe.",
-          tags: ["Selector de Boletos", "Despacho WhatsApp", "Bilingüe EN/ES", "Stripe Listo"]
+          desc: "Reservas de tours en el celular: boletos al instante, bilingüe y aviso al guía por WhatsApp.",
+          problem: "Los turistas quieren reservar en 30 segundos, sin crear cuenta ni esperar un correo.",
+          solution: "Selector de boletos, aviso al guía por WhatsApp, cobro con Stripe y cambio de idioma.",
+          tags: ["Boletos", "WhatsApp al guía", "Bilingüe EN/ES", "Stripe"]
         },
         {
           id: "terrenas-coffee-template",
-          title: "Plantilla Café Artesanal & Gourmet",
-          client: "Modelo para Tiendas & Alimentos",
+          title: "Café artesanal y gourmet",
+          client: "Plantilla para tiendas de comida",
           category: "ecom",
-          industry: "E-Commerce & Alimentos Gourmet",
-          badge: "Lista en 48 Horas",
+          industry: "Tienda y alimentos gourmet",
+          badge: "Lista en 48 horas",
           speedBefore: "5.5s",
           speedAfter: "0.3s",
-          desc: "Storefront e-commerce ultrarrápido en Next.js conectado a Stripe Checkout, optimizado para compras móviles en 2 toques.",
-          problem: "Las tiendas tradicionales sufren más de un 80% de abandono de carrito en móviles por compras lentas de múltiples pasos.",
-          solution: "Storefront en React con carrito deslizable, checkout en 2 pasos con Stripe, selector de productos y calculador de envíos.",
-          tags: ["Stripe Checkout", "Carrito Deslizable", "Catálogo", "Feed Instagram"]
+          desc: "Tienda rápida para vender desde el celular: catálogo, bolsa y cobro en dos toques.",
+          problem: "Las tiendas lentas pierden más de la mitad de las compras en el celular.",
+          solution: "Catálogo claro, bolsa deslizable, cobro en dos pasos y calculadora de envío.",
+          tags: ["Cobro Stripe", "Bolsa", "Catálogo", "Instagram"]
         },
         {
           id: "sdq-auto-template",
-          title: "Plantilla República Taller Automotriz",
-          client: "Modelo para Mantenimiento & Flotas",
+          title: "Taller y flota",
+          client: "Plantilla para talleres",
           category: "smb",
-          industry: "Servicios Automotrices",
-          badge: "Lista en 48 Horas",
+          industry: "Servicios automotrices",
+          badge: "Lista en 48 horas",
           speedBefore: "4.1s",
           speedAfter: "0.4s",
-          desc: "Estimador interactivo de costo de servicios automotrices permitiendo a los clientes seleccionar mantenimientos y recibir desglose por WhatsApp.",
-          problem: "Los talleres pierden horas contestando llamadas para cotizaciones rutinarias de cambio de aceite y frenos.",
-          solution: "Incluye estimador interactivo de servicios, selector de modelo de vehículo, desglose inmediato de costo y envío por WhatsApp.",
-          tags: ["Estimador de Servicio", "Desglose WhatsApp", "Paquetes", "SEO Local"]
+          desc: "Cotizador de servicios: el cliente elige el mantenimiento y recibe el desglose por WhatsApp.",
+          problem: "Los talleres pierden horas contestando llamadas por cambios de aceite y frenos.",
+          solution: "Estimador de servicios, modelo del vehículo, costo al instante y envío por WhatsApp.",
+          tags: ["Estimador", "Desglose WhatsApp", "Paquetes", "SEO local"]
         },
         {
           id: "sdq-beauty-template",
-          title: "Plantilla Naco Salón de Belleza & Spa",
-          client: "Modelo para Estética & Spa",
+          title: "Salón y spa",
+          client: "Plantilla para estética",
           category: "smb",
-          industry: "Estética & Salón de Belleza",
-          badge: "Lista en 48 Horas",
+          industry: "Estética y salón",
+          badge: "Lista en 48 horas",
           speedBefore: "4.2s",
           speedAfter: "0.3s",
-          desc: "Sitio elegante para centro de estética con menú de tratamientos, directorio de especialistas y flujo de agendamiento VIP.",
-          problem: "Las clientas quieren ver precios de tratamientos, especialistas y disponibilidad sin tener que esperar mensajes por Instagram DM.",
-          solution: "Precargada con menú de tratamientos estéticos, galería de especialistas, feed de Instagram y reservas VIP por WhatsApp.",
-          tags: ["Menú Tratamientos", "Especialistas", "Reservas WhatsApp", "Feed Instagram"]
+          desc: "Sitio elegante con menú de tratamientos, equipo y reservas VIP por WhatsApp.",
+          problem: "Las clientas quieren ver precios y disponibilidad sin esperar un DM en Instagram.",
+          solution: "Menú de tratamientos, galería del equipo, fotos de Instagram y reserva por WhatsApp.",
+          tags: ["Menú", "Especialistas", "Reservas WhatsApp", "Instagram"]
         },
         {
           id: "sdq-construction-template",
           title: "Constructora Aybar & Torres",
-          client: "Modelo para Constructoras & Proyectos",
+          client: "Plantilla para constructoras",
           category: "realestate",
-          industry: "Construcción & Inmobiliaria",
-          badge: "Lista en 48 Horas",
+          industry: "Construcción e inmobiliaria",
+          badge: "Lista en 48 horas",
           speedBefore: "5.8s",
           speedAfter: "0.4s",
-          desc: "Plataforma inmobiliaria para desarrolladores de torres y proyectos residenciales con planos interactivos y descarga de brochure PDF.",
-          problem: "Los inversionistas quieren revisar planos de apartamentos y avances de obra sin esperar adjuntos por correo.",
-          solution: "Incluye visor de planos, cronograma de avance de construcción, captador de leads para brochures PDF y contacto con asesores por WhatsApp.",
-          tags: ["Visor de Planos", "Avance de Obra", "Brochure PDF", "Ventas WhatsApp"]
+          desc: "Sitio para torres y proyectos: planos, avance de obra y brochure en PDF.",
+          problem: "Los inversionistas quieren ver planos y avance sin esperar un adjunto por correo.",
+          solution: "Visor de planos, cronograma de obra, pedido de brochure y contacto por WhatsApp.",
+          tags: ["Planos", "Avance de obra", "Brochure PDF", "Ventas WhatsApp"]
         },
         {
           id: "hache-design-template",
           title: "Hache Design Studio",
-          client: "Estudio de Arquitectura e Interiorismo",
+          client: "Estudio de arquitectura e interiorismo",
           category: "pro",
-          industry: "Diseño de Interiores & Arquitectura",
-          badge: "Proyecto Destacado",
+          industry: "Diseño de interiores y arquitectura",
+          badge: "Proyecto destacado",
           speedBefore: "6.4s",
           speedAfter: "0.3s",
-          desc: "Plataforma de alta gama para estudio de diseño de interiores y arquitectura enfocada en residencia de lujo, renders 3D y cotización de proyectos.",
-          problem: "Los estudios de interiorismo pierden clientes cuando sus sitios web no muestran la calidad de acabado y renders en alta resolución.",
-          solution: "Construido con visor de renders 3D, catálogo de acabados de materiales, galería interactiva de obras y solicitud de especificaciones por WhatsApp.",
-          tags: ["Diseño Interiores", "Renders 3D", "Galería de Obras", "Presupuesto WhatsApp"]
+          desc: "Portafolio de alto nivel: residencias, renders 3D y cotización de proyectos por WhatsApp.",
+          problem: "Los estudios pierden clientes cuando el sitio no muestra bien los acabados ni los renders.",
+          solution: "Renders 3D, catálogo de acabados, galería de obras y cotización por WhatsApp.",
+          tags: ["Interiores", "Renders 3D", "Galería", "Presupuesto WhatsApp"]
         },
         {
           id: "laura-alba-realestate-template",
           title: "Laura Alba Real Estate",
-          client: "Inmobiliaria de Lujo & Asesoría",
+          client: "Inmobiliaria de lujo",
           category: "realestate",
-          industry: "Bienes Raíces de Lujo & Inversión",
-          badge: "Cliente Enterprise En Vivo",
+          industry: "Bienes raíces de lujo",
+          badge: "Cliente en vivo",
           speedBefore: "5.9s",
           speedAfter: "0.4s",
-          desc: "Plataforma inmobiliaria de lujo para villas frente al mar, penthouses en Cap Cana y propiedades de alta rentabilidad en República Dominicana.",
-          problem: "Compradores e inversionistas de alto nivel necesitan conversor multimoneda USD/DOP, inspección de planos y asesoría VIP inmediata.",
-          solution: "Diseñada con conversor de moneda USD/DOP en tiempo real, filtro de villas frente al mar, ficha técnica en PDF y asesoría VIP por WhatsApp.",
-          tags: ["Bienes Raíces Lujo", "Villas Punta Cana", "Moneda USD/DOP", "Asesoría VIP"]
+          desc: "Villas frente al mar, penthouses en Cap Cana y propiedades de inversión en República Dominicana.",
+          problem: "Compradores de alto nivel necesitan precios en USD/DOP, planos y un asesor rápido.",
+          solution: "Precios en USD/DOP, filtro de villas frente al mar, ficha en PDF y asesoría VIP por WhatsApp.",
+          tags: ["Lujo", "Villas Punta Cana", "USD/DOP", "Asesoría VIP"]
         }
       ]
     }

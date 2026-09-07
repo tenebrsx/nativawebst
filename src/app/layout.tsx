@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { GeoProvider } from "@/lib/geo-context";
 import WhatsappFunnel from "@/components/whatsapp-funnel";
@@ -17,7 +18,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#faf7f2",
+  themeColor: "#F7F8FA",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -47,6 +49,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+      "r7iOJEf1fAiej4Xxha2R1AnPQ2dxDJ-VO6ZLnLNZW-M",
+  },
 };
 
 export default function RootLayout({
@@ -54,6 +61,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-3WZSQRVG5G";
+
   return (
     <html lang="es" className="h-full" suppressHydrationWarning>
       <body className="min-h-full" suppressHydrationWarning>
@@ -63,6 +72,7 @@ export default function RootLayout({
           <WhatsappFunnel />
         </GeoProvider>
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

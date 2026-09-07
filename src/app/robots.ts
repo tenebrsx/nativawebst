@@ -15,7 +15,7 @@ const aiBots = [
 ];
 
 export default function robots(): MetadataRoute.Robots {
-  const disallow = ["/ads", "/logos", "/demo", "/demos", "/refined"];
+  const disallow = ["/ads", "/logos", "/demo", "/demos", "/refined", "/visualmockup"];
   return {
     rules: [
       {
@@ -30,6 +30,6 @@ export default function robots(): MetadataRoute.Robots {
       })),
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: "nativa.studio",
+    host: new URL(SITE_URL).host,
   };
 }

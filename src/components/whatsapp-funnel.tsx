@@ -17,11 +17,11 @@ const COPY = {
   es: {
     teaser: "¿Armamos tu web esta semana?",
     teaserPricing: "¿Te mando este presupuesto por WhatsApp?",
-    teaserStack: "¿Lo quieres que responda solo?",
+    teaserStack: "¿Quieres que responda solo?",
     teaserCta: "Sí, háblame",
     header: "Nativa en WhatsApp",
     online: "Respuesta en minutos",
-    greeting: "Hola — soy el canal directo a Nativa. En 20 segundos te armo un brief y lo mandamos por WhatsApp a +1 (809) 358-8113.",
+    greeting: "Hola — soy el canal directo a Nativa. En 20 segundos te armo un mensaje y lo mandamos por WhatsApp a +1 (809) 358-8113.",
     askNeed: "¿Qué necesitas ahora?",
     askIndustry: "¿A qué se dedica el negocio?",
     askTiming: "¿Para cuándo lo quieres vivo?",
@@ -30,7 +30,7 @@ const COPY = {
     namePh: "Tu nombre o marca",
     skip: "Saltar",
     send: "Continuar",
-    wrap: "Listo. Abro WhatsApp con tu brief para que no empieces de cero.",
+    wrap: "Listo. Abro WhatsApp con tu mensaje para que no empieces de cero.",
     cta: "Seguir en WhatsApp →",
     fabLabel: "WhatsApp",
     needs: [
@@ -58,7 +58,7 @@ const COPY = {
     budgets: [
       { id: "low", label: "Empezar liviano" },
       { id: "mid", label: "Inversión seria" },
-      { id: "high", label: "Stack completo (web + CRM + AI)" },
+      { id: "high", label: "Paquete completo (web + CRM + IA)" },
     ],
   },
   en: {
@@ -111,6 +111,12 @@ const COPY = {
 };
 
 type Msg = { from: "bot" | "me"; text: string };
+
+const MOBILE_TEASER_MQ = "(max-width: 900px)";
+
+function isMobileViewport() {
+  return typeof window !== "undefined" && window.matchMedia(MOBILE_TEASER_MQ).matches;
+}
 
 export default function WhatsappFunnel() {
   const { lang } = useGeo();
@@ -196,7 +202,7 @@ export default function WhatsappFunnel() {
     };
 
     const maybeTease = () => {
-      if (prompted.current || seen() || open) return;
+      if (isMobileViewport() || prompted.current || seen() || open) return;
       prompted.current = true;
       setTeaser(true);
     };
@@ -213,7 +219,7 @@ export default function WhatsappFunnel() {
     const onExit = (e: MouseEvent) => {
       if (e.relatedTarget) return;
       if (e.clientY > 12) return;
-      if (prompted.current || seen() || open) return;
+      if (isMobileViewport() || prompted.current || seen() || open) return;
       prompted.current = true;
       openPanel("exit");
     };
