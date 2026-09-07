@@ -32,14 +32,24 @@ export function LpFit({ children }: { children: ReactNode }) {
     };
 
     apply();
+    // Re-measure after layout/fonts settle (teaser grid + enter animation)
+    const raf = window.requestAnimationFrame(() => {
+      apply();
+      window.requestAnimationFrame(apply);
+    });
+
     const ro = new ResizeObserver(apply);
     ro.observe(el);
+    const parent = el.parentElement;
+    if (parent) ro.observe(parent);
+
     const mq = window.matchMedia("(max-width: 980px)");
     mq.addEventListener("change", apply);
     window.addEventListener("resize", apply);
     window.visualViewport?.addEventListener("resize", apply);
 
     return () => {
+      window.cancelAnimationFrame(raf);
       ro.disconnect();
       mq.removeEventListener("change", apply);
       window.removeEventListener("resize", apply);
