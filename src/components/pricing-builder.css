@@ -3431,15 +3431,15 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   border-radius: 0 0 12px 12px;
 }
 
-/* ── Gastronomía: pantry counter — paprika, olive, cream ─────── */
+/* ── Gastronomía: Nieve gelato — cream, berry, cocoa ─────────── */
 .shop.shop-gastro {
-  --sg-paprika: #c45c26;
-  --sg-cream: #f3eadc;
-  --sg-olive: #6b7a3a;
-  --sg-ink: #2a1c14;
-  --sg-wheat: #efe4d2;
-  --sg-muted: #7a6a5c;
-  --shop-gold: var(--sg-paprika);
+  --sg-paper: #fff6ee;
+  --sg-ink: #2c1c16;
+  --sg-berry: #c94b5a;
+  --sg-cocoa: #5a3828;
+  --sg-mute: #8a7268;
+  --sg-milk: #f4e6dc;
+  --shop-gold: var(--sg-berry);
 }
 
 .shop-gastro .sg-site {
@@ -3447,9 +3447,9 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  background: var(--sg-cream);
+  background: var(--sg-paper);
   color: var(--sg-ink);
-  font-family: "DM Sans", Manrope, system-ui, sans-serif;
+  font-family: Outfit, Manrope, system-ui, sans-serif;
 }
 
 .shop-gastro .shop-screen {
@@ -3457,7 +3457,8 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 }
 
 .shop-gastro .shop-screen.is-home {
-  grid-template-rows: auto minmax(0, 1.15fr) auto auto;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 0;
 }
 
 .shop-gastro .shop-screen.is-bag {
@@ -3469,7 +3470,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   align-items: center;
   gap: 14px;
   min-width: 0;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .shop-gastro .sg-brand {
@@ -3481,173 +3482,177 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 }
 
 .shop-gastro .sg-mark {
-  width: 12px;
-  height: 12px;
-  background: var(--sg-paprika);
+  width: 15px;
+  height: 15px;
+  border-radius: 50% 50% 46% 18%;
+  background: var(--sg-berry);
   flex-shrink: 0;
 }
 
-.shop[data-brand].shop-gastro .sg-mark { background: var(--sg-olive); }
+.shop[data-brand].shop-gastro .sg-mark { background: var(--sg-cocoa); }
 
 .shop-gastro .sg-brand b {
-  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-family: Newsreader, "Source Serif 4", Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.04em;
+  text-transform: none;
 }
 
 .shop-gastro .sg-nav {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-shrink: 0;
 }
 
 .shop-gastro .sg-nav span {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(42, 28, 20, 0.38);
+  color: rgba(44, 28, 22, 0.4);
 }
 
-.shop-gastro .sg-nav span.is-on { color: var(--sg-olive); }
+.shop-gastro .sg-nav span.is-on { color: var(--sg-berry); }
 
-.shop[data-brand].shop-gastro .sg-nav span.is-on { color: var(--sg-paprika); }
+.shop[data-brand].shop-gastro .sg-nav span.is-on { color: var(--sg-cocoa); }
 
 .shop-gastro .shop-lang {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.06em;
   padding: 3px 7px;
-  border-radius: 4px;
-  background: var(--sg-wheat);
-  color: var(--sg-muted);
+  border-radius: 999px;
+  background: var(--sg-milk);
+  color: var(--sg-mute);
   flex-shrink: 0;
 }
 
 .shop[data-bi].shop-gastro .shop-lang { display: inline-block; }
 
-.shop-gastro .sg-mesa {
+.shop-gastro .sg-menu { display: none; }
+
+.shop-gastro .sg-stage {
   display: grid;
-  grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.18fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
   min-height: 0;
   height: 100%;
 }
 
-.shop-gastro .sg-ticket {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-  padding: 4px 4px 4px 2px;
-}
-
-.shop-gastro .sg-ticket small {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 12px;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--sg-paprika);
-}
-
-.shop-gastro .sg-ticket h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.45rem, 2.4cqw, 2.05rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin: 6px 0 8px;
-}
-
-.shop-gastro .sg-ticket em {
-  display: block;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--sg-ink);
-}
-
-.shop-gastro .sg-ticket p {
-  margin: 10px 0 0;
-  font-size: 12px;
-  line-height: 1.45;
-  color: var(--sg-muted);
-  max-width: 32ch;
-}
-
-.shop-gastro .sg-ticket .shop-stock {
-  margin-top: 4px;
-}
-
-.shop-gastro .sg-cta {
-  margin-top: 16px;
-  align-self: flex-start;
-  padding: 10px 16px;
-  background: var(--sg-paprika);
-  color: #fff8f2;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 6px;
-}
-
-.shop[data-brand].shop-gastro .sg-cta { background: var(--sg-olive); }
-
-.shop-gastro .sg-platter {
+.shop-gastro .sg-hero {
   margin: 0;
-  min-height: 180px;
+  position: relative;
+  min-height: 0;
   height: 100%;
   overflow: hidden;
-  background: var(--sg-wheat);
+  background: var(--sg-milk);
+  border-radius: 18px;
 }
 
-.shop-gastro .sg-platter img {
+.shop-gastro .sg-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 52%;
+  background: linear-gradient(180deg, transparent 0%, rgba(44, 28, 22, 0.72) 100%);
+  pointer-events: none;
+}
+
+.shop-gastro .sg-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 45%;
+  object-position: 50% 42%;
 }
 
-.shop-gastro .sg-shelf {
+.shop-gastro .sg-hero figcaption {
+  position: absolute;
+  left: 20px;
+  bottom: 16px;
+  right: 20px;
+  z-index: 1;
+  color: #fff6ee;
+}
+
+.shop-gastro .sg-hero small {
+  display: block;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 246, 238, 0.78);
+}
+
+.shop-gastro .sg-hero h3 {
+  font-family: Newsreader, Georgia, serif;
+  font-size: clamp(1.7rem, 2.8cqw, 2.35rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 4px 0 6px;
+}
+
+.shop-gastro .sg-hero-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.shop-gastro .sg-hero em {
+  font-family: Outfit, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 650;
+  font-size: 15px;
+}
+
+.shop-gastro .sg-hero .shop-stock {
+  color: rgba(255, 246, 238, 0.72);
+}
+
+.shop-gastro .sg-flavors {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
+  gap: 14px;
 }
 
-.shop-gastro .sg-shelf article {
+.shop-gastro .sg-flavors article {
   min-width: 0;
+  text-align: center;
 }
 
-.shop-gastro .sg-shelf img {
-  width: 100%;
-  height: 88px;
+.shop-gastro .sg-flavors img {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto;
+  display: block;
   object-fit: cover;
   object-position: 50% 45%;
-  background: var(--sg-wheat);
+  border-radius: 50%;
+  background: var(--sg-milk);
+  box-shadow: 0 10px 22px rgba(44, 28, 22, 0.12);
 }
 
-.shop-gastro .sg-shelf b {
+.shop-gastro .sg-flavors b {
   display: block;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 14px;
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 1.2;
-  margin-top: 7px;
+  letter-spacing: -0.02em;
+  margin-top: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.shop-gastro .sg-shelf span {
+.shop-gastro .sg-flavors span {
   display: block;
   font-size: 12px;
-  font-weight: 600;
-  color: var(--sg-paprika);
+  font-weight: 650;
+  color: var(--sg-berry);
   margin-top: 2px;
 }
 
@@ -3656,21 +3661,35 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   font-weight: 600;
   font-style: normal;
   letter-spacing: 0.02em;
-  color: var(--sg-olive);
+  color: var(--sg-cocoa);
 }
 
-.shop-gastro .shop-stock.is-low { color: var(--sg-paprika); }
+.shop-gastro .shop-stock.is-low { color: var(--sg-berry); }
+
+.shop-gastro .sg-cta {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: var(--sg-berry);
+  color: #fff8f2;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-align: center;
+  border-radius: 999px;
+}
+
+.shop[data-brand].shop-gastro .sg-cta { background: var(--sg-cocoa); }
 
 .shop-gastro .shop-geo {
-  color: var(--sg-muted);
-  margin-top: 10px;
+  color: var(--sg-mute);
+  margin-top: 8px;
 }
 
-.shop-gastro .shop-geo i { background: var(--sg-paprika); }
+.shop-gastro .shop-geo i { background: var(--sg-berry); }
 
 .shop-gastro .sg-pdp {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 22px;
   height: 100%;
   min-height: 0;
@@ -3679,7 +3698,8 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 .shop-gastro .sg-pdp-photo {
   min-height: 0;
   overflow: hidden;
-  background: var(--sg-wheat);
+  background: var(--sg-milk);
+  border-radius: 18px;
 }
 
 .shop-gastro .sg-pdp-photo img {
@@ -3697,66 +3717,73 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 }
 
 .shop-gastro .sg-pdp-body small {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 12px;
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--sg-paprika);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sg-berry);
 }
 
 .shop-gastro .sg-pdp-body h4,
 .shop-gastro .shop-bag-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 600;
-  font-size: 1.55rem;
-  letter-spacing: -0.02em;
+  font-family: Newsreader, Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.7rem;
+  letter-spacing: -0.03em;
   margin: 6px 0 8px;
 }
 
-.shop-gastro .shop-bag-title { font-style: italic; font-weight: 500; }
-
 .shop-gastro .sg-pdp-body > b {
-  font-size: 15px;
-  font-weight: 700;
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 650;
 }
 
 .shop-gastro .sg-pdp-body p,
 .shop-gastro .shop-bag-row span {
-  color: var(--sg-muted);
-  font-size: 12px;
+  color: var(--sg-mute);
+  font-size: 13px;
   line-height: 1.45;
 }
 
-.shop-gastro .shop-specs {
+.shop-gastro .sg-scoops {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 8px 0;
+  gap: 8px;
+  margin: 14px 0 10px;
 }
 
-.shop-gastro .shop-specs span {
-  background: var(--sg-wheat);
-  color: var(--sg-ink);
-  border: 1px solid rgba(107, 122, 58, 0.2);
-  font-size: 9px;
+.shop-gastro .sg-scoops span {
+  font-size: 11px;
   font-weight: 600;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--sg-milk);
+  color: var(--sg-mute);
+}
+
+.shop-gastro .sg-scoops span.is-on {
+  background: var(--sg-berry);
+  color: #fff8f2;
+}
+
+.shop[data-brand].shop-gastro .sg-scoops span.is-on {
+  background: var(--sg-cocoa);
+  color: #fff8f2;
 }
 
 .shop-gastro .shop-add {
   margin-top: auto;
-  background: var(--sg-paprika);
+  background: var(--sg-berry);
   color: #fff8f2;
-  border-radius: 6px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.shop[data-brand].shop-gastro .shop-add { background: var(--sg-olive); }
+.shop[data-brand].shop-gastro .shop-add { background: var(--sg-cocoa); }
 
 .shop-gastro .sg-bag {
   display: flex;
@@ -3767,49 +3794,22 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 
 .shop-gastro .shop-bag-row img {
   object-position: 50% 40%;
-  background: var(--sg-wheat);
+  background: var(--sg-milk);
+  border-radius: 50%;
 }
 
 .shop-gastro .shop-bag-row b {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 650;
 }
 
 .shop-gastro .shop-bag-row strong {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 650;
 }
 
-.shop-gastro .shop-sum { border-top-color: rgba(42, 28, 20, 0.12); }
-
-.sg-sizes {
-  display: flex;
-  gap: 6px;
-  margin: 12px 0 8px;
-}
-
-.sg-sizes span {
-  font-size: 10px;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: var(--sg-wheat);
-  color: var(--sg-muted);
-  border: 1px solid rgba(107, 122, 58, 0.2);
-}
-
-.sg-sizes span.is-on {
-  background: var(--sg-olive);
-  border-color: var(--sg-olive);
-  color: #fff;
-}
-
-.shop[data-brand].shop-gastro .sg-sizes span.is-on {
-  background: var(--sg-paprika);
-  border-color: var(--sg-paprika);
-  color: #fff;
-}
+.shop-gastro .shop-sum { border-top-color: rgba(44, 28, 22, 0.1); }
 
 /* ── Beauty: vanity phone — wine, blush, Playfair ────────────── */
 .shop-beauty {
@@ -5280,6 +5280,107 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .shop-lina .sl-rail .shop-stock { font-size: 9px; }
 
   .shop-lina .sl-cta {
+    margin-top: 10px;
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  /* Nieve: phone gelato shop (brand + hero + 3 flavors) */
+  .shop.shop-gastro {
+    height: 100%;
+    filter: none;
+  }
+
+  .shop-gastro .shop-chrome { border-radius: 16px 16px 0 0; }
+
+  .shop-gastro .sg-site {
+    border-radius: 0 0 16px 16px;
+  }
+
+  .shop-gastro .shop-screens {
+    position: relative;
+    height: 100%;
+  }
+
+  .shop-gastro .shop-screen {
+    animation: none !important;
+    padding: 12px 14px 12px;
+  }
+
+  .shop-gastro .shop-screen.is-home {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+  }
+
+  .shop-gastro .shop-screen.is-pdp,
+  .shop-gastro .shop-screen.is-bag {
+    display: none;
+  }
+
+  .shop-gastro .sg-head {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .shop-gastro .sg-brand b { font-size: 22px; }
+  .shop-gastro .sg-nav,
+  .shop-gastro .shop-lang { display: none; }
+
+  .shop-gastro .sg-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 16px;
+    height: 11px;
+    flex-shrink: 0;
+  }
+
+  .shop-gastro .sg-menu i {
+    display: block;
+    height: 1.5px;
+    background: var(--sg-ink);
+    border-radius: 1px;
+  }
+
+  .shop-gastro .sg-stage {
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .shop-gastro .sg-hero {
+    border-radius: 14px;
+  }
+
+  .shop-gastro .sg-hero figcaption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .shop-gastro .sg-hero h3 { font-size: 1.45rem; }
+
+  .shop-gastro .sg-flavors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .shop-gastro .sg-flavors article:nth-child(n + 4) { display: none; }
+
+  .shop-gastro .sg-flavors img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .shop-gastro .sg-flavors b { font-size: 11px; }
+  .shop-gastro .sg-flavors span { font-size: 10px; }
+  .shop-gastro .sg-flavors .shop-stock { font-size: 9px; }
+
+  .shop-gastro .sg-cta {
     margin-top: 10px;
     font-size: 11px;
     padding: 10px 12px;

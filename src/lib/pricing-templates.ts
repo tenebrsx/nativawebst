@@ -55,8 +55,8 @@ const BUILD = "/demo/constructora-aybar";
 const LINA = "/demo/lina";
 const LINA_P = `${LINA}/preview`;
 const COFFEE = "/demo/terrenas-coffee";
-const BRISA = "/demo/brisa";
-const BRISA_P = `${BRISA}/preview`;
+const NIEVE = "/demo/nieve";
+const NIEVE_P = `${NIEVE}/preview`;
 const AURA = "/demo/aura-atelier";
 const NODO = "/demo/nodo";
 const HOME_P = `${VILLAS}/preview`;
@@ -446,57 +446,57 @@ export const TEMPLATES: Template[] = [
     id: "gastronomia",
     kind: "shop",
     cat: { es: "Gastronomía", en: "Gastronomy" },
-    brand: "Despensa Brisa",
-    domain: "despensabrisa.do",
-    logo: "BRISA",
+    brand: "Nieve",
+    domain: "nieve.do",
+    logo: "Nieve",
     pills: [
-      { es: "Despensa", en: "Pantry" },
-      { es: "Picante", en: "Heat" },
-      { es: "Mesa", en: "Table" },
-      { es: "Origen", en: "Origin" },
+      { es: "Sabores", en: "Flavors" },
+      { es: "Conos", en: "Cones" },
+      { es: "Copas", en: "Cups" },
+      { es: "Pedidos", en: "Orders" },
     ],
     drop: {
-      img: `${BRISA_P}/aji.webp`,
-      name: "Ají bravo en conserva",
-      price: "RD$ 780",
-      stock: 18,
-      tag: { es: "TEMPORADA", en: "SEASON" },
+      img: `${NIEVE_P}/fresa.webp`,
+      name: "Cono de fresa",
+      price: "RD$ 280",
+      stock: 14,
+      tag: { es: "DE LA SEMANA", en: "THIS WEEK" },
     },
     picks: [
-      { img: `${BRISA_P}/cacao.webp`, name: "Cacao El Limón 250g", price: "RD$ 1,140", stock: 11 },
-      { img: `${BRISA_P}/miel.webp`, name: "Miel de abeja 320g", price: "RD$ 640", stock: 4, low: true },
+      { img: `${NIEVE_P}/mango.webp`, name: "Copa mango", price: "RD$ 240", stock: 11 },
+      { img: `${NIEVE_P}/vainilla.webp`, name: "Cono vainilla", price: "RD$ 190", stock: 4, low: true },
     ],
-    geo: "Mercado de Samaná",
+    geo: "Piantini · BlueMall",
     pdp: {
-      img: `${BRISA_P}/aceite.webp`,
-      tag: { es: "Mesa", en: "Table" },
-      name: "Aceite de coco virgen",
-      price: "RD$ 890",
+      img: `${NIEVE_P}/brownie.webp`,
+      tag: { es: "Copas", en: "Cups" },
+      name: "Copa brownie",
+      price: "RD$ 420",
       body: {
-        es: "Prensado en frío. Pide por jarra con envío a tu zona.",
-        en: "Cold-pressed. Order by jar with delivery to your area.",
+        es: "Helado de vainilla, brownie y salsa de chocolate. Recogida en Piantini o BlueMall.",
+        en: "Vanilla gelato, brownie, and chocolate sauce. Pickup in Piantini or BlueMall.",
       },
-      specs: ["500 ml", "Cibao", "Vidrio"],
-      stock: 9,
+      specs: ["1 bola", "2 bolas", "Copa"],
+      stock: 8,
     },
     bag: {
       rows: [
         {
-          img: `${BRISA_P}/cacao.webp`,
-          name: "Cacao El Limón",
-          variant: { es: "250 g · grano", en: "250 g · nibs" },
-          price: "RD$ 1,140",
-          stock: 11,
+          img: `${NIEVE_P}/fresa.webp`,
+          name: "Cono de fresa",
+          variant: { es: "2 bolas · waffle", en: "2 scoops · waffle" },
+          price: "RD$ 280",
+          stock: 14,
         },
         {
-          img: `${BRISA_P}/sal.webp`,
-          name: "Sal marina Brisa",
-          variant: { es: "200 g · escamas", en: "200 g · flakes" },
-          price: "RD$ 420",
-          stock: 26,
+          img: `${NIEVE_P}/mango.webp`,
+          name: "Copa mango",
+          variant: { es: "Copa · Baní", en: "Cup · Baní" },
+          price: "RD$ 240",
+          stock: 11,
         },
       ],
-      subtotal: "RD$ 1,560",
+      subtotal: "RD$ 520",
     },
   },
 

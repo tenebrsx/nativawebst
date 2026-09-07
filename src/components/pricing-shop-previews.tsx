@@ -385,62 +385,53 @@ export function LinaShop({ template: t, lang, ...flags }: Props) {
 export function GastroShop({ template: t, lang, ...flags }: Props) {
   const es = lang === "es";
   const units = es ? "uds" : "left";
-  const sizes = [
-    { label: "250 ml", on: false },
-    { label: "500 ml", on: true },
-    { label: "1 L", on: false },
-  ];
-  const shelf = [
+  const flavors = [
     ...t.picks,
     { img: t.pdp.img, name: t.pdp.name, price: t.pdp.price, stock: t.pdp.stock },
   ];
+  const scoops = t.pdp.specs.map((spec, i) => ({ spec, on: i === 2 }));
 
   return (
     <LpFit>
-        <div className="shop shop-site shop-gastro" {...flagAttrs({ ...flags, lang })}>
-          <ShopChrome domain={t.domain} />
-          <div className="sg-site">
-            <div className="shop-screens">
-              <div className="shop-screen is-home">
-                <header className="sg-head">
-                  <div className="sg-brand">
-                    <i className="sg-mark" aria-hidden="true" />
-                    <b>{t.logo}</b>
-                  </div>
-                  <nav className="sg-nav" aria-hidden="true">
-                    {t.pills.map((p, i) => (
-                      <span key={p.es} className={i === 0 ? "is-on" : undefined}>
-                        {tx(p, lang)}
-                      </span>
-                    ))}
-                  </nav>
-                  <span className="shop-lang">ES | EN</span>
-                </header>
+      <div className="shop shop-site shop-gastro" {...flagAttrs({ ...flags, lang })}>
+        <ShopChrome domain={t.domain} />
+        <div className="sg-site">
+          <div className="shop-screens">
+            <div className="shop-screen is-home">
+              <header className="sg-head">
+                <div className="sg-brand">
+                  <i className="sg-mark" aria-hidden="true" />
+                  <b>{t.brand}</b>
+                </div>
+                <nav className="sg-nav" aria-hidden="true">
+                  {t.pills.map((p, i) => (
+                    <span key={p.es} className={i === 0 ? "is-on" : undefined}>
+                      {tx(p, lang)}
+                    </span>
+                  ))}
+                </nav>
+                <span className="shop-lang">ES | EN</span>
+                <span className="sg-menu" aria-hidden="true">
+                  <i /><i /><i />
+                </span>
+              </header>
 
-                <div className="sg-mesa">
-                  <div className="sg-ticket">
+              <div className="sg-stage">
+                <figure className="sg-hero">
+                  <ShopImg src={t.drop.img} eager />
+                  <figcaption>
                     <small>{tx(t.drop.tag, lang)}</small>
                     <h3>{t.drop.name}</h3>
-                    <em>{t.drop.price}</em>
-                    <span className="shop-stock">
-                      {t.drop.stock} {es ? "uds en inventario" : "in stock"}
-                    </span>
-                    <p>
-                      {es
-                        ? "De la costa norte, en conserva. Recogida en el mercado o envío a tu zona."
-                        : "From the north coast, jarred. Market pickup or delivery to your area."}
-                    </p>
-                    <div className="sg-cta" aria-hidden="true">
-                      {es ? "Pedir la despensa" : "Order the pantry"}
+                    <div className="sg-hero-row">
+                      <em>{t.drop.price}</em>
+                      <span className="shop-stock">
+                        {t.drop.stock} {es ? "uds" : "left"}
+                      </span>
                     </div>
-                  </div>
-                  <figure className="sg-platter">
-                    <ShopImg src={t.drop.img} eager />
-                  </figure>
-                </div>
-
-                <div className="sg-shelf">
-                  {shelf.map((p) => (
+                  </figcaption>
+                </figure>
+                <div className="sg-flavors">
+                  {flavors.map((p) => (
                     <article key={p.name}>
                       <ShopImg src={p.img} eager />
                       <b>{p.name}</b>
@@ -451,74 +442,73 @@ export function GastroShop({ template: t, lang, ...flags }: Props) {
                     </article>
                   ))}
                 </div>
-
-                <footer className="shop-geo">
-                  <i />
-                  {t.geo}
-                </footer>
               </div>
 
-              <div className="shop-screen is-pdp">
-                <div className="sg-pdp">
-                  <div className="sg-pdp-photo">
-                    <ShopImg src={t.pdp.img} eager />
-                  </div>
-                  <div className="sg-pdp-body">
-                    <small>{tx(t.pdp.tag, lang)}</small>
-                    <h4>{t.pdp.name}</h4>
-                    <b>{t.pdp.price}</b>
-                    <p>{tx(t.pdp.body, lang)}</p>
-                    <div className="sg-sizes" aria-hidden="true">
-                      {sizes.map((s) => (
-                        <span key={s.label} className={s.on ? "is-on" : undefined}>
-                          {s.label}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="shop-specs">
-                      {t.pdp.specs.map((spec) => (
-                        <span key={spec}>{spec}</span>
-                      ))}
-                    </div>
-                    <em className="shop-stock">
-                      {t.pdp.stock} {es ? "en inventario" : "in inventory"}
-                    </em>
-                    <div className="shop-add" aria-hidden="true">
-                      {es ? `AÑADIR A LA DESPENSA — ${t.pdp.price}` : `ADD TO PANTRY — ${t.pdp.price}`}
-                    </div>
-                  </div>
+              <div className="sg-cta" aria-hidden="true">
+                {es ? "Pedir ahora" : "Order now"}
+              </div>
+              <footer className="shop-geo">
+                <i />
+                {t.geo}
+              </footer>
+            </div>
+
+            <div className="shop-screen is-pdp">
+              <div className="sg-pdp">
+                <div className="sg-pdp-photo">
+                  <ShopImg src={t.pdp.img} eager />
                 </div>
-              </div>
-
-              <div className="shop-screen is-bag">
-                <div className="sg-bag">
-                  <h4 className="shop-bag-title">{es ? "Tu despensa" : "Your pantry"}</h4>
-                  {t.bag.rows.map((r) => (
-                    <div className="shop-bag-row" key={r.name}>
-                      <ShopImg src={r.img} eager />
-                      <div>
-                        <b>{r.name}</b>
-                        <span>{tx(r.variant, lang)}</span>
-                        <em className="shop-stock">
-                          {r.stock} {units}
-                        </em>
-                      </div>
-                      <strong>{r.price}</strong>
-                    </div>
-                  ))}
-                  <div className="shop-sum">
-                    <span>{es ? "Subtotal" : "Subtotal"}</span>
-                    <b>{t.bag.subtotal}</b>
+                <div className="sg-pdp-body">
+                  <small>{tx(t.pdp.tag, lang)}</small>
+                  <h4>{t.pdp.name}</h4>
+                  <b>{t.pdp.price}</b>
+                  <p>{tx(t.pdp.body, lang)}</p>
+                  <div className="sg-scoops" aria-hidden="true">
+                    {scoops.map((s) => (
+                      <span key={s.spec} className={s.on ? "is-on" : undefined}>
+                        {s.spec}
+                      </span>
+                    ))}
                   </div>
+                  <em className="shop-stock">
+                    {t.pdp.stock} {es ? "en vitrina" : "in the case"}
+                  </em>
                   <div className="shop-add" aria-hidden="true">
-                    {es ? "PEDIR LA DESPENSA" : "ORDER PANTRY"}
+                    {es ? `AÑADIR AL PEDIDO — ${t.pdp.price}` : `ADD TO ORDER — ${t.pdp.price}`}
                   </div>
-                  <div className="shop-pay">Shop Pay · Shopify</div>
                 </div>
+              </div>
+            </div>
+
+            <div className="shop-screen is-bag">
+              <div className="sg-bag">
+                <h4 className="shop-bag-title">{es ? "Tu pedido" : "Your order"}</h4>
+                {t.bag.rows.map((r) => (
+                  <div className="shop-bag-row" key={r.name}>
+                    <ShopImg src={r.img} eager />
+                    <div>
+                      <b>{r.name}</b>
+                      <span>{tx(r.variant, lang)}</span>
+                      <em className="shop-stock">
+                        {r.stock} {units}
+                      </em>
+                    </div>
+                    <strong>{r.price}</strong>
+                  </div>
+                ))}
+                <div className="shop-sum">
+                  <span>{es ? "Subtotal" : "Subtotal"}</span>
+                  <b>{t.bag.subtotal}</b>
+                </div>
+                <div className="shop-add" aria-hidden="true">
+                  {es ? "IR A PAGAR" : "CHECKOUT"}
+                </div>
+                <div className="shop-pay">Shop Pay · Shopify</div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </LpFit>
   );
 }
