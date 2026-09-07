@@ -3811,8 +3811,8 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 
 .shop-gastro .shop-sum { border-top-color: rgba(44, 28, 22, 0.1); }
 
-/* ── Beauty: vanity phone — wine, blush, Playfair ────────────── */
-.shop-beauty {
+/* ── Beauty: Aura atelier vanity — wine, blush, Playfair ─────── */
+.shop.shop-beauty {
   --sb-ink: #2a1818;
   --sb-wine: #6e2a3a;
   --sb-rose: #b84a5a;
@@ -3823,105 +3823,313 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   --shop-gold: var(--sb-champagne);
 }
 
-.shop-beauty .shop-phone {
-  background:
-    radial-gradient(90% 55% at 85% 0%, rgba(212, 184, 150, 0.22), transparent 52%),
-    var(--sb-cream);
+.shop-beauty .sb-site {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--sb-cream);
   color: var(--sb-ink);
-  border-color: #3d2828;
   font-family: "DM Sans", system-ui, sans-serif;
 }
 
-.shop-beauty .shop-notch { background: #3d2828; }
+.shop-beauty .shop-screen {
+  padding: 14px 26px 16px;
+}
 
-.shop-beauty .shop-logo {
+.shop-beauty .shop-screen.is-home {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0;
+}
+
+.shop-beauty .shop-screen.is-bag {
+  padding-bottom: 18px;
+}
+
+.shop-beauty .sb-head {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(212, 184, 150, 0.45);
+}
+
+.shop-beauty .sb-logo {
+  grid-column: 2;
   font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 17px;
-  letter-spacing: 0.14em;
+  font-size: 28px;
+  letter-spacing: 0.18em;
+  color: var(--sb-wine);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.shop-beauty .sb-nav {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.shop-beauty .sb-nav-l { justify-self: end; }
+.shop-beauty .sb-nav-r { justify-self: start; }
+
+.shop-beauty .sb-nav span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(42, 24, 24, 0.38);
+}
+
+.shop-beauty .sb-nav span.is-on { color: var(--sb-wine); }
+
+.shop[data-brand].shop-beauty .sb-nav span.is-on { color: var(--sb-champagne); }
+
+.shop-beauty .shop-lang {
+  justify-self: end;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--sb-blush);
+  color: var(--sb-mauve);
+}
+
+.shop[data-bi].shop-beauty .shop-lang { display: inline-block; }
+
+.shop-beauty .sb-menu { display: none; }
+
+.shop-beauty .sb-vanity {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 22px;
+  min-height: 0;
+  height: 100%;
+}
+
+.shop-beauty .sb-hero {
+  margin: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--sb-blush);
+  border-radius: 4px 28px 4px 28px;
+}
+
+.shop-beauty .sb-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+}
+
+.shop-beauty .sb-desk {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 14px;
+  min-height: 0;
+}
+
+.shop-beauty .sb-feature {
+  min-width: 0;
+  padding: 4px 2px 0;
+}
+
+.shop-beauty .sb-feature small {
+  display: block;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--sb-wine);
 }
 
-.shop-beauty .shop-bag-title,
-.shop-beauty .shop-pdp-body h4,
-.shop-beauty .shop-drop-meta b,
-.shop-beauty .shop-picks b {
+.shop-beauty .sb-feature h3,
+.shop-beauty .sb-pdp-body h4,
+.shop-beauty .shop-bag-title {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--sb-ink);
 }
 
-.shop-beauty .shop-drop-meta b { font-size: 17px; color: #fff; }
+.shop-beauty .sb-feature h3 {
+  font-size: clamp(1.7rem, 2.8cqw, 2.4rem);
+  line-height: 1.05;
+  margin: 8px 0 10px;
+}
 
-.shop-beauty .shop-picks-label {
+.shop-beauty .sb-feature-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.shop-beauty .sb-feature em {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 650;
+  font-size: 16px;
+}
+
+.shop-beauty .sb-note {
+  margin: 10px 0 0;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.04em;
   color: var(--sb-mauve);
 }
 
-.shop-beauty .shop-drop {
-  border-radius: 22px;
-  background: var(--sb-blush);
+.shop-beauty .sb-shades {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0 16px;
 }
 
-.shop-beauty .shop-drop-meta i {
+.shop-beauty .sb-shades i {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(42, 24, 24, 0.12);
+}
+
+.shop-beauty .sb-shades i.is-on {
+  outline: 2px solid var(--sb-wine);
+  outline-offset: 2px;
+}
+
+.shop-beauty .sb-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
   background: var(--sb-wine);
   color: var(--sb-cream);
-  border-radius: 999px;
-  letter-spacing: 0.14em;
-}
-
-.shop-beauty .shop-drop img,
-.shop-beauty .shop-picks img,
-.shop-beauty .shop-pdp-photo img,
-.shop-beauty .shop-bag-row img {
-  object-position: 50% 50%;
-}
-
-.shop-beauty .shop-picks img,
-.shop-beauty .shop-bag-row img {
-  border-radius: 16px;
-  background: var(--sb-blush);
-}
-
-.shop-beauty .shop-pills span {
-  background: rgba(240, 217, 212, 0.65);
-  color: var(--sb-mauve);
-  font-size: 9.5px;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  border-radius: 999px;
 }
 
-.shop-beauty .shop-pills span.is-on {
-  background: var(--sb-wine);
-  color: var(--sb-cream);
-}
-
-.shop[data-brand].shop-beauty .shop-pills span.is-on {
+.shop[data-brand].shop-beauty .sb-cta {
   background: var(--sb-champagne);
   color: var(--sb-ink);
 }
 
-.shop-beauty .shop-picks span,
-.shop-beauty .shop-pdp-body p,
-.shop-beauty .shop-bag-row span {
+.shop-beauty .sb-tray {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-height: 0;
+}
+
+.shop-beauty .sb-tray article {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-beauty .sb-tray img {
+  width: 100%;
+  height: 118px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  background: var(--sb-blush);
+  border-radius: 16px;
+}
+
+.shop-beauty .sb-tray b {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shop-beauty .sb-tray span {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
   color: var(--sb-mauve);
+  margin-top: 2px;
 }
 
 .shop-beauty .shop-stock { color: var(--sb-rose); }
 .shop-beauty .shop-stock.is-low { color: var(--sb-wine); }
 
-.shop-beauty .shop-geo { color: var(--sb-mauve); }
+.shop-beauty .shop-geo {
+  color: var(--sb-mauve);
+  margin-top: 10px;
+}
+
 .shop-beauty .shop-geo i { background: var(--sb-rose); }
 
-.shop-beauty .shop-pdp-body small {
-  color: var(--sb-champagne);
+.shop-beauty .sb-pdp {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 22px;
+  height: 100%;
+  min-height: 0;
+}
+
+.shop-beauty .sb-pdp-photo {
+  min-height: 0;
+  overflow: hidden;
+  background: var(--sb-blush);
+  border-radius: 4px 28px 4px 28px;
+}
+
+.shop-beauty .sb-pdp-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+.shop-beauty .sb-pdp-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 8px;
+}
+
+.shop-beauty .sb-pdp-body small {
+  font-size: 10px;
+  font-weight: 650;
   letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sb-champagne);
+}
+
+.shop-beauty .sb-pdp-body h4,
+.shop-beauty .shop-bag-title {
+  font-size: 1.7rem;
+  margin: 6px 0 8px;
+}
+
+.shop-beauty .sb-pdp-body > b {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.shop-beauty .sb-pdp-body p,
+.shop-beauty .shop-bag-row span {
+  color: var(--sb-mauve);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .shop-beauty .shop-specs span {
@@ -3930,12 +4138,13 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 }
 
 .shop-beauty .shop-add {
+  margin-top: auto;
   background: var(--sb-wine);
   color: var(--sb-cream);
   border-radius: 999px;
   font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 650;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -3945,60 +4154,26 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   color: var(--sb-ink);
 }
 
-.shop-beauty .shop-search,
-.shop-beauty .shop-lang {
-  background: var(--sb-blush);
-  color: var(--sb-mauve);
-}
-
-.shop-beauty .shop-dock {
-  background: rgba(250, 244, 240, 0.78);
-  border-color: rgba(212, 184, 150, 0.45);
-  box-shadow:
-    0 10px 28px rgba(42, 24, 24, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.shop-beauty .shop-dock span { color: var(--sb-ink); }
-
-.shop-beauty .shop-dock span:nth-child(1) { animation: sb-dock-1 18s linear infinite; }
-.shop-beauty .shop-dock span:nth-child(2) { animation: sb-dock-2 18s linear infinite; }
-.shop-beauty .shop-dock span:nth-child(3) { animation: sb-dock-3 18s linear infinite; }
-
-@keyframes sb-dock-1 {
-  0%, 30% { background: var(--sb-wine); color: var(--sb-cream); }
-  34%, 100% { background: transparent; color: var(--sb-ink); }
-}
-@keyframes sb-dock-2 {
-  0%, 32% { background: transparent; color: var(--sb-ink); }
-  36%, 62% { background: var(--sb-wine); color: var(--sb-cream); }
-  66%, 100% { background: transparent; color: var(--sb-ink); }
-}
-@keyframes sb-dock-3 {
-  0%, 64% { background: transparent; color: var(--sb-ink); }
-  68%, 96% { background: var(--sb-wine); color: var(--sb-cream); }
-  100% { background: transparent; color: var(--sb-ink); }
-}
-
-.shop-beauty .shop-dock .has-count i { background: var(--sb-wine); }
-
-.sb-shades {
+.shop-beauty .sb-bag {
   display: flex;
-  gap: 8px;
-  margin: 4px 0 10px;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 
-.sb-shades i {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(42, 24, 24, 0.12);
+.shop-beauty .shop-bag-row img {
+  object-position: 50% 50%;
+  background: var(--sb-blush);
+  border-radius: 16px;
 }
 
-.sb-shades i.is-on {
-  outline: 2px solid var(--sb-wine);
-  outline-offset: 2px;
+.shop-beauty .shop-bag-row b {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
 }
+
+.shop-beauty .shop-sum { border-top-color: rgba(42, 24, 24, 0.1); }
 
 /* ── Tech: PC parts phone — graphite, cyan, mono ─────────────── */
 .shop-tech {
@@ -5386,6 +5561,111 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
     padding: 10px 12px;
   }
 
+  /* Aura: phone vanity (centered mark + portrait + tray) */
+  .shop.shop-beauty {
+    height: 100%;
+    filter: none;
+  }
+
+  .shop-beauty .shop-chrome { border-radius: 16px 16px 0 0; }
+
+  .shop-beauty .sb-site {
+    border-radius: 0 0 16px 16px;
+  }
+
+  .shop-beauty .shop-screens {
+    position: relative;
+    height: 100%;
+  }
+
+  .shop-beauty .shop-screen {
+    animation: none !important;
+    padding: 12px 14px 12px;
+  }
+
+  .shop-beauty .shop-screen.is-home {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .shop-beauty .shop-screen.is-pdp,
+  .shop-beauty .shop-screen.is-bag {
+    display: none;
+  }
+
+  .shop-beauty .sb-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .shop-beauty .sb-logo {
+    grid-column: auto;
+    margin-right: auto;
+    font-size: 20px;
+    letter-spacing: 0.16em;
+    text-align: left;
+  }
+
+  .shop-beauty .sb-nav,
+  .shop-beauty .shop-lang { display: none; }
+
+  .shop-beauty .sb-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 16px;
+    height: 11px;
+    flex-shrink: 0;
+  }
+
+  .shop-beauty .sb-menu i {
+    display: block;
+    height: 1.5px;
+    background: var(--sb-ink);
+    border-radius: 1px;
+  }
+
+  .shop-beauty .sb-vanity {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1.15fr) auto;
+    gap: 10px;
+  }
+
+  .shop-beauty .sb-hero {
+    border-radius: 4px 20px 4px 20px;
+    min-height: 0;
+  }
+
+  .shop-beauty .sb-desk {
+    grid-template-rows: auto auto;
+    gap: 8px;
+  }
+
+  .shop-beauty .sb-feature h3 { font-size: 1.35rem; margin: 4px 0 6px; }
+  .shop-beauty .sb-note { display: none; }
+  .shop-beauty .sb-shades { margin: 8px 0 10px; }
+  .shop-beauty .sb-cta {
+    padding: 9px 14px;
+    font-size: 10px;
+  }
+
+  .shop-beauty .sb-tray {
+    gap: 8px;
+  }
+
+  .shop-beauty .sb-tray img { height: 72px; border-radius: 12px; }
+  .shop-beauty .sb-tray b { font-size: 11px; margin-top: 6px; }
+  .shop-beauty .sb-tray span { font-size: 10px; }
+  .shop-beauty .sb-tray .shop-stock { font-size: 9px; }
+
   .lp-cl-hero {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr);
@@ -5519,7 +5799,8 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .shop-lang,
   .shop-care,
   .shop-lina .shop-screen,
-  .shop-gastro .shop-screen {
+  .shop-gastro .shop-screen,
+  .shop-beauty .shop-screen {
     transition: none !important;
   }
 }

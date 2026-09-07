@@ -513,10 +513,11 @@ export function GastroShop({ template: t, lang, ...flags }: Props) {
   );
 }
 
-export function BeautyShop({ template, lang, later, ...flags }: Props) {
+export function BeautyShop({ template: t, lang, ...flags }: Props) {
   const es = lang === "es";
-  const t = template;
   const units = es ? "uds" : "left";
+  const navL = t.pills.slice(0, 2);
+  const navR = t.pills.slice(2);
   const shades = [
     { hex: "#c47a6a", on: false },
     { hex: "#a84b4f", on: false },
@@ -526,139 +527,139 @@ export function BeautyShop({ template, lang, later, ...flags }: Props) {
   ];
 
   return (
-    <div className="shop shop-beauty" {...flagAttrs({ ...flags, lang })}>
-      <ShopPhoneShell>
-        <div className="shop-notch" />
-        <div className="shop-status">
-          <span>9:41</span>
-          <em className="shop-shopify">Shopify</em>
-          <em className="shop-care">24h</em>
-        </div>
-
-        <div className="shop-screens">
-          <div className="shop-screen is-home">
-            <header className="shop-top">
-              <b className="shop-logo">{t.logo}</b>
-              <span className="shop-lang">ES | EN</span>
-              <div className="shop-search" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="6.5" />
-                  <path d="M16 16l4 4" />
-                </svg>
-              </div>
-            </header>
-
-            <div className="shop-drop">
-              <ShopImg src={t.drop.img} eager />
-              <div className="shop-drop-meta">
-                <i>{tx(t.drop.tag, lang)}</i>
-                <b>{t.drop.name}</b>
-                <span>{t.drop.price}</span>
-                <em className="shop-stock">
-                  {t.drop.stock} {es ? "uds en inventario" : "in stock"}
-                </em>
-              </div>
-            </div>
-
-            <div className="shop-pills">
-              {t.pills.map((p, i) => (
-                <span key={p.es} className={i === 0 ? "is-on" : undefined}>
-                  {tx(p, lang)}
+    <LpFit>
+      <div className="shop shop-site shop-beauty" {...flagAttrs({ ...flags, lang })}>
+        <ShopChrome domain={t.domain} />
+        <div className="sb-site">
+          <div className="shop-screens">
+            <div className="shop-screen is-home">
+              <header className="sb-head">
+                <nav className="sb-nav sb-nav-l" aria-hidden="true">
+                  {navL.map((p, i) => (
+                    <span key={p.es} className={i === 0 ? "is-on" : undefined}>
+                      {tx(p, lang)}
+                    </span>
+                  ))}
+                </nav>
+                <b className="sb-logo">{t.logo}</b>
+                <nav className="sb-nav sb-nav-r" aria-hidden="true">
+                  {navR.map((p) => (
+                    <span key={p.es}>{tx(p, lang)}</span>
+                  ))}
+                </nav>
+                <span className="shop-lang">ES | EN</span>
+                <span className="sb-menu" aria-hidden="true">
+                  <i /><i /><i />
                 </span>
-              ))}
-            </div>
+              </header>
 
-            <div className="shop-picks-label">{es ? "En el tocador" : "On the vanity"}</div>
-            <div className="shop-picks">
-              {t.picks.map((p) => (
-                <article key={p.name}>
-                  <ShopImg src={p.img} eager />
-                  <b>{p.name}</b>
-                  <span>{p.price}</span>
-                  <em className={`shop-stock${p.low ? " is-low" : ""}`}>
-                    {p.stock} {units}
-                  </em>
-                </article>
-              ))}
-            </div>
-
-            <div className="shop-geo">
-              <i />
-              {t.geo}
-            </div>
-          </div>
-
-          <div className="shop-screen is-pdp">
-            <div className="shop-pdp-photo">
-              <ShopImg src={later ? t.pdp.img : ""} />
-            </div>
-            <div className="shop-pdp-body">
-              <small>{tx(t.pdp.tag, lang)}</small>
-              <h4>{t.pdp.name}</h4>
-              <b>{t.pdp.price}</b>
-              <p>{tx(t.pdp.body, lang)}</p>
-              <div className="sb-shades" aria-hidden="true">
-                {shades.map((s) => (
-                  <i key={s.hex} className={s.on ? "is-on" : undefined} style={{ background: s.hex }} />
-                ))}
-              </div>
-              <div className="shop-specs">
-                {t.pdp.specs.map((spec) => (
-                  <span key={spec}>{spec}</span>
-                ))}
-              </div>
-              <em className="shop-stock">
-                {t.pdp.stock} {es ? "en inventario" : "in inventory"}
-              </em>
-              <div className="shop-add" aria-hidden="true">
-                {es ? `AÑADIR A LA BOLSA — ${t.pdp.price}` : `ADD TO BAG — ${t.pdp.price}`}
-              </div>
-            </div>
-          </div>
-
-          <div className="shop-screen is-bag">
-            <h4 className="shop-bag-title">{es ? "Tu bolsa" : "Your bag"}</h4>
-            {t.bag.rows.map((r) => (
-              <div className="shop-bag-row" key={r.name}>
-                <ShopImg src={later ? r.img : ""} />
-                <div>
-                  <b>{r.name}</b>
-                  <span>{tx(r.variant, lang)}</span>
-                  <em className="shop-stock">
-                    {r.stock} {es ? "uds" : "in stock"}
-                  </em>
+              <div className="sb-vanity">
+                <figure className="sb-hero">
+                  <ShopImg src={t.drop.img} eager />
+                </figure>
+                <div className="sb-desk">
+                  <div className="sb-feature">
+                    <small>{tx(t.drop.tag, lang)}</small>
+                    <h3>{t.drop.name}</h3>
+                    <div className="sb-feature-row">
+                      <em>{t.drop.price}</em>
+                      <span className="shop-stock">
+                        {t.drop.stock} {es ? "uds" : "left"}
+                      </span>
+                    </div>
+                    <p className="sb-note">
+                      {es ? "En el tocador" : "On the vanity"}
+                    </p>
+                    <div className="sb-shades" aria-hidden="true">
+                      {shades.map((s) => (
+                        <i key={s.hex} className={s.on ? "is-on" : undefined} style={{ background: s.hex }} />
+                      ))}
+                    </div>
+                    <div className="sb-cta" aria-hidden="true">
+                      {es ? "Pedir este tono" : "Order this shade"}
+                    </div>
+                  </div>
+                  <div className="sb-tray">
+                    {t.picks.map((p) => (
+                      <article key={p.name}>
+                        <ShopImg src={p.img} eager />
+                        <b>{p.name}</b>
+                        <span>{p.price}</span>
+                        <em className={`shop-stock${p.low ? " is-low" : ""}`}>
+                          {p.stock} {units}
+                        </em>
+                      </article>
+                    ))}
+                  </div>
                 </div>
-                <strong>{r.price}</strong>
               </div>
-            ))}
-            <div className="shop-sum">
-              <span>{es ? "Subtotal" : "Subtotal"}</span>
-              <b>{t.bag.subtotal}</b>
+
+              <footer className="shop-geo">
+                <i />
+                {t.geo}
+              </footer>
             </div>
-            <div className="shop-add" aria-hidden="true">
-              {es ? "IR A PAGAR" : "CHECKOUT"}
+
+            <div className="shop-screen is-pdp">
+              <div className="sb-pdp">
+                <div className="sb-pdp-photo">
+                  <ShopImg src={t.pdp.img} eager />
+                </div>
+                <div className="sb-pdp-body">
+                  <small>{tx(t.pdp.tag, lang)}</small>
+                  <h4>{t.pdp.name}</h4>
+                  <b>{t.pdp.price}</b>
+                  <p>{tx(t.pdp.body, lang)}</p>
+                  <div className="sb-shades" aria-hidden="true">
+                    {shades.map((s) => (
+                      <i key={`pdp-${s.hex}`} className={s.on ? "is-on" : undefined} style={{ background: s.hex }} />
+                    ))}
+                  </div>
+                  <div className="shop-specs">
+                    {t.pdp.specs.map((spec) => (
+                      <span key={spec}>{spec}</span>
+                    ))}
+                  </div>
+                  <em className="shop-stock">
+                    {t.pdp.stock} {es ? "en inventario" : "in inventory"}
+                  </em>
+                  <div className="shop-add" aria-hidden="true">
+                    {es ? `AÑADIR A LA BOLSA — ${t.pdp.price}` : `ADD TO BAG — ${t.pdp.price}`}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="shop-pay">Shop Pay · Shopify</div>
+
+            <div className="shop-screen is-bag">
+              <div className="sb-bag">
+                <h4 className="shop-bag-title">{es ? "Tu bolsa" : "Your bag"}</h4>
+                {t.bag.rows.map((r) => (
+                  <div className="shop-bag-row" key={r.name}>
+                    <ShopImg src={r.img} eager />
+                    <div>
+                      <b>{r.name}</b>
+                      <span>{tx(r.variant, lang)}</span>
+                      <em className="shop-stock">
+                        {r.stock} {units}
+                      </em>
+                    </div>
+                    <strong>{r.price}</strong>
+                  </div>
+                ))}
+                <div className="shop-sum">
+                  <span>{es ? "Subtotal" : "Subtotal"}</span>
+                  <b>{t.bag.subtotal}</b>
+                </div>
+                <div className="shop-add" aria-hidden="true">
+                  {es ? "IR A PAGAR" : "CHECKOUT"}
+                </div>
+                <div className="shop-pay">Shop Pay · Shopify</div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <nav className="shop-dock" aria-hidden="true">
-          <span>
-            <IconHome />
-          </span>
-          <span>
-            <IconGrid />
-          </span>
-          <span className="has-count">
-            <IconBag />
-            <i>2</i>
-          </span>
-          <span>
-            <IconUser />
-          </span>
-        </nav>
-      </ShopPhoneShell>
-    </div>
+      </div>
+    </LpFit>
   );
 }
 
