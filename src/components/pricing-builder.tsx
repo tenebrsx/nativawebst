@@ -606,7 +606,7 @@ export default function PricingBuilder() {
                     </p>
                     <h3>{dict.addons[id].label}?</h3>
                     <p>
-                      {dict.addons[id].desc}{" "}
+                      <span className="pb-ask-desc">{dict.addons[id].desc} </span>
                       <b>
                         {isMonthlyAddon(id)
                           ? formatMonthlyAddonPrice(id, fmt, dict)
@@ -644,7 +644,7 @@ export default function PricingBuilder() {
                     </p>
                     <h3>{dict.support_label}?</h3>
                     <p>
-                      {dict.support_desc}{" "}
+                      <span className="pb-ask-desc">{dict.support_desc} </span>
                       <b>
                         +{fmt(SUPPORT_PRICE)}
                         {dict.monthly_suffix}
