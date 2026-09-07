@@ -86,7 +86,7 @@ export default function PricingBuilder() {
   const [support, setSupport] = useState(false);
   const [open, setOpen] = useState(false);
   const [ask, setAsk] = useState(0);
-  const [entered, setEntered] = useState(true);
+  const [entered, setEntered] = useState(false);
   const scroller = useRef<HTMLDivElement>(null);
   const secRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
