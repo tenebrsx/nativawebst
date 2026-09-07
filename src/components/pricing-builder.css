@@ -3253,7 +3253,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
 
   .lp-fit .lp-bu {
     overflow: hidden;
-    grid-template-rows: auto auto minmax(0, 1.9fr) minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 2.35fr) minmax(0, 1fr);
   }
 
   .lp-fit .lp-bu-ticker {
@@ -3281,7 +3281,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .lp-fit .lp-bu-hero img {
-    object-position: 50% 36%;
+    object-position: 50% 34%;
   }
 
   .lp-fit .lp-bu-toast,
@@ -3292,7 +3292,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .lp-fit .lp-bu-copy {
     left: 18px;
     top: 10px;
-    bottom: 40px;
+    bottom: 36px;
     max-width: 30ch;
   }
 
@@ -3302,7 +3302,7 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .lp-fit .lp-bu-copy h3 {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
 
   .lp-fit .lp-bu .lp-cta {
@@ -3311,22 +3311,22 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .lp-fit .lp-bu-nums div {
-    padding: 4px 12px;
+    padding: 3px 12px;
   }
 
   .lp-fit .lp-bu-nums b {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .lp-fit .lp-bu-nums span {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .lp-fit .lp-bu-masonry {
     overflow: hidden;
     min-height: 0;
     gap: 6px;
-    padding: 6px 14px 8px;
+    padding: 8px 14px 10px;
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
   }
 
@@ -3340,11 +3340,15 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .lp-fit .shop-lina .shop-screen {
-    padding: 8px 16px 8px;
+    padding: 8px 14px 8px;
+  }
+
+  .lp-fit .shop-lina .shop-screen.is-home {
+    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .lp-fit .shop-lina .sl-head {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .lp-fit .shop-lina .sl-brand b {
@@ -3356,23 +3360,24 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .lp-fit .shop-lina .sl-look {
-    grid-template-rows: minmax(0, 1.8fr) minmax(0, 0.9fr);
-    gap: 8px;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.9fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: 10px;
     min-height: 0;
   }
 
   .lp-fit .shop-lina .sl-hero img {
-    object-position: 50% 18%;
+    object-position: 50% 12%;
   }
 
   .lp-fit .shop-lina .sl-hero figcaption {
     left: 14px;
-    bottom: 10px;
+    bottom: 12px;
     right: 14px;
   }
 
   .lp-fit .shop-lina .sl-hero h3 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin: 2px 0 4px;
   }
 
@@ -3381,44 +3386,46 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   }
 
   .lp-fit .shop-lina .sl-rail {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
     min-height: 0;
     height: 100%;
     gap: 8px;
-    align-content: stretch;
   }
 
   .lp-fit .shop-lina .sl-rail article {
     display: grid;
-    grid-template-rows: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    grid-template-rows: auto auto;
+    align-content: center;
     height: 100%;
     min-height: 0;
-    gap: 3px;
+    gap: 2px 8px;
   }
 
   .lp-fit .shop-lina .sl-rail img {
+    grid-row: 1 / span 2;
     height: 100%;
     min-height: 0;
-    align-self: stretch;
+    width: 100%;
   }
 
   .lp-fit .shop-lina .sl-rail b {
-    font-size: 11px;
+    font-size: 12px;
+    align-self: end;
+    white-space: normal;
   }
 
   .lp-fit .shop-lina .sl-rail span {
     font-size: 11px;
+    align-self: start;
   }
 
   .lp-fit .shop-lina .sl-rail .shop-stock {
     display: none;
   }
 
-  .lp-fit .shop-lina .sl-cta {
-    margin-top: 6px;
-    padding: 6px 12px;
-    font-size: 9px;
-  }
-
+  .lp-fit .shop-lina .sl-cta,
   .lp-fit .shop-lina .shop-geo {
     display: none;
   }
