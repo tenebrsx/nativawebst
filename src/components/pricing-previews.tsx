@@ -311,6 +311,9 @@ function BuildSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
         <div className="lp-nav-links">
           {t.nav.map((n) => <span key={n.es}>{tx(n, lang)}</span>)}
         </div>
+        <span className="lp-bu-menu" aria-hidden="true">
+          <i /><i /><i />
+        </span>
       </nav>
       <div className="lp-bu-hero">
         <img src={t.hero.img} alt="" />
