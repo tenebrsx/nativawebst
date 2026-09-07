@@ -385,7 +385,7 @@ export function LinaShop({ template: t, lang, ...flags }: Props) {
 export function GastroShop({ template: t, lang, ...flags }: Props) {
   const es = lang === "es";
   const units = es ? "uds" : "left";
-  const flavors = [
+  const board = [
     ...t.picks,
     { img: t.pdp.img, name: t.pdp.name, price: t.pdp.price, stock: t.pdp.stock },
   ];
@@ -399,12 +399,8 @@ export function GastroShop({ template: t, lang, ...flags }: Props) {
           <div className="shop-screens">
             <div className="shop-screen is-home">
               <header className="sg-head">
-                <div className="sg-brand">
-                  <i className="sg-mark" aria-hidden="true" />
-                  <b>{t.brand}</b>
-                </div>
                 <nav className="sg-nav" aria-hidden="true">
-                  {t.pills.map((p, i) => (
+                  {t.pills.slice(0, 3).map((p, i) => (
                     <span key={p.es} className={i === 0 ? "is-on" : undefined}>
                       {tx(p, lang)}
                     </span>
@@ -416,37 +412,55 @@ export function GastroShop({ template: t, lang, ...flags }: Props) {
                 </span>
               </header>
 
-              <div className="sg-stage">
+              <div className="sg-counter">
+                <aside className="sg-board">
+                  <p className="sg-kicker">{es ? "Heladería · Piantini" : "Gelato · Piantini"}</p>
+                  <b className="sg-logo">{t.brand}</b>
+                  <p className="sg-lede">
+                    {es
+                      ? "Sabores de temporada. Pedí y recogé en vitrina."
+                      : "Seasonal scoops. Order and pick up at the case."}
+                  </p>
+
+                  <div className="sg-feature">
+                    <small>{tx(t.drop.tag, lang)}</small>
+                    <h3>{t.drop.name}</h3>
+                    <div className="sg-feature-row">
+                      <em>{t.drop.price}</em>
+                      <span className="shop-stock">
+                        {t.drop.stock} {units}
+                      </span>
+                    </div>
+                    <div className="sg-cta" aria-hidden="true">
+                      {es ? "Pedir este sabor" : "Order this flavor"}
+                    </div>
+                  </div>
+
+                  <div className="sg-menu-list">
+                    {board.map((p) => (
+                      <article key={p.name}>
+                        <ShopImg src={p.img} eager />
+                        <div>
+                          <b>{p.name}</b>
+                          <em className={`shop-stock${"low" in p && p.low ? " is-low" : ""}`}>
+                            {p.stock} {units}
+                          </em>
+                        </div>
+                        <span>{p.price}</span>
+                      </article>
+                    ))}
+                  </div>
+                </aside>
+
                 <figure className="sg-hero">
                   <ShopImg src={t.drop.img} eager />
                   <figcaption>
                     <small>{tx(t.drop.tag, lang)}</small>
                     <h3>{t.drop.name}</h3>
-                    <div className="sg-hero-row">
-                      <em>{t.drop.price}</em>
-                      <span className="shop-stock">
-                        {t.drop.stock} {es ? "uds" : "left"}
-                      </span>
-                    </div>
                   </figcaption>
                 </figure>
-                <div className="sg-flavors">
-                  {flavors.map((p) => (
-                    <article key={p.name}>
-                      <ShopImg src={p.img} eager />
-                      <b>{p.name}</b>
-                      <span>{p.price}</span>
-                      <em className={`shop-stock${"low" in p && p.low ? " is-low" : ""}`}>
-                        {p.stock} {units}
-                      </em>
-                    </article>
-                  ))}
-                </div>
               </div>
 
-              <div className="sg-cta" aria-hidden="true">
-                {es ? "Pedir ahora" : "Order now"}
-              </div>
               <footer className="shop-geo">
                 <i />
                 {t.geo}
