@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
+/** Canonical public host (Search Console + sitemap locs). Override with NEXT_PUBLIC_SITE_URL. */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://nativa.studio";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://nativastudio.com.do";
 export const SITE_NAME = "Nativa Web Studio";
 export const SITE_BRAND = "Nativa";
 export const SITE_EMAIL = "info@nativa.studio";
@@ -16,7 +17,7 @@ export const SITE_LAT = 18.479;
 export const SITE_LNG = -69.939;
 export const SITE_POSTAL_CODE = "10148";
 export const SITE_CITATION =
-  "Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio";
+  "Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativastudio.com.do";
 
 /** Social / GBP profiles — only non-empty URLs are emitted in JSON-LD sameAs */
 export const SITE_SAME_AS = [
