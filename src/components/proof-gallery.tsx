@@ -56,12 +56,20 @@ function Card({ client, featured }: { client: ProofClient; featured?: boolean })
         <span />
         <span />
         <span />
-        <em>{client.urlLabel || client.href?.replace(/^\//, "") || "nativa.studio"}</em>
+        <em>{client.urlLabel || client.href?.replace(/^\//, "") || "nativastudio.com.do"}</em>
       </div>
       <div className="pg-shot">
         {client.screenshot ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className="pg-shot-img" src={client.screenshot} alt={t.name} />
+          <img
+            className="pg-shot-img"
+            src={client.screenshot}
+            alt={lang === "es" ? `Captura del demo ${t.name}` : `${t.name} demo screenshot`}
+            loading="lazy"
+            decoding="async"
+            width={1440}
+            height={760}
+          />
         ) : (
           <Scene scene={client.scene} name={t.name} />
         )}
@@ -71,7 +79,7 @@ function Card({ client, featured }: { client: ProofClient; featured?: boolean })
         <div className="pg-brand">
           {client.logo ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="pg-logo" src={client.logo} alt="" />
+            <img className="pg-logo" src={client.logo} alt="" loading="lazy" decoding="async" />
           ) : (
             <span className="pg-mark">{client.mark}</span>
           )}
@@ -119,8 +127,8 @@ function Card({ client, featured }: { client: ProofClient; featured?: boolean })
 }
 
 const INBOX_HEAD = {
-  es: { title: "Hoy en WhatsApp", live: "chats nuevos" },
-  en: { title: "Today on WhatsApp", live: "new chats" },
+  es: { title: "Ejemplo: así llegan los mensajes", live: "demo" },
+  en: { title: "Example: how messages arrive", live: "demo" },
 };
 
 const INBOX_FEED = {
@@ -151,8 +159,8 @@ const INBOX_FEED = {
 } as const;
 
 const INBOX_WHEN = {
-  es: ["ahora", "hace 1 min", "hace 4 min"],
-  en: ["now", "1 min ago", "4 min ago"],
+  es: ["ejemplo", "ejemplo", "ejemplo"],
+  en: ["sample", "sample", "sample"],
 };
 
 export function ProofIntro() {
@@ -189,7 +197,6 @@ export function ProofIntro() {
 
   const n = feed.length;
   const notes = [0, 1, 2].map((offset) => feed[((tick - offset) % n + n) % n]);
-  const liveCount = 3 + (tick % 6);
 
   return (
     <div ref={ref} className={`proof-head${on ? " is-on" : ""}`}>
@@ -202,7 +209,7 @@ export function ProofIntro() {
         <div className="proof-inbox-bar">
           <span />
           <b>{copy.title}</b>
-          <em>{liveCount} {copy.live}</em>
+          <em>{copy.live}</em>
         </div>
         <ul className="proof-inbox-list">
           {notes.map((note, i) => (

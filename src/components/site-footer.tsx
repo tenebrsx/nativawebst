@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
-import { SERVICES, SITE_CITATION, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY, SITE_STREET } from "@/lib/site";
+import { SERVICES, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY, SITE_STREET } from "@/lib/site";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 
 export default function SiteFooter() {
@@ -16,7 +16,7 @@ export default function SiteFooter() {
         background: "var(--navy-trench)",
         padding: "80px 0 48px",
         borderTop: "1px solid rgba(255,255,255,0.06)",
-        color: "rgba(255,255,255,0.4)",
+        color: "rgba(255,255,255,0.68)",
       }}
     >
       <div className="container">
@@ -48,7 +48,7 @@ export default function SiteFooter() {
                 <path d="M1 8.5C3.5 8.5 4.5 6 7 6C9.5 6 10.5 8.5 13 8.5C15.5 8.5 16.5 6 18 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
             </div>
-            <p style={{ fontSize: "13px", lineHeight: "1.7", marginBottom: "24px", maxWidth: "300px" }}>
+            <p style={{ fontSize: "13px", lineHeight: "1.7", marginBottom: "24px", maxWidth: "300px", color: "rgba(255,255,255,0.7)" }}>
               {lang === "es"
                 ? "Sitios rápidos, Maps, CRM y Nativa — un agente IA de marca — hechos en Santo Domingo para negocios de República Dominicana."
                 : "Fast sites, Maps, CRM, and Nativa — a brand AI agent — built in Santo Domingo for businesses across the Dominican Republic."}
@@ -80,13 +80,13 @@ export default function SiteFooter() {
             </h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px" }}>
               <li>
-                <Link href="/servicios" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/servicios" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Todos los servicios" : "All services"}
                 </Link>
               </li>
               {SERVICES.map((service) => (
                 <li key={service.slug}>
-                  <Link href={service.path} style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  <Link href={service.path} style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                     {lang === "es" ? service.nameEs : service.nameEn}
                   </Link>
                 </li>
@@ -99,50 +99,50 @@ export default function SiteFooter() {
               {lang === "es" ? "Navegación" : "Sitemap"}
             </h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px" }}>
-              <li><Link href="/#pricing" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.pricing}</Link></li>
-              <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
-              <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
+              <li><Link href="/#pricing" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.pricing}</Link></li>
+              <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
+              <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
               <li>
-                <Link href="/por-que-nosotros" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/por-que-nosotros" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Por qué nosotros" : "Why us"}
                 </Link>
               </li>
               <li>
-                <Link href="/santo-domingo" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/santo-domingo" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   Santo Domingo
                 </Link>
               </li>
               <li>
-                <Link href="/punta-cana" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/punta-cana" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   Punta Cana
                 </Link>
               </li>
               <li>
-                <Link href="/industrias/clinicas" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/industrias/clinicas" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Clínicas" : "Clinics"}
                 </Link>
               </li>
               <li>
-                <Link href="/industrias/legal" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/industrias/legal" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   Legal
                 </Link>
               </li>
               <li>
-                <Link href="/industrias/villas" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/industrias/villas" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   Villas
                 </Link>
               </li>
               <li>
-                <Link href="/guias" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/guias" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Guías" : "Guides"}
                 </Link>
               </li>
               <li>
-                <Link href="/casos" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                <Link href="/casos" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Casos" : "Cases"}
                 </Link>
               </li>
-              <li><Link href="/portfolio" style={{ color: "var(--coral-blue)", textDecoration: "none", fontWeight: 700 }}>{dict.nav.portfolio}</Link></li>
+              <li><Link href="/portfolio" style={{ color: "var(--blue-on-dark)", textDecoration: "none", fontWeight: 700 }}>{dict.nav.portfolio}</Link></li>
             </ul>
           </div>
 
@@ -151,18 +151,15 @@ export default function SiteFooter() {
               {lang === "es" ? "Contacto" : "Reach Us"}
             </h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px", lineHeight: 1.6 }}>
-              <li style={{ color: "rgba(255,255,255,0.6)" }}>
+              <li style={{ color: "rgba(255,255,255,0.72)" }}>
                 {SITE_STREET}<br />
                 Santo Domingo, RD
               </li>
               <li>
-                <a href={`mailto:${SITE_EMAIL}`} style={{ color: "var(--coral-blue)", fontWeight: 600, textDecoration: "none" }}>{SITE_EMAIL}</a>
+                <a href={`mailto:${SITE_EMAIL}`} style={{ color: "var(--blue-on-dark)", fontWeight: 600, textDecoration: "none" }}>{SITE_EMAIL}</a>
               </li>
               <li>
                 <a href={`tel:${SITE_PHONE}`} style={{ fontWeight: 600, color: "#fff", textDecoration: "none" }}>{SITE_PHONE_DISPLAY}</a>
-              </li>
-              <li style={{ color: "rgba(255,255,255,0.45)", fontSize: "11.5px", lineHeight: 1.55 }}>
-                {SITE_CITATION}
               </li>
             </ul>
             <div
@@ -177,7 +174,7 @@ export default function SiteFooter() {
               <div style={{ fontFamily: "var(--font-head)", fontWeight: 800, fontSize: "12px", color: "#fff", letterSpacing: "0.02em", marginBottom: "8px" }}>
                 HECHO EN RD
               </div>
-              <p style={{ fontSize: "11.5px", lineHeight: "1.6", margin: 0 }}>
+              <p style={{ fontSize: "11.5px", lineHeight: "1.6", margin: 0, color: "rgba(255,255,255,0.66)" }}>
                 {lang === "es"
                   ? "Operamos desde la República Dominicana para marcas del Caribe."
                   : "Operated from the Dominican Republic for Caribbean brands."}
@@ -198,27 +195,27 @@ export default function SiteFooter() {
             fontSize: "12px",
           }}
         >
-          <p style={{ color: "rgba(255,255,255,0.3)", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,0.62)", margin: 0 }}>
             © {new Date().getFullYear()} Nativa Web Studio. Santo Domingo, Dominican Republic.
           </p>
           <nav
             aria-label={lang === "es" ? "Legal" : "Legal"}
             style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px", alignItems: "center" }}
           >
-            <Link href="/legal" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+            <Link href="/legal" style={{ color: "rgba(255,255,255,0.66)", textDecoration: "none" }}>
               Legal
             </Link>
-            <Link href="/legal/privacidad" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+            <Link href="/legal/privacidad" style={{ color: "rgba(255,255,255,0.66)", textDecoration: "none" }}>
               {lang === "es" ? "Privacidad" : "Privacy"}
             </Link>
-            <Link href="/legal/terminos" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+            <Link href="/legal/terminos" style={{ color: "rgba(255,255,255,0.66)", textDecoration: "none" }}>
               {lang === "es" ? "Términos" : "Terms"}
             </Link>
-            <Link href="/legal/cookies" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+            <Link href="/legal/cookies" style={{ color: "rgba(255,255,255,0.66)", textDecoration: "none" }}>
               Cookies
             </Link>
           </nav>
-          <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "11px", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,0.58)", fontSize: "11px", margin: 0 }}>
             {lang === "es" ? "Hecho en Santo Domingo." : "Made in Santo Domingo."}
           </p>
         </div>

@@ -17,6 +17,7 @@ export default function ArchivedStackPage() {
     <div style={{ minHeight: "100dvh", background: "var(--bg)", position: "relative" }}>
       <PointerGlow />
       <SiteNav />
+      <main id="main">
 
       <section style={{ padding: "110px 0 90px", borderBottom: "1px solid var(--border)" }}>
         <div className="container">
@@ -55,6 +56,7 @@ export default function ArchivedStackPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

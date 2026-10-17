@@ -1,6 +1,5 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { TranslationKey } from "./translations";
 
 export type CurrencyType = "DOP" | "USD";
 export type LanguageType = "es" | "en";
@@ -59,7 +58,7 @@ export function GeoProvider({ children }: { children: React.ReactNode }) {
   const detectRegion = async () => {
     setLoading(true);
 
-    // 1. Check for stored manual preferences first
+    // 1. Stored manual preferences win.
     let savedLang: LanguageType | null = null;
     let savedCurrency: CurrencyType | null = null;
     try {
@@ -69,7 +68,12 @@ export function GeoProvider({ children }: { children: React.ReactNode }) {
       if (c === "DOP" || c === "USD") savedCurrency = c;
     } catch {}
 
-    // 2. Perform fast local fallback detection using Timezone & Browser Navigator
+    // Language: Spanish for everyone unless the visitor explicitly picked
+    // English in the region selector. We never auto-switch on browser
+    // language — the server-rendered page is Spanish and must stay that way.
+    setLangState(savedLang ?? "es");
+
+    // 2. Fast local guess for currency (timezone / locale).
     let detectedCountry = "DO";
     let detectedCountryName = "República Dominicana";
     let detectedIsDR = true;
@@ -77,66 +81,47 @@ export function GeoProvider({ children }: { children: React.ReactNode }) {
     try {
       const tz = typeof Intl !== "undefined" ? Intl.DateTimeFormat().resolvedOptions().timeZone : "";
       const navLang = typeof navigator !== "undefined" ? (navigator.language || "").toLowerCase() : "";
-
       const isSantoDomingoTz = tz.includes("Santo_Domingo");
       const isDRLocale = navLang.includes("es-do") || navLang.includes("es_do");
-
       if (!isSantoDomingoTz && !isDRLocale) {
-        // Likely outside DR
         detectedCountry = "US";
         detectedCountryName = "International";
         detectedIsDR = false;
       }
     } catch {}
 
-    // 3. Perform IP-based Geolocation Lookup with 2.2s Abort Controller
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2200);
-
-      const res = await fetch("https://ipapi.co/json/", { signal: controller.signal });
-      clearTimeout(timeoutId);
-
-      if (res.ok) {
-        const data = await res.json();
-        if (data.country_code) {
-          detectedCountry = data.country_code;
-          detectedCountryName = data.country_name || data.country_code;
-          detectedIsDR = data.country_code === "DO";
+    // 3. IP lookup only when we still need it (no saved currency), and only
+    //    after the page is idle so it never competes with first paint.
+    if (!savedCurrency) {
+      await new Promise<void>((resolve) => {
+        const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+        if (w.requestIdleCallback) w.requestIdleCallback(() => resolve(), { timeout: 3000 });
+        else window.setTimeout(resolve, 1500);
+      });
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2200);
+        const res = await fetch("https://ipapi.co/json/", { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.country_code) {
+            detectedCountry = data.country_code;
+            detectedCountryName = data.country_name || data.country_code;
+            detectedIsDR = data.country_code === "DO";
+          }
         }
+      } catch {
+        // Quietly fall back to timezone / locale detection.
       }
-    } catch (err) {
-      // Quietly fall back to Timezone/Browser detection
     }
 
-    // 4. Apply Rules:
-    // - If region == Dominican Republic (DO): default currency = DOP, default lang = es
-    // - If region == ANYWHERE outside DR: default currency = ALWAYS USD
     setCountry(detectedCountry);
     setCountryName(detectedCountryName);
     setIsDR(detectedIsDR);
 
-    if (savedLang) {
-      setLangState(savedLang);
-    } else {
-      const navLang = typeof navigator !== "undefined" ? (navigator.language || "").toLowerCase() : "";
-      if (detectedIsDR) {
-        setLangState("es");
-      } else {
-        setLangState(navLang.startsWith("es") ? "es" : "en");
-      }
-    }
-
-    if (savedCurrency) {
-      setCurrencyState(savedCurrency);
-    } else {
-      if (detectedIsDR) {
-        setCurrencyState("DOP");
-      } else {
-        // ANYWHERE outside DR MUST default to USD
-        setCurrencyState("USD");
-      }
-    }
+    // Currency: DOP in the DR, USD elsewhere — unless the visitor chose one.
+    setCurrencyState(savedCurrency ?? (detectedIsDR ? "DOP" : "USD"));
 
     setLoading(false);
   };
@@ -145,12 +130,17 @@ export function GeoProvider({ children }: { children: React.ReactNode }) {
     detectRegion();
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   const fmt = (usdAmount: number) => {
     if (currency === "DOP") {
-      const dopAmount = usdAmount * rate;
+      const dopAmount = Math.round(usdAmount * rate);
       return `RD$ ${dopAmount.toLocaleString("es-DO")}`;
     }
-    return `$${usdAmount.toLocaleString("en-US")}`;
+    // "US$" — a bare "$" reads as pesos to many Dominican visitors.
+    return `US$ ${Math.round(usdAmount).toLocaleString("en-US")}`;
   };
 
   return (

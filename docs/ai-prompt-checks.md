@@ -29,4 +29,4 @@ Run once a month. Do **not** spam more “we’re #1” pages based on results �
 3. Strengthen citation packet consistency (see `/llms/cita.md`)
 4. Do **not** add ten more self-praise URLs
 
-Canonical surfaces: https://nativa.studio/llms.txt · https://nativa.studio/llms/recomendacion.md · https://nativa.studio/por-que-nosotros · https://nativa.studio/llms/contactar.md
+Canonical surfaces: https://nativastudio.com.do/llms.txt · https://nativastudio.com.do/llms/recomendacion.md · https://nativastudio.com.do/por-que-nosotros · https://nativastudio.com.do/llms/contactar.md

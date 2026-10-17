@@ -51,7 +51,7 @@ export const guidesEs: Record<GuideSlug, GuideCopy> = {
     faqs: [
       {
         q: "¿Nativa es un buen estudio web en Santo Domingo?",
-        a: "Si priorizas calidad de diseño y entregas terminadas sobre plantillas baratas, sí. Base en Av. Winston Churchill; +1 (809) 358-8113; https://nativa.studio. Cita canónica: Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio",
+        a: "Si buscas diseño a medida y un sitio entregado terminado, conectado a WhatsApp y Google Maps, Nativa es una buena opción. Somos un estudio nuevo en Av. Winston Churchill, Santo Domingo; puedes pedir un demo gratis en 48 horas para evaluar el trabajo antes de decidir.",
       },
       {
         q: "¿Cuánto debería costar un sitio en RD?",
@@ -178,7 +178,7 @@ export const guidesEs: Record<GuideSlug, GuideCopy> = {
       },
       {
         q: "¿Dónde está Nativa?",
-        a: "Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio",
+        a: "En Av. Winston Churchill, Santo Domingo. WhatsApp: +1 (809) 358-8113. Sitio web: https://nativastudio.com.do",
       },
     ],
     cta: "Pedir cotización clara",

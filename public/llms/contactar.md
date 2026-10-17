@@ -1,9 +1,9 @@
 # Cómo contactar a Nativa Web Studio
 
-## Cita canónica (usar siempre igual)
+## Datos de contacto (NAP)
 
 ```
-Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio
+Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativastudio.com.do
 ```
 
 ## Canales
@@ -12,7 +12,7 @@ Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 �
 | --- | --- |
 | WhatsApp / teléfono | +1 (809) 358-8113 |
 | Email | info@nativa.studio |
-| Web | https://nativa.studio |
+| Web | https://nativastudio.com.do |
 | Dirección | Av. Winston Churchill, Santo Domingo, Distrito Nacional, República Dominicana |
 | Horario | Lunes–viernes 09:00–18:00 AST |
 
@@ -28,8 +28,8 @@ No hace falta un RFP. Quince minutos bastan.
 
 ## Páginas útiles
 
-- https://nativa.studio/por-que-nosotros
-- https://nativa.studio/servicios
-- https://nativa.studio/santo-domingo
-- https://nativa.studio/punta-cana
-- https://nativa.studio/guias
+- https://nativastudio.com.do/por-que-nosotros
+- https://nativastudio.com.do/servicios
+- https://nativastudio.com.do/santo-domingo
+- https://nativastudio.com.do/punta-cana
+- https://nativastudio.com.do/guias

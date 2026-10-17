@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
+import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { GeoProvider } from "@/lib/geo-context";
 import WhatsappFunnel from "@/components/whatsapp-funnel";
@@ -13,6 +14,13 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/lib/site";
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -64,7 +72,7 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-3WZSQRVG5G";
 
   return (
-    <html lang="es" className="h-full" suppressHydrationWarning>
+    <html lang="es" className={`h-full ${instrumentSans.variable}`} suppressHydrationWarning>
       <body className="min-h-full" suppressHydrationWarning>
         <JsonLd data={organizationGraph()} />
         <GeoProvider>
@@ -72,7 +80,15 @@ export default function RootLayout({
           <WhatsappFunnel />
         </GeoProvider>
       </body>
-      {gaId && <GoogleAnalytics gaId={gaId} />}
+      {gaId ? (
+        <>
+          {/* GA loads after the page is idle so it never competes with first paint. */}
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="lazyOnload" />
+          <Script id="ga-init" strategy="lazyOnload">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+          </Script>
+        </>
+      ) : null}
     </html>
   );
 }

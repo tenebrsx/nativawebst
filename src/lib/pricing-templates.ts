@@ -48,17 +48,18 @@ export type ShopTemplate = {
 
 export type Template = LandingTemplate | ShopTemplate;
 
-const DENTAL = "/demo/sdq-dental";
-const VILLAS = "/demo/punta-cana-villas";
-const LEGAL = "/demo/naco-legal";
-const BUILD = "/demo/constructora-aybar";
-const LINA = "/demo/lina";
+// Preview images are pre-resized WebP copies of /public/demo/* (see public/pv).
+const DENTAL = "/pv/sdq-dental";
+const VILLAS = "/pv/punta-cana-villas";
+const LEGAL = "/pv/naco-legal";
+const BUILD = "/pv/constructora-aybar";
+const LINA = "/pv/lina";
 const LINA_P = `${LINA}/preview`;
-const COFFEE = "/demo/terrenas-coffee";
-const NIEVE = "/demo/nieve";
+const COFFEE = "/pv/terrenas-coffee";
+const NIEVE = "/pv/nieve";
 const NIEVE_P = `${NIEVE}/preview`;
-const AURA = "/demo/aura-atelier";
-const NODO = "/demo/nodo";
+const AURA = "/pv/aura-atelier";
+const NODO = "/pv/nodo";
 const HOME_P = `${VILLAS}/preview`;
 
 export const TEMPLATES: Template[] = [
@@ -77,7 +78,7 @@ export const TEMPLATES: Template[] = [
       { es: "Citas", en: "Book" },
     ],
     hero: {
-      img: `${DENTAL}/hero-operatory.jpg`,
+      img: `${DENTAL}/hero-operatory.webp`,
       kicker: { es: "Clínica odontológica · Ensanche Naco", en: "Dental clinic · Ensanche Naco" },
       title: { es: "Tu mejor sonrisa, hoy.", en: "Your best smile, today." },
       sub: {
@@ -100,34 +101,34 @@ export const TEMPLATES: Template[] = [
     ],
     cards: [
       {
-        img: `${DENTAL}/instruments.jpg`,
+        img: `${DENTAL}/instruments.webp`,
         tag: { es: "Preventivo", en: "Preventive" },
         title: { es: "Limpieza ultrasónica", en: "Ultrasonic cleaning" },
         meta: "RD$ 2,500",
       },
       {
-        img: `${DENTAL}/imaging.jpg`,
+        img: `${DENTAL}/imaging.webp`,
         tag: { es: "Clínica", en: "Clinic" },
         title: { es: "Endodoncia", en: "Root canal" },
         meta: "RD$ 12,000",
       },
       {
-        img: `${DENTAL}/smile.jpg`,
+        img: `${DENTAL}/smile.webp`,
         tag: { es: "Estética", en: "Aesthetic" },
         title: { es: "Carillas de porcelana", en: "Porcelain veneers" },
         meta: "RD$ 18,000",
       },
       {
-        img: `${DENTAL}/case-whitening-after.jpg`,
+        img: `${DENTAL}/case-whitening-after.webp`,
         tag: { es: "Estética", en: "Aesthetic" },
         title: { es: "Blanqueamiento LED", en: "LED whitening" },
         meta: "RD$ 7,500",
       },
     ],
     strip: [
-      { img: `${DENTAL}/doctor-reyes.jpg`, name: "Dra. Reyes", role: { es: "Estética", en: "Aesthetic" } },
-      { img: `${DENTAL}/doctor-valdez.jpg`, name: "Dr. Valdez", role: { es: "Implantes", en: "Implants" } },
-      { img: `${DENTAL}/doctor-mendoza.jpg`, name: "Dra. Mendoza", role: { es: "Familia", en: "Family" } },
+      { img: `${DENTAL}/doctor-reyes.webp`, name: "Dra. Reyes", role: { es: "Estética", en: "Aesthetic" } },
+      { img: `${DENTAL}/doctor-valdez.webp`, name: "Dr. Valdez", role: { es: "Implantes", en: "Implants" } },
+      { img: `${DENTAL}/doctor-mendoza.webp`, name: "Dra. Mendoza", role: { es: "Familia", en: "Family" } },
     ],
     info: {
       title: { es: "Horario", en: "Hours" },
@@ -148,7 +149,7 @@ export const TEMPLATES: Template[] = [
       { es: "Reservar", en: "Book" },
     ],
     hero: {
-      img: `${VILLAS}/hero.jpg`,
+      img: `${VILLAS}/hero.webp`,
       kicker: { es: "Cap Cana · Punta Cana", en: "Cap Cana · Punta Cana" },
       title: { es: "Seis villas. Fechas reales.", en: "Six villas. Real dates." },
       sub: {
@@ -168,28 +169,28 @@ export const TEMPLATES: Template[] = [
     ],
     cards: [
       {
-        img: `${VILLAS}/luna.jpg`,
+        img: `${VILLAS}/luna.webp`,
         tag: { es: "Frente al mar", en: "Oceanfront" },
         title: { es: "Villa Luna", en: "Villa Luna" },
         meta: "US$ 1,450",
       },
       {
-        img: `${VILLAS}/palmera.jpg`,
+        img: `${VILLAS}/palmera.webp`,
         tag: { es: "Campo de golf", en: "Fairway" },
         title: { es: "Villa Palmera", en: "Villa Palmera" },
         meta: "US$ 1,180",
       },
       {
-        img: `${VILLAS}/coral.jpg`,
+        img: `${VILLAS}/coral.webp`,
         tag: { es: "Caleta", en: "Cove" },
         title: { es: "Villa Coral", en: "Villa Coral" },
         meta: "US$ 980",
       },
     ],
     strip: [
-      { img: `${VILLAS}/living.jpg`, name: "Sala", role: { es: "Abierta al campo", en: "Open to the fairway" } },
-      { img: `${VILLAS}/bedroom.jpg`, name: "Recámaras", role: { es: "Cinco suites", en: "Five suites" } },
-      { img: `${VILLAS}/pool.jpg`, name: "Piscina", role: { es: "Borde infinito", en: "Infinity edge" } },
+      { img: `${VILLAS}/living.webp`, name: "Sala", role: { es: "Abierta al campo", en: "Open to the fairway" } },
+      { img: `${VILLAS}/bedroom.webp`, name: "Recámaras", role: { es: "Cinco suites", en: "Five suites" } },
+      { img: `${VILLAS}/pool.webp`, name: "Piscina", role: { es: "Borde infinito", en: "Infinity edge" } },
     ],
     info: {
       title: { es: "Estadía", en: "Stay" },
@@ -210,7 +211,7 @@ export const TEMPLATES: Template[] = [
       { es: "Consulta", en: "Consult" },
     ],
     hero: {
-      img: `${LEGAL}/facade.jpg`,
+      img: `${LEGAL}/facade.webp`,
       kicker: { es: "Ensanche Naco · Santo Domingo", en: "Ensanche Naco · Santo Domingo" },
       title: { es: "Consulta esta semana.", en: "Consult this week." },
       sub: {
@@ -230,28 +231,28 @@ export const TEMPLATES: Template[] = [
     ],
     cards: [
       {
-        img: `${LEGAL}/library.jpg`,
+        img: `${LEGAL}/library.webp`,
         tag: { es: "Societario", en: "Corporate" },
         title: { es: "Constitución y compliance", en: "Incorporation & compliance" },
         meta: "RD$ 35,000",
       },
       {
-        img: `${LEGAL}/conference.jpg`,
+        img: `${LEGAL}/conference.webp`,
         tag: { es: "Laboral", en: "Labor" },
         title: { es: "Contratos y salidas", en: "Contracts & exits" },
         meta: "RD$ 18,000",
       },
       {
-        img: `${LEGAL}/reception.jpg`,
+        img: `${LEGAL}/reception.webp`,
         tag: { es: "Inmobiliario", en: "Real estate" },
         title: { es: "Revisión legal", en: "Due diligence" },
         meta: "RD$ 45,000",
       },
     ],
     strip: [
-      { img: `${LEGAL}/almonte.jpg`, name: "Lic. Almonte", role: { es: "Societario", en: "Corporate" } },
-      { img: `${LEGAL}/nolasco.jpg`, name: "Lic. Nolasco", role: { es: "Laboral", en: "Labor" } },
-      { img: `${LEGAL}/reyes.jpg`, name: "Lic. Reyes", role: { es: "Inmobiliario", en: "Real estate" } },
+      { img: `${LEGAL}/almonte.webp`, name: "Lic. Almonte", role: { es: "Societario", en: "Corporate" } },
+      { img: `${LEGAL}/nolasco.webp`, name: "Lic. Nolasco", role: { es: "Laboral", en: "Labor" } },
+      { img: `${LEGAL}/reyes.webp`, name: "Lic. Reyes", role: { es: "Inmobiliario", en: "Real estate" } },
     ],
     info: {
       title: { es: "Oficina", en: "Office" },
@@ -272,7 +273,7 @@ export const TEMPLATES: Template[] = [
       { es: "Visita", en: "Site visit" },
     ],
     hero: {
-      img: `${BUILD}/hero.jpg`,
+      img: `${BUILD}/hero.webp`,
       kicker: { es: "Santo Domingo · RD", en: "Santo Domingo · DR" },
       title: { es: "12.400 m² en obra.", en: "12,400 m² under way." },
       sub: {
@@ -292,28 +293,28 @@ export const TEMPLATES: Template[] = [
     ],
     cards: [
       {
-        img: `${BUILD}/torre.jpg`,
+        img: `${BUILD}/torre.webp`,
         tag: { es: "Vertical", en: "Vertical" },
         title: { es: "Torre Piantini", en: "Torre Piantini" },
         meta: "18 niveles",
       },
       {
-        img: `${BUILD}/plaza.jpg`,
+        img: `${BUILD}/plaza.webp`,
         tag: { es: "Comercial", en: "Commercial" },
         title: { es: "Plaza Naco", en: "Plaza Naco" },
         meta: "6.200 m²",
       },
       {
-        img: `${BUILD}/villas.jpg`,
+        img: `${BUILD}/villas.webp`,
         tag: { es: "Residencial", en: "Residential" },
         title: { es: "Villas Arroyo", en: "Villas Arroyo" },
         meta: "12 unidades",
       },
     ],
     strip: [
-      { img: `${BUILD}/engineer-m.jpg`, name: "Ing. Aybar", role: { es: "Dirección", en: "Principal" } },
-      { img: `${BUILD}/engineer-w.jpg`, name: "Ing. Batista", role: { es: "Estructural", en: "Structural" } },
-      { img: `${BUILD}/site.jpg`, name: "Obra", role: { es: "Supervisión", en: "Supervision" } },
+      { img: `${BUILD}/engineer-m.webp`, name: "Ing. Aybar", role: { es: "Dirección", en: "Principal" } },
+      { img: `${BUILD}/engineer-w.webp`, name: "Ing. Batista", role: { es: "Estructural", en: "Structural" } },
+      { img: `${BUILD}/site.webp`, name: "Obra", role: { es: "Supervisión", en: "Supervision" } },
     ],
     info: {
       title: { es: "Oficina", en: "Office" },
@@ -334,7 +335,7 @@ export const TEMPLATES: Template[] = [
       { es: "Contacto", en: "Contact" },
     ],
     hero: {
-      img: `${VILLAS}/living.jpg`,
+      img: `${VILLAS}/living.webp`,
       kicker: { es: "Piantini · Santo Domingo", en: "Piantini · Santo Domingo" },
       title: { es: "Proyectos que se sienten en casa.", en: "Projects that feel like home." },
       sub: {
@@ -354,28 +355,28 @@ export const TEMPLATES: Template[] = [
     ],
     cards: [
       {
-        img: `${BUILD}/office.jpg`,
+        img: `${BUILD}/office.webp`,
         tag: { es: "Brief", en: "Brief" },
         title: { es: "Consulta inicial", en: "Discovery call" },
         meta: "RD$ 3,500",
       },
       {
-        img: `${COFFEE}/terrace.jpg`,
+        img: `${COFFEE}/terrace.webp`,
         tag: { es: "Obra", en: "Site" },
         title: { es: "Visita al proyecto", en: "Project visit" },
         meta: "RD$ 1,800",
       },
       {
-        img: `${LEGAL}/library.jpg`,
+        img: `${LEGAL}/library.webp`,
         tag: { es: "Plan", en: "Plan" },
         title: { es: "Propuesta completa", en: "Full proposal" },
         meta: "RD$ 12,000",
       },
     ],
     strip: [
-      { img: `${BUILD}/plaza.jpg`, name: "Ana Cruz", role: { es: "Dirección", en: "Direction" } },
-      { img: `${VILLAS}/pool.jpg`, name: "Luis Peña", role: { es: "Obra", en: "Build" } },
-      { img: `${COFFEE}/barista.jpg`, name: "María Sol", role: { es: "Interiores", en: "Interiors" } },
+      { img: `${BUILD}/plaza.webp`, name: "Ana Cruz", role: { es: "Dirección", en: "Direction" } },
+      { img: `${VILLAS}/pool.webp`, name: "Luis Peña", role: { es: "Obra", en: "Build" } },
+      { img: `${COFFEE}/barista.webp`, name: "María Sol", role: { es: "Interiores", en: "Interiors" } },
     ],
     info: {
       title: { es: "Horario", en: "Hours" },

@@ -31,6 +31,7 @@ export function GuidePageView({ slug }: { slug: GuideSlug }) {
         })}
       />
       <SiteNav />
+      <main id="main">
       <article style={{ padding: "72px 0 48px" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <p style={{ fontSize: "13px", color: "var(--muted)", marginBottom: "16px" }}>
@@ -89,6 +90,7 @@ export function GuidePageView({ slug }: { slug: GuideSlug }) {
           </button>
         </div>
       </article>
+      </main>
       <SiteFooter />
     </div>
   );

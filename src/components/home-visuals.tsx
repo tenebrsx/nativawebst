@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 export function HeroAtmosphere() {
   return (
@@ -93,12 +93,12 @@ export function PointerGlow() {
 export function BrandMarquee({ label, names }: { label: string; names: string[] }) {
   const row = [...names, ...names];
   return (
-    <div className="marquee" aria-label={label}>
+    <div className="marquee">
       <span className="marquee-label">{label}</span>
       <div className="marquee-viewport">
         <div className="marquee-track">
           {row.map((n, i) => (
-            <span key={`${n}-${i}`} className="marquee-item">
+            <span key={`${n}-${i}`} className="marquee-item" aria-hidden={i >= names.length ? true : undefined}>
               <span className="marquee-dot" />
               {n}
             </span>
@@ -110,51 +110,12 @@ export function BrandMarquee({ label, names }: { label: string; names: string[] 
 }
 
 export function CountStat({ value, label }: { value: string; label: string }) {
-  const match = value.match(/[\d,]+/);
-  const target = match ? parseInt(match[0].replace(/,/g, ""), 10) : 0;
-  const suffix = match ? value.slice(value.indexOf(match[0]) + match[0].length) : "";
-  const prefix = match ? value.slice(0, value.indexOf(match[0])) : value;
-  const [n, setN] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    started.current = false;
-    setN(0);
-    const el = ref.current;
-    if (!el) return;
-    const run = () => {
-      if (started.current) return;
-      started.current = true;
-      const duration = 1100;
-      const start = performance.now();
-      const step = (now: number) => {
-        const t = Math.min(1, (now - start) / duration);
-        const eased = 1 - Math.pow(1 - t, 3);
-        setN(Math.round(target * eased));
-        if (t < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          run();
-          io.disconnect();
-        }
-      },
-      { threshold: 0.4 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [target, value]);
-
-  const formatted = target >= 1000 ? n.toLocaleString("en-US") : String(n);
-
+  // Rendered as final text (no count-up from 0). The count-up re-painted the
+  // hero stats after hydration and pushed mobile LCP back by ~2 s.
   return (
-    <div ref={ref}>
+    <div>
       <div className="stat-num" style={{ fontFamily: "var(--font-head)", fontWeight: 800, fontSize: "22px" }}>
-        {prefix}{formatted}{suffix}
+        {value}
       </div>
       <div className="stat-lbl" style={{ fontSize: "12px", fontWeight: 600 }}>{label}</div>
     </div>
@@ -180,8 +141,8 @@ export function HeroSiteScene({ lang }: { lang: "es" | "en" }) {
             <em>{es ? "Contacto" : "Contact"}</em>
           </div>
           <div className="hero-scene-shots">
-            <img src="/demo/naco-legal/facade.jpg" alt="" />
-            <img src="/demo/constructora-aybar/office.jpg" alt="" />
+            <img src="/pv/naco-legal/facade.webp" alt="" width={720} height={405} decoding="async" fetchPriority="low" />
+            <img src="/pv/constructora-aybar/office.webp" alt="" width={720} height={405} decoding="async" fetchPriority="low" />
           </div>
           <div className="hero-scene-bars">
             <span />
@@ -192,10 +153,10 @@ export function HeroSiteScene({ lang }: { lang: "es" | "en" }) {
       </div>
 
       <div className="hero-scene-orb hero-scene-orb-b">
-        <img src="/brand/wordpress.png" alt="" />
+        <img src="/pv/brand/wordpress.webp" alt="" width={64} height={64} decoding="async" />
       </div>
       <div className="hero-scene-orb hero-scene-orb-c">
-        <img src="/brand/shopify.png" alt="" />
+        <img src="/pv/brand/shopify.webp" alt="" width={64} height={64} decoding="async" />
       </div>
       <div className="hero-scene-orb hero-scene-orb-d">
         <svg viewBox="0 0 24 24" fill="none">

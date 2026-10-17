@@ -29,6 +29,7 @@ export function LocalPageView({ id }: { id: LocalPageId }) {
         })}
       />
       <SiteNav />
+      <main id="main">
       <section style={{ padding: "72px 0 48px", borderBottom: "1px solid var(--border)" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <p style={{ fontSize: "13px", color: "var(--muted)", marginBottom: "16px" }}>
@@ -113,6 +114,7 @@ export function LocalPageView({ id }: { id: LocalPageId }) {
           </button>
         </div>
       </section>
+      </main>
       <SiteFooter />
     </div>
   );

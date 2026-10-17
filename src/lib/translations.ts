@@ -183,10 +183,10 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       process: "Process",
       pricing: "Pricing",
       portfolio: "Work & Proof",
-      proof: "Proof",
+      proof: "Demos",
       local: "Santo Domingo",
       why: "Why us",
-      cta: "Get Free Quote"
+      cta: "Free demo"
     },
     hero: {
       badge_label: "NATIVA · SANTO DOMINGO",
@@ -195,9 +195,9 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       title_2: "Local Action.",
       title_3: "Designed to Close.",
       desc: "Fast sites that show up on Maps and open WhatsApp. Once chats are landing, we add a personal CRM — and Nativa, a brand AI you text like a partner.",
-      cta_launch: "Launch the Ship →",
+      cta_launch: "Get your free demo →",
       cta_price: "See an estimate",
-      proof: "Clinic in Naco — live site, WhatsApp leads in 18 days.",
+      proof: "Free demo in 48 hours — see your site before you decide.",
       stat_delivery: "3 Weeks",
       stat_delivery_lbl: "Page live",
       stat_brands: "48h",
@@ -207,7 +207,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       whatsapp_footer: "Want to change text, add images, or adjust hours? Just text us."
     },
     partners: {
-      label: "Anchor partners:"
+      label: "Demo concepts we built:"
     },
     services: {
       label: "What we build",
@@ -215,7 +215,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       sub: "Web, Maps, and WhatsApp open the pipe. The CRM and Nativa come in once the chat is already alive.",
       items: [
         { icon: "🌐", title: "Website Design & Build", desc: "A fast site that explains the work and sends the visit to WhatsApp. Live in under 3 weeks." },
-        { icon: "📍", title: "Google Maps & Local SEO", desc: "When someone nearby searches your service, you show up first — with a tap to WhatsApp." },
+        { icon: "📍", title: "Google Maps & Local SEO", desc: "We set up your Google Maps listing and local SEO so nearby searches can find you — with a tap to WhatsApp." },
         { icon: "📱", title: "24/7 Support", desc: "Change hours, photos, or copy by message. We reply and publish — usually the same day." }
       ],
       stack_label: "Once the chat is live",
@@ -226,22 +226,22 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       ]
     },
     proof: {
-      label: "Proof",
-      title: "See how they text you.",
-      sub: "The treatment, the dates, the size. Not “hi, info?”.",
-      before: "Before",
-      after: "After",
-      view: "Open site →",
+      label: "Demo concepts",
+      title: "Examples of what we build.",
+      sub: "Sample sites for fictional Dominican businesses — not clients. Open them on your phone to see how yours could work: the message arrives with the treatment, the dates, or the size.",
+      before: "Typical problem",
+      after: "How the demo solves it",
+      view: "Open demo →",
       cta: "I want this for my business →"
     },
     process: {
       label: "What happens next",
       title: "From a 15-minute brief to clients in chat",
-      sub: "You describe the site on WhatsApp. You get your own demo. Then the website goes live — Maps, and clients start arriving.",
+      sub: "You describe the site on WhatsApp. You get your own free demo. Then the website goes live, connected to Maps and WhatsApp.",
       steps: [
         { num: "01", title: "15-min brief", body: "You describe the site. We reply with pages, Maps, and how leads hit the chat." },
         { num: "02", title: "Your own demo", body: "A live link in days — not a PDF. You open it on your phone like a customer would." },
-        { num: "03", title: "Your site, live", body: "A complete website, open on Maps, and new clients walking in." }
+        { num: "03", title: "Your site, live", body: "A complete website, live on Google Maps and ready to receive messages." }
       ]
     },
     jargon: {
@@ -275,20 +275,20 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       starting_at: "from",
       platform: "Platform",
       managed_support: "Managed Support Care",
-      cta: "Launch the Ship →",
+      cta: "Get your free demo →",
       disclaimer: "This is a brief, not a charge. We confirm the spec in 15 minutes before anything is built.",
       tiers: {
         landing: { name: "Essential", desc: "A designed landing page: brand, hours, treatments, the team — one page that already looks like the business.", pages: "Landing page" },
         site: { name: "Complete", desc: "The full stack: site, Google Maps and SEO, a personal CRM, and a brand AI synced to it. One setup, then monthly care.", pages: "Web + CRM + AI" },
-        shop: { name: "Ecommerce", desc: "A store that starts simple: catalog and bag. Add Shopify when you are ready to take payment.", pages: "Online store" }
+        shop: { name: "Online store", desc: "A store that starts simple: catalog and bag. Add Shopify when you are ready to take payment.", pages: "Catalog and bag" }
       },
       addons: {
-        seo: { label: "Google Maps and SEO optimization", desc: "Show up on the map. Rank when they search nearby." },
+        seo: { label: "Google Maps and local SEO", desc: "Show up on the map. Rank when they search nearby." },
         brand: { label: "Design & identity", desc: "Mark, palette, and type — the site wears the brand, not a template." },
         bilingual: { label: "Bilingual site EN / ES", desc: "The same site in both languages. Locals and visitors both read it." },
         shopify: { label: "Shopify integration", desc: "Catalog, bag, and checkout on Shopify — when you are ready to sell." },
-        crm: { label: "Personal CRM", desc: "From RD$ 10,000 setup, then ~RD$ 2,000 per user/month — leads, stages, and notes on a board." },
-        ai: { label: "Brand AI synced with CRM", desc: "Answers routine chats and books. Scales with your volume — starting at RD$ 4,000/month." }
+        crm: { label: "Personal CRM", desc: "Leads, stages, and notes on one board, fed by your WhatsApp chats. Price shown for 1 user." },
+        ai: { label: "Brand AI synced with CRM", desc: "Answers routine chats and books appointments. Final price scales with your volume." }
       },
       support_label: "Managed Support & Optimization Care",
       support_desc: "Includes daily backups, performance scaling, secure edge hosting, and unlimited text-to-update content changes.",
@@ -334,18 +334,18 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       cta: "Send the brief on WhatsApp →"
     },
     portfolioPage: {
-      label: "Plantillas Interactivas",
+      label: "Interactive templates",
       title: "Production-Ready Web Templates",
       sub: "Inspect our ready-to-deploy website templates engineered for Dominican & global brands. Select a template, test live previews, and launch in 48 hours.",
-      stat_built: "12+",
-      stat_built_lbl: "Plantillas Listas",
+      stat_built: "10",
+      stat_built_lbl: "Demo templates",
       stat_speed: "48h",
       stat_speed_lbl: "Launch Turnaround",
       stat_score: "100/100",
-      stat_score_lbl: "Mobile Speed Score",
+      stat_score_lbl: "Mobile speed target",
       search_placeholder: "Search template (e.g. Clinic, Real Estate, Legal, WhatsApp, E-Commerce)...",
       categories: {
-        all: "Todas las Plantillas",
+        all: "All templates",
         smb: "Medical & SMBs",
         realestate: "Real Estate & Villas",
         pro: "Legal & Corporate",
@@ -481,7 +481,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
           client: "Architecture & Interior Design Studio",
           category: "pro",
           industry: "Interior Design & Architecture",
-          badge: "Featured Portfolio Project",
+          badge: "Ready in 48 Hours",
           speedBefore: "6.4s",
           speedAfter: "0.3s",
           desc: "High-end interior design and architectural development platform featuring luxury residential projects, 3D space visualizers, and project spec inquiries.",
@@ -495,7 +495,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
           client: "Luxury Real Estate & Advisory",
           category: "realestate",
           industry: "Luxury Real Estate & Investments",
-          badge: "Live Enterprise Client",
+          badge: "Ready in 48 Hours",
           speedBefore: "5.9s",
           speedAfter: "0.4s",
           desc: "Exclusive Dominican luxury real estate platform showcasing high-end oceanfront villas, Cap Cana penthouses, and investment properties.",
@@ -512,10 +512,10 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       process: "Proceso",
       pricing: "Precios",
       portfolio: "Trabajos y demos",
-      proof: "Casos",
+      proof: "Demos",
       local: "Santo Domingo",
       why: "Por qué nosotros",
-      cta: "Pedir cotización"
+      cta: "Demo gratis"
     },
     hero: {
       badge_label: "NATIVA · SANTO DOMINGO",
@@ -524,9 +524,9 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       title_2: "Negocio Merece.",
       title_3: "",
       desc: "Apareces en Google Maps cuando buscan tu servicio. Un toque abre WhatsApp. Cuando ya llegan mensajes, sumamos un CRM personal y Nativa: un agente de IA al que le escribes como a un socio.",
-      cta_launch: "Escríbenos por WhatsApp →",
+      cta_launch: "Pide tu demo gratis →",
       cta_price: "Ver presupuesto",
-      proof: "Clínica en Naco — sitio en vivo, clientes por WhatsApp en 18 días.",
+      proof: "Demo gratis en 48 horas: ves tu sitio antes de decidir.",
       stat_delivery: "3 semanas",
       stat_delivery_lbl: "Página lista",
       stat_brands: "48h",
@@ -536,7 +536,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       whatsapp_footer: "¿Quieres cambiar texto, agregar fotos o ajustar horarios? Solo envíanos un mensaje."
     },
     partners: {
-      label: "Empresas aliadas:"
+      label: "Conceptos de demo que diseñamos:"
     },
     services: {
       label: "Qué construimos",
@@ -544,7 +544,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       sub: "Web, Maps y WhatsApp abren el camino. El CRM y Nativa entran cuando el chat ya está vivo.",
       items: [
         { icon: "🌐", title: "Diseño y desarrollo web", desc: "Una página que explica el oficio y manda la visita a WhatsApp. Lista en unas 3 semanas." },
-        { icon: "📍", title: "Google Maps y SEO local", desc: "Cuando buscan tu servicio cerca, apareces primero — con un toque a WhatsApp." },
+        { icon: "📍", title: "Google Maps y SEO local", desc: "Configuramos tu ficha de Google Maps y el SEO local para que te encuentren cuando buscan cerca — con un toque a WhatsApp." },
         { icon: "💬", title: "Soporte 24/7", desc: "Cambias horarios, fotos o textos por mensaje. Contestamos y lo publicamos — casi siempre el mismo día." }
       ],
       stack_label: "Cuando ya llega el chat",
@@ -555,22 +555,22 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       ]
     },
     proof: {
-      label: "Casos",
-      title: "Mira cómo te escriben.",
-      sub: "El tratamiento, las fechas, la talla. No un “hola, info?”.",
-      before: "Antes",
-      after: "Después",
-      view: "Abrir sitio →",
+      label: "Conceptos de demo",
+      title: "Ejemplos de lo que construimos.",
+      sub: "Sitios de muestra para negocios ficticios en RD — no son clientes. Ábrelos en tu celular para ver cómo funcionaría el tuyo: el mensaje llega con el tratamiento, las fechas o la talla.",
+      before: "Problema típico",
+      after: "Cómo lo resuelve el demo",
+      view: "Abrir demo →",
       cta: "Quiero esto para mi negocio →"
     },
     process: {
       label: "Qué pasa después",
       title: "De una charla de 15 minutos a clientes en el chat",
-      sub: "Describes el sitio por WhatsApp. Ves tu propio demo. El sitio sale en vivo — Maps, y empiezan a llegar clientes.",
+      sub: "Describes el sitio por WhatsApp. Recibes tu propio demo gratis. Luego el sitio sale en vivo, conectado a Maps y WhatsApp.",
       steps: [
         { num: "01", title: "Charla de 15 min", body: "Tú describes el sitio. Respondemos con páginas, Maps y cómo entra el cliente al chat." },
         { num: "02", title: "Tu propio demo", body: "Un link vivo en días — no un PDF. Lo abres en el celular como lo haría un cliente." },
-        { num: "03", title: "Tu sitio en vivo", body: "Un sitio completo, abierto en Maps, y clientes nuevos entrando." }
+        { num: "03", title: "Tu sitio en vivo", body: "Un sitio completo, publicado en Google Maps y listo para recibir mensajes." }
       ]
     },
     jargon: {
@@ -586,7 +586,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
     },
     pricing: {
       label: "Presupuesto",
-      title: "Como se viera tu Propio Sitio Web",
+      title: "Arma tu propio sitio web",
       sub: "Elige tu industria. Entra al estudio y arma el plan. La vista previa es real: cambia con cada opción.",
       step_1: "01 Elige el plan",
       step_1_sub: "Escoge la base que mejor encaje con tu negocio.",
@@ -604,25 +604,25 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       starting_at: "desde",
       platform: "Plataforma",
       managed_support: "Soporte continuo",
-      cta: "Escríbenos por WhatsApp →",
+      cta: "Pide tu demo gratis →",
       disclaimer: "Esto es un estimado, no un cobro. Confirmamos el alcance en 15 minutos antes de construir.",
       tiers: {
         landing: { name: "Esencial", desc: "Una página diseñada: marca, horarios, tratamientos, el equipo — ya se ve como el negocio.", pages: "Página de aterrizaje" },
         site: { name: "Completo", desc: "Todo junto: sitio, Google Maps y SEO, CRM personal e IA de marca sincronizada. Una instalación, luego el cuidado mensual.", pages: "Web + CRM + IA" },
-        shop: { name: "Ecommerce", desc: "Una tienda que empieza simple: catálogo y bolsa. Suma Shopify cuando quieras cobrar.", pages: "Tienda online" }
+        shop: { name: "Tienda online", desc: "Una tienda que empieza simple: catálogo y bolsa. Suma Shopify cuando quieras cobrar.", pages: "Catálogo y bolsa" }
       },
       addons: {
         seo: { label: "Google Maps y SEO", desc: "Apareces en el mapa. Sales cuando buscan cerca." },
         brand: { label: "Diseño y identidad", desc: "Marca, paleta y tipo — el sitio viste la marca, no una plantilla." },
         bilingual: { label: "Sitio bilingüe EN / ES", desc: "El mismo sitio en los dos idiomas. Locales y visitantes lo leen." },
         shopify: { label: "Integración con Shopify", desc: "Catálogo, bolsa y cobro en Shopify — cuando estés listo para vender." },
-        crm: { label: "CRM personal", desc: "Desde RD$ 10,000 de instalación, luego ~RD$ 2,000 por usuario/mes — clientes, etapas y notas en un tablero." },
-        ai: { label: "IA de marca sincronizada con CRM", desc: "Responde lo rutinario y agenda. Crece con tu volumen — desde RD$ 4,000/mes." }
+        crm: { label: "CRM personal", desc: "Clientes, etapas y notas en un tablero, alimentado por tus chats de WhatsApp. Precio para 1 usuario." },
+        ai: { label: "IA de marca sincronizada con CRM", desc: "Responde lo rutinario y agenda citas. El precio final crece con tu volumen." }
       },
       support_label: "Plan de soporte y optimización",
       support_desc: "Incluye copias de seguridad diarias, velocidad optimizada, alojamiento seguro y cambios de texto/fotos ilimitados.",
-      preview_title: "Como se viera tu Propio Sitio Web",
-      ask_open: "Como se viera tu Propio Sitio Web",
+      preview_title: "Así se vería tu sitio web",
+      ask_open: "Así se vería tu sitio web",
       ask_peek: "Ver cómo se vería →",
       ask_close: "Cerrar el estudio",
       ask_tpl: "¿Qué tipo de negocio?",
@@ -666,12 +666,12 @@ export const translations: Record<TranslationKey, TranslationDict> = {
       label: "Plantillas listas",
       title: "Sitios listos para lanzar",
       sub: "Plantillas hechas para negocios en República Dominicana. Elige una, pruébala en vivo y lánzala en 48 horas.",
-      stat_built: "12+",
-      stat_built_lbl: "Plantillas listas",
+      stat_built: "10",
+      stat_built_lbl: "Plantillas de demo",
       stat_speed: "48h",
       stat_speed_lbl: "Tiempo de entrega",
       stat_score: "100/100",
-      stat_score_lbl: "Velocidad en celular",
+      stat_score_lbl: "Meta de velocidad en celular",
       search_placeholder: "Buscar plantilla (ej. clínica, villas, abogados, WhatsApp, tienda)…",
       categories: {
         all: "Todas las plantillas",
@@ -810,7 +810,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
           client: "Estudio de arquitectura e interiorismo",
           category: "pro",
           industry: "Diseño de interiores y arquitectura",
-          badge: "Proyecto destacado",
+          badge: "Lista en 48 horas",
           speedBefore: "6.4s",
           speedAfter: "0.3s",
           desc: "Portafolio de alto nivel: residencias, renders 3D y cotización de proyectos por WhatsApp.",
@@ -824,7 +824,7 @@ export const translations: Record<TranslationKey, TranslationDict> = {
           client: "Inmobiliaria de lujo",
           category: "realestate",
           industry: "Bienes raíces de lujo",
-          badge: "Cliente en vivo",
+          badge: "Lista en 48 horas",
           speedBefore: "5.9s",
           speedAfter: "0.4s",
           desc: "Villas frente al mar, penthouses en Cap Cana y propiedades de inversión en República Dominicana.",

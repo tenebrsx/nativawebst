@@ -101,7 +101,7 @@ export default function Image() {
               color: "rgba(250,247,242,0.55)",
             }}
           >
-            <span>nativa.studio</span>
+            <span>nativastudio.com.do</span>
             <span>Hecho en República Dominicana</span>
           </div>
         </div>

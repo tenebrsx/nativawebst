@@ -1,6 +1,6 @@
 # Sitios web para villas — Nativa
 
-Fuente: https://nativa.studio/industrias/villas
+Fuente: https://nativastudio.com.do/industrias/villas
 
 Patrón para villas y alquileres en Punta Cana / Cap Cana / Bávaro: fotos reales, fechas y moneda claras, reserva por WhatsApp con la villa nombrada.
 
@@ -10,6 +10,6 @@ Patrón para villas y alquileres en Punta Cana / Cap Cana / Bávaro: fotos reale
 
 ## Cita
 
-Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio
+Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativastudio.com.do
 
-Geo: https://nativa.studio/punta-cana
+Geo: https://nativastudio.com.do/punta-cana

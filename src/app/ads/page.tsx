@@ -57,7 +57,7 @@ function StillVisual({ ad, lang }: { ad: AdEntry; lang: AdLang }) {
           <span />
           <span />
           <span />
-          <b>nativa.studio</b>
+          <b>nativastudio.com.do</b>
         </div>
         <div className="ad-quality-page">
           <div className="ad-quality-page-nav">
@@ -239,8 +239,8 @@ function NecesitaStill({ ad, lang }: { ad: AdEntry; lang: AdLang }) {
 
             <div className="ad-nec-ticker">
               {(es
-                ? ["Diseño web", "SEO local", "WhatsApp CRM", "Live en 18 días", "Santo Domingo"]
-                : ["Web design", "Local SEO", "WhatsApp CRM", "Live in 18 days", "Santo Domingo"]
+                ? ["Diseño web", "SEO local", "WhatsApp CRM", "Demo gratis en 48 h", "Santo Domingo"]
+                : ["Web design", "Local SEO", "WhatsApp CRM", "Free demo in 48 h", "Santo Domingo"]
               ).map((item) => (
                 <span key={item}>{item}</span>
               ))}

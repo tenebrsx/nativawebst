@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap");
 
 /* ── Section entry (soft sticky hold, not a hard lock) ───────── */
 .pb-pin {
@@ -633,7 +632,9 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   font-family: var(--font-head);
   font-size: clamp(1.5rem, 2.3vw, 2rem);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
   color: var(--pb-fg);
   line-height: 1.1;
 }
