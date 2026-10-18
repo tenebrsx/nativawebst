@@ -7,7 +7,12 @@ import { translations } from "@/lib/translations";
 import { RegionSelector } from "@/components/region-selector";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 
-export default function SiteNav() {
+/**
+ * `solid`: keep the bar fully opaque when scrolled (no frosted glass). Used on
+ * pages whose content scrolls directly beneath the bar, e.g. /pricing-builder,
+ * where checkboxes and cards would otherwise show through it.
+ */
+export default function SiteNav({ solid = false }: { solid?: boolean } = {}) {
   const { lang } = useGeo();
   const dict = translations[lang];
   const [open, setOpen] = useState(false);
@@ -48,7 +53,7 @@ export default function SiteNav() {
   return (
     <nav
       aria-label={lang === "es" ? "Navegación principal" : "Main navigation"}
-      className={scrolled ? "site-nav-scrolled" : undefined}
+      className={scrolled && !solid ? "site-nav-scrolled" : undefined}
       style={{
         position: "sticky",
         top: 0,
