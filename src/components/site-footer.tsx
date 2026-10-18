@@ -99,7 +99,7 @@ export default function SiteFooter() {
               {lang === "es" ? "Navegación" : "Sitemap"}
             </h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px" }}>
-              <li><Link href="/#pricing" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.pricing}</Link></li>
+              <li><Link href="/pricing-builder" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.pricing}</Link></li>
               <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
               <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
               <li>

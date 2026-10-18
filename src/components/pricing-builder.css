@@ -441,6 +441,32 @@
   white-space: nowrap;
 }
 
+a.pb-teaser-go {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.pb-teaser-go:focus-visible,
+.pb-teaser-quick:focus-visible {
+  outline: 2px solid var(--pb-accent-soft);
+  outline-offset: 3px;
+}
+
+.pb-teaser-quick {
+  border: 1px solid var(--pb-border);
+  background: transparent;
+  color: var(--pb-fg-soft);
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pb-teaser-quick:hover { border-color: var(--pb-hover-border); color: var(--pb-fg); }
+
 /* Desktop: left copy/plans, right live preview */
 @media (min-width: 981px) {
   .pb-pin {
@@ -5451,6 +5477,11 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
     text-align: center;
   }
 
+  .pb-teaser-quick {
+    width: 100%;
+    text-align: center;
+  }
+
   .pb-teaser-copy {
     text-align: center;
   }
@@ -6199,4 +6230,29 @@ body[data-pb-open="1"] .wa-funnel { display: none !important; }
   .pb-teaser-stage[data-plan="shop"] {
     height: auto;
   }
+}
+
+/* Desktop shop artboards are 1280×780 like the landing ones. `.shop.shop-site`
+   sets width/height to 100%, which beat `.lp-fit .shop` and scaled the store
+   preview twice (it only filled ~2/3 of its frame). */
+@media (min-width: 981px) {
+  .lp-fit-inner > .shop.shop-site {
+    width: 1280px;
+    height: 780px;
+  }
+}
+
+@media (min-width: 981px) {
+  .pb-sec-cta {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Small screens render the artboards fluid at scale 1 (see LpFit). Say so in
+   CSS too, so the first paint already matches and the preview doesn't jump
+   (and become a late LCP) when the script runs. */
+@media (max-width: 980px) {
+  .lp-fit { --lp-s: 1; }
 }

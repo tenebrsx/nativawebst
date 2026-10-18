@@ -97,6 +97,12 @@ Caribbean studio selling live websites that put clients in WhatsApp. Quiet Atlan
 - **Motion**: see §6
 - **A11y**: `role="tablist"` / `tab`; reduced-motion kills autoplay and transforms
 
+### PricingConfigurator (`/pricing-builder`)
+- **Structure**: sticky dark preview well (~65%, `#0c1524`, radius 16px) with the live template artboard + hotspot badges (WhatsApp, Maps, CRM, IA, ES|EN, support, Shopify, identity) and a sitemap strip → paper config panel (~35%) with a sticky numbered step rail → six steps → ink price bar (sticky bottom: one-time + monthly, breakdown, RD$/US$, CTA).
+- **Pricing**: every amount comes from `src/lib/pricing.ts` (shared with the homepage studio). Free cosmetic choices (tone, palette, sections) live in `src/lib/configurator.ts`.
+- **Mobile**: preview sticky on top and shrinks with scroll (spacer keeps layout stable); hotspots collapse to a pill row; price bar sticky at the bottom.
+- **A11y**: native radios/checkboxes, `aria-live` total (settled value only), reduced motion = no tween/crossfade.
+
 ### Button `.btn-launch`
 - Sun yellow, navy text, radius-sm, press darkens to `--sun-dark`
 

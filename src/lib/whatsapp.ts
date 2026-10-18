@@ -150,3 +150,64 @@ export function buildContactMessage(opts: {
     .filter(Boolean)
     .join("\n");
 }
+
+/**
+ * Message for the /pricing-builder configurator. Every amount is passed
+ * pre-formatted in the visitor's currency; totals equal the listed lines.
+ */
+export function buildConfiguratorMessage(opts: {
+  lang: "es" | "en";
+  plan: string;
+  planPrice: string;
+  template: string;
+  style: string;
+  sections: string[];
+  addons: string[];
+  support: string | null;
+  oneTime: string;
+  monthly: string | null;
+  currency: string;
+  link?: string;
+}) {
+  const es = opts.lang === "es";
+  const list = (items: string[]) =>
+    items.length ? items.map((l) => `  – ${l}`).join("\n") : es ? "  – Ninguno" : "  – None";
+  const lines = es
+    ? [
+        "Hola Nativa 👋",
+        "Armé mi sitio en el configurador:",
+        "",
+        `• Plan: ${opts.plan} — ${opts.planPrice}`,
+        `• Plantilla: ${opts.template}`,
+        `• Estilo: ${opts.style}`,
+        `• Secciones: ${opts.sections.join(", ")}`,
+        `• Extras:\n${list(opts.addons)}`,
+        `• Soporte mensual: ${opts.support ?? "No"}`,
+        "",
+        `Inversión única: ${opts.oneTime}`,
+        `Mensual: ${opts.monthly ?? "—"}`,
+        `Moneda: ${opts.currency}`,
+        opts.link ? `\nMi configuración: ${opts.link}` : null,
+        "",
+        "¿Me preparan el demo gratis en 48 horas? Entiendo que es un estimado y que el precio final se confirma en la llamada.",
+      ]
+    : [
+        "Hi Nativa 👋",
+        "I built my site in the configurator:",
+        "",
+        `• Plan: ${opts.plan} — ${opts.planPrice}`,
+        `• Template: ${opts.template}`,
+        `• Style: ${opts.style}`,
+        `• Sections: ${opts.sections.join(", ")}`,
+        `• Add-ons:\n${list(opts.addons)}`,
+        `• Monthly support: ${opts.support ?? "No"}`,
+        "",
+        `One-time: ${opts.oneTime}`,
+        `Monthly: ${opts.monthly ?? "—"}`,
+        `Currency: ${opts.currency}`,
+        opts.link ? `\nMy build: ${opts.link}` : null,
+        "",
+        "Can you prepare the free 48-hour demo? I understand this is an estimate and the final price is confirmed on the call.",
+      ];
+  return lines.filter((l) => l !== null).join("\n");
+}

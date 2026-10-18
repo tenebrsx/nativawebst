@@ -41,7 +41,7 @@ export default function SiteNav() {
     { href: "/servicios", label: dict.nav.services },
     { href: "/santo-domingo", label: dict.nav.local },
     { href: "/por-que-nosotros", label: dict.nav.why },
-    { href: "/#pricing", label: dict.nav.pricing },
+    { href: "/pricing-builder", label: dict.nav.pricing },
     { href: "/#how-it-works", label: dict.nav.process },
   ];
 
