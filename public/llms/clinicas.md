@@ -1,6 +1,6 @@
 # Sitios web para clínicas en República Dominicana
 
-Fuente: https://nativa.studio/industrias/clinicas
+Fuente: https://nativastudio.com.do/industrias/clinicas
 
 Nativa construye sitios y SEO local para clínicas en RD: el paciente busca “clínica cerca de mí” o el tratamiento en Google Maps, toca, y la cita llega por WhatsApp con el servicio ya nombrado.
 

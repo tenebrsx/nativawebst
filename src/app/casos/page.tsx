@@ -3,13 +3,13 @@ import Link from "next/link";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
-import { absoluteUrl, pageMetadata, SITE_CITATION, SITE_URL } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SITE_URL } from "@/lib/site";
 import { orgId, websiteId } from "@/lib/json-ld";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Casos reales | Nativa Web Studio",
+  title: "Casos de clientes",
   description:
-    "Casos de proyectos reales de Nativa Web Studio. Publicamos solo trabajo entregado con resultados verificables — no demos ni clientes inventados.",
+    "Casos de clientes de Nativa Web Studio. Somos un estudio nuevo: publicaremos aquí solo proyectos entregados con resultados verificables. Mientras tanto, mira nuestros conceptos de demo.",
   path: "/casos",
 });
 
@@ -24,7 +24,7 @@ export default function CasosPage() {
               "@type": "WebPage",
               "@id": `${SITE_URL}/casos#webpage`,
               url: `${SITE_URL}/casos`,
-              name: "Casos reales | Nativa Web Studio",
+              name: "Casos de clientes | Nativa Web Studio",
               description:
                 "Portfolio de casos reales. Solo proyectos entregados; las demos en /demo/* no son casos.",
               isPartOf: { "@id": websiteId() },
@@ -51,36 +51,24 @@ export default function CasosPage() {
         }}
       />
       <SiteNav />
+      <main id="main">
       <section style={{ padding: "72px 0 80px" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <div className="section-label">Casos</div>
           <h1 className="section-title" style={{ marginBottom: "20px" }}>
-            Casos reales — cuando existan, aquí
+            Casos de clientes
           </h1>
           <p style={{ fontSize: "18px", lineHeight: 1.7, color: "var(--muted)", marginBottom: "24px" }}>
-            Todavía no publicamos casos inventados. Cuando un proyecto real tenga problema → entrega → resultado
-            (WhatsApp, Maps, plazos), irá en esta página con nombre y métricas que se puedan defender.
+            Somos un estudio nuevo y todavía no tenemos casos publicados. No vamos a inventarlos: cuando entreguemos
+            proyectos con resultados medibles, los publicaremos aquí con el permiso de cada cliente.
           </p>
           <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--muted)", marginBottom: "28px" }}>
             Mientras tanto, las plantillas en{" "}
             <Link href="/portfolio" style={{ color: "var(--coral-blue)", fontWeight: 700 }}>
               /portfolio
             </Link>{" "}
-            son prototipos de industria — no clientes en vivo. Si quieres ver calidad de producto, pide una cotización
-            por WhatsApp.
-          </p>
-          <p
-            style={{
-              fontSize: "13px",
-              lineHeight: 1.6,
-              color: "var(--muted)",
-              padding: "16px 18px",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              marginBottom: "32px",
-            }}
-          >
-            Cita: {SITE_CITATION}
+            son conceptos de demo por industria, no clientes. Si quieres ver cómo quedaría tu sitio, pide tu demo
+            gratis: te lo armamos en 48 horas.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
             <Link href="/servicios/diseno-web" className="btn btn-launch" style={{ textDecoration: "none" }}>
@@ -96,6 +84,7 @@ export default function CasosPage() {
           </div>
         </div>
       </section>
+      </main>
       <SiteFooter />
     </div>
   );

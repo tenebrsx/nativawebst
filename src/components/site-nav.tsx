@@ -11,6 +11,9 @@ export default function SiteNav() {
   const { lang } = useGeo();
   const dict = translations[lang];
   const [open, setOpen] = useState(false);
+  // The drawer links are only rendered once the menu has been opened, so the
+  // page doesn't ship a second, hidden copy of every nav link.
+  const [drawerReady, setDrawerReady] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -44,6 +47,7 @@ export default function SiteNav() {
 
   return (
     <nav
+      aria-label={lang === "es" ? "Navegación principal" : "Main navigation"}
       className={scrolled ? "site-nav-scrolled" : undefined}
       style={{
         position: "sticky",
@@ -127,7 +131,15 @@ export default function SiteNav() {
             className={`nav-hamburger${open ? " is-open" : ""}`}
             aria-label={open ? (lang === "es" ? "Cerrar menú" : "Close menu") : (lang === "es" ? "Abrir menú" : "Open menu")}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            aria-controls="mobile-nav-drawer"
+            onClick={() => {
+              if (!drawerReady) {
+                setDrawerReady(true);
+                requestAnimationFrame(() => requestAnimationFrame(() => setOpen(true)));
+                return;
+              }
+              setOpen((v) => !v);
+            }}
           >
             <span />
             <span />
@@ -136,27 +148,35 @@ export default function SiteNav() {
         </div>
       </div>
 
-      <div className={`mobile-nav-drawer${open ? " is-open" : ""}`} aria-hidden={!open}>
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="mobile-nav-link"
+      <div
+        id="mobile-nav-drawer"
+        className={`mobile-nav-drawer${open ? " is-open" : ""}`}
+        inert={!open}
+      >
+        {drawerReady ? (
+          <>
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="mobile-nav-link"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <button
+              type="button"
+              className="btn btn-navy mobile-nav-cta"
+              onClick={() => {
+                setOpen(false);
+                openWhatsAppFunnel("nav-mobile");
+              }}
             >
-              {link.label}
-            </Link>
-          ))}
-          <button
-            type="button"
-            className="btn btn-navy mobile-nav-cta"
-            onClick={() => {
-              setOpen(false);
-              openWhatsAppFunnel("nav-mobile");
-            }}
-          >
-            {dict.nav.cta}
-          </button>
+              {dict.nav.cta}
+            </button>
+          </>
+        ) : null}
       </div>
     </nav>
   );

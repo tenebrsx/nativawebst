@@ -34,12 +34,12 @@ export const LEGAL_DOCS: Record<LegalSlug, LegalDoc> = {
     path: "/legal/privacidad",
     metaTitle: "Política de privacidad",
     metaDescription:
-      "Cómo Nativa Web Studio trata datos personales en nativa.studio: cotizaciones, WhatsApp, Analytics y tus derechos bajo la Ley 172-13 en República Dominicana.",
+      "Cómo Nativa Web Studio trata datos personales en nativastudio.com.do: cotizaciones, WhatsApp, Analytics y tus derechos bajo la Ley 172-13 en República Dominicana.",
     label: { es: "Privacidad", en: "Privacy" },
     h1: { es: "Política de privacidad", en: "Privacy policy" },
     lede: {
-      es: "Nativa Web Studio (“Nativa”, “nosotros”) opera nativa.studio desde Santo Domingo. Esta política explica qué datos pedimos, para qué y cómo puedes ejercer tus derechos bajo la Ley 172-13 de Protección de Datos Personales de la República Dominicana.",
-      en: "Nativa Web Studio (“Nativa”, “we”) runs nativa.studio from Santo Domingo. This policy explains what data we ask for, why, and how you can exercise your rights under Dominican Republic Law 172-13 on Personal Data Protection.",
+      es: "Nativa Web Studio (“Nativa”, “nosotros”) opera nativastudio.com.do desde Santo Domingo. Esta política explica qué datos pedimos, para qué y cómo puedes ejercer tus derechos bajo la Ley 172-13 de Protección de Datos Personales de la República Dominicana.",
+      en: "Nativa Web Studio (“Nativa”, “we”) runs nativastudio.com.do from Santo Domingo. This policy explains what data we ask for, why, and how you can exercise your rights under Dominican Republic Law 172-13 on Personal Data Protection.",
     },
     sections: [
       {
@@ -50,8 +50,8 @@ export const LEGAL_DOCS: Record<LegalSlug, LegalDoc> = {
             en: "The controller is Nativa Web Studio, based at Av. Winston Churchill, Santo Domingo, Distrito Nacional, Dominican Republic. Email: info@nativa.studio. Phone and WhatsApp: +1 (809) 358-8113.",
           },
           {
-            es: "Esta política cubre el sitio público nativa.studio, el cotizador, el chat de WhatsApp de Nativa y los formularios de contacto. No cubre sitios de clientes, ni los prototipos en /demo/*, que son ficción de industria.",
-            en: "This policy covers the public site nativa.studio, the quote builder, Nativa’s WhatsApp chat, and contact forms. It does not cover client websites, or the /demo/* prototypes, which are fictional industry samples.",
+            es: "Esta política cubre el sitio público nativastudio.com.do, el cotizador, el chat de WhatsApp de Nativa y los formularios de contacto. No cubre sitios de clientes, ni los prototipos en /demo/*, que son ficción de industria.",
+            en: "This policy covers the public site nativastudio.com.do, the quote builder, Nativa’s WhatsApp chat, and contact forms. It does not cover client websites, or the /demo/* prototypes, which are fictional industry samples.",
           },
         ],
       },
@@ -178,20 +178,20 @@ export const LEGAL_DOCS: Record<LegalSlug, LegalDoc> = {
     path: "/legal/terminos",
     metaTitle: "Términos de uso",
     metaDescription:
-      "Términos de uso de nativa.studio: el cotizador no es un contrato, los demos son prototipos, y el trabajo de cliente se rige por la propuesta firmada.",
+      "Términos de uso de nativastudio.com.do: el cotizador no es un contrato, los demos son prototipos, y el trabajo de cliente se rige por la propuesta firmada.",
     label: { es: "Términos", en: "Terms" },
     h1: { es: "Términos de uso", en: "Terms of use" },
     lede: {
-      es: "Estos términos rigen el uso de nativa.studio. No sustituyen una propuesta firmada. Si hay conflicto entre esta página y un contrato de proyecto, manda el contrato.",
-      en: "These terms govern use of nativa.studio. They do not replace a signed proposal. If this page and a project contract conflict, the contract wins.",
+      es: "Estos términos rigen el uso de nativastudio.com.do. No sustituyen una propuesta firmada. Si hay conflicto entre esta página y un contrato de proyecto, manda el contrato.",
+      en: "These terms govern use of nativastudio.com.do. They do not replace a signed proposal. If this page and a project contract conflict, the contract wins.",
     },
     sections: [
       {
         title: { es: "El sitio", en: "The site" },
         paragraphs: [
           {
-            es: "nativa.studio es la vitrina y el canal de contacto de Nativa Web Studio en República Dominicana. Informa servicios, precios de piso, proceso y prototipos. Al usarlo aceptas estos términos.",
-            en: "nativa.studio is Nativa Web Studio’s showcase and contact channel in the Dominican Republic. It explains services, floor prices, process, and prototypes. By using it you accept these terms.",
+            es: "nativastudio.com.do es la vitrina y el canal de contacto de Nativa Web Studio en República Dominicana. Informa servicios, precios de piso, proceso y prototipos. Al usarlo aceptas estos términos.",
+            en: "nativastudio.com.do is Nativa Web Studio’s showcase and contact channel in the Dominican Republic. It explains services, floor prices, process, and prototypes. By using it you accept these terms.",
           },
           {
             es: "El cotizador y las cifras en pantalla son orientativos (pisos en USD mostrados en DOP u otra moneda). No constituyen oferta irrevocable ni pedido. El alcance, plazo y precio de un trabajo salen de una propuesta escrita o de lo que confirmemos por WhatsApp o correo.",
@@ -273,7 +273,7 @@ export const LEGAL_DOCS: Record<LegalSlug, LegalDoc> = {
     path: "/legal/cookies",
     metaTitle: "Cookies y medición",
     metaDescription:
-      "Qué cookies y almacenamiento usa nativa.studio: preferencias de idioma y moneda, y Google Analytics. Cómo limitarlas desde el navegador.",
+      "Qué cookies y almacenamiento usa nativastudio.com.do: preferencias de idioma y moneda, y Google Analytics. Cómo limitarlas desde el navegador.",
     label: { es: "Cookies", en: "Cookies" },
     h1: { es: "Cookies y medición", en: "Cookies and measurement" },
     lede: {
@@ -293,8 +293,8 @@ export const LEGAL_DOCS: Record<LegalSlug, LegalDoc> = {
             en: "Google Analytics (Firebase / GA4 measurement ID): records in aggregate which pages are viewed and from what kind of device, so we can tell if the site works. Google LLC runs it under its own policy.",
           },
           {
-            es: "WhatsApp: al tocar el botón y abrir la conversación, sales a un servicio de Meta. Ahí pueden aplicarse cookies o datos de WhatsApp / Meta, fuera de nativa.studio.",
-            en: "WhatsApp: when you tap through and open the thread, you leave to a Meta service. WhatsApp / Meta cookies or data may apply there, off nativa.studio.",
+            es: "WhatsApp: al tocar el botón y abrir la conversación, sales a un servicio de Meta. Ahí pueden aplicarse cookies o datos de WhatsApp / Meta, fuera de nativastudio.com.do.",
+            en: "WhatsApp: when you tap through and open the thread, you leave to a Meta service. WhatsApp / Meta cookies or data may apply there, off nativastudio.com.do.",
           },
         ],
       },

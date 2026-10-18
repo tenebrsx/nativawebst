@@ -20,6 +20,7 @@ export function ServiciosHubView() {
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <JsonLd data={serviciosHubGraph()} />
       <SiteNav />
+      <main id="main">
       <section style={{ padding: "72px 0 40px", borderBottom: "1px solid var(--border)" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <div className="section-label">{hub.label}</div>
@@ -108,6 +109,7 @@ export function ServiciosHubView() {
           </div>
         </div>
       </section>
+      </main>
       <SiteFooter />
     </div>
   );
@@ -130,6 +132,7 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
         })}
       />
       <SiteNav />
+      <main id="main">
       <section style={{ padding: "72px 0 48px", borderBottom: "1px solid var(--border)" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <p style={{ fontSize: "13px", color: "var(--muted)", marginBottom: "16px" }}>
@@ -209,6 +212,7 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
           </button>
         </div>
       </section>
+      </main>
       <SiteFooter />
     </div>
   );

@@ -46,7 +46,7 @@ function OtherSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
   return (
     <div className="lp-site lp-ot">
       <div className="lp-ot-hero">
-        <img src={t.hero.img} alt="" />
+        <img src={t.hero.img} alt="" loading="lazy" decoding="async" />
         <nav className="lp-nav">
           <div className="lp-mark lp-ot-mark" aria-hidden="true">
             <IconDotGrid />
@@ -79,7 +79,7 @@ function OtherSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
       <div className="lp-ot-reel">
         {t.cards.map((c) => (
           <article key={c.title.es}>
-            <img src={c.img} alt="" />
+            <img src={c.img} alt="" loading="lazy" decoding="async" />
             <div>
               <small>{tx(c.tag, lang)}</small>
               <b>{tx(c.title, lang)}</b>
@@ -91,7 +91,7 @@ function OtherSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
       <div className="lp-ot-proof">
         {t.strip.map((p) => (
           <figure key={p.name}>
-            <img src={p.img} alt="" />
+            <img src={p.img} alt="" loading="lazy" decoding="async" />
             <figcaption>
               {p.name}
               <small>{tx(p.role, lang)}</small>
@@ -174,7 +174,7 @@ function ClinicSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en
           </div>
         </div>
         <div className="lp-cl-visual">
-          <img src={t.hero.img} alt="" />
+          <img src={t.hero.img} alt="" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -193,7 +193,7 @@ function VillasSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en
   return (
     <div className="lp-site lp-vi">
       <div className="lp-vi-hero">
-        <img src={t.hero.img} alt="" />
+        <img src={t.hero.img} alt="" loading="lazy" decoding="async" />
         <nav className="lp-nav">
           <div className="lp-mark" aria-hidden="true" />
           <b>{t.brand}</b>
@@ -221,7 +221,7 @@ function VillasSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en
       <div className="lp-vi-reel">
         {t.cards.map((c) => (
           <article key={c.title.es}>
-            <img src={c.img} alt="" />
+            <img src={c.img} alt="" loading="lazy" decoding="async" />
             <div>
               <small>{tx(c.tag, lang)}</small>
               <b>{tx(c.title, lang)}</b>
@@ -233,7 +233,7 @@ function VillasSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en
       <div className="lp-vi-rooms">
         {t.strip.map((p) => (
           <figure key={p.name}>
-            <img src={p.img} alt="" />
+            <img src={p.img} alt="" loading="lazy" decoding="async" />
             <figcaption>{p.name}<small>{tx(p.role, lang)}</small></figcaption>
           </figure>
         ))}
@@ -247,7 +247,7 @@ function LegalSite({ t, lang, alt }: { t: LandingTemplate; lang: "es" | "en"; al
   return (
     <div className="lp-site lp-lg">
       <div className="lp-lg-hero">
-        <img src={t.hero.img} alt="" />
+        <img src={t.hero.img} alt="" loading="lazy" decoding="async" />
         <nav className="lp-nav">
           <div className="lp-mark" aria-hidden="true" />
           <b>{t.brand}</b>
@@ -283,7 +283,7 @@ function LegalSite({ t, lang, alt }: { t: LandingTemplate; lang: "es" | "en"; al
       <div className="lp-lg-partners">
         {t.strip.map((p) => (
           <figure key={p.name}>
-            <img src={p.img} alt="" />
+            <img src={p.img} alt="" loading="lazy" decoding="async" />
             <figcaption>{p.name}<small>{tx(p.role, lang)}</small></figcaption>
           </figure>
         ))}
@@ -316,7 +316,7 @@ function BuildSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
         </span>
       </nav>
       <div className="lp-bu-hero">
-        <img src={t.hero.img} alt="" />
+        <img src={t.hero.img} alt="" loading="lazy" decoding="async" />
         <div className="lp-bu-toast">
           <b>{tx(t.toast.label, lang)}</b>
           <span>{tx(t.toast.text, lang)}</span>
@@ -339,7 +339,7 @@ function BuildSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
       </div>
       <div className="lp-bu-masonry">
         <article className="is-lead">
-          <img src={lead.img} alt="" />
+          <img src={lead.img} alt="" loading="lazy" decoding="async" />
           <div>
             <small>{tx(lead.tag, lang)}</small>
             <b>{tx(lead.title, lang)}</b>
@@ -348,7 +348,7 @@ function BuildSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
         </article>
         {rest.map((c) => (
           <article key={c.title.es}>
-            <img src={c.img} alt="" />
+            <img src={c.img} alt="" loading="lazy" decoding="async" />
             <div>
               <small>{tx(c.tag, lang)}</small>
               <b>{tx(c.title, lang)}</b>
@@ -360,7 +360,7 @@ function BuildSite({ t, lang, es, alt }: { t: LandingTemplate; lang: "es" | "en"
       <div className="lp-bu-crew">
         {t.strip.slice(0, 2).map((p) => (
           <figure key={p.name}>
-            <img src={p.img} alt="" />
+            <img src={p.img} alt="" loading="lazy" decoding="async" />
             <figcaption>{p.name}<small>{tx(p.role, lang)}</small></figcaption>
           </figure>
         ))}

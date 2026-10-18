@@ -28,7 +28,7 @@ export function buildFunnelMessage(lang: "es" | "en", a: FunnelAnswers) {
   if (lang === "es") {
     return [
       "Hola Nativa 👋",
-      "Vengo de nativa.studio y ya armé mi mensaje:",
+      "Vengo de nativastudio.com.do y ya armé mi mensaje:",
       "",
       `• Necesito: ${a.need}`,
       `• Rubro: ${a.industry}`,
@@ -46,7 +46,7 @@ export function buildFunnelMessage(lang: "es" | "en", a: FunnelAnswers) {
 
   return [
     "Hi Nativa 👋",
-    "I came from nativa.studio with a short brief:",
+    "I came from nativastudio.com.do with a short brief:",
     "",
     `• Need: ${a.need}`,
     `• Industry: ${a.industry}`,
@@ -68,22 +68,24 @@ export function buildQuoteMessage(opts: {
   addonLabels: string[];
   stackLabels?: string[];
   support: boolean;
+  supportPrice: string;
   oneTime: string;
-  monthly: string;
+  monthly?: string;
 }) {
+  const es = opts.lang === "es";
   const extras = opts.addonLabels.length
     ? opts.addonLabels.map((l) => `  – ${l}`).join("\n")
-    : opts.lang === "es"
+    : es
       ? "  – Ninguno"
       : "  – None";
   const stackLines =
     opts.stackLabels && opts.stackLabels.length
-      ? opts.lang === "es"
+      ? es
         ? [`• Módulos (CRM / IA):\n${opts.stackLabels.map((l) => `  – ${l}`).join("\n")}`]
         : [`• Stack (CRM / AI):\n${opts.stackLabels.map((l) => `  – ${l}`).join("\n")}`]
       : [];
 
-  if (opts.lang === "es") {
+  if (es) {
     return [
       "Hola Nativa 👋",
       "Quiero esta configuración del cotizador:",
@@ -91,11 +93,15 @@ export function buildQuoteMessage(opts: {
       `• Plan: ${opts.tierName}`,
       `• Extras:\n${extras}`,
       ...stackLines,
-      `• Soporte mensual: ${opts.support ? "Sí — " + opts.monthly : "No"}`,
-      `• Inversión única (web): ${opts.oneTime}`,
+      `• Soporte mensual: ${opts.support ? `Sí (${opts.supportPrice})` : "No"}`,
       "",
-      "Esto no es un cobro. ¿Agendamos 15 min para confirmar el alcance?",
-    ].join("\n");
+      `Inversión única estimada: ${opts.oneTime}`,
+      opts.monthly ? `Total mensual estimado: ${opts.monthly}` : null,
+      "",
+      "Sé que es un estimado, no un cobro. ¿Me preparan el demo gratis y confirmamos el alcance en 15 minutos?",
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
   }
 
   return [
@@ -105,11 +111,15 @@ export function buildQuoteMessage(opts: {
     `• Plan: ${opts.tierName}`,
     `• Add-ons:\n${extras}`,
     ...stackLines,
-    `• Monthly support: ${opts.support ? "Yes — " + opts.monthly : "No"}`,
-    `• One-time (web): ${opts.oneTime}`,
+    `• Monthly support: ${opts.support ? `Yes (${opts.supportPrice})` : "No"}`,
     "",
-    "This is a brief, not a charge. Can we book 15 min to lock the spec?",
-  ].join("\n");
+    `Estimated one-time: ${opts.oneTime}`,
+    opts.monthly ? `Estimated monthly total: ${opts.monthly}` : null,
+    "",
+    "I understand this is an estimate, not a charge. Can you prepare the free demo and confirm scope in a 15-minute call?",
+  ]
+    .filter((l) => l !== null)
+    .join("\n");
 }
 
 export function buildContactMessage(opts: {

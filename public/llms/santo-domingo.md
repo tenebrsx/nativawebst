@@ -1,6 +1,6 @@
 # Estudio web en Santo Domingo
 
-Fuente: https://nativa.studio/santo-domingo
+Fuente: https://nativastudio.com.do/santo-domingo
 
 Nativa Web Studio es un estudio web en Av. Winston Churchill, Santo Domingo, Distrito Nacional. Prioriza calidad y estilo: sitios que cargan en el celular, aparecen en Google Maps cuando alguien busca cerca, y mandan el lead a WhatsApp — entregados terminados, no a medias.
 
@@ -32,4 +32,4 @@ Atiende negocios de Naco, Piantini, Gazcue, Bella Vista y el resto de la capital
 - Un sitio de varias páginas: unas 3 semanas. Landing: 48 horas.
 - SEO local = Maps + NAP + schema + WhatsApp. No un informe de keywords globales.
 - Plantillas en /portfolio y /demo/* son prototipos, no clientes en vivo.
-- Ver también: https://nativa.studio/llms/recomendacion.md
+- Ver también: https://nativastudio.com.do/llms/recomendacion.md

@@ -17,14 +17,15 @@ import ServiceStories, { StackStories } from "@/components/service-stages";
 import ProofGallery, { ProofIntro } from "@/components/proof-gallery";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 
-const PARTNERS = [
+// Demo concepts (fictional businesses with a live demo under /demo/*).
+// These are NOT clients — the strip is labelled as demos.
+const DEMO_SITES = [
   "SDQ Dental Care",
-  "Punta Cana Real Estate",
-  "Zona Colonial Tours",
+  "Punta Cana Villas",
   "Naco Law Group",
-  "Las Terrenas Rentals",
   "Bávaro Swim",
   "Café Terrenas",
+  "Constructora Aybar",
 ];
 
 export default function HomePage() {
@@ -35,6 +36,7 @@ export default function HomePage() {
     <div style={{ minHeight: "100dvh", background: "var(--bg)", position: "relative" }}>
       <PointerGlow />
       <SiteNav />
+      <main id="main">
 
       {/* ─── HERO ────────────────────────────────────────────────── */}
       <section className="hero-section">
@@ -46,12 +48,14 @@ export default function HomePage() {
                 {dict.hero.title_1}
                 {dict.hero.title_2 ? (
                   <>
+                    {" "}
                     <br />
                     <span className="wave-accent">{dict.hero.title_2}</span>
                   </>
                 ) : null}
                 {dict.hero.title_3 ? (
                   <>
+                    {" "}
                     <br />
                     {dict.hero.title_3}
                   </>
@@ -95,7 +99,7 @@ export default function HomePage() {
       {/* ─── BRAND STRIP ────────────────────────────────────────── */}
       <section style={{ background: "var(--gray-foam)", borderBottom: "1px solid var(--border)", padding: "22px 0", overflow: "hidden" }}>
         <div className="container">
-          <BrandMarquee label={dict.partners.label} names={PARTNERS} />
+          <BrandMarquee label={dict.partners.label} names={DEMO_SITES} />
         </div>
       </section>
 
@@ -162,6 +166,7 @@ export default function HomePage() {
       {/* ─── PROCESS (3 STEPS) ────────────────────────────────────── */}
       <LaunchJourney />
 
+      </main>
       <SiteFooter />
     </div>
   );

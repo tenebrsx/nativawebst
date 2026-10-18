@@ -66,7 +66,7 @@ En Nativa diseñamos sitios que se ven premium, cargan rápido y convierten visi
 
 Más claridad. Más confianza. Más clientes.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 Escríbenos por WhatsApp y arma tu plan.
 
 #NativaWebStudio #DiseñoWebRD #SantoDomingo #MarketingDigitalRD #PymesRD #PaginasWeb`,
@@ -76,7 +76,7 @@ At Nativa we build sites that look premium, load fast, and turn visits into real
 
 More clarity. More trust. More clients.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 Message us on WhatsApp and build your plan.
 
 #NativaWebStudio #WebDesign #SantoDomingo #DigitalMarketing #SmallBusiness`,
@@ -90,7 +90,7 @@ Message us on WhatsApp and build your plan.
         body: "Sitios de la más alta calidad. Claros, rápidos, hechos para que te escriban.",
         proof: ["Más visitas", "Más confianza", "Más WhatsApp"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Casa Norte",
         mockNav: ["Obras", "Visita", "Contacto"],
         mockHero: "12.400 m² en obra.",
@@ -108,7 +108,7 @@ Message us on WhatsApp and build your plan.
         body: "Highest-quality sites. Clear, fast, built so people actually write you.",
         proof: ["More visits", "More trust", "More WhatsApp"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Casa Norte",
         mockNav: ["Work", "Visit", "Contact"],
         mockHero: "12,400 m² underway.",
@@ -137,7 +137,7 @@ En Nativa diseñamos sitios que se ven premium, cargan rápido y convierten visi
 
 Más claridad. Más confianza. Más clientes.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 Escríbenos por WhatsApp y arma tu plan.
 
 #NativaWebStudio #DiseñoWebRD #SantoDomingo #MarketingDigitalRD #PymesRD #PaginasWeb`,
@@ -147,7 +147,7 @@ At Nativa we build sites that look premium, load fast, and turn visits into real
 
 More clarity. More trust. More clients.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 Message us on WhatsApp and build your plan.
 
 #NativaWebStudio #WebDesign #SantoDomingo #DigitalMarketing #SmallBusiness`,
@@ -161,7 +161,7 @@ Message us on WhatsApp and build your plan.
         body: "Sitios de la más alta calidad. Claros, rápidos, hechos para que te escriban.",
         proof: ["Más visitas", "Más confianza", "Más WhatsApp"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Casa Norte",
         mockNav: ["Obras", "Visita", "Contacto"],
         mockHero: "12.400 m² en obra.",
@@ -179,7 +179,7 @@ Message us on WhatsApp and build your plan.
         body: "Highest-quality sites. Clear, fast, built so people actually write you.",
         proof: ["More visits", "More trust", "More WhatsApp"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Casa Norte",
         mockNav: ["Work", "Visit", "Contact"],
         mockHero: "12,400 m² underway.",
@@ -208,7 +208,7 @@ Después de Nativa: el cliente llega a WhatsApp con la talla, las noches o la ci
 
 Tu negocio merece más clientes.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #DiseñoWebRD #WhatsAppBusiness #SantoDomingo`,
       en: `Before: “price?” on Instagram. Nobody closes.
@@ -217,7 +217,7 @@ After Nativa: the client hits WhatsApp with the size, the nights, or the appoint
 
 Your business deserves more clients.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #WhatsAppBusiness #SantoDomingo`,
     },
@@ -230,7 +230,7 @@ Your business deserves more clients.
         body: "De DMs vacíos a un WhatsApp que cierra.",
         proof: ["Pedido en el chat", "Cita en el chat", "Talla en el chat"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Casa Norte",
         mockNav: ["Obras", "Visita", "Contacto"],
         mockHero: "12.400 m² en obra.",
@@ -248,7 +248,7 @@ Your business deserves more clients.
         body: "From empty DMs to a WhatsApp that closes.",
         proof: ["Order in chat", "Appointment in chat", "Size in chat"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Casa Norte",
         mockNav: ["Work", "Visit", "Contact"],
         mockHero: "12,400 m² underway.",
@@ -275,14 +275,14 @@ Your business deserves more clients.
 
 En Nativa armamos sitios que cargan en décimas. WhatsApp al primer toque.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #DiseñoWebRD #PaginasWeb #SantoDomingo`,
       en: `Does your site take 5 seconds on mobile? That wait is a client who left.
 
 Nativa builds sites that load in fractions of a second. WhatsApp on the first tap.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #WebDesign #SantoDomingo`,
     },
@@ -295,7 +295,7 @@ Nativa builds sites that load in fractions of a second. WhatsApp on the first ta
         body: "De 5 segundos a décimas. El cliente se queda y te escribe.",
         proof: ["Celular primero", "0.3s de carga", "Clic a WhatsApp"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "",
         mockNav: [],
         mockHero: "",
@@ -312,7 +312,7 @@ Nativa builds sites that load in fractions of a second. WhatsApp on the first ta
         body: "From 5 seconds to fractions. They stay and they write you.",
         proof: ["Mobile first", "0.3s load", "Tap to WhatsApp"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "",
         mockNav: [],
         mockHero: "",
@@ -338,14 +338,14 @@ Nativa builds sites that load in fractions of a second. WhatsApp on the first ta
 
 Nativa conecta tu web con Maps y WhatsApp. La agenda se llena desde la búsqueda.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #GoogleMapsRD #SEOlocal #NativaWebStudio #SantoDomingo`,
       en: `When they search your service… do you show up, or does your competitor?
 
 Nativa connects your site to Maps and WhatsApp. The calendar fills from search.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #GoogleMaps #LocalSEO #NativaWebStudio #SantoDomingo`,
     },
@@ -358,7 +358,7 @@ Nativa connects your site to Maps and WhatsApp. The calendar fills from search.
         body: "Maps, ficha y WhatsApp en un toque. Tú, no la competencia.",
         proof: ["Primero en Maps", "Toque a WhatsApp", "Sin comisión oculta"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "",
         mockNav: [],
         mockHero: "",
@@ -375,7 +375,7 @@ Nativa connects your site to Maps and WhatsApp. The calendar fills from search.
         body: "Maps, listing, WhatsApp in one tap. You — not the competitor.",
         proof: ["First on Maps", "Tap to WhatsApp", "No hidden fee"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "",
         mockNav: [],
         mockHero: "",
@@ -401,14 +401,14 @@ Nativa connects your site to Maps and WhatsApp. The calendar fills from search.
 
 Tu web pregunta lo que importa y manda el lead a WhatsApp con talla, fecha o tratamiento.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #WhatsAppBusiness #VentasRD #NativaWebStudio #SantoDomingo`,
       en: `Stop wasting hours on “price via DM.”
 
 Your site asks what matters and sends the lead to WhatsApp with size, date, or treatment.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #WhatsAppBusiness #NativaWebStudio #SantoDomingo`,
     },
@@ -421,7 +421,7 @@ Your site asks what matters and sends the lead to WhatsApp with size, date, or t
         body: "El cliente llega al chat con el pedido listo. Tú cierras.",
         proof: ["Lead caliente", "Datos en el chat", "Cierre en WhatsApp"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "",
         mockNav: [],
         mockHero: "",
@@ -438,7 +438,7 @@ Your site asks what matters and sends the lead to WhatsApp with size, date, or t
         body: "The client lands in chat with the order ready. You close.",
         proof: ["Warm lead", "Data in chat", "Close on WhatsApp"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "",
         mockNav: [],
         mockHero: "",
@@ -468,7 +468,7 @@ Subes. Pasas a la competencia. Llegas primero.
 
 Tu clínica merece lo mejor. Nativa.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #SEORD #ClinicasRD #Google #SantoDomingo`,
       en: `They search: “clinicas cerca de mi”.
@@ -479,7 +479,7 @@ You climb. You pass the competition. You land first.
 
 Your clinic deserves the best. Nativa.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #SEO #Clinics #Google #SantoDomingo`,
     },
@@ -492,7 +492,7 @@ Your clinic deserves the best. Nativa.
         body: "De la página 2 al #1 en los resultados.",
         proof: ["Más visibilidad", "Más clics", "Más clientes"],
         cta: "Elige Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Tu negocio",
         mockNav: [],
         mockHero: "",
@@ -507,7 +507,7 @@ Your clinic deserves the best. Nativa.
         body: "From page 2 to #1 in the results.",
         proof: ["More visibility", "More clicks", "More clients"],
         cta: "Choose Nativa",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Your business",
         mockNav: [],
         mockHero: "",
@@ -535,7 +535,7 @@ Una presencia.
 Nativa — sitios que se ven caros
 y cierran por WhatsApp.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #DiseñoWebRD #SantoDomingo #MarketingDigitalRD #PymesRD`,
       en: `Your business needs a website.
@@ -546,7 +546,7 @@ A presence.
 Nativa — sites that look expensive
 and close on WhatsApp.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #WebDesign #SantoDomingo #DigitalMarketing #SmallBusiness`,
     },
@@ -559,7 +559,7 @@ and close on WhatsApp.
         body: "un website",
         proof: [],
         cta: "",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Maison Brisa",
         mockNav: ["Colección", "Atelier", "Reserva"],
         mockHero: "Boutique · Santo Domingo",
@@ -567,7 +567,7 @@ and close on WhatsApp.
         mockCards: [
           { k: "Maps", v: "#1 zona" },
           { k: "Chat", v: "< 2 min" },
-          { k: "Live", v: "18 días" },
+          { k: "Demo", v: "48 h" },
         ],
       },
       en: {
@@ -578,7 +578,7 @@ and close on WhatsApp.
         body: "a website",
         proof: [],
         cta: "",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Maison Brisa",
         mockNav: ["Collection", "Atelier", "Reserve"],
         mockHero: "Boutique · Santo Domingo",
@@ -586,7 +586,7 @@ and close on WhatsApp.
         mockCards: [
           { k: "Maps", v: "#1 area" },
           { k: "Chat", v: "< 2 min" },
-          { k: "Live", v: "18 days" },
+          { k: "Demo", v: "48 h" },
         ],
       },
     },
@@ -612,7 +612,7 @@ que mande gente a WhatsApp.
 
 Nativa. Hecho en RD.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #DiseñoWebRD #SantoDomingo #MarketingDigitalRD #PymesRD`,
       en: `What your business is missing:
@@ -625,7 +625,7 @@ built to send people to WhatsApp.
 
 Nativa. Built in the DR.
 
-👉 nativa.studio
+👉 nativastudio.com.do
 
 #NativaWebStudio #WebDesign #SantoDomingo #DigitalMarketing #SmallBusiness`,
     },
@@ -638,7 +638,7 @@ Nativa. Built in the DR.
         body: "un sitio.",
         proof: ["WhatsApp", "Maps", "Velocidad"],
         cta: "Arma el tuyo",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Nativa",
         mockNav: [],
         mockHero: "",
@@ -653,7 +653,7 @@ Nativa. Built in the DR.
         body: "a site.",
         proof: ["WhatsApp", "Maps", "Speed"],
         cta: "Build yours",
-        url: "nativa.studio",
+        url: "nativastudio.com.do",
         mockBrand: "Nativa",
         mockNav: [],
         mockHero: "",

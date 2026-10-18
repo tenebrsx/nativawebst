@@ -328,7 +328,7 @@ export default function PortfolioGrid() {
                           overflow: "hidden",
                           textOverflow: "ellipsis"
                         }}>
-                          https://nativa.studio/demo/{project.id}
+                          https://nativastudio.com.do/demo/{project.id}
                         </div>
                       </div>
 

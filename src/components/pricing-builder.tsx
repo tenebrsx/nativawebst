@@ -7,6 +7,21 @@ import { LandingPreview, ShopPreview } from "@/components/pricing-previews";
 import { templatesFor, tx, type Template } from "@/lib/pricing-templates";
 import "./pricing-builder.css";
 
+// Template-preview fonts. Loaded on demand (when the section nears the
+// viewport) instead of a render-blocking CSS @import on every page load.
+const PREVIEW_FONTS_HREF =
+  "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap";
+
+function loadPreviewFonts() {
+  if (typeof document === "undefined") return;
+  if (document.getElementById("pb-preview-fonts")) return;
+  const link = document.createElement("link");
+  link.id = "pb-preview-fonts";
+  link.rel = "stylesheet";
+  link.href = PREVIEW_FONTS_HREF;
+  document.head.appendChild(link);
+}
+
 const PLANS = ["landing", "shop"] as const;
 type Plan = (typeof PLANS)[number];
 type OneTimeAddon = "seo" | "brand" | "bilingual" | "shopify";
@@ -92,6 +107,7 @@ export default function PricingBuilder() {
   const scroller = useRef<HTMLDivElement>(null);
   const secRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   const { lang, fmt, currency, rate } = useGeo();
   const dict = translations[lang].pricing;
@@ -116,20 +132,41 @@ export default function PricingBuilder() {
       if (e.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", onKey);
+    loadPreviewFonts();
+    const opener = document.activeElement as HTMLElement | null;
     const raf = window.requestAnimationFrame(() => {
       scroller.current?.scrollTo({ left: 0 });
+      closeRef.current?.focus({ preventScroll: true });
     });
     return () => {
       window.cancelAnimationFrame(raf);
       document.body.style.overflow = prevOverflow;
       delete document.body.dataset.pbOpen;
       window.removeEventListener("keydown", onKey);
+      opener?.focus?.({ preventScroll: true });
     };
   }, [open]);
 
   useEffect(() => {
     setAsk((i) => Math.min(i, askSteps.length - 1));
   }, [askSteps.length]);
+
+  // Load the template-preview fonts only when the builder is about to be seen.
+  useEffect(() => {
+    const el = secRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadPreviewFonts();
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = secRef.current;
@@ -196,30 +233,43 @@ export default function PricingBuilder() {
     });
   };
 
+  // Only add-ons offered for the current plan count. (Switching Landing →
+  // Shop used to keep CRM/AI selected and silently add the CRM setup fee.)
+  const has = (id: AddonId) => addons.has(id) && addonIds.includes(id);
+
+  // Line items are shown rounded to whole units by `fmt`; round them the same
+  // way before summing so the total always equals the visible line items.
+  const unit = useCallback(
+    (usd: number) => (currency === "USD" ? Math.round(usd) : Math.round(usd * rate) / rate),
+    [currency, rate],
+  );
+
   const { totalOneTime, totalMonthly } = useMemo(() => {
-    let oneTime = planPriceUsd(plan, currency, rate);
+    const offered = addonsFor(plan);
+    const on = (id: AddonId) => addons.has(id) && offered.includes(id);
+    let oneTime = unit(planPriceUsd(plan, currency, rate));
     let monthly = 0;
-    addonsFor(plan).forEach((id) => {
-      if (!addons.has(id)) return;
-      if (isMonthlyAddon(id)) monthly += ADDON_MONTHLY[id];
-      else oneTime += ADDON_ONE_TIME[id];
+    offered.forEach((id) => {
+      if (!on(id)) return;
+      if (isMonthlyAddon(id)) monthly += unit(ADDON_MONTHLY[id]);
+      else oneTime += unit(ADDON_ONE_TIME[id]);
     });
-    if (addons.has("crm")) oneTime += CRM_SETUP_PRICE;
-    if (support) monthly += SUPPORT_PRICE;
+    if (on("crm")) oneTime += unit(CRM_SETUP_PRICE);
+    if (support) monthly += unit(SUPPORT_PRICE);
     return {
       totalOneTime: oneTime,
       totalMonthly: monthly,
     };
-  }, [plan, addons, support, currency, rate]);
+  }, [plan, addons, support, currency, rate, unit]);
 
   const flags = {
-    seo: addons.has("seo"),
-    brand: addons.has("brand"),
-    bilingual: addons.has("bilingual"),
+    seo: has("seo"),
+    brand: has("brand"),
+    bilingual: has("bilingual"),
     support,
-    shopify: addons.has("shopify"),
-    crm: addons.has("crm"),
-    ai: addons.has("ai"),
+    shopify: has("shopify"),
+    crm: has("crm"),
+    ai: has("ai"),
     lang: (lang === "en" ? "en" : "es") as "es" | "en",
   };
 
@@ -227,8 +277,8 @@ export default function PricingBuilder() {
     ? "Enviar este presupuesto por WhatsApp →"
     : "Send this quote on WhatsApp →";
 
-  const stackCrm = es ? "CRM personal" : "Personal CRM";
-  const stackAi = es ? "IA personalizada sincronizada con CRM" : "Brand AI synced with CRM";
+  const stackCrm = dict.addons.crm.label;
+  const stackAi = dict.addons.ai.label;
 
   const sendBrief = useCallback(() => {
     openWhatsApp(
@@ -236,25 +286,27 @@ export default function PricingBuilder() {
         lang: es ? "es" : "en",
         tierName: `${dict.tiers[plan].name} · ${tx(template.cat, es ? "es" : "en")}`,
         addonLabels: addonsFor(plan)
-          .filter((id) => addons.has(id) && !isMonthlyAddon(id))
-          .map((id) => dict.addons[id].label),
+          .filter((id) => has(id) && !isMonthlyAddon(id))
+          .map((id) => `${dict.addons[id].label} (+${fmt(ADDON_ONE_TIME[id as OneTimeAddon])})`),
         stackLabels: (() => {
           const rows: string[] = [];
-          if (addons.has("crm")) {
+          if (has("crm")) {
             rows.push(
               `${stackCrm} — ${dict.starting_at} ${fmt(CRM_SETUP_PRICE)} ${dict.setup_suffix}, ${dict.about} ${fmt(CRM_MONTHLY_PER_USER)}${dict.per_user_suffix}`,
             );
           }
-          if (addons.has("ai")) {
+          if (has("ai")) {
             rows.push(`${stackAi} — ${dict.starting_at} ${fmt(SITE_AI_PRICE)}${dict.monthly_suffix}`);
           }
           return rows.length ? rows : undefined;
         })(),
         support,
+        supportPrice: `${fmt(SUPPORT_PRICE)}${dict.monthly_suffix}`,
         oneTime: fmt(totalOneTime),
-        monthly: `${fmt(totalMonthly)}${dict.monthly_suffix}`,
+        monthly: totalMonthly > 0 ? `${fmt(totalMonthly)}${dict.monthly_suffix}` : undefined,
       })
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addons, dict, es, fmt, plan, stackAi, stackCrm, support, template, totalOneTime, totalMonthly]);
 
   const goAsk = (i: number) => {
@@ -342,10 +394,10 @@ export default function PricingBuilder() {
   const summaryBits = [
     dict.tiers[plan].name,
     tx(template.cat, es ? "es" : "en"),
-    ...addonIds.filter((id) => addons.has(id)).map((id) => dict.addons[id].label),
-    ...(addons.has("crm") ? [stackCrm] : []),
-    ...(addons.has("ai") ? [stackAi] : []),
+    ...addonIds.filter((id) => has(id)).map((id) => dict.addons[id].label),
     ...(support ? [dict.support_label] : []),
+    `${dict.one_time}: ${fmt(totalOneTime)}`,
+    ...(totalMonthly > 0 ? [`${es ? "Total mensual" : "Monthly total"}: ${fmt(totalMonthly)}${dict.monthly_suffix}`] : []),
   ];
 
   return (
@@ -421,6 +473,7 @@ export default function PricingBuilder() {
               ) : null}
             </div>
             <button
+              ref={closeRef}
               type="button"
               className="pb-close"
               onClick={() => setOpen(false)}
@@ -610,7 +663,7 @@ export default function PricingBuilder() {
                   </button>
                 ) : (
                   <button type="button" className="pb-ask-nav is-next" onClick={sendBrief}>
-                    {es ? "Enviar" : "Send"}
+                    {es ? "Enviar por WhatsApp" : "Send on WhatsApp"}
                   </button>
                 )}
               </div>

@@ -25,8 +25,10 @@ export function RegionSelector() {
     <div ref={dropdownRef} style={{ position: "relative", display: "inline-block" }}>
       {/* Trigger Button */}
       <button
+        type="button"
         onClick={() => setOpen(!open)}
-        title="Detector de Región & Moneda"
+        title={lang === "es" ? "Idioma y moneda" : "Language and currency"}
+        aria-expanded={open}
         style={{
           background: "var(--bg)",
           color: "var(--navy-deep)",
@@ -45,9 +47,10 @@ export function RegionSelector() {
         }}
       >
         {flagEmoji ? <span>{flagEmoji}</span> : null}
-        <span>{currency === "DOP" ? <><span className="region-prefix">RD$ </span>DOP</> : <><span className="region-prefix">$ </span>USD</>}</span>
+        <span>{currency === "DOP" ? <><span className="region-prefix">RD$ </span>DOP</> : <><span className="region-prefix">US$ </span>USD</>}</span>
         <span style={{ color: "var(--coral-blue)", opacity: 0.6 }}>•</span>
         <span style={{ textTransform: "uppercase" }}>{lang}</span>
+        <span className="sr-only">{lang === "es" ? " — idioma y moneda" : " — language and currency"}</span>
         <svg
           width="10"
           height="10"
@@ -101,6 +104,8 @@ export function RegionSelector() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
               <button
+                type="button"
+                aria-pressed={currency === "DOP"}
                 onClick={() => setCurrency("DOP")}
                 style={{
                   padding: "8px 10px",
@@ -116,6 +121,8 @@ export function RegionSelector() {
                 RD$ (DOP)
               </button>
               <button
+                type="button"
+                aria-pressed={currency === "USD"}
                 onClick={() => setCurrency("USD")}
                 style={{
                   padding: "8px 10px",
@@ -128,7 +135,7 @@ export function RegionSelector() {
                   cursor: "pointer"
                 }}
               >
-                🇺🇸 $ (USD)
+                🇺🇸 US$ (USD)
               </button>
             </div>
           </div>
@@ -140,6 +147,8 @@ export function RegionSelector() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
               <button
+                type="button"
+                aria-pressed={lang === "es"}
                 onClick={() => setLang("es")}
                 style={{
                   padding: "8px 10px",
@@ -155,6 +164,8 @@ export function RegionSelector() {
                 Español (ES)
               </button>
               <button
+                type="button"
+                aria-pressed={lang === "en"}
                 onClick={() => setLang("en")}
                 style={{
                   padding: "8px 10px",
@@ -175,6 +186,7 @@ export function RegionSelector() {
           {/* Reset Auto-detection Link */}
           <div style={{ textAlign: "center", borderTop: "1px solid #F1F5F9", paddingTop: "8px" }}>
             <button
+              type="button"
               onClick={() => {
                 resetToDetected();
                 setOpen(false);
@@ -189,7 +201,7 @@ export function RegionSelector() {
                 fontWeight: 600
               }}
             >
-              🔄 Restablecer Detección Automática
+              🔄 Restablecer (español, moneda por región)
             </button>
           </div>
         </div>

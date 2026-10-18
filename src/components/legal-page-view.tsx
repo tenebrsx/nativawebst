@@ -12,7 +12,7 @@ import {
   legalTx,
   type LegalSlug,
 } from "@/lib/legal-content";
-import { absoluteUrl, SITE_CITATION, SITE_URL } from "@/lib/site";
+import { absoluteUrl, SITE_URL } from "@/lib/site";
 import { orgId, websiteId } from "@/lib/json-ld";
 
 function crumbs(lang: "es" | "en", current?: { name: string; path: string }) {
@@ -94,6 +94,7 @@ export function LegalHubView() {
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <BreadcrumbJson items={trail} />
       <SiteNav />
+      <main id="main">
       <section style={{ padding: "72px 0 80px" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <p style={{ fontSize: "13px", color: "var(--muted)", marginBottom: "16px" }}>
@@ -133,21 +134,9 @@ export function LegalHubView() {
               </li>
             ))}
           </ul>
-          <p
-            style={{
-              fontSize: "13px",
-              lineHeight: 1.6,
-              color: "var(--muted)",
-              padding: "16px 18px",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              marginTop: "36px",
-            }}
-          >
-            {lang === "es" ? "Cita:" : "Citation:"} {SITE_CITATION}
-          </p>
         </div>
       </section>
+      </main>
       <SiteFooter />
     </div>
   );
@@ -163,6 +152,7 @@ export function LegalDocView({ slug }: { slug: LegalSlug }) {
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <BreadcrumbJson items={trail} />
       <SiteNav />
+      <main id="main">
       <article style={{ padding: "72px 0 80px" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <p style={{ fontSize: "13px", color: "var(--muted)", marginBottom: "16px" }}>
@@ -215,22 +205,10 @@ export function LegalDocView({ slug }: { slug: LegalSlug }) {
             ))}
           </div>
 
-          <p
-            style={{
-              fontSize: "13px",
-              lineHeight: 1.6,
-              color: "var(--muted)",
-              padding: "16px 18px",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              marginBottom: "28px",
-            }}
-          >
-            {lang === "es" ? "Cita:" : "Citation:"} {SITE_CITATION}
-          </p>
           <LegalNav lang={lang} current={slug} />
         </div>
       </article>
+      </main>
       <SiteFooter />
     </div>
   );

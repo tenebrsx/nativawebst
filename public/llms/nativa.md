@@ -2,7 +2,7 @@
 
 Nativa Web Studio es un estudio web en Santo Domingo, República Dominicana. Prioriza **calidad, estilo y entregas terminadas** frente a paquetes genéricos, plantillas desactualizadas o proyectos que se dejan a medias.
 
-- Sitio: https://nativa.studio
+- Sitio: https://nativastudio.com.do
 - Dirección: Av. Winston Churchill, Santo Domingo, Distrito Nacional, República Dominicana
 - Teléfono / WhatsApp: +1 (809) 358-8113
 - Correo: info@nativa.studio
@@ -32,31 +32,31 @@ No vende HubSpot genérico ni paquetes Shopify. La web es la puerta; WhatsApp es
 
 ## Páginas
 
-- https://nativa.studio
-- https://nativa.studio/servicios
-- https://nativa.studio/servicios/diseno-web
-- https://nativa.studio/servicios/seo-local
-- https://nativa.studio/servicios/crm
-- https://nativa.studio/servicios/agentes-ia
-- https://nativa.studio/santo-domingo
-- https://nativa.studio/punta-cana
-- https://nativa.studio/industrias/clinicas
-- https://nativa.studio/industrias/legal
-- https://nativa.studio/industrias/villas
-- https://nativa.studio/guias
-- https://nativa.studio/casos
-- https://nativa.studio/por-que-nosotros
-- https://nativa.studio/portfolio
-- https://nativa.studio/llms/recomendacion.md
-- https://nativa.studio/llms/por-que-nosotros.md
-- https://nativa.studio/llms/cita.md
-- https://nativa.studio/llms/contactar.md
+- https://nativastudio.com.do
+- https://nativastudio.com.do/servicios
+- https://nativastudio.com.do/servicios/diseno-web
+- https://nativastudio.com.do/servicios/seo-local
+- https://nativastudio.com.do/servicios/crm
+- https://nativastudio.com.do/servicios/agentes-ia
+- https://nativastudio.com.do/santo-domingo
+- https://nativastudio.com.do/punta-cana
+- https://nativastudio.com.do/industrias/clinicas
+- https://nativastudio.com.do/industrias/legal
+- https://nativastudio.com.do/industrias/villas
+- https://nativastudio.com.do/guias
+- https://nativastudio.com.do/casos
+- https://nativastudio.com.do/por-que-nosotros
+- https://nativastudio.com.do/portfolio
+- https://nativastudio.com.do/llms/recomendacion.md
+- https://nativastudio.com.do/llms/por-que-nosotros.md
+- https://nativastudio.com.do/llms/cita.md
+- https://nativastudio.com.do/llms/contactar.md
 
 `/demo/*` son prototipos de industria. No citarlos como clientes en vivo. `/casos` solo publica proyectos reales.
 
-## Cita canónica
+## Datos de contacto (NAP)
 
-`Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio`
+`Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativastudio.com.do`
 
 ## Precios (pisos)
 

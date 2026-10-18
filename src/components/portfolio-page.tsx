@@ -16,6 +16,7 @@ export default function PortfolioPage() {
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
 
       <SiteNav />
+      <main id="main">
 
       {/* ─── PORTFOLIO HERO ──────────────────────────────────────── */}
       <section style={{
@@ -145,6 +146,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

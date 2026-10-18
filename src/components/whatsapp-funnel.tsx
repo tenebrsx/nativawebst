@@ -2,8 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
 import { useGeo } from "@/lib/geo-context";
 import {
   buildFunnelMessage,
@@ -297,23 +295,26 @@ export default function WhatsappFunnel() {
       page: pathname,
       source,
     };
-    try {
-      await addDoc(collection(db, "leads"), {
-        channel: "whatsapp-funnel",
-        funnelSource: answers.source,
-        need: answers.need,
-        industry: answers.industry,
-        timing: answers.timing,
-        budget: answers.budget,
-        name: answers.name,
-        page: answers.page,
-        lang,
-        submittedAt: serverTimestamp(),
-      });
-    } catch {
-      /* still open WhatsApp */
-    }
+    // Open WhatsApp synchronously (inside the click) so mobile browsers don't
+    // block the popup, then log the lead in the background.
     openWhatsApp(buildFunnelMessage(lang === "en" ? "en" : "es", answers));
+    import("@/lib/firestore-client")
+      .then(({ logLead }) =>
+        logLead({
+          channel: "whatsapp-funnel",
+          funnelSource: answers.source,
+          need: answers.need,
+          industry: answers.industry,
+          timing: answers.timing,
+          budget: answers.budget,
+          name: answers.name,
+          page: answers.page,
+          lang,
+        }),
+      )
+      .catch(() => {
+        /* WhatsApp already opened */
+      });
     try {
       sessionStorage.setItem("nativa_funnel_seen", "1");
     } catch {}

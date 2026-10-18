@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nativa Web Studio — nativastudio.com.do
 
-## Getting Started
+Marketing site for **Nativa Web Studio**, a web design studio in Santo Domingo, República Dominicana.
+Spanish is the default language; visitors can switch to English (and RD$/US$) from the region selector.
 
-First, run the development server:
+- **Live:** https://nativastudio.com.do (Firebase Hosting, project `nativa-studio`)
+- **Stack:** Next.js 16 (App Router, static export), React 19, Tailwind CSS 4, Firebase (Firestore for leads)
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3003
+npm run build      # static export to ./out
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+There is no CI deploy. Deploys are manual from a machine logged in to Firebase:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run deploy     # rm -rf out && next build && firebase deploy --only hosting
+```
 
-## Learn More
+Merging to `main` does **not** deploy by itself.
 
-To learn more about Next.js, take a look at the following resources:
+## Project map
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Path | What it is |
+| --- | --- |
+| `src/app/` | Routes (home, `/servicios/*`, `/santo-domingo`, `/guias/*`, `/legal/*`, `/casos`, `/portfolio`) |
+| `src/app/demo/*` | Demo concepts for fictional businesses (not clients) |
+| `src/components/pricing-builder.tsx` | “Arma tu propio sitio web” quote builder → sends the summary to WhatsApp |
+| `src/lib/translations.ts` | ES / EN copy for the home page |
+| `src/lib/local-content.ts`, `guides-content.ts`, `service-content.ts` | Copy for SEO landing pages and guides |
+| `src/lib/proof-clients.ts` | Demo-concept gallery on the home page |
+| `src/lib/site.ts` | Site URL, contact data (NAP), metadata helpers |
+| `public/pv/` | Resized WebP copies of demo images used in the builder previews |
+| `public/llms.txt`, `public/llms/` | Plain-text summaries for AI assistants |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content rules
 
-## Deploy on Vercel
+- The sites under `/demo/*` are **demo concepts**. Never present them as clients or attach invented results.
+- Only publish client work in `/casos` with the client’s permission and verifiable facts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Optional `NEXT_PUBLIC_*` variables (Firebase config, `NEXT_PUBLIC_SITE_URL`, GA measurement id, Google Business Profile / social URLs) override the defaults in `src/lib/site.ts` and `src/lib/firebase.ts`.

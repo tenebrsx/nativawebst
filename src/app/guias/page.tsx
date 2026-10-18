@@ -16,6 +16,7 @@ export default function GuiasIndexPage() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <SiteNav />
+      <main id="main">
       <section style={{ padding: "72px 0 80px" }}>
         <div className="container" style={{ maxWidth: "760px" }}>
           <div className="section-label">Guías</div>
@@ -41,6 +42,7 @@ export default function GuiasIndexPage() {
           </ul>
         </div>
       </section>
+      </main>
       <SiteFooter />
     </div>
   );

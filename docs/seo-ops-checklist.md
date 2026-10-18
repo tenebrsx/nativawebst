@@ -14,9 +14,9 @@ On-site SEO has a hard ceiling until these exist. Do this week; outside the repo
 
 ## 2. Google Search Console
 
-- [ ] Property for `https://nativa.studio`
+- [ ] Property for `https://nativastudio.com.do`
 - [ ] Verify (meta tag already used if present)
-- [ ] Submit sitemap: `https://nativa.studio/sitemap.xml`
+- [ ] Submit sitemap: `https://nativastudio.com.do/sitemap.xml`
 - [ ] Inspect `/santo-domingo`, `/servicios/diseno-web`, `/por-que-nosotros`
 
 ## 3. Reviews
@@ -29,7 +29,7 @@ On-site SEO has a hard ceiling until these exist. Do this week; outside the repo
 
 Paste the same line on site footer (done), GBP, IG bio, WhatsApp Business profile:
 
-`Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativa.studio`
+`Nativa Web Studio · Av. Winston Churchill, Santo Domingo · +1 (809) 358-8113 · https://nativastudio.com.do`
 
 Optional env for schema `sameAs`:
 
