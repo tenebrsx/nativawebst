@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import { buildConfiguratorMessage, openWhatsApp } from "@/lib/whatsapp";
-import { LandingPreview, ShopPreview } from "@/components/pricing-previews";
+import { MiniSite, MiniViewer, type MsFocus } from "@/components/minisite";
+import { miniSiteFor } from "@/lib/minisites";
 import { findTemplate, templatesFor, tx, type Template } from "@/lib/pricing-templates";
 import { loadPreviewFonts } from "@/lib/preview-fonts";
 import {
@@ -258,22 +260,112 @@ type PreviewProps = {
   lang: Lang;
   copy: (typeof COPY)["es"];
   planName: string;
+  focus?: MsFocus;
 };
 
-function PreviewArtboard({ template, build, lang }: { template: Template; build: Build; lang: Lang }) {
+function PreviewArtboard({
+  template,
+  build,
+  focus,
+  auto = true,
+  interactive = true,
+}: {
+  template: Template;
+  build: Build;
+  focus?: MsFocus;
+  auto?: boolean;
+  interactive?: boolean;
+}) {
+  const site = miniSiteFor(template.id);
+  if (!site) return null;
   const has = (id: AddonId) => build.addons.includes(id);
+  const palette = PALETTES.find((p) => p.id === build.palette);
   const flags = {
     seo: has("seo"),
     brand: has("brand"),
     bilingual: has("bilingual"),
-    support: build.support,
     shopify: has("shopify"),
-    lang,
+    support: build.support,
+    ai: has("ai"),
   };
-  return template.kind === "shop" ? (
-    <ShopPreview template={template} {...flags} />
-  ) : (
-    <LandingPreview template={template} {...flags} />
+  return (
+    <MiniViewer domain={site.domain} bilingual={flags.bilingual} focus={focus} auto={auto} interactive={interactive}>
+      <MiniSite
+        site={site}
+        sections={build.sections}
+        flags={flags}
+        tone={build.tone}
+        swatch={palette?.swatch.length ? palette.swatch : undefined}
+      />
+    </MiniViewer>
+  );
+}
+
+function useIsPhone() {
+  const [m, setM] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 980px)");
+    const on = () => setM(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return m;
+}
+
+/** Full-screen, natively scrollable preview with a close button. */
+function FullPreview({
+  template,
+  build,
+  lang,
+  onClose,
+}: {
+  template: Template;
+  build: Build;
+  lang: Lang;
+  onClose: () => void;
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const prev = document.activeElement as HTMLElement | null;
+    const prevOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    closeRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "Tab") {
+        e.preventDefault();
+        closeRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.documentElement.style.overflow = prevOverflow;
+      prev?.focus?.();
+    };
+  }, [onClose]);
+  const site = miniSiteFor(template.id);
+  const es = lang === "es";
+  return createPortal(
+    <div className="ms-full" role="dialog" aria-modal="true" aria-label={es ? "Vista previa ampliada" : "Expanded preview"}>
+      <div className="ms-full-bar">
+        <span>
+          {site?.brand}
+          <small>{es ? "Demo ficticia · desliza para recorrer el sitio" : "Fictional demo · scroll to explore"}</small>
+        </span>
+        <button type="button" className="ms-full-close" ref={closeRef} onClick={onClose}>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          {es ? "Cerrar" : "Close"}
+        </button>
+      </div>
+      <div className="ms-full-body">
+        <PreviewArtboard template={template} build={build} auto={false} />
+      </div>
+    </div>,
+    document.body,
   );
 }
 
@@ -293,7 +385,10 @@ function useCrossfade(key: string) {
   return layers;
 }
 
-function LivePreview({ template, build, lang, copy, planName }: PreviewProps) {
+function LivePreview({ template, build, lang, copy, planName, focus }: PreviewProps) {
+  const [full, setFull] = useState(false);
+  const phone = useIsPhone();
+  const closeFull = useCallback(() => setFull(false), []);
   const has = (id: AddonId) => build.addons.includes(id);
   const layers = useCrossfade(`${template.id}`);
   const palette = PALETTES.find((p) => p.id === build.palette);
@@ -311,7 +406,7 @@ function LivePreview({ template, build, lang, copy, planName }: PreviewProps) {
     let raf = 0;
     const fit = () => {
       raf = 0;
-      const art = dev.querySelector<HTMLElement>(".pc-layer:not(.is-out) .lp-fit-inner, .pc-layer:not(.is-out) .shop-slot");
+      const art = dev.querySelector<HTMLElement>(".pc-layer:not(.is-out) .ms-view");
       if (!art) return;
       const d = dev.getBoundingClientRect();
       const a = art.getBoundingClientRect();
@@ -350,14 +445,26 @@ function LivePreview({ template, build, lang, copy, planName }: PreviewProps) {
           {planName} · {tx(template.cat, lang)}
         </b>
       </div>
+      <button type="button" className="pc-expand" data-short={lang === "es" ? "Ampliar" : "Expand"} onClick={() => setFull(true)}>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <span>{lang === "es" ? "Ampliar vista previa" : "Expand preview"}</span>
+      </button>
 
-      <div className="pc-device" ref={deviceRef} role="img" aria-label={copy.previewOf(planName, tx(template.cat, lang))}>
+      <div
+        className="pc-device"
+        ref={deviceRef}
+        role="img"
+        aria-label={copy.previewOf(planName, tx(template.cat, lang))}
+        onClick={phone ? () => setFull(true) : undefined}
+      >
         <div className="pc-layers" aria-hidden="true">
           {layers.map((l) => {
             const t = findTemplate(l.key) ?? template;
             return (
               <div key={l.key} className={`pc-layer${l.out ? " is-out" : ""}`}>
-                <PreviewArtboard template={t} build={build} lang={lang} />
+                <PreviewArtboard template={t} build={build} focus={l.out ? undefined : focus} interactive={!phone} />
               </div>
             );
           })}
@@ -433,6 +540,7 @@ function LivePreview({ template, build, lang, copy, planName }: PreviewProps) {
           ))}
         </ul>
       </div>
+      {full ? <FullPreview template={template} build={build} lang={lang} onClose={closeFull} /> : null}
     </div>
   );
 }
@@ -513,6 +621,9 @@ export default function PricingConfigurator() {
   const [copied, setCopied] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [live, setLive] = useState("");
+  const [focus, setFocus] = useState<MsFocus>(null);
+  const focusN = useRef(0);
+  const show = (id: string) => setFocus({ id, n: ++focusN.current });
 
   const panelRef = useRef<HTMLDivElement>(null);
   const stepEls = () => Array.from(panelRef.current?.querySelectorAll<HTMLElement>(".pc-step") ?? []);
@@ -607,17 +718,35 @@ export default function PricingConfigurator() {
       sections: [...DEFAULT_SECTIONS[plan]],
       addons: kept,
     }));
+    show("inicio");
     if (removed.length) {
       const names = removed.map((id) => dict.addons[id].label).join(es ? " y " : " and ");
       setRemovedNote(copy.removed(names, dict.tiers[plan].name, removed.length > 1));
     } else setRemovedNote(null);
   };
-  const toggleAddon = (id: AddonId, on: boolean) =>
+  const ADDON_FOCUS: Partial<Record<AddonId, string>> = {
+    seo: build.plan === "landing" ? "ubicacion" : "footer",
+    shopify: "bolsa",
+    bilingual: "inicio",
+    brand: "inicio",
+    ai: "footer",
+  };
+  const toggleAddon = (id: AddonId, on: boolean) => {
     setBuild((b) => ({
       ...b,
       addons: sanitizeAddons(b.plan, on ? [...b.addons, id] : b.addons.filter((a) => a !== id)).kept,
     }));
-  const toggleSection = (id: string, on: boolean) =>
+    const target = id === "seo" && !build.sections.includes("ubicacion") && build.plan === "landing" ? "footer" : ADDON_FOCUS[id];
+    if (target) show(target);
+  };
+  const toggleSection = (id: string, on: boolean) => {
+    const order = SECTIONS[build.plan].map((x) => x.id);
+    if (on) show(id);
+    else {
+      // Show where it was: the next section that stays on.
+      const after = order.slice(order.indexOf(id) + 1).find((x) => SECTIONS[build.plan].find((d) => d.id === x)?.locked || (build.sections.includes(x) && x !== id));
+      show(after ?? "contacto");
+    }
     setBuild((b) => ({
       ...b,
       sections: SECTIONS[b.plan]
@@ -625,6 +754,7 @@ export default function PricingConfigurator() {
         .map((s) => s.id)
         .filter((x) => (x === id ? on : b.sections.includes(x))),
     }));
+  };
   const setUsers = (n: number) =>
     setBuild((b) => ({ ...b, crmUsers: Math.min(CRM_USERS_MAX, Math.max(CRM_USERS_MIN, n)) }));
 
@@ -806,7 +936,7 @@ export default function PricingConfigurator() {
         <div className="pc-spacer" aria-hidden="true" />
         <div className="pc-stage-wrap" ref={stageWrapRef}>
           <div className="pc-stage-sticky">
-            <LivePreview template={template} build={build} lang={lang} copy={copy} planName={planName} />
+            <LivePreview template={template} build={build} lang={lang} copy={copy} planName={planName} focus={focus} />
           </div>
         </div>
 
@@ -877,10 +1007,13 @@ export default function PricingConfigurator() {
                       name={`${uid}-tpl`}
                       className="pc-sr"
                       checked={build.tpl === t.id}
-                      onChange={() => setBuild((b) => ({ ...b, tpl: t.id }))}
+                      onChange={() => {
+                        setBuild((b) => ({ ...b, tpl: t.id }));
+                        show("inicio");
+                      }}
                     />
                     <span className="pc-tpl-name">{tx(t.cat, lang)}</span>
-                    <small>{t.brand}</small>
+                    <small>{miniSiteFor(t.id)?.brand ?? t.brand}</small>
                   </label>
                 ))}
               </div>
@@ -897,7 +1030,10 @@ export default function PricingConfigurator() {
                       name={`${uid}-tone`}
                       className="pc-sr"
                       checked={build.tone === tone}
-                      onChange={() => setBuild((b) => ({ ...b, tone }))}
+                      onChange={() => {
+                        setBuild((b) => ({ ...b, tone }));
+                        show("inicio");
+                      }}
                     />
                     <i data-tone={tone} aria-hidden="true" />
                     {copy.tones[tone]}
@@ -918,7 +1054,10 @@ export default function PricingConfigurator() {
                       name={`${uid}-pal`}
                       className="pc-sr"
                       checked={build.palette === p.id}
-                      onChange={() => setBuild((b) => ({ ...b, palette: p.id }))}
+                      onChange={() => {
+                        setBuild((b) => ({ ...b, palette: p.id }));
+                        show("inicio");
+                      }}
                     />
                     <span className="pc-pal-dot" aria-hidden="true">
                       {p.swatch.length ? (
@@ -1023,7 +1162,10 @@ export default function PricingConfigurator() {
                     name={`${uid}-sup`}
                     className="pc-sr"
                     checked={build.support === v}
-                    onChange={() => setBuild((b) => ({ ...b, support: v }))}
+                    onChange={() => {
+                      setBuild((b) => ({ ...b, support: v }));
+                      show("footer");
+                    }}
                   />
                   <span className="pc-plan-top">
                     <b>{v ? copy.supportYes : copy.supportNo}</b>

@@ -278,6 +278,31 @@
   padding: 10px 16px 10px 12px;
 }
 
+/* Expand-to-fullscreen button, sits on the preview's browser bar. */
+.pc-expand {
+  position: absolute;
+  z-index: 4;
+  top: 45px;
+  right: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: #0b0d12;
+  color: #fff;
+  font: 600 11.5px/1 var(--font-body);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.pc-expand svg { width: 13px; height: 13px; }
+.pc-expand:hover { background: var(--coral-blue); }
+.pc-expand:focus-visible { outline: 2px solid #a9c1ff; outline-offset: 2px; }
+
+.pc-layer > .ms-frame { flex: 1; }
+
 /* ── Sitemap strip ──────────────────────────────────────────── */
 .pc-sitemap {
   display: flex;
@@ -1058,6 +1083,36 @@
 @media (max-width: 380px) {
   .pc-tpls { grid-template-columns: 1fr; }
   .pc-bar-cta { font-size: 12.5px; padding: 11px 10px; }
+}
+
+/* ── Phones: compact sticky preview that never collapses ─────── */
+@media (max-width: 980px) {
+  .pc-spacer { display: none; }
+  .pc-stage-wrap {
+    top: var(--pc-nav);
+    height: clamp(250px, 41svh, 400px);
+    min-height: 0;
+    padding: 8px 10px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pc-stage { padding: 8px 8px 8px; gap: 6px; border-radius: 14px; }
+  .pc-stage-head { font-size: 9.5px; padding: 0 4px; }
+  .pc-stage-head b { font-size: 11.5px; }
+  .pc-sitemap { display: none; }
+  .pc-device { cursor: zoom-in; }
+  .pc-expand { top: 33px; right: 16px; min-height: 22px; padding: 0 9px; font-size: 11px; }
+  .pc-expand span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .pc-expand::after { content: attr(data-short); }
+  .ms-chrome { height: 24px; }
+  .ms-url { font-size: 10px; padding: 2px 10px; max-width: 52%; }
+  .pc-bar-fine { display: none; }
+  .pc-bar { padding-top: 10px; }
+  .pc-bar-main { gap: 8px 12px; }
+}
+
+@media (max-width: 980px) and (max-height: 700px) {
+  .pc-stage-wrap { height: clamp(240px, 40svh, 300px); }
+  .pc-bar-price small { display: none; }
 }
 
 /* ── Reduced motion ─────────────────────────────────────────── */
