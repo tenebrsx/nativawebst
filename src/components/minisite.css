@@ -824,6 +824,41 @@
   .ms-chat-b { width: 48px; height: 48px; }
 }
 
+/* Phone hero kept compact so a phone-sized preview shows the hero *and*
+   what comes after it (the builder preview is a ~390 × 660 screen). */
+@container (max-width: 640px) {
+  .ms-badges { display: none; }
+  .ms-hero .ms-book { display: none; }
+  .ms-hero-copy h3,
+  .ms-hero-full .ms-hero-copy h3,
+  .ms-hero-editorial .ms-hero-copy h3,
+  .ms[data-ms="moda"] .ms-hero-full .ms-hero-copy h3 { font-size: 35px; line-height: 1.04; margin: 12px 0 10px; }
+  .ms-hero-poster .ms-hero-copy h3 { font-size: 42px; }
+  .ms-hero-copy > p {
+    font-size: 14.5px;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .ms-actions { margin-top: 16px; }
+  .ms-actions .ms-btn { padding: 11px 12px; }
+  .ms-hero-split .ms-hero-media { height: 190px; margin: 10px 10px 0; border-radius: 18px; }
+  .ms[data-ms="gastronomia"] .ms-hero-split .ms-hero-media { height: 210px; border-radius: 120px 120px 20px 20px; }
+  .ms-hero-split .ms-hero-copy { padding: 20px 18px 24px; }
+  .ms-hero-full .ms-hero-in,
+  .ms-hero-overlay .ms-hero-in,
+  .ms-hero-poster .ms-hero-in { min-height: 450px; padding: 22px 18px 26px; }
+  .ms-hero-editorial .ms-hero-media { height: 200px; margin: 10px 10px 0; }
+  .ms[data-ms="beauty"] .ms-hero-editorial .ms-hero-media { height: 220px; border-radius: 140px 140px 20px 20px; }
+  .ms-hero-editorial .ms-hero-inset { width: 72px; height: 90px; }
+  .ms-hero-editorial .ms-hero-in { padding: 20px 18px 24px; gap: 14px; }
+  .ms-stats { padding: 14px 18px; }
+  .ms-perks { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 16px; padding: 12px 18px; overflow: hidden; white-space: nowrap; font-size: 12px; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  .ms-perks span { flex: none; }
+}
+
 /* ── fullscreen preview ─────────────────────────────────────── */
 .ms-full {
   position: fixed;

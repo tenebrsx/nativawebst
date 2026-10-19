@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function PricingBuilderPage() {
   return (
-    <div style={{ minHeight: "100dvh", background: "var(--bg)" }}>
+    <div className="pb-page" style={{ minHeight: "100dvh", background: "var(--bg)" }}>
       <SiteNav solid />
       <main id="main">
         <PricingConfigurator />

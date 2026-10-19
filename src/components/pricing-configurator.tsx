@@ -42,6 +42,7 @@ import {
 } from "@/lib/configurator";
 import "./pricing-builder.css";
 import "./pricing-configurator.css";
+import "./pricing-configurator-mobile.css";
 
 type Lang = "es" | "en";
 
@@ -402,7 +403,7 @@ function LivePreview({ template, build, lang, copy, planName, focus }: PreviewPr
   useEffect(() => {
     const dev = deviceRef.current;
     const ovs = ovsRef.current;
-    if (!dev || !ovs) return;
+    if (!dev || !ovs || phone) return;
     let raf = 0;
     const fit = () => {
       raf = 0;
@@ -429,7 +430,18 @@ function LivePreview({ template, build, lang, copy, planName, focus }: PreviewPr
       window.clearTimeout(t);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [template.id]);
+  }, [template.id, phone]);
+
+  const chips: { id: string; on: boolean; label: string; icon: React.ReactNode }[] = [
+    { id: "wa", on: true, label: copy.waBtn, icon: <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" /> },
+    { id: "maps", on: has("seo"), label: "Maps", icon: <path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Zm0-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" fill="none" stroke="currentColor" strokeWidth="1.8" /> },
+    { id: "lang", on: has("bilingual"), label: "ES | EN", icon: <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm-9-9h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" fill="none" stroke="currentColor" strokeWidth="1.6" /> },
+    { id: "brand", on: has("brand"), label: copy.brandKit, icon: <path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.4-1-2.5 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.1-4-7.5-9-7.5ZM7.5 12a1.2 1.2 0 1 0 0-.1M10 7.5a1.2 1.2 0 1 0 0-.1M15 8a1.2 1.2 0 1 0 0-.1" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /> },
+    { id: "shopify", on: has("shopify"), label: "Shopify", icon: <path d="M6 8h12l-1 12H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" strokeWidth="1.8" /> },
+    { id: "crm", on: has("crm"), label: `CRM · ${build.crmUsers}`, icon: <path d="M4 5h4v14H4zM10 5h4v9h-4zM16 5h4v6h-4z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" /> },
+    { id: "ai", on: has("ai"), label: "IA", icon: <path d="M12 3v4m0 10v4M3 12h4m10 0h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /> },
+    { id: "care", on: build.support, label: "24 h", icon: <path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" /> },
+  ];
 
   return (
     <div
@@ -457,14 +469,21 @@ function LivePreview({ template, build, lang, copy, planName, focus }: PreviewPr
         ref={deviceRef}
         role="img"
         aria-label={copy.previewOf(planName, tx(template.cat, lang))}
-        onClick={phone ? () => setFull(true) : undefined}
       >
+        <div className="pcm-status pcm-only" aria-hidden="true">
+          <b>9:41</b>
+          <i className="pcm-island" />
+          <span className="pcm-sig">
+            <svg viewBox="0 0 18 12"><path d="M1 11h2V8H1zm4 0h2V6H5zm4 0h2V3H9zm4 0h2V1h-2z" fill="currentColor" /></svg>
+            <svg viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".5" /><rect x="2" y="2" width="16" height="8" rx="1.6" fill="currentColor" /><path d="M23 4v4" stroke="currentColor" strokeWidth="1.5" opacity=".5" /></svg>
+          </span>
+        </div>
         <div className="pc-layers" aria-hidden="true">
           {layers.map((l) => {
             const t = findTemplate(l.key) ?? template;
             return (
               <div key={l.key} className={`pc-layer${l.out ? " is-out" : ""}`}>
-                <PreviewArtboard template={t} build={build} focus={l.out ? undefined : focus} interactive={!phone} />
+                <PreviewArtboard template={t} build={build} focus={l.out ? undefined : focus} />
               </div>
             );
           })}
@@ -530,6 +549,15 @@ function LivePreview({ template, build, lang, copy, planName, focus }: PreviewPr
         </div>
       </div>
 
+      <ul className="pcm-chips pcm-only" aria-hidden="true">
+        {chips.map((c) => (
+          <li key={c.id} className={c.on ? "is-on" : undefined}>
+            <svg viewBox="0 0 24 24">{c.icon}</svg>
+            <small>{c.label}</small>
+          </li>
+        ))}
+      </ul>
+
       <div className="pc-sitemap" aria-hidden="true">
         <small>{copy.sitemap}</small>
         <ul>
@@ -542,6 +570,283 @@ function LivePreview({ template, build, lang, copy, planName, focus }: PreviewPr
       </div>
       {full ? <FullPreview template={template} build={build} lang={lang} onClose={closeFull} /> : null}
     </div>
+  );
+}
+
+
+/* ── Phone: bottom sheet + scaled phone preview ─────────────── */
+type Sheet = "collapsed" | "half" | "expanded";
+const STEP_COUNT = 6;
+const SHEETS: Sheet[] = ["collapsed", "half", "expanded"];
+/** The device is laid out at phone size (390px screen) and only transformed. */
+const DEV_PAD_T = 8;
+const DEV_PAD_B = 10;
+
+type Geo = {
+  H: number;
+  W: number;
+  top: number;
+  foot: number;
+  vis: Record<Sheet, number>;
+  cur: number;
+};
+
+function useSheet(
+  appRef: React.RefObject<HTMLDivElement | null>,
+  panelRef: React.RefObject<HTMLDivElement | null>,
+  phone: boolean,
+  sheet: Sheet,
+  setSheet: (s: Sheet) => void,
+) {
+  const geo = useRef<Geo>({ H: 0, W: 0, top: 0, foot: 0, vis: { collapsed: 0, half: 0, expanded: 0 }, cur: 0 });
+  const sheetRef = useRef(sheet);
+  useEffect(() => {
+    sheetRef.current = sheet;
+  }, [sheet]);
+
+  const apply = useCallback(
+    (vis: number) => {
+      const app = appRef.current;
+      const panel = panelRef.current;
+      if (!app || !panel) return;
+      const g = geo.current;
+      g.cur = vis;
+      panel.style.transform = `translate3d(0, ${Math.round(g.vis.expanded - vis)}px, 0)`;
+      const dev = app.querySelector<HTMLElement>(".pc-device");
+      const avail = g.H - g.top - vis;
+      if (dev) {
+        const dw = dev.offsetWidth;
+        const dh = dev.offsetHeight;
+        const s = Math.max(0.2, Math.min((g.W - 20) / dw, (avail - DEV_PAD_T - DEV_PAD_B) / dh, 1.15));
+        const y = DEV_PAD_T + Math.max(0, (avail - DEV_PAD_T - DEV_PAD_B - dh * s) / 2);
+        dev.style.transform = `translate3d(-50%, ${y.toFixed(1)}px, 0) scale(${s.toFixed(4)})`;
+        const side = (g.W - dw * s) / 2;
+        const roomy = side >= 62 ? "1" : "0";
+        if (app.dataset.roomy !== roomy) app.dataset.roomy = roomy;
+        const ex = app.querySelector<HTMLElement>(".pc-expand");
+        if (ex) {
+          // Roomy: a chip in the right margin, mirroring the feature chips.
+          // Tight: float on the phone's bottom-right corner (browser bar).
+          const bottom = y + dh * s;
+          ex.style.transform =
+            roomy === "1"
+              ? `translate3d(-8px, 12px, 0)`
+              : `translate3d(${Math.round(-(side + 8))}px, ${Math.round(bottom - 42)}px, 0)`;
+        }
+      }
+      const foot = app.querySelector<HTMLElement>(".pcm-foot");
+      if (foot) {
+        const span = Math.max(1, g.vis.half - g.vis.collapsed);
+        const p = Math.min(1, Math.max(0, (g.vis.half - vis) / span));
+        foot.style.transform = `translate3d(0, ${Math.round(p * (g.foot + 4))}px, 0)`;
+      }
+    },
+    [appRef, panelRef],
+  );
+
+  const measure = useCallback(() => {
+    const app = appRef.current;
+    const panel = panelRef.current;
+    if (!app || !panel) return;
+    const g = geo.current;
+    g.H = app.clientHeight;
+    g.W = app.clientWidth;
+    g.top = app.querySelector<HTMLElement>(".pcm-top")?.offsetHeight ?? 52;
+    const head = panel.querySelector<HTMLElement>(".pcm-head")?.offsetHeight ?? 72;
+    const tabs = panel.querySelector<HTMLElement>(".pcm-tabs")?.offsetHeight ?? 44;
+    g.foot = app.querySelector<HTMLElement>(".pcm-foot")?.offsetHeight ?? 64;
+    const sab = app.querySelector<HTMLElement>(".pcm-sab")?.offsetHeight ?? 0;
+    // Expanded: the phone still gets > 40% of the screen, in every state.
+    const maxVis = Math.floor(g.H - g.top - g.H * 0.408 - DEV_PAD_T - DEV_PAD_B);
+    const collapsed = head + sab;
+    const half = Math.min(maxVis - 28, Math.max(head + tabs + g.foot + 150, Math.round(g.H * 0.39)));
+    g.vis = { collapsed, half, expanded: maxVis };
+    app.style.setProperty("--pcm-sheet-h", `${g.vis.expanded}px`);
+    app.style.setProperty("--pcm-hidden", `${g.vis.expanded - g.vis[sheetRef.current]}px`);
+    apply(g.vis[sheetRef.current]);
+  }, [appRef, panelRef, apply]);
+
+  const snap = useCallback(
+    (to: Sheet) => {
+      const app = appRef.current;
+      if (!app) return;
+      const g = geo.current;
+      sheetRef.current = to;
+      app.classList.add("is-snap");
+      app.style.setProperty("--pcm-hidden", `${g.vis.expanded - g.vis[to]}px`);
+      apply(g.vis[to]);
+      setSheet(to);
+    },
+    [appRef, apply, setSheet],
+  );
+
+  // Measure + keep in sync with the viewport (iOS toolbars, rotation).
+  useEffect(() => {
+    const app = appRef.current;
+    if (!phone || !app) return;
+    measure();
+    const raf = requestAnimationFrame(() => app.classList.add("is-live"));
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(app);
+    // Belt and braces for browsers without overflow: clip.
+    const unscroll = () => {
+      if (app.scrollTop || app.scrollLeft) app.scrollTo(0, 0);
+      if (window.scrollY) window.scrollTo(0, 0);
+    };
+    app.addEventListener("scroll", unscroll, { passive: true });
+    window.addEventListener("scroll", unscroll, { passive: true });
+    const head = panelRef.current?.querySelector(".pcm-head");
+    if (head) ro.observe(head);
+    return () => {
+      ro.disconnect();
+      app.removeEventListener("scroll", unscroll);
+      window.removeEventListener("scroll", unscroll);
+      cancelAnimationFrame(raf);
+      app.classList.remove("is-live");
+      panelRef.current?.style.removeProperty("transform");
+      app.querySelector<HTMLElement>(".pc-device")?.style.removeProperty("transform");
+      app.querySelector<HTMLElement>(".pc-expand")?.style.removeProperty("transform");
+    };
+  }, [phone, measure, appRef, panelRef]);
+
+  // Drag the sheet by its header (transform only, spring on release).
+  useEffect(() => {
+    const app = appRef.current;
+    const head = panelRef.current?.querySelector<HTMLElement>(".pcm-head");
+    if (!phone || !app || !head) return;
+    let id: number | null = null;
+    let y0 = 0;
+    let v0 = 0;
+    let moved = false;
+    let samples: { y: number; t: number }[] = [];
+    let raf = 0;
+    let want = 0;
+    const down = (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      if ((e.target as HTMLElement).closest("button:not(.pcm-handle), a")) return;
+      id = e.pointerId;
+      y0 = e.clientY;
+      v0 = geo.current.cur;
+      moved = false;
+      samples = [{ y: e.clientY, t: e.timeStamp }];
+    };
+    const move = (e: PointerEvent) => {
+      if (e.pointerId !== id) return;
+      const dy = e.clientY - y0;
+      if (!moved && Math.abs(dy) < 6) return;
+      if (!moved) {
+        moved = true;
+        // Capture only once it is a drag, so plain taps still click.
+        try {
+          head.setPointerCapture(e.pointerId);
+        } catch {}
+        app.classList.remove("is-snap");
+        app.classList.add("is-drag");
+      }
+      const g = geo.current;
+      let v = v0 - dy;
+      // Rubber-band past the ends.
+      if (v > g.vis.expanded) v = g.vis.expanded + (v - g.vis.expanded) * 0.25;
+      if (v < g.vis.collapsed) v = g.vis.collapsed - (g.vis.collapsed - v) * 0.25;
+      want = v;
+      samples.push({ y: e.clientY, t: e.timeStamp });
+      if (samples.length > 6) samples.shift();
+      if (!raf) raf = requestAnimationFrame(() => { raf = 0; apply(want); });
+    };
+    const up = (e: PointerEvent) => {
+      if (e.pointerId !== id) return;
+      id = null;
+      app.classList.remove("is-drag");
+      if (!moved) {
+        const cur = sheetRef.current;
+        const onHandle = (e.target as HTMLElement).closest(".pcm-handle");
+        if (onHandle) return; // the handle's own click toggles
+        if (cur === "collapsed") snap("half");
+        return;
+      }
+      const a = samples[0];
+      const b = samples[samples.length - 1];
+      const vel = b.t > a.t ? (b.y - a.y) / (b.t - a.t) : 0; // px/ms, + = down
+      const g = geo.current;
+      const projected = g.cur - vel * 180;
+      let best: Sheet = "half";
+      let d = Infinity;
+      for (const k of SHEETS) {
+        const dd = Math.abs(g.vis[k] - projected);
+        if (dd < d) { d = dd; best = k; }
+      }
+      snap(best);
+    };
+    head.addEventListener("pointerdown", down);
+    head.addEventListener("pointermove", move);
+    head.addEventListener("pointerup", up);
+    head.addEventListener("pointercancel", up);
+    return () => {
+      head.removeEventListener("pointerdown", down);
+      head.removeEventListener("pointermove", move);
+      head.removeEventListener("pointerup", up);
+      head.removeEventListener("pointercancel", up);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [phone, apply, snap, appRef, panelRef]);
+
+  // Re-apply after the preview swaps template (new device node).
+  const refresh = useCallback(() => apply(geo.current.cur || geo.current.vis.half), [apply]);
+  return { snap, refresh };
+}
+
+
+/** Phone: modal bottom sheet with the price breakdown. */
+function DetailSheet({
+  title,
+  closeLabel,
+  onClose,
+  children,
+}: {
+  title: string;
+  closeLabel: string;
+  onClose: () => void;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const prev = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key !== "Tab" || !ref.current) return;
+      const f = Array.from(ref.current.querySelectorAll<HTMLElement>("button, a[href]"));
+      if (!f.length) return;
+      const first = f[0];
+      const last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      prev?.focus?.({ preventScroll: true });
+    };
+  }, [onClose]);
+  return createPortal(
+    <div className="pcm-detail" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="pcm-detail-in" ref={ref} role="dialog" aria-modal="true" aria-label={title}>
+        <div className="pcm-detail-h">
+          <b>{title}</b>
+          <button type="button" ref={closeRef} onClick={onClose} className="pcm-detail-x">
+            {closeLabel}
+          </button>
+        </div>
+        {children}
+      </div>
+    </div>,
+    document.body,
   );
 }
 
@@ -628,6 +933,12 @@ export default function PricingConfigurator() {
   const panelRef = useRef<HTMLDivElement>(null);
   const stepEls = () => Array.from(panelRef.current?.querySelectorAll<HTMLElement>(".pc-step") ?? []);
   const stageWrapRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const phone = useIsPhone();
+  const [sheet, setSheet] = useState<Sheet>("half");
+  const [visited, setVisited] = useState<number>(0);
+  const sheetCtl = useSheet(appRef, panelRef, phone, sheet, setSheet);
 
   // The page has its own WhatsApp CTA; hide the site-wide chat launcher so it
   // never sits on top of the price bar.
@@ -761,6 +1072,8 @@ export default function PricingConfigurator() {
   /* step tracking for the progress rail: the last step whose top has
      passed ~40% of the viewport is the current one. */
   useEffect(() => {
+    // Phones use the step tabs; the scroll-tracking rail is desktop-only.
+    if (phone || window.matchMedia("(max-width: 980px)").matches) return;
     let raf = 0;
     const update = () => {
       raf = 0;
@@ -784,9 +1097,17 @@ export default function PricingConfigurator() {
       window.removeEventListener("resize", on);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [phone]);
 
   const goStep = (i: number) => {
+    if (phone) {
+      const n = Math.max(0, Math.min(STEP_COUNT - 1, i));
+      setActiveStep(n);
+      setVisited((v) => Math.max(v, n));
+      bodyRef.current?.scrollTo({ top: 0 });
+      if (sheet === "collapsed") sheetCtl.snap("half");
+      return;
+    }
     const el = stepEls()[i];
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -795,40 +1116,13 @@ export default function PricingConfigurator() {
     h?.focus({ preventScroll: true });
   };
 
-  /* mobile: preview shrinks as you scroll into the options */
   useEffect(() => {
-    const el = stageWrapRef.current;
-    if (!el) return;
-    const mq = window.matchMedia("(max-width: 980px)");
-    let raf = 0;
-    const root = el.closest<HTMLElement>(".pc");
-    const update = () => {
-      raf = 0;
-      const nav = document.querySelector("nav");
-      if (root && nav instanceof HTMLElement) {
-        root.style.setProperty("--pc-nav", `${Math.round(nav.getBoundingClientRect().height)}px`);
-      }
-      if (!mq.matches) {
-        root?.style.removeProperty("--pc-shrink");
-        return;
-      }
-      const p = Math.min(1, Math.max(0, window.scrollY / 360));
-      root?.style.setProperty("--pc-shrink", p.toFixed(3));
-    };
-    const on = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", on, { passive: true });
-    window.addEventListener("resize", on, { passive: true });
-    mq.addEventListener("change", on);
-    return () => {
-      window.removeEventListener("scroll", on);
-      window.removeEventListener("resize", on);
-      mq.removeEventListener("change", on);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
+    const root = appRef.current;
+    const nav = document.querySelector("nav");
+    if (root && nav instanceof HTMLElement && !phone) {
+      root.style.setProperty("--pc-nav", `${Math.round(nav.getBoundingClientRect().height)}px`);
+    }
+  }, [phone]);
 
   /* send + share */
   const shareUrl = () => `${window.location.origin}/pricing-builder?${buildToQuery(build)}`;
@@ -892,6 +1186,14 @@ export default function PricingConfigurator() {
     </header>
   );
 
+  const stepProps = (i: number) => ({
+    className: `pc-step${i === 5 ? " pc-step-sum" : ""}${activeStep === i ? " is-active" : ""}`,
+    "data-step": i,
+    ...(phone
+      ? { role: "tabpanel", id: `${uid}-panel${i}`, "aria-labelledby": `${uid}-tab${i}`, hidden: activeStep !== i }
+      : { "aria-labelledby": `${uid}-s${i}` }),
+  });
+
   const offered = addonsFor(build.plan);
   const palette = PALETTES.find((p) => p.id === build.palette)!;
 
@@ -930,8 +1232,60 @@ export default function PricingConfigurator() {
     </div>
   );
 
+  const stepTitle = copy.steps[activeStep];
+  const priceLine = (
+    <span className={`pcm-price${q.monthly ? "" : " is-once"}`} aria-hidden="true">
+      <b>
+        <AnimatedMoney value={q.oneTime} currency={currency} />
+      </b>
+      <small>
+        {q.monthly ? (
+          <>
+            + <AnimatedMoney value={q.monthly} currency={currency} suffix={copy.perMonth} />
+          </>
+        ) : (
+          copy.noMonthly
+        )}
+      </small>
+    </span>
+  );
+
+  const onTabKey = (e: React.KeyboardEvent) => {
+    const k = e.key;
+    let n = activeStep;
+    if (k === "ArrowRight") n = activeStep + 1;
+    else if (k === "ArrowLeft") n = activeStep - 1;
+    else if (k === "Home") n = 0;
+    else if (k === "End") n = STEP_COUNT - 1;
+    else return;
+    e.preventDefault();
+    n = Math.max(0, Math.min(STEP_COUNT - 1, n));
+    goStep(n);
+    document.getElementById(`${uid}-tab${n}`)?.focus();
+  };
+
+  const nextSheet: Record<Sheet, Sheet> = { collapsed: "half", half: "expanded", expanded: "half" };
+  const sheetLabel = es
+    ? { collapsed: "Mostrar opciones", half: "Agrandar opciones", expanded: "Achicar opciones" }
+    : { collapsed: "Show options", half: "Enlarge options", expanded: "Shrink options" };
+
   return (
-    <div className="pc">
+    <div className="pc" ref={appRef} data-sheet={sheet}>
+      <header className="pcm-top pcm-only">
+        <Link href="/" className="pcm-back" aria-label={copy.back}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </Link>
+        <div className="pcm-top-t">
+          <p className="pcm-top-h">{copy.title}</p>
+          <small>
+            {planName} · {tx(template.cat, lang)}
+          </small>
+        </div>
+        {currencyToggle}
+      </header>
+      <i className="pcm-sab" aria-hidden="true" />
       <div className="pc-grid">
         <div className="pc-spacer" aria-hidden="true" />
         <div className="pc-stage-wrap" ref={stageWrapRef}>
@@ -940,7 +1294,68 @@ export default function PricingConfigurator() {
           </div>
         </div>
 
-        <div className="pc-panel" ref={panelRef}>
+        <div
+          className="pc-panel"
+          ref={panelRef}
+          {...(phone ? { role: "region", "aria-label": es ? "Opciones del configurador" : "Configurator options" } : {})}
+        >
+          <div className="pcm-head pcm-only">
+            <button
+              type="button"
+              className="pcm-handle"
+              aria-label={sheetLabel[sheet]}
+              aria-expanded={sheet !== "collapsed"}
+              onClick={() => sheetCtl.snap(nextSheet[sheet])}
+            >
+              <i />
+            </button>
+            <div className="pcm-head-row">
+              <div className="pcm-head-t">
+                <b>
+                  <span className="pc-sr">
+                    {es ? "Paso" : "Step"} {activeStep + 1} / {STEP_COUNT}:{" "}
+                  </span>
+                  {stepTitle}
+                </b>
+              </div>
+              <div className="pcm-head-p">
+                {priceLine}
+                <button
+                  type="button"
+                  className="pcm-detail-btn"
+                  aria-haspopup="dialog"
+                  onClick={() => setDetailsOpen(true)}
+                >
+                  {copy.details}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="pcm-tabs pcm-only"
+            role="tablist"
+            aria-label={copy.stepsNav}
+            onKeyDown={onTabKey}
+            inert={phone && sheet === "collapsed"}
+          >
+            {copy.steps.map((label, i) => (
+              <button
+                key={label}
+                type="button"
+                role="tab"
+                id={`${uid}-tab${i}`}
+                aria-selected={activeStep === i}
+                aria-controls={`${uid}-panel${i}`}
+                tabIndex={activeStep === i ? 0 : -1}
+                className={i < activeStep || i <= visited ? "is-seen" : undefined}
+                onClick={() => goStep(i)}
+              >
+                <span aria-hidden="true">{i + 1}</span>
+                <em>{label}</em>
+              </button>
+            ))}
+          </div>
+          <div className="pc-steps" ref={bodyRef} inert={phone && sheet === "collapsed"}>
           <div className="pc-intro">
             <span className="section-label">{copy.kicker}</span>
             <h1>{copy.title}</h1>
@@ -965,7 +1380,7 @@ export default function PricingConfigurator() {
           </nav>
 
           {/* 1 — plan */}
-          <section className="pc-step" data-step={0} aria-labelledby={`${uid}-s0`}>
+          <section {...stepProps(0)}>
             {head(0, copy.s1, copy.s1sub)}
             <div className="pc-plans" role="radiogroup" aria-labelledby={`${uid}-s0`}>
               {PLAN_IDS.map((id) => {
@@ -995,7 +1410,7 @@ export default function PricingConfigurator() {
           </section>
 
           {/* 2 — style */}
-          <section className="pc-step" data-step={1} aria-labelledby={`${uid}-s1`}>
+          <section {...stepProps(1)}>
             {head(1, copy.s2, copy.s2sub)}
             <fieldset className="pc-field">
               <legend>{copy.tpl}</legend>
@@ -1012,6 +1427,9 @@ export default function PricingConfigurator() {
                         show("inicio");
                       }}
                     />
+                    <span className="pc-tpl-thumb" aria-hidden="true">
+                      {miniSiteFor(t.id)?.hero.img ? <img src={miniSiteFor(t.id)!.hero.img} alt="" loading="lazy" decoding="async" /> : null}
+                    </span>
                     <span className="pc-tpl-name">{tx(t.cat, lang)}</span>
                     <small>{miniSiteFor(t.id)?.brand ?? t.brand}</small>
                   </label>
@@ -1074,7 +1492,7 @@ export default function PricingConfigurator() {
           </section>
 
           {/* 3 — sections */}
-          <section className="pc-step" data-step={2} aria-labelledby={`${uid}-s2`}>
+          <section {...stepProps(2)}>
             {head(2, copy.s3, build.plan === "landing" ? copy.s3subLanding : copy.s3subShop)}
             <ul className="pc-checks">
               {SECTIONS[build.plan].map((s) => {
@@ -1100,7 +1518,7 @@ export default function PricingConfigurator() {
           </section>
 
           {/* 4 — add-ons */}
-          <section className="pc-step" data-step={3} aria-labelledby={`${uid}-s3`}>
+          <section {...stepProps(3)}>
             {head(3, copy.s4, copy.s4sub)}
             <ul className="pc-addons">
               {offered.map((id) => {
@@ -1152,7 +1570,7 @@ export default function PricingConfigurator() {
           </section>
 
           {/* 5 — support */}
-          <section className="pc-step" data-step={4} aria-labelledby={`${uid}-s4`}>
+          <section {...stepProps(4)}>
             {head(4, copy.s5, copy.s5sub)}
             <div className="pc-support" role="radiogroup" aria-labelledby={`${uid}-s4`}>
               {[true, false].map((v) => (
@@ -1178,7 +1596,7 @@ export default function PricingConfigurator() {
           </section>
 
           {/* 6 — summary */}
-          <section className="pc-step pc-step-sum" data-step={5} aria-labelledby={`${uid}-s5`}>
+          <section {...stepProps(5)}>
             {head(5, copy.s6, copy.s6sub)}
             <div className="pc-sum">
               <dl>
@@ -1236,6 +1654,8 @@ export default function PricingConfigurator() {
             </div>
           </section>
 
+          </div>
+
           {/* price bar */}
           <div className={`pc-bar${detailsOpen ? " is-open" : ""}`}>
             <div className="pc-bar-detail" id={`${uid}-detail`} hidden={!detailsOpen}>
@@ -1284,12 +1704,70 @@ export default function PricingConfigurator() {
             <p className="pc-bar-fine">
               {copy.demo} · {copy.confirm}
             </p>
-            <span className="pc-sr" aria-live="polite">
-              {live}
-            </span>
           </div>
+          <span className="pc-sr" aria-live="polite">
+            {live}
+          </span>
         </div>
       </div>
+
+      <div className="pcm-foot pcm-only" inert={phone && sheet === "collapsed"}>
+        <button type="button" className="pcm-prev" disabled={activeStep === 0} onClick={() => goStep(activeStep - 1)}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {es ? "Anterior" : "Back"}
+        </button>
+        {activeStep < STEP_COUNT - 1 ? (
+          <button type="button" className="pcm-next" onClick={() => goStep(activeStep + 1)}>
+            <span>
+              {es ? "Siguiente" : "Next"}
+              <small>{copy.steps[activeStep + 1]}</small>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        ) : (
+          <button type="button" className="btn btn-launch btn-launch-static pcm-cta" onClick={send}>
+            {copy.ctaShort}
+          </button>
+        )}
+      </div>
+
+      {phone && detailsOpen ? (
+        <DetailSheet
+          title={copy.breakdown}
+          closeLabel={es ? "Cerrar" : "Close"}
+          onClose={() => setDetailsOpen(false)}
+        >
+          <div className="pcm-detail-tot">
+            <span>
+              <small>{copy.oneTimeTotal}</small>
+              <b>{money(q.oneTime)}</b>
+            </span>
+            <span>
+              <small>{copy.monthlyTotal}</small>
+              <b>{q.monthly ? `${money(q.monthly)}${copy.perMonth}` : "—"}</b>
+            </span>
+          </div>
+          <Breakdown
+            lines={q.lines}
+            currency={currency}
+            dict={dict}
+            planName={planName}
+            copy={copy}
+            oneTime={q.oneTime}
+            monthly={q.monthly}
+          />
+          <p className="pc-fine">
+            <b>{copy.demo}.</b> {copy.confirm}
+          </p>
+          <button type="button" className="btn btn-launch btn-launch-static pc-cta-big" onClick={send}>
+            {copy.cta}
+          </button>
+        </DetailSheet>
+      ) : null}
     </div>
   );
 }

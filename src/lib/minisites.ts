@@ -414,7 +414,7 @@ export const MINI_SITES: Record<string, MiniSite> = {
     domain: "basalto.do",
     mark: "beam",
     fonts: { head: "'Barlow Condensed', 'Arial Narrow', sans-serif", body: "'Barlow', system-ui, sans-serif", headCase: "upper", headWeight: 600 },
-    colors: { bg: "#F1F0EC", ink: "#111315", accent: "#E2562B", soft: "#E3E0D8" },
+    colors: { bg: "#F1F0EC", ink: "#111315", accent: "#BD4219", soft: "#E3E0D8" },
     heroStyle: "poster",
     promo: "3 obras en curso · Visitas guiadas los sábados",
     nav: ["Proyectos", "Servicios", "Empresa", "Cotizar"],
