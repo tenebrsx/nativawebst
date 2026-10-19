@@ -27,8 +27,8 @@ const COPY = {
     cta: "Elige Nativa",
     rivals: [
       { name: "Doctoralia", url: "doctoralia.com.do › clinicas", title: "Clínicas cerca de ti — Doctoralia", snippet: "Opiniones, precios y agenda online de clínicas en Santo Domingo." },
-      { name: "Google Maps", url: "maps.google.com › clinicas", title: "Clínicas cerca de mí · Santo Domingo", snippet: "4.6 ★ · Abierto · Cómo llegar · Sitio web" },
-      { name: "Facebook", url: "facebook.com › clinicasrd", title: "Clínicas RD | Facebook", snippet: "Páginas, reseñas y publicaciones de clínicas locales." },
+      { name: "Google Maps", url: "maps.google.com › clinicas", title: "Clínicas cerca de mí · Santo Domingo", snippet: "Abierto · Cómo llegar · Sitio web" },
+      { name: "Facebook", url: "facebook.com › clinicasrd", title: "Clínicas RD | Facebook", snippet: "Páginas y publicaciones de clínicas locales." },
       { name: "Páginas Amarillas", url: "paginasamarillas.com.do › salud", title: "Clínicas y centros médicos", snippet: "Directorio: teléfonos, direcciones y horarios." },
       { name: "Instagram", url: "instagram.com › clinicasrd", title: "clinicas.rd • Fotos y videos", snippet: "12.4 mil seguidores. Reels y destacados de salud." },
     ],
@@ -51,8 +51,8 @@ const COPY = {
     cta: "Choose Nativa",
     rivals: [
       { name: "Doctoralia", url: "doctoralia.com.do › clinics", title: "Clinics near you — Doctoralia", snippet: "Reviews, prices and online booking for clinics in Santo Domingo." },
-      { name: "Google Maps", url: "maps.google.com › clinics", title: "Clinics near me · Santo Domingo", snippet: "4.6 ★ · Open · Directions · Website" },
-      { name: "Facebook", url: "facebook.com › clinicasrd", title: "Clínicas RD | Facebook", snippet: "Pages, reviews and posts from local clinics." },
+      { name: "Google Maps", url: "maps.google.com › clinics", title: "Clinics near me · Santo Domingo", snippet: "Open · Directions · Website" },
+      { name: "Facebook", url: "facebook.com › clinicasrd", title: "Clínicas RD | Facebook", snippet: "Pages and posts from local clinics." },
       { name: "Yellow Pages", url: "paginasamarillas.com.do › health", title: "Clinics and medical centers", snippet: "Directory: phone numbers, addresses and hours." },
       { name: "Instagram", url: "instagram.com › clinicasrd", title: "clinicas.rd • Photos and videos", snippet: "12.4k followers. Health reels and highlights." },
     ],

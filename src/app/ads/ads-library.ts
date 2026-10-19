@@ -365,7 +365,7 @@ Nativa connects your site to Maps and WhatsApp. The calendar fills from search.
         mockCta: "",
         mockCards: [],
         mapsName: "Tu negocio · Naco",
-        mapsMeta: "5.0 · 48 reseñas · Abierto",
+        mapsMeta: "Abierto ahora · Cómo llegar",
       },
       en: {
         studio: "Web Studio · DR",
@@ -382,7 +382,7 @@ Nativa connects your site to Maps and WhatsApp. The calendar fills from search.
         mockCta: "",
         mockCards: [],
         mapsName: "Your business · Naco",
-        mapsMeta: "5.0 · 48 reviews · Open",
+        mapsMeta: "Open now · Directions",
       },
     },
   },

@@ -115,7 +115,7 @@ const COPY = {
     crmTitle: "CRM",
     crmCols: ["Nuevo", "Cotizado", "Cerrado"],
     maps: "Google Maps",
-    mapsMeta: "Perfil optimizado",
+    mapsMeta: "Perfil optimizado · Abierto ahora",
     care: "Soporte activo",
     shopify: "Checkout Shopify",
     brandKit: "Identidad",
@@ -193,7 +193,7 @@ const COPY = {
     crmTitle: "CRM",
     crmCols: ["New", "Quoted", "Won"],
     maps: "Google Maps",
-    mapsMeta: "Optimized profile",
+    mapsMeta: "Optimized profile · Open now",
     care: "Support on",
     shopify: "Shopify checkout",
     brandKit: "Identity",
@@ -485,7 +485,7 @@ function LivePreview({ template, build, lang, copy, planName, focus }: PreviewPr
             </svg>
             <span>
               <b>{copy.maps}</b>
-              <small>{copy.mapsMeta} · 4.9 ★</small>
+              <small>{copy.mapsMeta}</small>
             </span>
           </div>
           <div className={`pc-ov pc-ov-brand${has("brand") || palette?.swatch.length ? " is-on" : ""}`}>

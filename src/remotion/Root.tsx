@@ -68,8 +68,8 @@ export const RemotionRoot: React.FC = () => {
           headline: "¿Tu negocio aparece de #1 en Google Maps?",
           subheadline:
             "El 82% de las compras locales en Santo Domingo comienzan en el mapa de Google.",
-          rating: "5.0 ★★★★★",
-          reviewCount: "128 reseñas verificadas",
+          rating: "Abierto ahora",
+          reviewCount: "Cómo llegar",
           ctaText: "Auditoría SEO Gratis 📍",
           whatsappPhone: "+1 (829) 000-0000",
         }}
@@ -89,8 +89,8 @@ export const RemotionRoot: React.FC = () => {
           headline: "¿Apareces de #1 en Google Maps?",
           subheadline:
             "El 82% de compras locales empiezan en el mapa de Google.",
-          rating: "5.0 ★★★★★",
-          reviewCount: "128 reseñas",
+          rating: "Abierto ahora",
+          reviewCount: "Cómo llegar",
           ctaText: "Auditoría SEO Gratis 📍",
           whatsappPhone: "+1 (829) 000-0000",
         }}

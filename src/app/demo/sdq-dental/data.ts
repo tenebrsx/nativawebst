@@ -14,8 +14,6 @@ export const CLINIC = {
   email: "citas@sdqdental.do",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Calle+Manuel+de+Jesus+Troncoso+Naco+Santo+Domingo",
-  rating: "4.9",
-  reviews: "350+",
   hours: [
     { d: "Lunes–Viernes", h: "8:00 – 18:00" },
     { d: "Sábado", h: "9:00 – 14:00" },
