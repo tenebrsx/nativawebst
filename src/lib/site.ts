@@ -110,6 +110,7 @@ export const INDEXABLE_PATHS = [
   "/industrias/legal",
   "/industrias/villas",
   "/casos",
+  "/pricing-builder",
   "/guias",
   ...GUIDE_SLUGS.map((slug) => `/guias/${slug}`),
   "/portfolio",

@@ -16,8 +16,8 @@ export const MapsScene: React.FC<MapsSceneProps> = ({
   lang = "es",
   businessCity = "Santo Domingo, DN",
   businessName = "Tu Negocio Líder",
-  rating = "5.0 ★★★★★",
-  reviewCount = "128 reseñas",
+  rating = "Abierto ahora",
+  reviewCount = "Cómo llegar",
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -237,7 +237,7 @@ export const MapsScene: React.FC<MapsSceneProps> = ({
                   color: "#94A3B8",
                 }}
               >
-                ({reviewCount})
+                · {reviewCount}
               </span>
             </div>
           </div>

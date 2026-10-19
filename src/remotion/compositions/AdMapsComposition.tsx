@@ -14,8 +14,8 @@ export const AdMapsComposition: React.FC<AdMapsProps> = ({
   businessName = "Tu Negocio Líder",
   headline,
   subheadline,
-  rating = "5.0 ★★★★★",
-  reviewCount = "128 reseñas verificadas",
+  rating = "Abierto ahora",
+  reviewCount = "Cómo llegar",
   ctaText,
   whatsappPhone,
 }) => {

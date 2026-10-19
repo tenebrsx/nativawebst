@@ -104,7 +104,7 @@ function StillVisual({ ad, lang }: { ad: AdEntry; lang: AdLang }) {
       <div className="ad-maps" aria-hidden="true">
         <div className="ad-maps-pin" />
         <div className="ad-maps-card">
-          <em>★ #1</em>
+          <em>Maps</em>
           <b>{t.mapsName}</b>
           <span>{t.mapsMeta}</span>
           <strong>WhatsApp</strong>
@@ -230,7 +230,7 @@ function NecesitaStill({ ad, lang }: { ad: AdEntry; lang: AdLang }) {
                 <figure className="ad-nec-shot is-top" style={{ backgroundImage: "url(/demo/bavaro-swim/vestido-cala.jpg)" }} />
                 <figure className="ad-nec-shot is-bot" style={{ backgroundImage: "url(/demo/sdq-dental/exterior.jpg)" }} />
                 <div className="ad-nec-float">
-                  <em>★ 4.9</em>
+                  <em>Abierto</em>
                   <strong>{es ? "Maps · Zona Colonial" : "Maps · Zona Colonial"}</strong>
                   <small>{es ? "41 pedidos esta semana" : "41 orders this week"}</small>
                 </div>

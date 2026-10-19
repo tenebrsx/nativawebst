@@ -22,8 +22,8 @@ export const AdMapsSchema = z.object({
   businessName: z.string().default("Tu Negocio Líder").optional(),
   headline: z.string().optional(),
   subheadline: z.string().optional(),
-  rating: z.string().default("5.0 ★★★★★").optional(),
-  reviewCount: z.string().default("128 reseñas verificadas").optional(),
+  rating: z.string().default("Abierto ahora").optional(),
+  reviewCount: z.string().default("Cómo llegar").optional(),
   ctaText: z.string().optional(),
   whatsappPhone: z.string().default("+1 (829) 000-0000").optional(),
 });

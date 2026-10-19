@@ -354,7 +354,7 @@ export default function PortfolioGrid() {
                               <div>
                                 <span style={{ fontSize: "6.5px", fontWeight: 800, color: "#1E64C4", textTransform: "uppercase" }}>Odontología Especializada</span>
                                 <div style={{ fontSize: "10px", fontWeight: 900, color: "#0F172A", lineHeight: "1.2" }}>Sonrisas Hermosas en Naco</div>
-                                <div style={{ fontSize: "7px", color: "#166534", fontWeight: 800, marginTop: "2px" }}>4.9 ★★★★★ (350+ Reseñas)</div>
+                                <div style={{ fontSize: "7px", color: "#166534", fontWeight: 800, marginTop: "2px" }}>Abierto hoy · Cita por WhatsApp</div>
                               </div>
                               <div style={{ borderRadius: "6px", overflow: "hidden", height: "55px", border: "1px solid #E2E8F0" }}>
                                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=400&q=80" alt="Clinic operatory" style={{ width: "100%", height: "100%", objectFit: "cover" }} />

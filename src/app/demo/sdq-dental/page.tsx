@@ -46,8 +46,8 @@ export default function SdqDentalHome() {
             </div>
             <div className="sdq-stats">
               <div>
-                <b>{CLINIC.rating} ★</b>
-                <span>{CLINIC.reviews} reseñas en Google</span>
+                <b>Lun–Sáb</b>
+                <span>Citas en horario extendido</span>
               </div>
               <div>
                 <b>Naco</b>
@@ -217,7 +217,6 @@ export default function SdqDentalHome() {
           <div className="sdq-reviews">
             {REVIEWS.map((r) => (
               <blockquote className="sdq-quote" key={r.name}>
-                <div className="sdq-stars">★★★★★</div>
                 <p>“{r.text}”</p>
                 <b>{r.name}</b>
                 <span>{r.role}</span>

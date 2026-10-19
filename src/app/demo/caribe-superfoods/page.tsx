@@ -16,7 +16,6 @@ interface Product {
   priceUSD: number;
   subPriceDOP: number;
   subPriceUSD: number;
-  rating: string;
   img: string;
   benefits: string[];
 }
@@ -129,7 +128,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 11,
       subPriceDOP: 550,
       subPriceUSD: 9.35,
-      rating: "4.9 ★★★★★ (280+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23FCD34D"/><stop offset="50%" stop-color="%23F59E0B"/><stop offset="100%" stop-color="%23B45309"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><path d="M400 60 l40 23 v46 l-40 23 l-40 -23 v-46 z M320 106 l40 23 v46 l-40 23 l-40 -23 v-46 z M480 106 l40 23 v46 l-40 23 l-40 -23 v-46 z" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="4"/><rect x="280" y="200" width="240" height="300" rx="30" fill="%23FFF" stroke="%23B45309" stroke-width="6"/><rect x="250" y="160" width="300" height="40" rx="10" fill="%2378350F"/><rect x="310" y="270" width="180" height="160" rx="12" fill="%23FFF" stroke="%23D97706" stroke-width="3"/><text x="400" y="320" font-family="serif" font-size="22" font-weight="900" fill="%2378350F" text-anchor="middle">CARIBE</text><text x="400" y="350" font-family="sans-serif" font-size="16" font-weight="800" fill="%23D97706" text-anchor="middle">MIEL SILVESTRE</text><text x="400" y="380" font-family="sans-serif" font-size="13" font-weight="700" fill="%23451A03" text-anchor="middle">Jarabacoa · 1,200m</text><text x="400" y="410" font-family="sans-serif" font-size="12" font-weight="900" fill="%2310B981" text-anchor="middle">100% PURA 500g</text></svg>`,
       benefits: ["Enzimas Activas", "Sin Azúcar Añadida", "100% Pura"]
     },
@@ -144,7 +142,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 15,
       subPriceDOP: 750,
       subPriceUSD: 12.75,
-      rating: "5.0 ★★★★★ (190+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%2334D399"/><stop offset="50%" stop-color="%2310B981"/><stop offset="100%" stop-color="%23047857"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><ellipse cx="260" cy="340" rx="100" ry="140" fill="%23064E3B"/><ellipse cx="260" cy="340" rx="80" ry="120" fill="%23A7F3D0"/><circle cx="260" cy="360" r="45" fill="%2378350F"/><rect x="460" y="180" width="140" height="320" rx="20" fill="rgba(255,255,255,0.9)" stroke="%23047857" stroke-width="6"/><rect x="490" y="140" width="80" height="40" fill="%23064E3B" rx="6"/><rect x="480" y="260" width="100" height="150" rx="8" fill="%23FFF" stroke="%2310B981" stroke-width="3"/><text x="530" y="300" font-family="serif" font-size="16" font-weight="900" fill="%23064E3B" text-anchor="middle">ACEITE DE</text><text x="530" y="324" font-family="sans-serif" font-size="16" font-weight="900" fill="%2310B981" text-anchor="middle">AGUACATE</text><text x="530" y="350" font-family="sans-serif" font-size="11" font-weight="800" fill="%23047857" text-anchor="middle">Prensado en Frío</text><text x="530" y="380" font-family="sans-serif" font-size="11" font-weight="900" fill="%23064E3B" text-anchor="middle">Constanza 250ml</text></svg>`,
       benefits: ["Omega-9 & Vitamina E", "Alto Punto de Humo", "Cero Químicos"]
     },
@@ -159,7 +156,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 9.5,
       subPriceDOP: 490,
       subPriceUSD: 8.0,
-      rating: "4.8 ★★★★★ (140+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23A3E635"/><stop offset="50%" stop-color="%2384CC16"/><stop offset="100%" stop-color="%233F6212"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><ellipse cx="400" cy="380" rx="200" ry="120" fill="%23FEF08A"/><ellipse cx="400" cy="360" rx="180" ry="100" fill="%2365A30D"/><ellipse cx="400" cy="355" rx="140" ry="75" fill="%234D7C0F"/><rect x="250" y="160" width="300" height="120" rx="16" fill="%23FFF" stroke="%234D7C0F" stroke-width="4"/><text x="400" y="210" font-family="serif" font-size="24" font-weight="900" fill="%233F6212" text-anchor="middle">MORINGA ORGÁNICA</text><text x="400" y="240" font-family="sans-serif" font-size="14" font-weight="800" fill="%2365A30D" text-anchor="middle">Superalimento Verde · Constanza 200g</text></svg>`,
       benefits: ["Desintoxicante Natural", "Hierro & Proteína", "Certificado Orgánico"]
     },
@@ -174,7 +170,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 7.5,
       subPriceDOP: 380,
       subPriceUSD: 6.35,
-      rating: "4.9 ★★★★★ (310+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23FB923C"/><stop offset="50%" stop-color="%23F97316"/><stop offset="100%" stop-color="%23C2410C"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><path d="M 200,400 Q 300,200 450,350 T 700,300" fill="none" stroke="%23FFEDD5" stroke-width="40" stroke-linecap="round"/><rect x="250" y="180" width="300" height="140" rx="16" fill="%23FFF" stroke="%23C2410C" stroke-width="4"/><text x="400" y="235" font-family="serif" font-size="22" font-weight="900" fill="%237C2D12" text-anchor="middle">MANGO %26 PIÑA</text><text x="400" y="265" font-family="sans-serif" font-size="15" font-weight="800" fill="%23EA580C" text-anchor="middle">Deshidratados Sin Azúcar · 150g</text><text x="400" y="290" font-family="sans-serif" font-size="12" font-weight="900" fill="%2310B981" text-anchor="middle">100% FRUTA REAL</text></svg>`,
       benefits: ["Alto en Fibra", "Sin Azúcar Añadida", "Snack Energético"]
     },
@@ -189,7 +184,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 12,
       subPriceDOP: 610,
       subPriceUSD: 10.2,
-      rating: "5.0 ★★★★★ (220+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%2392400E"/><stop offset="50%" stop-color="%2378350F"/><stop offset="100%" stop-color="%23451A03"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><rect x="250" y="280" width="300" height="180" rx="16" fill="%23271004" stroke="%23D97706" stroke-width="4"/><rect x="270" y="300" width="80" height="60" rx="8" fill="%23451A03"/><rect x="360" y="300" width="80" height="60" rx="8" fill="%23451A03"/><rect x="450" y="300" width="80" height="60" rx="8" fill="%23451A03"/><rect x="270" y="375" width="80" height="60" rx="8" fill="%23451A03"/><rect x="360" y="375" width="80" height="60" rx="8" fill="%23451A03"/><rect x="450" y="375" width="80" height="60" rx="8" fill="%23451A03"/><rect x="240" y="130" width="320" height="120" rx="16" fill="%23FFF" stroke="%2378350F" stroke-width="4"/><text x="400" y="175" font-family="serif" font-size="22" font-weight="900" fill="%23451A03" text-anchor="middle">CACAO CEREMONIAL</text><text x="400" y="205" font-family="sans-serif" font-size="14" font-weight="800" fill="%23D97706" text-anchor="middle">100% Puro de Montaña · El Seibo 400g</text><text x="400" y="228" font-family="sans-serif" font-size="11" font-weight="900" fill="%2310B981" text-anchor="middle">GRADO CEREMONIAL</text></svg>`,
       benefits: ["Rico en Teobromina", "Antioxidantes", "Comercio Justo"]
     },
@@ -204,7 +198,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 8.5,
       subPriceDOP: 440,
       subPriceUSD: 7.2,
-      rating: "4.9 ★★★★★ (175+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23B45309"/><stop offset="50%" stop-color="%2378350F"/><stop offset="100%" stop-color="%23381303"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><circle cx="400" cy="380" r="130" fill="%23FEF3C7" stroke="%23F59E0B" stroke-width="6"/><circle cx="370" cy="340" r="16" fill="%23451A03"/><circle cx="430" cy="350" r="14" fill="%23451A03"/><circle cx="390" cy="400" r="18" fill="%23451A03"/><circle cx="440" cy="410" r="15" fill="%23451A03"/><rect x="240" y="130" width="320" height="120" rx="16" fill="%23FFF" stroke="%2378350F" stroke-width="4"/><text x="400" y="175" font-family="serif" font-size="22" font-weight="900" fill="%23451A03" text-anchor="middle">NIBS EN MIEL</text><text x="400" y="205" font-family="sans-serif" font-size="14" font-weight="800" fill="%23D97706" text-anchor="middle">Cacao Tostado con Miel · 300g</text><text x="400" y="228" font-family="sans-serif" font-size="11" font-weight="900" fill="%2310B981" text-anchor="middle">CRUJANTERÍA NATURAL</text></svg>`,
       benefits: ["Textura Crujiente", "Magnesio Natural", "Superalimento"]
     },
@@ -219,7 +212,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 6.5,
       subPriceDOP: 320,
       subPriceUSD: 5.5,
-      rating: "4.8 ★★★★★ (95+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23FACC15"/><stop offset="50%" stop-color="%23EAB308"/><stop offset="100%" stop-color="%23854D0E"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><path d="M 280,320 C 280,450 520,450 520,320 Z" fill="%23FFF" stroke="%23854D0E" stroke-width="6"/><path d="M 520,340 C 580,340 580,400 520,410" fill="none" stroke="%23FFF" stroke-width="10"/><ellipse cx="400" cy="320" rx="120" ry="30" fill="%23FEF08A"/><rect x="240" y="80" width="320" height="100" rx="16" fill="%23FFF" stroke="%23854D0E" stroke-width="4"/><text x="400" y="125" font-family="serif" font-size="20" font-weight="900" fill="%23713F12" text-anchor="middle">INFUSIÓN DE JENGIBRE</text><text x="400" y="152" font-family="sans-serif" font-size="13" font-weight="800" fill="%23CA8A04" text-anchor="middle">Cúrcuma %26 Limón · 20 Filtros</text></svg>`,
       benefits: ["Antiinflamatorio", "Cero Cafeína", "20 Filtros Biodegradables"]
     },
@@ -234,7 +226,6 @@ export default function CaribeSuperfoodsDemo() {
       priceUSD: 8,
       subPriceDOP: 410,
       subPriceUSD: 6.8,
-      rating: "4.9 ★★★★★ (210+ valoraciones)",
       img: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23F59E0B"/><stop offset="50%" stop-color="%23D97706"/><stop offset="100%" stop-color="%2378350F"/></linearGradient></defs><rect width="800" height="600" fill="url(%23bg)"/><rect x="300" y="220" width="200" height="280" rx="20" fill="%23FFF" stroke="%2378350F" stroke-width="6"/><rect x="270" y="180" width="260" height="40" rx="8" fill="%2378350F"/><rect x="320" y="280" width="160" height="140" rx="10" fill="%23FEF3C7" stroke="%23D97706" stroke-width="3"/><text x="400" y="325" font-family="serif" font-size="16" font-weight="900" fill="%2378350F" text-anchor="middle">MANTEQUILLA DE</text><text x="400" y="350" font-family="sans-serif" font-size="18" font-weight="900" fill="%23D97706" text-anchor="middle">MANÍ %26 CACAO</text><text x="400" y="380" font-family="sans-serif" font-size="11" font-weight="800" fill="%2310B981" text-anchor="middle">10g Proteína · 350g</text></svg>`,
       benefits: ["10g Proteína / porción", "Sin Aceite de Palma", "Keto Friendly"]
     }
@@ -750,7 +741,6 @@ export default function CaribeSuperfoodsDemo() {
                   priceUSD: subTier === "essential" ? 32.5 : 60,
                   subPriceDOP: subTier === "essential" ? 1950 : 3600,
                   subPriceUSD: subTier === "essential" ? 32.5 : 60,
-                  rating: "5.0 ★★★★★",
                   img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80",
                   benefits: ["15% Ahorro", "Envío Gratis", "Pausa en 1 Clic"]
                 };
