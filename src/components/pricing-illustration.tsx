@@ -22,7 +22,7 @@ const ADDON_ICON: Record<AddonId, (a: string) => React.ReactNode> = {
   ai: (a) => <><path d="M8 12h24v14H18l-6 5v-5H8z" {...S} strokeWidth={2.4}/><path d="M20 15l1.6 3.4L25 20l-3.4 1.6L20 25l-1.6-3.4L15 20l3.4-1.6z" fill={a}/></>,
 };
 
-export default function PricingIllustration({ build, lang, label, addonLabels }: { build: Build; lang: "es" | "en"; label: string; addonLabels: Record<string, string> }) {
+export default function PricingIllustration({ build, lang, label, addonLabels, compact = false }: { build: Build; lang: "es" | "en"; label: string; addonLabels: Record<string, string>; compact?: boolean }) {
   const root = useRef<HTMLDivElement>(null);
   const pal = PALETTES.find((p) => p.id === build.palette);
   const accent = pal?.swatch[1] ?? BLUE;
@@ -64,7 +64,7 @@ export default function PricingIllustration({ build, lang, label, addonLabels }:
   }, { scope: root, dependencies: [build.addons.join(","), build.sections.join(",")] });
 
   return (
-    <div ref={root} className={`pi${dark ? " is-dark" : ""}`} style={{ ["--pi-a" as string]: accent }} role="img" aria-label={label}>
+    <div ref={root} className={`pi${dark ? " is-dark" : ""}${compact ? " is-compact" : ""}`} style={{ ["--pi-a" as string]: accent }} role="img" aria-label={label}>
       <p className="pi-note">{lang === "es" ? "Ilustración de lo que eliges — tu sitio real se diseña contigo." : "An illustration of your choices — your real site is designed with you."}</p>
       <div className="pi-stage">
         <div className="pi-spotwrap"><Scene id={build.tpl} a={accent} dark={dark} /></div>
@@ -77,11 +77,11 @@ export default function PricingIllustration({ build, lang, label, addonLabels }:
           ))}
         </ul>
       </div>
-      <ol className="pi-secs" aria-label={lang === "es" ? "Secciones" : "Sections"}>
+      {!compact && <ol className="pi-secs" aria-label={lang === "es" ? "Secciones" : "Sections"}>
         {secs.map((s, i) => (
           <li key={s.id} className="pi-sec" data-k={`s:${s.id}`}><b>{String(i + 1).padStart(2, "0")}</b>{tx(s.label, lang)}</li>
         ))}
-      </ol>
+      </ol>}
     </div>
   );
 }
