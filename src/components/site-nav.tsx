@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import { RegionSelector } from "@/components/region-selector";
+import NatiLogo from "@/components/nati-logo";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 
 /**
@@ -75,28 +76,8 @@ export default function SiteNav({ solid = false }: { solid?: boolean } = {}) {
           paddingBlock: "14px",
         }}
       >
-        <Link href="/" style={{ textDecoration: "none", minWidth: 0, flexShrink: 1 }}>
-          <div
-            style={{
-              fontFamily: "var(--font-head)",
-              fontWeight: 900,
-              fontSize: "20px",
-              color: "var(--navy-trench)",
-              letterSpacing: "-0.04em",
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
-            <span className="site-logo">Nativa</span>
-            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: "var(--coral-blue)", marginTop: "2px", flexShrink: 0 }}>
-              <path d="M1 8.5C3.5 8.5 4.5 6 7 6C9.5 6 10.5 8.5 13 8.5C15.5 8.5 16.5 6 18 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-              <path d="M3 3C5.5 3 6.5 0.5 9 0.5C11.5 0.5 12.5 3 15 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-            </svg>
-          </div>
-          <div className="brand-tagline" style={{ fontSize: "9px", color: "var(--gray-400)", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700 }}>
-            {lang === "es" ? "Estudio Web · Santo Domingo, RD" : "Web Studio · Santo Domingo, DR"}
-          </div>
+        <Link href="/" aria-label="Nativa Studio — inicio" style={{ textDecoration: "none", minWidth: 0, flexShrink: 1, display: "inline-flex", padding: "8px 0" }}>
+          <NatiLogo variant="horizontal" tone="light" size={32} />
         </Link>
 
         <div className="site-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", justifyContent: "flex-end" }}>
@@ -161,6 +142,9 @@ export default function SiteNav({ solid = false }: { solid?: boolean } = {}) {
       >
         {drawerReady ? (
           <>
+            <div className="mobile-nav-brand" aria-hidden="true" style={{ padding: "8px 0 12px" }}>
+              <NatiLogo variant="short" tone="light" size={28} />
+            </div>
             {links.map((link) => (
               <Link
                 key={link.href}

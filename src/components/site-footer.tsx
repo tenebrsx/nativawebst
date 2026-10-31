@@ -5,6 +5,7 @@ import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import { SERVICES, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY, SITE_STREET } from "@/lib/site";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
+import NatiLogo from "@/components/nati-logo";
 
 export default function SiteFooter() {
   const { lang } = useGeo();
@@ -30,23 +31,8 @@ export default function SiteFooter() {
           className="footer-grid"
         >
           <div>
-            <div
-              style={{
-                fontFamily: "var(--font-head)",
-                fontWeight: 900,
-                fontSize: "24px",
-                color: "#fff",
-                marginBottom: "16px",
-                letterSpacing: "-0.04em",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <span>Nativa</span>
-              <svg width="20" height="14" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: "var(--coral-blue)" }}>
-                <path d="M1 8.5C3.5 8.5 4.5 6 7 6C9.5 6 10.5 8.5 13 8.5C15.5 8.5 16.5 6 18 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              </svg>
+            <div style={{ marginBottom: "20px" }}>
+              <NatiLogo variant="horizontal" tone="dark" mono size={36} />
             </div>
             <p style={{ fontSize: "13px", lineHeight: "1.7", marginBottom: "24px", maxWidth: "300px", color: "rgba(255,255,255,0.7)" }}>
               {lang === "es"

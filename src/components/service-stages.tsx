@@ -260,7 +260,7 @@ function ChatStage({ t }: { t: (typeof CAPTION)["es"] }) {
     <Stage>
       <div className="svc-wa svc-wa-support">
         <div className="svc-wa-head">
-          <div className="svc-wa-av">N</div>
+          <div className="svc-wa-av svc-nati-av">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/brand/nati/mark-small.svg" alt="" width={24} height={24} style={{ display: "block", width: "100%", height: "100%" }} /></div>
           <div>
             <b>{t.supportBrand}</b>
             <small>{t.online}</small>
@@ -310,7 +310,7 @@ function CrmStage({ t }: { t: (typeof CAPTION)["es"] }) {
     <Stage>
       <div className="svc-crm">
         <aside className="svc-crm-rail">
-          <div className="svc-crm-mark">N</div>
+          <div className="svc-crm-mark svc-nati-av">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/brand/nati/mark-small.svg" alt="" width={24} height={24} style={{ display: "block", width: "100%", height: "100%" }} /></div>
           <nav className="svc-crm-nav">
             <span className="is-board" title={t.crmBoard}>
               <CrmRailIcon d="M2 2.5h5v5H2zm7 0h5v5H9zM2 9.5h5v5H2zm7 0h5v5H9z" />
@@ -411,7 +411,7 @@ function AgentStage({ t }: { t: (typeof CAPTION)["es"] }) {
     <Stage>
       <div className="svc-llm">
         <div className="svc-llm-head">
-          <div className="svc-wa-av">N</div>
+          <div className="svc-wa-av svc-nati-av">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/brand/nati/mark-small.svg" alt="" width={24} height={24} style={{ display: "block", width: "100%", height: "100%" }} /></div>
           <div>
             <b>Nativa</b>
             <small>{t.agentRole}</small>

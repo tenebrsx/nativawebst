@@ -26,7 +26,7 @@ export const SITE_SAME_AS = [
   process.env.NEXT_PUBLIC_LINKEDIN_URL,
 ].filter((url): url is string => Boolean(url && url.startsWith("http")));
 
-export const SITE_LOGO = `${SITE_URL}/opengraph-image`;
+export const SITE_LOGO = `${SITE_URL}/brand/nati/mark.png`;
 export const SITE_PRICE_RANGE = "$$";
 export const SITE_DEFAULT_TITLE =
   "Diseño Web, CRM y Agentes IA en Santo Domingo | Nativa";

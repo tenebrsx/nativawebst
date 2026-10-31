@@ -567,7 +567,8 @@ a {
   }
 
   .mobile-nav-drawer.is-open {
-    max-height: 420px;
+    max-height: min(560px, calc(100dvh - 72px));
+    overflow-y: auto;
     opacity: 1;
     padding: 8px 16px 24px;
     border-top-color: var(--border);
