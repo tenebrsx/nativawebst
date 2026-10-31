@@ -56,7 +56,7 @@
 .pi-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center;min-height:220px;background:var(--gray-foam);border-radius:var(--radius-lg);padding:18px}
 .pi.is-dark .pi-stage{background:var(--navy-mid)}
 .pi-spotwrap{display:grid;place-items:center}
-.pi-spot{width:min(220px,100%);height:auto}
+.pi-scene{width:100%;max-width:320px;height:auto;overflow:visible}
 .pi-addons{list-style:none;margin:0;padding:0;display:grid;gap:8px;align-content:center}
 .pi-addon{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 10px;font-size:13px;font-weight:600;color:var(--text)}
 .pi.is-dark .pi-addon{background:#0B0D12;border-color:#2A2F3B;color:#fff}
@@ -66,4 +66,4 @@
 .pi.is-dark .pi-sec{background:transparent;border-color:#2A2F3B;color:#fff}
 .pi-sec b{font-weight:600;color:var(--pi-a)}
 .pi-sw{display:flex;align-items:center;gap:6px;font-size:12px}.pi-sw i{width:16px;height:16px;border-radius:50%;border:1px solid var(--border)}
-@media (max-width:900px){.qz-right .qz-prev-frame{height:auto}.pi-stage{min-height:160px}.pi-spot{width:min(140px,100%)}}
+@media (max-width:900px){.qz-right .qz-prev-frame{height:auto}.pi-stage{min-height:160px}.pi-scene{max-width:220px}}
