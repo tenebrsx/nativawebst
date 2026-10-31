@@ -103,6 +103,26 @@ export default function SiteFooter() {
               <li><Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.process}</Link></li>
               <li><Link href="/#proof" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>{dict.nav.proof}</Link></li>
               <li>
+                <Link href="/pagina-web-para-mi-negocio" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  {lang === "es" ? "Página web para tu negocio" : "Website for your business"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/precio-pagina-web" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  {lang === "es" ? "Precio de una página web" : "Website pricing"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/tienda-online" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  {lang === "es" ? "Tienda online" : "Online store"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/servicios/mantenimiento-web" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  {lang === "es" ? "Mantenimiento web" : "Website care"}
+                </Link>
+              </li>
+              <li>
                 <Link href="/por-que-nosotros" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Por qué nosotros" : "Why us"}
                 </Link>

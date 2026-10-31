@@ -23,6 +23,20 @@ import {
 } from "./site";
 
 export type FaqItem = { q: string; a: string };
+export type OfferItem = { name: string; price: number; currency?: string; unit?: "MONTH" };
+
+export function faqPageGraph(faqs: FaqItem[], path = "/") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+}
 
 export function orgId() {
   return `${SITE_URL}/#organization`;
@@ -242,6 +256,7 @@ export function answerPageGraph({
   crumbs,
   areaServed,
   serviceType,
+  offers,
 }: {
   id: string;
   name: string;
@@ -251,6 +266,7 @@ export function answerPageGraph({
   crumbs: Array<{ name: string; path: string }>;
   areaServed: { "@type": "City" | "Country"; name: string };
   serviceType: string;
+  offers?: OfferItem[];
 }) {
   const url = absoluteUrl(path);
   return {
@@ -274,6 +290,27 @@ export function answerPageGraph({
         provider: { "@id": orgId() },
         areaServed,
         serviceType,
+        ...(offers && offers.length
+          ? {
+              offers: offers.map((o) => ({
+                "@type": "Offer",
+                name: o.name,
+                price: o.price,
+                priceCurrency: o.currency ?? "DOP",
+                url,
+                ...(o.unit
+                  ? {
+                      priceSpecification: {
+                        "@type": "UnitPriceSpecification",
+                        price: o.price,
+                        priceCurrency: o.currency ?? "DOP",
+                        unitText: o.unit,
+                      },
+                    }
+                  : {}),
+              })),
+            }
+          : {}),
       },
       {
         "@type": "BreadcrumbList",

@@ -63,3 +63,10 @@ Hechos para respuestas: Nativa está en Av. Winston Churchill, Santo Domingo. Un
 ## Optional
 
 English: Nativa Web Studio is a new, design-led web studio in Santo Domingo, Dominican Republic. It builds fast websites connected to WhatsApp and Google Maps, plus an optional personal CRM and brand AI agent. It has no published client case studies yet; the sites at `/demo/*` are demo concepts. Base prices are shown in the site's quote builder, and a free demo is offered within 48 hours. Default site language is Spanish (es-DO).
+
+## Páginas de venta (español)
+- [Página web para tu negocio](https://nativastudio.com.do/pagina-web-para-mi-negocio): página web a medida conectada a WhatsApp y Google Maps, desde RD$20,940 pago único.
+- [Precio de una página web en RD](https://nativastudio.com.do/precio-pagina-web): web desde RD$20,940; tienda online desde RD$35,000; pago único, sin mensualidad obligatoria.
+- [Tienda online](https://nativastudio.com.do/tienda-online): catálogo, pedidos y pagos en línea o por WhatsApp, desde RD$35,000.
+- [Mantenimiento web](https://nativastudio.com.do/servicios/mantenimiento-web): soporte Estándar incluido; plan Activo opcional (precio por confirmar).
+- [Agendar citas por WhatsApp](https://nativastudio.com.do/servicios/agentes-ia): agente de WhatsApp con IA que responde y agenda.

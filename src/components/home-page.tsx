@@ -16,6 +16,8 @@ import {
 import ServiceStories, { StackStories } from "@/components/service-stages";
 import ProofGallery, { ProofIntro } from "@/components/proof-gallery";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
+import Link from "next/link";
+import { HOME_FAQS, HOME_SALES_LINKS } from "@/lib/home-seo";
 
 // Demo concepts (fictional businesses with a live demo under /demo/*).
 // These are NOT clients — the strip is labelled as demos.
@@ -62,6 +64,9 @@ export default function HomePage() {
                 ) : null}
               </h1>
 
+              <p className="hero-keyline hero-in hero-in-d3" style={{ fontSize: "14px", fontWeight: 700, color: "var(--muted)", margin: "0 0 12px", letterSpacing: "0.01em" }}>
+                Páginas web y tiendas online para negocios en República Dominicana
+              </p>
               <p className="hero-lede hero-in hero-in-d3">
                 {dict.hero.desc}
               </p>
@@ -165,6 +170,30 @@ export default function HomePage() {
 
       {/* ─── PROCESS (3 STEPS) ────────────────────────────────────── */}
       <LaunchJourney />
+
+      {/* ─── FAQ + SALES LINKS (SEO wave 0) ──────────────────────── */}
+      <section id="faq" lang="es" style={{ padding: "80px 0", borderTop: "1px solid var(--border)", scrollMarginTop: 88 }}>
+        <div className="container" style={{ maxWidth: "860px" }}>
+          <div className="section-label">Preguntas frecuentes</div>
+          <h2 className="section-title" style={{ marginBottom: "28px" }}>Lo que preguntan antes de hacer su página web</h2>
+          <dl style={{ margin: "0 0 40px", display: "flex", flexDirection: "column", gap: "16px" }}>
+            {HOME_FAQS.map((faq) => (
+              <div key={faq.q} className="card" style={{ padding: "22px" }}>
+                <dt style={{ fontFamily: "var(--font-head)", fontWeight: 800, fontSize: "16px", marginBottom: "8px" }}>{faq.q}</dt>
+                <dd style={{ margin: 0, fontSize: "14px", color: "var(--muted)", lineHeight: 1.65 }}>{faq.a}</dd>
+              </div>
+            ))}
+          </dl>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 200px), 1fr))", gap: "12px" }}>
+            {HOME_SALES_LINKS.map((l) => (
+              <Link key={l.href} href={l.href} className="card card-hover" style={{ display: "block", padding: "16px 18px", textDecoration: "none" }}>
+                <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", fontSize: "15px", marginBottom: "4px" }}>{l.label}</div>
+                <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>{l.sub}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       </main>
       <SiteFooter />

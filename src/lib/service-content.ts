@@ -268,13 +268,13 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
       slug: "agentes-ia",
       path: "/servicios/agentes-ia",
       icon: "⚡",
-      metaTitle: "Agentes IA y WhatsApp para empresas en RD",
+      metaTitle: "Agendar citas por WhatsApp con un agente IA en RD",
       metaDescription:
-        "Agente IA de marca: le escribes a Nativa por WhatsApp, pide el inventario, suma stock, responde y agenda. Se cotiza en Santo Domingo cuando tu web ya manda chats.",
-      label: "Agente IA",
-      h1: "Le escribes a Nativa. Ella opera.",
+        "Agenda citas por WhatsApp sin estar pegado al teléfono: un agente IA de WhatsApp para tu negocio que responde, propone horario y toma los datos. Se cotiza cuando tu web ya manda chats.",
+      label: "Agente de WhatsApp",
+      h1: "Agenda citas por WhatsApp con un agente IA que trabaja por ti",
       answer:
-        "Nativa no es un widget genérico en la esquina de la web. Es el agente de tu marca, en WhatsApp, al que le escribes como a un socio. ¿Cuánto hay en inventario? Agrega diez más. ¿Hay cupo mañana? Agenda. Responde con la voz de tu negocio, ejecuta lo rutinario y pasa a un humano cuando el caso no lo es. Lo cotizamos cuando el sitio ya manda conversaciones, para entrenarlo con preguntas reales — no con un guion inventado.",
+        "Un agente de WhatsApp que agenda citas: responde a tus clientes, propone horario, toma sus datos y te avisa. Nativa no es un widget genérico en la esquina de la web. Es el agente de tu marca, en WhatsApp, al que le escribes como a un socio. ¿Cuánto hay en inventario? Agrega diez más. ¿Hay cupo mañana? Agenda. Responde con la voz de tu negocio, ejecuta lo rutinario y pasa a un humano cuando el caso no lo es. Lo cotizamos cuando el sitio ya manda conversaciones, para entrenarlo con preguntas reales — no con un guion inventado.",
       sub: "Inventario, citas, seguimiento. Tú no eres el cuello de botella.",
       problemsTitle: "Qué cubre el agente",
       problems: [
@@ -310,6 +310,10 @@ export const serviceCopy: Record<TranslationKey, Record<ServiceSlug, ServiceCopy
         },
       ],
       faqs: [
+        {
+          q: "¿Cómo agendar citas por WhatsApp sin contestar cada mensaje?",
+          a: "El agente de WhatsApp responde las preguntas de siempre, propone horarios disponibles, toma nombre y servicio, y te pasa la cita confirmada. Tú solo atiendes al cliente.",
+        },
         {
           q: "¿El agente IA reemplaza a mi recepcionista?",
           a: "No. Cubre lo repetido fuera de horario y escala a un humano cuando el caso es nuevo, caro o conflictivo.",
