@@ -82,7 +82,6 @@ export default function PricingIllustration({ build, lang, label, addonLabels }:
           <li key={s.id} className="pi-sec" data-k={`s:${s.id}`}><b>{String(i + 1).padStart(2, "0")}</b>{tx(s.label, lang)}</li>
         ))}
       </ol>
-      <div className="pi-sw" aria-hidden="true">{(pal?.swatch.length ? pal.swatch : [INK, BLUE, WASH]).map((c) => <i key={c} style={{ background: c }} />)}<span style={{ color: MUTED }}>{tx(pal!.label, lang)}</span></div>
     </div>
   );
 }
