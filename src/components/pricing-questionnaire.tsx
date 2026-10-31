@@ -148,7 +148,10 @@ export default function PricingQuestionnaire() {
   useEffect(() => {
     try {
       const s = localStorage.getItem(STORAGE_KEY);
-      if (s) setBuild(normalizeBuild({ ...JSON.parse(s), tone: "original", palette: "plantilla" }));
+      const qp = new URLSearchParams(location.search).get("plan");
+      const base = s ? normalizeBuild({ ...JSON.parse(s), tone: "original", palette: "plantilla" }) : defaultBuild();
+      if (qp === "landing" || qp === "shop") { setBuild(base.plan === qp ? base : { ...defaultBuild(qp), support: base.support }); setStep(1); }
+      else if (s) setBuild(base);
       const c = localStorage.getItem(CONTACT_KEY);
       if (c) setContact((p) => ({ ...p, ...JSON.parse(c) }));
     } catch {}
