@@ -178,6 +178,11 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/guias" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Guías" : "Guides"}
                 </Link>

@@ -18,9 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
               path === "/por-que-nosotros" ||
               path === "/punta-cana"
             ? 0.85
-            : path.startsWith("/industrias/") || path.startsWith("/guias/")
+            : path.startsWith("/industrias/") || path.startsWith("/guias/") || path.startsWith("/blog/")
               ? 0.82
-              : path === "/casos"
+              : path === "/blog"
+                ? 0.8
+                : path === "/casos"
                 ? 0.8
                 : path.startsWith("/legal")
                   ? 0.4

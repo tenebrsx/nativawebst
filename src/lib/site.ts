@@ -1,3 +1,4 @@
+import { BLOG_POSTS } from "@/content/blog";
 import type { Metadata } from "next";
 
 export const SITE_URL =
@@ -128,6 +129,8 @@ export const INDEXABLE_PATHS = [
   "/san-pedro-de-macoris",
   "/puerto-plata",
   "/la-vega",
+  "/blog",
+  ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
   "/guias",
   ...GUIDE_SLUGS.map((slug) => `/guias/${slug}`),
   "/portfolio",
@@ -135,7 +138,7 @@ export const INDEXABLE_PATHS = [
   "/legal/privacidad",
   "/legal/terminos",
   "/legal/cookies",
-] as const;
+];
 
 export const NOINDEX_PREFIXES = ["/ads", "/logos", "/demo", "/demos", "/refined", "/visualmockup"] as const;
 

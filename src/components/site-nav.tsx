@@ -43,6 +43,7 @@ export default function SiteNav() {
     { href: "/por-que-nosotros", label: dict.nav.why },
     { href: "/#pricing", label: dict.nav.pricing },
     { href: "/#how-it-works", label: dict.nav.process },
+    { href: "/blog", label: "Blog" },
   ];
 
   return (
