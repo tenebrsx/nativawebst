@@ -46,7 +46,7 @@ import "./pricing-configurator-mobile.css";
 
 type Lang = "es" | "en";
 
-const COPY = {
+export const COPY = {
   es: {
     kicker: "Configurador",
     title: "Arma tu sitio web",
@@ -218,7 +218,7 @@ function useReducedMotion() {
   return reduced;
 }
 
-function AnimatedMoney({ value, currency, suffix = "" }: { value: number; currency: Currency; suffix?: string }) {
+export function AnimatedMoney({ value, currency, suffix = "" }: { value: number; currency: Currency; suffix?: string }) {
   const reduced = useReducedMotion();
   const [shown, setShown] = useState(value);
   const from = useRef(value);
@@ -386,7 +386,7 @@ function useCrossfade(key: string) {
   return layers;
 }
 
-function LivePreview({ template, build, lang, copy, planName, focus }: PreviewProps) {
+export function LivePreview({ template, build, lang, copy, planName, focus }: PreviewProps) {
   const [full, setFull] = useState(false);
   const phone = useIsPhone();
   const closeFull = useCallback(() => setFull(false), []);

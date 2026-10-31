@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
-import PricingConfigurator from "@/components/pricing-configurator";
+import PricingQuestionnaire from "@/components/pricing-questionnaire";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -16,7 +16,7 @@ export default function PricingBuilderPage() {
     <div className="pb-page" style={{ minHeight: "100dvh", background: "var(--bg)" }}>
       <SiteNav solid />
       <main id="main">
-        <PricingConfigurator />
+        <PricingQuestionnaire />
       </main>
       <SiteFooter />
     </div>
