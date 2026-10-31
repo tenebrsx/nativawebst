@@ -55,10 +55,21 @@ export function GuidePageView({ slug }: { slug: GuideSlug }) {
                 <h2 style={{ fontFamily: "var(--font-head)", fontSize: "20px", fontWeight: 800, marginBottom: "10px" }}>
                   {section.title}
                 </h2>
-                <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--muted)", margin: 0 }}>{section.body}</p>
+                <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--muted)", margin: 0, whiteSpace: "pre-line" }}>{section.body}</p>
               </section>
             ))}
           </div>
+
+          {copy.links && copy.links.length ? (
+            <nav aria-label="Sigue leyendo" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 220px), 1fr))", gap: "12px", marginBottom: "48px" }}>
+              {copy.links.map((l) => (
+                <Link key={l.href} href={l.href} className="card card-hover" style={{ display: "block", padding: "16px 18px", textDecoration: "none" }}>
+                  <div style={{ fontWeight: 800, fontFamily: "var(--font-head)", fontSize: "15px", marginBottom: "4px" }}>{l.label}</div>
+                  <p style={{ fontSize: "13px", color: "var(--muted)", margin: 0 }}>{l.sub}</p>
+                </Link>
+              ))}
+            </nav>
+          ) : null}
 
           <h2 className="section-title" style={{ marginBottom: "20px", fontSize: "28px" }}>FAQ</h2>
           <dl style={{ margin: "0 0 40px", display: "flex", flexDirection: "column", gap: "16px" }}>

@@ -1,5 +1,6 @@
 import type { TranslationKey } from "./translations";
 import type { FaqItem } from "./json-ld";
+import { provinceCopy, type ProvinceId } from "./province-content";
 
 export type LocalPageId =
   | "santo-domingo"
@@ -7,7 +8,8 @@ export type LocalPageId =
   | "clinicas"
   | "legal"
   | "villas"
-  | "por-que-nosotros";
+  | "por-que-nosotros"
+  | ProvinceId;
 
 export type RelatedLink = {
   href: `/${string}`;
@@ -39,6 +41,7 @@ export type LocalPageCopy = {
 
 export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy>> = {
   es: {
+    ...provinceCopy,
     "santo-domingo": {
       id: "santo-domingo",
       path: "/santo-domingo",
@@ -62,6 +65,10 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
         {
           title: "El clic se muere en un formulario",
           body: "En RD el cierre es el chat. El tap de Maps y de la web va a WhatsApp con el servicio nombrado, no a un buzón que se abre el lunes.",
+        },
+        {
+          title: "Cada sector se busca distinto",
+          body: "Quien vive en Los Prados, Arroyo Hondo o Santo Domingo Este no busca igual que quien trabaja en la Zona Colonial. Tu página y tu ficha dicen dónde estás y a qué zonas llegas, con delivery o a domicilio.",
         },
       ],
       stepsTitle: "Cómo se lanza desde aquí",
@@ -106,6 +113,16 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
       ],
       relatedTitle: "Siguiente paso",
       related: [
+        {
+          href: "/pagina-web-para-mi-negocio",
+          label: "Página web para tu negocio",
+          sub: "Desde RD$20,940, pago único.",
+        },
+        {
+          href: "/precio-pagina-web",
+          label: "Precios",
+          sub: "Página web y tienda online.",
+        },
         {
           href: "/servicios/diseno-web",
           label: "Diseño web",
@@ -160,6 +177,10 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
           title: "Formulario de reserva que nadie llena",
           body: "En RD el cierre es el chat. Fechas, villa o servicio van en el mensaje de WhatsApp, no en un buzón de lunes.",
         },
+        {
+          title: "Bávaro, Cap Cana, Verón y Uvero Alto no son lo mismo",
+          body: "El huésped busca la zona exacta. Tu página y tu ficha de Google Maps dicen dónde estás y a qué zonas llegas (traslados, servicio a la villa, delivery), para que nadie se pierda entre hoteles.",
+        },
       ],
       stepsTitle: "Cómo se lanza para Punta Cana",
       steps: [
@@ -200,6 +221,16 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
       relatedTitle: "Siguiente paso",
       related: [
         {
+          href: "/pagina-web-para-mi-negocio",
+          label: "Página web para tu negocio",
+          sub: "Desde RD$20,940, pago único.",
+        },
+        {
+          href: "/precio-pagina-web",
+          label: "Precios",
+          sub: "Página web y tienda online.",
+        },
+        {
           href: "/industrias/villas",
           label: "Villas",
           sub: "Reservas por WhatsApp, no formularios muertos.",
@@ -227,13 +258,13 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
     clinicas: {
       id: "clinicas",
       path: "/industrias/clinicas",
-      metaTitle: "Sitios web para clínicas en República Dominicana",
+      metaTitle: "Página web para clínica estética y clínicas en RD",
       metaDescription:
-        "Web y Google Maps para clínicas en RD: el paciente busca cerca, toca, y la cita llega por WhatsApp. Nativa, Santo Domingo.",
+        "Página web para tu clínica estética o consultorio en RD: tus tratamientos, resultados con permiso y un botón a WhatsApp para que te escriban. Desde RD$20,940.",
       label: "Clínicas",
-      h1: "Clínicas en RD: el paciente te busca cerca y te escribe",
+      h1: "Página web para tu clínica estética o consultorio en RD",
       answer:
-        "Una clínica en Naco, Piantini o Bella Vista no necesita un portal de pacientes genérico. Necesita una web que carga en el celular, una ficha de Google Maps con el tratamiento correcto, y un toque que abre WhatsApp con “limpieza”, “carillas” o “brackets” ya en el mensaje. Nativa arma eso desde Santo Domingo. CRM y un agente de marca se cotizan cuando las citas ya están llegando al chat — no antes.",
+        "Tus pacientes te buscan antes de reservar. Una paciente ve tu post, pero antes de escribirte quiere ver qué tratamientos haces, cómo quedan los resultados y dónde estás. Si no lo encuentra, le escribe a otra clínica. Nativa hace páginas web para clínicas estéticas, spas, odontologías y consultorios: tus tratamientos, una galería de resultados con permiso de tus pacientes, tu ficha de Google Maps y un toque que abre WhatsApp con el tratamiento ya escrito. Desde RD$20,940, pago único.",
       problemsTitle: "Qué deja de pasar en recepción",
       problems: [
         {
@@ -269,6 +300,18 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
       ],
       faqs: [
         {
+          q: "¿Puedo mostrar antes y después en mi página web?",
+          a: "Sí. Tu página puede tener una galería de resultados. Usa solo fotos de pacientes que te dieron su permiso por escrito.",
+        },
+        {
+          q: "¿Cómo reservan mis pacientes?",
+          a: "Con el botón de WhatsApp: tocan y te escriben con el tratamiento ya nombrado. Si sumas el agente de WhatsApp, responde y propone horario aunque estés en consulta.",
+        },
+        {
+          q: "¿Cuánto cuesta una página web para clínica estética?",
+          a: "Desde RD$20,940, pago único. Si vendes productos en línea, una tienda online empieza en RD$35,000.",
+        },
+        {
           q: "¿Sirve para odontologías, o también otras clínicas?",
           a: "El patrón es el mismo: tratamiento visible, Maps, WhatsApp. Odontología, estética, oftalmología y consultorios que cierran por chat en RD.",
         },
@@ -288,6 +331,21 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
       relatedTitle: "También en el paquete",
       related: [
         {
+          href: "/pagina-web-para-mi-negocio",
+          label: "Página web para tu negocio",
+          sub: "Desde RD$20,940, pago único.",
+        },
+        {
+          href: "/precio-pagina-web",
+          label: "Precios",
+          sub: "Página web y tienda online.",
+        },
+        {
+          href: "/servicios/agentes-ia",
+          label: "Agendar citas por WhatsApp",
+          sub: "Agente de WhatsApp para tu clínica.",
+        },
+        {
           href: "/servicios/seo-local",
           label: "SEO local",
           sub: "Salir en Maps cuando buscan cerca.",
@@ -304,8 +362,8 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
         },
       ],
       cta: "Quiero citas por WhatsApp",
-      need: "Sitio para clínica",
-      serviceType: "Sitios web y SEO local para clínicas",
+      need: "Página web para clínica",
+      serviceType: "Página web para clínicas estéticas y consultorios",
       areaServed: { "@type": "Country", name: "República Dominicana" },
       crumbs: [
         { name: "Inicio", path: "/" },
@@ -603,6 +661,7 @@ export const localCopy: Record<TranslationKey, Record<LocalPageId, LocalPageCopy
     },
   },
   en: {
+    ...provinceCopy,
     "santo-domingo": {
       id: "santo-domingo",
       path: "/santo-domingo",

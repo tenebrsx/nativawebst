@@ -13,6 +13,7 @@ export type GuideCopy = {
   faqs: FaqItem[];
   cta: string;
   need: string;
+  links?: Array<{ href: string; label: string; sub: string }>;
 };
 
 export const guidesEs: Record<GuideSlug, GuideCopy> = {
@@ -64,43 +65,81 @@ export const guidesEs: Record<GuideSlug, GuideCopy> = {
   "seo-local-google-maps-rd": {
     slug: "seo-local-google-maps-rd",
     path: "/guias/seo-local-google-maps-rd",
-    metaTitle: "SEO local y Google Maps para negocios en RD",
+    metaTitle: "Cómo poner tu negocio en Google Maps desde el celular (RD)",
     metaDescription:
-      "Cómo funciona el SEO local en República Dominicana: ficha de Google Maps, NAP, categorías y WhatsApp. Guía práctica de Nativa.",
+      "Pon tu negocio en Google Maps desde el celular, gratis: créalo o reclámalo, verifícalo, llénalo bien y conéctalo a tu WhatsApp y tu página web. Guía de Nativa para RD.",
     label: "Guía",
-    h1: "SEO local / Google Maps para negocios en República Dominicana",
+    h1: "Cómo poner tu negocio en Google Maps desde el celular (y que te escriban)",
     lede:
-      "En RD mucha gente busca el servicio “cerca”. El trabajo no es un informe de 40 keywords globales: es una ficha de Maps creíble, el mismo NAP en todas partes, y un toque que abre WhatsApp.",
+      "En RD mucha gente busca el servicio “cerca de mí”. Si tu negocio no está en el mapa, esa persona le escribe a otro. Ponerlo es gratis y lo haces desde el celular. Aquí va paso a paso, y después lo que hace que la ficha trabaje: el mismo nombre, dirección y teléfono en todas partes, y un toque que abre WhatsApp.",
     sections: [
       {
-        title: "NAP = una sola versión",
-        body: "Nombre, dirección y teléfono idénticos en el sitio, la ficha de Google y la bio. Si el sábado está cerrado en un lado y abierto en el otro, Google confunde el negocio.",
+        title: "Antes de empezar: ten esto a mano",
+        body: "• Una cuenta de Google (un Gmail sirve), mejor una del negocio.\n• El nombre exacto de tu negocio, tal como sale en tu letrero.\n• La dirección, o las zonas donde das servicio si trabajas a domicilio.\n• Un teléfono que contestes tú: Google puede mandarte un código por llamada o SMS.\n• Fotos de verdad: la fachada, el letrero, lo que vendes.",
       },
       {
-        title: "Categorías y fotos reales",
-        body: "La categoría principal debe coincidir con lo que la gente busca. Las fotos deben mostrar el local, el equipo o el producto — no stock genérico.",
+        title: "Paso 1: busca si ya estás en el mapa",
+        body: "Abre Google Maps y escribe el nombre de tu negocio. Si aparece, toca el negocio y busca “Reclamar esta empresa” y luego “Administrar ahora”; sigue al paso 3. Si no aparece, sigue al paso 2.\nNo crees un perfil nuevo si ya existe uno: Google pide un solo perfil por negocio, y dos perfiles del mismo negocio se pelean entre ellos.",
       },
       {
-        title: "El clic debe cerrar en chat",
-        body: "En RD el formulario largo pierde. El botón de la ficha y del sitio abre WhatsApp con el servicio nombrado.",
+        title: "Paso 2: crea tu perfil",
+        body: "Desde el navegador del celular entra a business.google.com/add y toca “Agrega tu empresa a Google”.\n• Nombre: el de tu letrero, nada más. Google prohíbe meter eslóganes, horarios o teléfonos en el nombre, y un nombre relleno puede hacer que te suspendan el perfil.\n• Categoría: lo que tu negocio ES, no lo que tiene. Pocas y precisas.\n• Dirección o zona de servicio: si la gente llega a tu local, la dirección completa (si tu calle no tiene número, marca el punto en el mapa). Si trabajas a domicilio, escoge tus zonas y oculta tu dirección.\n• Teléfono: uno que controle el negocio. Si es tu WhatsApp, mejor.",
       },
       {
-        title: "Sitio + ficha, no uno u otro",
-        body: "La web confirma la entidad. Schema LocalBusiness, footer con dirección, y la misma ciudad que Maps. Santo Domingo, Punta Cana o tu municipio.",
+        title: "Paso 3: verifica que el negocio es tuyo",
+        body: "Google decide qué opciones te da según tu tipo de negocio y tu zona: código por llamada o SMS, correo, videollamada o video grabado desde tu local (mostrando el letrero, tus productos y algo que solo tiene el dueño), o una postal con un código.\nDespués de verificar, Google revisa la información antes de confirmarte por correo.\nDos cuidados: mientras esperas, no cambies el nombre, la dirección ni la categoría. Y nadie de Google te va a llamar para pedirte ese código: si te lo piden, cuelga.",
+      },
+      {
+        title: "Paso 4: llénalo como si fuera tu vitrina",
+        body: "Google dice que los perfiles con información completa y correcta tienen más probabilidades de salir en búsquedas locales. Llena: horario (y el especial de feriados), fotos reales de la fachada, el interior y tu trabajo, una descripción de qué haces y para quién, tu menú o lista de servicios, y detalles como parqueo, tarjeta o delivery.",
+      },
+      {
+        title: "Un solo nombre, dirección y teléfono en todas partes",
+        body: "Nombre, dirección y teléfono idénticos en tu página web, tu ficha de Google y tus redes. Si el sábado está cerrado en un lado y abierto en el otro, Google confunde el negocio.",
+      },
+      {
+        title: "El toque debe terminar en WhatsApp",
+        body: "En RD el formulario largo pierde. El botón de la ficha y de tu página web abre WhatsApp con el servicio ya nombrado.",
+      },
+      {
+        title: "¿Cómo salgo más arriba en el mapa?",
+        body: "Nadie te lo puede garantizar, y quien te lo prometa por un pago te está vendiendo humo: Google dice que no se puede pagar por un mejor lugar en los resultados locales. Google explica que se fija en tres cosas: relevancia (qué tanto tu perfil coincide con lo que buscaron), distancia (qué tan cerca estás) y popularidad (qué tan conocido eres, incluidas tus reseñas). Lo que está en tus manos: un perfil verificado, completo y al día, y clientes reales que hablen de ti.",
+      },
+      {
+        title: "Bonus: ponte también en Waze",
+        body: "Mucha gente se guía por Waze cuando va manejando. En la app: toca el botón para reportar, abre el menú completo, toca “Lugar”, toma una foto del local, escribe el nombre, elige la categoría y toca “Hecho”. Lo revisa la comunidad de editores de Waze antes de aprobarlo.",
+      },
+      {
+        title: "Lo que el mapa no hace por ti",
+        body: "En una ficha caben pocas cosas: unas fotos, un horario, un teléfono. Cuando alguien quiere saber más antes de escribirte, toca el enlace de tu perfil. Tu página web confirma quién eres, muestra tu trabajo y le abre WhatsApp.",
       },
     ],
     faqs: [
       {
-        q: "¿Nativa hace SEO local en Santo Domingo y Punta Cana?",
-        a: "Sí. Ficha, NAP, datos locales y WhatsApp. Ver /servicios/seo-local y /santo-domingo.",
+        q: "¿Cómo pongo mi negocio en Google Maps desde el celular?",
+        a: "Busca primero si ya existe y reclámalo. Si no existe, créalo en business.google.com/add, verifícalo con la opción que Google te dé y llena horario, fotos, descripción y teléfono.",
       },
       {
-        q: "¿Cuánto cuesta el SEO local con Nativa?",
-        a: "El piso del cotizador para ficha / SEO local parte desde rangos publicados en el sitio. Se cotiza el alcance real en WhatsApp.",
+        q: "¿Cuesta dinero aparecer en Google Maps?",
+        a: "No. El Perfil de Negocio de Google es gratis. Nadie puede venderte un mejor lugar en el mapa.",
+      },
+      {
+        q: "¿Puedo aparecer en Maps si trabajo a domicilio?",
+        a: "Sí. Escoge las zonas donde das servicio y oculta tu dirección.",
+      },
+      {
+        q: "¿Nativa me ayuda con la ficha de Google Maps?",
+        a: "Sí. Al hacer tu página web la conectamos con tu ficha usando el mismo nombre, dirección y teléfono, y un toque a WhatsApp. Ver la página de SEO local.",
       },
     ],
-    cta: "Pedir SEO local por WhatsApp",
+    cta: "Pide ayuda con tu ficha por WhatsApp",
     need: "SEO local / Google Maps",
+    links: [
+      { href: "/servicios/seo-local", label: "SEO local", sub: "Ficha de Maps y WhatsApp." },
+      { href: "/pagina-web-para-mi-negocio", label: "Página web para tu negocio", sub: "Desde RD$20,940." },
+      { href: "/precio-pagina-web", label: "Precio de una página web", sub: "Qué incluye y qué no." },
+      { href: "/", label: "Inicio", sub: "Nativa Studio." },
+    ],
   },
   "whatsapp-vs-formulario-rd": {
     slug: "whatsapp-vs-formulario-rd",

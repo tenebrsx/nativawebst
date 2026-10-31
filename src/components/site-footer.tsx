@@ -138,6 +138,31 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/santiago" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  Santiago
+                </Link>
+              </li>
+              <li>
+                <Link href="/la-romana" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  La Romana
+                </Link>
+              </li>
+              <li>
+                <Link href="/san-pedro-de-macoris" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  San Pedro de Macorís
+                </Link>
+              </li>
+              <li>
+                <Link href="/puerto-plata" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  Puerto Plata
+                </Link>
+              </li>
+              <li>
+                <Link href="/la-vega" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
+                  La Vega
+                </Link>
+              </li>
+              <li>
                 <Link href="/industrias/clinicas" style={{ color: "rgba(255,255,255,0.72)", textDecoration: "none" }}>
                   {lang === "es" ? "Clínicas" : "Clinics"}
                 </Link>

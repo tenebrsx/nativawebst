@@ -70,3 +70,12 @@ English: Nativa Web Studio is a new, design-led web studio in Santo Domingo, Dom
 - [Tienda online](https://nativastudio.com.do/tienda-online): catálogo, pedidos y pagos en línea o por WhatsApp, desde RD$35,000.
 - [Mantenimiento web](https://nativastudio.com.do/servicios/mantenimiento-web): soporte Estándar incluido; plan Activo opcional (precio por confirmar).
 - [Agendar citas por WhatsApp](https://nativastudio.com.do/servicios/agentes-ia): agente de WhatsApp con IA que responde y agenda.
+
+## Páginas por ciudad (español)
+- [Santiago de los Caballeros](https://nativastudio.com.do/santiago): páginas web para negocios del Cibao.
+- [La Romana](https://nativastudio.com.do/la-romana): negocios locales y turismo (Casa de Campo, Altos de Chavón).
+- [San Pedro de Macorís](https://nativastudio.com.do/san-pedro-de-macoris): incluye Juan Dolio y Guayacanes.
+- [Puerto Plata](https://nativastudio.com.do/puerto-plata): Costa Norte, Sosúa y Cabarete.
+- [La Vega](https://nativastudio.com.do/la-vega): incluye Jarabacoa y Constanza.
+- [Página web para clínica estética](https://nativastudio.com.do/industrias/clinicas): clínicas estéticas, odontologías y consultorios.
+- [Cómo poner tu negocio en Google Maps desde el celular](https://nativastudio.com.do/guias/seo-local-google-maps-rd): guía paso a paso.
