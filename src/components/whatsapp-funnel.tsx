@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useGeo } from "@/lib/geo-context";
 import {
   buildFunnelMessage,
+  directMessage,
   openWhatsApp,
   type FunnelAnswers,
 } from "@/lib/whatsapp";
@@ -218,8 +219,9 @@ export default function WhatsappFunnel() {
       if (e.relatedTarget) return;
       if (e.clientY > 12) return;
       if (isMobileViewport() || prompted.current || seen() || open) return;
+      // Exit intent no longer pops the chat questionnaire; primary CTAs open WhatsApp directly.
       prompted.current = true;
-      openPanel("exit");
+      setTeaser(true);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -340,7 +342,7 @@ export default function WhatsappFunnel() {
   return (
     <div className="wa-funnel" data-open={open ? "1" : "0"}>
       {teaser && !open && (
-        <button type="button" className="wa-teaser" onClick={() => openPanel("teaser")}>
+        <button type="button" className="wa-teaser" onClick={() => { setTeaser(false); openWhatsApp(directMessage()); }}>
           <span className="wa-teaser-text">
             {teaserKind === "stack" ? t.teaserStack : teaserKind === "pricing" ? t.teaserPricing : t.teaser}
           </span>
@@ -427,9 +429,8 @@ export default function WhatsappFunnel() {
       <button
         type="button"
         className="wa-fab"
-        aria-label={t.fabLabel}
-        aria-expanded={open}
-        onClick={() => (open ? setOpen(false) : openPanel("fab"))}
+        aria-label={lang === "en" ? "Message Nativa on WhatsApp" : "Escribir a Nativa por WhatsApp"}
+        onClick={() => openWhatsApp(directMessage())}
       >
         <span className="wa-fab-pulse" />
         {open ? (

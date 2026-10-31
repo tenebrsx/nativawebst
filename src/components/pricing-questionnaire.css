@@ -43,11 +43,15 @@
 .qz-price strong{font-size:22px;font-weight:600;letter-spacing:-.02em}
 @media (max-width:900px){
   .qz-wrap{grid-template-columns:1fr}
-  .qz-right{position:relative;top:auto;order:-1}
   .qz-panel{min-height:0}
-  .qz-right .qz-prev-frame{height:44vh;display:grid}.qz-right .qz-prev-frame>*{min-height:0;height:100%}
   .qz-price{padding:10px 14px}.qz-price strong{font-size:18px}
 }
+/* answers so far — chips that jump back to the step */
+.qz-ans{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.qz-ans-i button{all:unset;cursor:pointer;display:inline-flex;align-items:baseline;gap:6px;font-size:13px;font-weight:600;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 12px;white-space:nowrap;transition:border-color .2s}
+.qz-ans-i button span{font-size:11px;font-weight:500;color:var(--muted)}
+.qz-ans-i button:hover{border-color:var(--coral-blue)}
+.qz-ans-i button:focus-visible{outline:2px solid var(--coral-blue);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.qz *{transition:none!important}}
 /* illustration preview (replaces website mocks) */
 .pi{--pi-a:#1E4FD7;display:grid;gap:16px;padding:20px;background:var(--surface);transition:background-color .3s}
@@ -66,7 +70,38 @@
 .pi.is-dark .pi-sec{background:transparent;border-color:#2A2F3B;color:#fff}
 .pi-sec b{font-weight:600;color:var(--pi-a)}
 .pi-sw{display:flex;align-items:center;gap:6px;font-size:12px}.pi-sw i{width:16px;height:16px;border-radius:50%;border:1px solid var(--border)}
-@media (max-width:900px){.qz-right .qz-prev-frame{height:auto}.pi-stage{min-height:160px}.pi-scene{max-width:220px}}
+@media (max-width:900px){.pi-stage{min-height:160px}.pi-scene{max-width:220px}}
+/* mobile: ARMAO-style — the visual + your answers + price stay pinned under the nav while you answer; nav pinned to the bottom */
+@media (max-width:900px){
+  .qz{padding-top:72px;padding-bottom:0}
+  .qz-wrap{gap:14px}
+  .qz-right{position:sticky;top:var(--qz-top,60px);z-index:6;order:-1;gap:8px;margin:0 calc(-1 * clamp(16px,4vw,40px));padding:8px clamp(16px,4vw,40px) 10px;background:var(--bg);border-bottom:1px solid var(--border)}
+  .qz-right .pi{padding:8px;gap:6px}
+  .qz-right .pi-note{font-size:10.5px;line-height:1.3}
+  .qz-right .pi-stage{min-height:0;height:clamp(118px,19vh,160px);grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:8px;padding:8px 10px}
+  .qz-right .pi-spotwrap{height:100%;min-height:0}
+  .qz-right .pi-scene{max-width:none;width:auto;height:100%;max-height:100%}
+  .qz-right .pi-addons{gap:4px;max-height:100%;overflow:hidden}
+  .qz-right .pi-addon{padding:4px 7px;font-size:11px;gap:6px}.qz-right .pi-addon svg{width:20px;height:20px}
+  .qz-right .pi-secs{display:none}
+  .qz-ans{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * clamp(16px,4vw,40px));padding:0 clamp(16px,4vw,40px)}
+  .qz-ans::-webkit-scrollbar{display:none}
+  .qz-ans-i button{font-size:12px;padding:5px 10px}
+  .qz-right .qz-price{padding:7px 12px;border-radius:var(--radius);align-items:center}
+  .qz-right .qz-price>div{display:flex;align-items:baseline;gap:8px}
+  .qz-right .qz-price span{font-size:11px}.qz-right .qz-price strong{font-size:16px}
+  .qz-kicker{margin-bottom:10px}
+  .qz-steps{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * clamp(16px,4vw,40px)) 14px;padding:0 clamp(16px,4vw,40px)}
+  .qz-steps::-webkit-scrollbar{display:none}
+  .qz-steps button{white-space:nowrap}
+  .qz-panel{scroll-margin-top:300px}
+  .qz-q{font-size:clamp(1.55rem,7vw,1.9rem)}
+  .qz-sub{font-size:15px;margin-bottom:16px}
+  .qz-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .qz-opt{padding:12px 14px}
+  .qz-nav{position:sticky;bottom:0;z-index:6;margin:16px calc(-1 * clamp(16px,4vw,40px)) 0;padding:10px clamp(16px,4vw,40px) calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--border)}
+  .qz-nav .qz-next{flex:1;max-width:240px}
+}
 /* homepage teaser — a deeper paper layer (--gray-foam) between the white sections and the dark proof band */
 .qzt{position:relative;background:var(--gray-foam);color:var(--text);padding:96px 0;border-top:1px solid var(--border)}
 .qzt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--border)}
@@ -89,3 +124,5 @@
 /* dark tone: lift ink line-work so scenes read on dark */
 .pi.is-dark .pi-scene [stroke="#0B0D12"]{stroke:#C9D0DB}
 .pi.is-dark .pi-scene [fill="#0B0D12"]:not(ellipse){fill:#C9D0DB}
+/* keep the WhatsApp bubble above the pinned questionnaire nav on phones */
+@media (max-width:900px){body:has(.qz) .wa-funnel{bottom:calc(84px + env(safe-area-inset-bottom))!important}}

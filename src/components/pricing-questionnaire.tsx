@@ -224,6 +224,28 @@ export default function PricingQuestionnaire() {
     };
   }, [step]);
 
+  /* mobile: after a step change keep the question just under the sticky preview */
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    if (!matchMedia("(max-width: 900px)").matches || !panel.current) return;
+    const aside = root.current?.querySelector(".qz-right") as HTMLElement | null;
+    const off = (aside?.getBoundingClientRect().bottom ?? 0) + 8;
+    const top = panel.current.getBoundingClientRect().top;
+    if (top < off || top > innerHeight * 0.6) scrollBy({ top: top - off, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }, [step]);
+
+  const ansKey = useRef("");
+  useEffect(() => {
+    const el = root.current?.querySelector(".qz-ans");
+    const k = Array.from(el?.children ?? []).map((c) => c.textContent).join("|");
+    const before = ansKey.current; ansKey.current = k;
+    if (!before || !el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const old = new Set(before.split("|"));
+    const fresh = Array.from(el.children).filter((c) => !old.has(c.textContent));
+    if (fresh.length) gsap.fromTo(fresh, { y: 6, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", stagger: 0.05, clearProps: "transform,opacity" });
+  });
+
   const go = contextSafe((n: number) => {
     const to = Math.max(0, Math.min(N - 1, n));
     if (to === step) return;
@@ -244,6 +266,14 @@ export default function PricingQuestionnaire() {
   const addonPrice = (id: AddonId) => { const l = quote({ plan: build.plan, addons: [id], support: false }, currency, rate); const one = l.oneTime - q.lines[0].oneTime; return [one > 0 ? "+" + money(one) : "", l.monthly ? `+${money(l.monthly)}${t.per}` : ""].filter(Boolean).join(" · "); };
   const toggle = <T,>(arr: T[], v: T) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
   const canNext = step < N - 1;
+  /* what the visitor has answered so far — always visible next to the illustration (mobile + desktop) */
+  const answers: { k: SID; v: string }[] = [
+    { k: "industry" as SID, v: tx(template.cat, lang) },
+    { k: "goal" as SID, v: planName },
+    contact.dom === "have" ? { k: "domain" as SID, v: contact.domain || t.domHave[0] } : contact.dom === "want" ? { k: "domain" as SID, v: t.domWant[0] } : null,
+    contact.brandReady === "yes" ? { k: "brand" as SID, v: t.brandYes[0] } : contact.brandReady === "no" ? { k: "brand" as SID, v: t.brandNo[0] } : null,
+    step > ids.indexOf("support") || build.support ? { k: "support" as SID, v: build.support ? t.supAct[0] : t.supStd[0] } : null,
+  ].filter((x): x is { k: SID; v: string } => !!x && ids.indexOf(x.k) <= Math.max(step, 1));
   const contactOk = contact.name.trim().length > 1 && contact.wa.replace(/\D/g, "").length >= 7;
 
   const send = () => {
@@ -382,6 +412,11 @@ export default function PricingQuestionnaire() {
           <div className="qz-prev-frame" data-flip-id="preview">
             <PricingIllustration build={build} lang={lang} label={`${tx(template.cat, lang)} · ${planName}`} addonLabels={Object.fromEntries(Object.entries(dict.addons).map(([k, v]) => [k, v.label]))} />
           </div>
+          <ul className="qz-ans" aria-label={lang === "es" ? "Tus respuestas" : "Your answers"}>
+            {answers.map((a) => (
+              <li key={a.k + a.v} className="qz-ans-i"><button type="button" onClick={() => go(ids.indexOf(a.k))}><span>{t.steps[a.k]}</span>{a.v}</button></li>
+            ))}
+          </ul>
           <div className="qz-price" aria-live="polite">
             <div><span>{t.total}</span><strong><AnimatedMoney value={q.oneTime} currency={currency} /></strong></div>
             {q.monthly > 0 && <div><span>{t.monthly}</span><strong><AnimatedMoney value={q.monthly} currency={currency} suffix="/mes" /></strong></div>}

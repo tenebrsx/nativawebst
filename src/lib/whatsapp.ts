@@ -10,8 +10,21 @@ export function openWhatsApp(text: string) {
   if (!win) window.location.href = url;
 }
 
+/** Short prefilled text for a direct chat. `need` is the page's topic, if any. */
+export function directMessage(need?: string) {
+  return need
+    ? `Hola Nativa, vengo de su página y quiero hablar sobre: ${need}.`
+    : "Hola Nativa, vengo de su página y quiero hablar sobre mi negocio.";
+}
+
+/**
+ * Primary WhatsApp CTA: opens a direct chat with Nativa (wa.me), no questionnaire.
+ * The quote questionnaire lives at /pricing-builder ("Cotizar" / "Arma tu precio").
+ * `source` is kept for call-site readability / future analytics.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function openWhatsAppFunnel(source = "manual", need?: string) {
-  window.dispatchEvent(new CustomEvent("nativa:open-funnel", { detail: { source, need } }));
+  openWhatsApp(directMessage(need));
 }
 
 export type FunnelAnswers = {
