@@ -95,7 +95,7 @@ export const TEMPLATES: Template[] = [
       },
     },
     stats: [
-      { n: "4.9 ★", l: { es: "350+ reseñas en Google", en: "350+ Google reviews" } },
+      { n: "Lun–Sáb", l: { es: "Citas en horario extendido", en: "Extended-hours appointments" } },
       { n: "Naco", l: { es: "18 min desde Piantini", en: "18 min from Piantini" } },
       { n: "24 h", l: { es: "Confirmación por WhatsApp", en: "WhatsApp confirmation" } },
     ],
@@ -134,7 +134,7 @@ export const TEMPLATES: Template[] = [
       title: { es: "Horario", en: "Hours" },
       lines: ["Lun–Vie 8:00–18:00", "Sáb 9:00–14:00", "Troncoso #14, Naco"],
     },
-    map: { name: "SDQ Dental Care", meta: { es: "4.9 · Naco · Abierto", en: "4.9 · Naco · Open" } },
+    map: { name: "SDQ Dental Care", meta: { es: "Naco · Abierto ahora", en: "Naco · Open now" } },
   },
 
   {
@@ -164,7 +164,7 @@ export const TEMPLATES: Template[] = [
     },
     stats: [
       { n: "6", l: { es: "villas", en: "villas" } },
-      { n: "4.9", l: { es: "huéspedes", en: "guests" } },
+      { n: "8", l: { es: "huéspedes máx.", en: "guests max" } },
       { n: "24h", l: { es: "respuesta", en: "reply" } },
     ],
     cards: [
@@ -196,7 +196,7 @@ export const TEMPLATES: Template[] = [
       title: { es: "Estadía", en: "Stay" },
       lines: ["Check-in 15:00", "Mínimo 3 noches", "Cap Cana, Punta Cana"],
     },
-    map: { name: "Punta Cana Villas", meta: { es: "4.9 · Cap Cana", en: "4.9 · Cap Cana" } },
+    map: { name: "Punta Cana Villas", meta: { es: "Cap Cana · Cómo llegar", en: "Cap Cana · Directions" } },
   },
 
   {
@@ -258,7 +258,7 @@ export const TEMPLATES: Template[] = [
       title: { es: "Oficina", en: "Office" },
       lines: ["Lun–Vie 9:00–18:00", "Av. Tiradentes, Naco", "Consultas con cita"],
     },
-    map: { name: "Naco Law Group", meta: { es: "4.8 · Naco · Abierto", en: "4.8 · Naco · Open" } },
+    map: { name: "Naco Law Group", meta: { es: "Naco · Abierto ahora", en: "Naco · Open now" } },
   },
 
   {
@@ -320,7 +320,7 @@ export const TEMPLATES: Template[] = [
       title: { es: "Oficina", en: "Office" },
       lines: ["Lun–Vie 8:00–17:00", "Av. Winston Churchill", "Visitas coordinadas"],
     },
-    map: { name: "Constructora Aybar", meta: { es: "4.9 · Santo Domingo", en: "4.9 · Santo Domingo" } },
+    map: { name: "Constructora Aybar", meta: { es: "Santo Domingo · Abierto ahora", en: "Santo Domingo · Open now" } },
   },
 
   {
@@ -350,7 +350,7 @@ export const TEMPLATES: Template[] = [
     },
     stats: [
       { n: "48", l: { es: "proyectos", en: "projects" } },
-      { n: "4.9", l: { es: "reseñas", en: "reviews" } },
+      { n: "15", l: { es: "años construyendo", en: "years building" } },
       { n: "24h", l: { es: "respuesta", en: "reply" } },
     ],
     cards: [
@@ -382,7 +382,7 @@ export const TEMPLATES: Template[] = [
       title: { es: "Horario", en: "Hours" },
       lines: ["Lun–Vie 9:00–18:00", "Av. Abraham Lincoln", "Citas por WhatsApp"],
     },
-    map: { name: "Casa Norte", meta: { es: "4.9 · Piantini · Abierto", en: "4.9 · Piantini · Open" } },
+    map: { name: "Casa Norte", meta: { es: "Piantini · Abierto ahora", en: "Piantini · Open now" } },
   },
 
   {

@@ -131,6 +131,7 @@ export const INDEXABLE_PATHS = [
   "/la-vega",
   "/blog",
   ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
+  "/pricing-builder",
   "/guias",
   ...GUIDE_SLUGS.map((slug) => `/guias/${slug}`),
   "/portfolio",

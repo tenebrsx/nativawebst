@@ -1,7 +1,7 @@
 "use client";
 import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
-import PricingBuilder from "@/components/pricing-builder";
+import PricingTeaser from "@/components/pricing-teaser";
 import LaunchJourney from "@/components/launch-journey";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
@@ -147,7 +147,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <PricingBuilder />
+      <PricingTeaser />
 
       {/* ─── PROOF ───────────────────────────────────────────────── */}
       <section id="proof" className="proof-section">

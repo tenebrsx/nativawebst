@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === "/"
         ? 1
-        : path === "/servicios"
+        : path === "/servicios" || path === "/pricing-builder"
           ? 0.9
           : path === "/santo-domingo" ||
               path === "/por-que-nosotros" ||

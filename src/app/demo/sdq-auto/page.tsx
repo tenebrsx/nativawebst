@@ -74,10 +74,10 @@ export default function SDQAutoDemo() {
 
   // Tire Catalog
   const tireCatalog = [
-    { id: 101, brand: "Michelin", model: "Defender LTX M/S", size: "225/65 R17", price: 8900, warranty: "80,000 km", rating: "5.0 ★★★★★", img: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=400&q=80" },
-    { id: 102, brand: "Continental", model: "CrossContact LX Sport", size: "225/65 R17", price: 7400, warranty: "70,000 km", rating: "4.9 ★★★★★", img: "https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=400&q=80" },
-    { id: 103, brand: "Pirelli", model: "Scorpion Verde All Season", size: "225/65 R17", price: 7900, warranty: "75,000 km", rating: "4.8 ★★★★★", img: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=400&q=80" },
-    { id: 104, brand: "Bridgestone", model: "Dueler H/L Alenza Plus", size: "225/65 R17", price: 8200, warranty: "80,000 km", rating: "4.9 ★★★★★", img: "https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=400&q=80" }
+    { id: 101, brand: "Michelin", model: "Defender LTX M/S", size: "225/65 R17", price: 8900, warranty: "80,000 km", img: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=400&q=80" },
+    { id: 102, brand: "Continental", model: "CrossContact LX Sport", size: "225/65 R17", price: 7400, warranty: "70,000 km", img: "https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=400&q=80" },
+    { id: 103, brand: "Pirelli", model: "Scorpion Verde All Season", size: "225/65 R17", price: 7900, warranty: "75,000 km", img: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=400&q=80" },
+    { id: 104, brand: "Bridgestone", model: "Dueler H/L Alenza Plus", size: "225/65 R17", price: 8200, warranty: "80,000 km", img: "https://images.unsplash.com/photo-1606577924006-27d39b132ae2?auto=format&fit=crop&w=400&q=80" }
   ];
 
   // FAQs
