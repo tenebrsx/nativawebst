@@ -240,6 +240,7 @@ export default function PricingQuestionnaire() {
     const el = root.current?.querySelector(".qz-ans");
     const k = Array.from(el?.children ?? []).map((c) => c.textContent).join("|");
     const before = ansKey.current; ansKey.current = k;
+    if (el && before !== k) (el as HTMLElement).scrollTo({ left: (el as HTMLElement).scrollWidth, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     if (!before || !el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const old = new Set(before.split("|"));
     const fresh = Array.from(el.children).filter((c) => !old.has(c.textContent));

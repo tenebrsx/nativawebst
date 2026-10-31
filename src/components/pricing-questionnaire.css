@@ -78,9 +78,9 @@
   .qz-right{position:sticky;top:var(--qz-top,60px);z-index:6;order:-1;gap:8px;margin:0 calc(-1 * clamp(16px,4vw,40px));padding:8px clamp(16px,4vw,40px) 10px;background:var(--bg);border-bottom:1px solid var(--border)}
   .qz-right .pi{padding:8px;gap:6px}
   .qz-right .pi-note{font-size:10.5px;line-height:1.3}
-  .qz-right .pi-stage{min-height:0;height:clamp(118px,19vh,160px);grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:8px;padding:8px 10px}
+  .qz-right .pi-stage{min-height:0;height:clamp(104px,15vh,136px);grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:8px;padding:8px 10px}
   .qz-right .pi-spotwrap{height:100%;min-height:0}
-  .qz-right .pi-scene{max-width:none;width:auto;height:100%;max-height:100%}
+  .qz-right .pi-stage{grid-template-rows:minmax(0,1fr)}.qz-right .pi-scene{max-width:100%;width:100%;height:100%;max-height:100%}
   .qz-right .pi-addons{gap:4px;max-height:100%;overflow:hidden}
   .qz-right .pi-addon{padding:4px 7px;font-size:11px;gap:6px}.qz-right .pi-addon svg{width:20px;height:20px}
   .qz-right .pi-secs{display:none}
