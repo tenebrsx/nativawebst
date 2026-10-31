@@ -100,6 +100,10 @@ export const GUIDE_SLUGS = [
   "seo-local-google-maps-rd",
   "whatsapp-vs-formulario-rd",
   "que-incluye-sitio-web-profesional-rd",
+  "instagram-vs-pagina-web",
+  "como-responder-resena-una-estrella",
+  "cuanto-cuesta-mantener-pagina-web",
+  "como-atraer-clientes-a-tu-negocio",
 ] as const;
 
 export type GuideSlug = (typeof GUIDE_SLUGS)[number];

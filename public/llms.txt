@@ -79,3 +79,9 @@ English: Nativa Web Studio is a new, design-led web studio in Santo Domingo, Dom
 - [La Vega](https://nativastudio.com.do/la-vega): incluye Jarabacoa y Constanza.
 - [Página web para clínica estética](https://nativastudio.com.do/industrias/clinicas): clínicas estéticas, odontologías y consultorios.
 - [Cómo poner tu negocio en Google Maps desde el celular](https://nativastudio.com.do/guias/seo-local-google-maps-rd): guía paso a paso.
+
+## Guías nuevas (español)
+- [Instagram vs página web](https://nativastudio.com.do/guias/instagram-vs-pagina-web): por qué tu negocio necesita un lugar propio además de Instagram.
+- [Cómo responder una reseña de una estrella](https://nativastudio.com.do/guias/como-responder-resena-una-estrella): responder sin pelear, denunciar y pedir reseñas reales.
+- [Cuánto cuesta mantener una página web](https://nativastudio.com.do/guias/cuanto-cuesta-mantener-pagina-web): dominio, hosting, correcciones y soporte; sin mensualidad obligatoria.
+- [Cómo atraer clientes a tu negocio en RD](https://nativastudio.com.do/guias/como-atraer-clientes-a-tu-negocio): Google Maps, reseñas, WhatsApp, Instagram y página web.

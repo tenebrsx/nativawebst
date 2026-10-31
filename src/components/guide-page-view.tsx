@@ -5,7 +5,8 @@ import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
 import { guidesEs, type GuideCopy } from "@/lib/guides-content";
-import { answerPageGraph } from "@/lib/json-ld";
+import { answerPageGraph, orgId } from "@/lib/json-ld";
+import { absoluteUrl } from "@/lib/site";
 import { openWhatsAppFunnel } from "@/lib/whatsapp";
 import type { GuideSlug } from "@/lib/site";
 
@@ -29,6 +30,20 @@ export function GuidePageView({ slug }: { slug: GuideSlug }) {
           areaServed: { "@type": "Country", name: "República Dominicana" },
           serviceType: copy.h1,
         })}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "@id": `${absoluteUrl(copy.path)}#article`,
+          headline: copy.h1,
+          description: copy.metaDescription,
+          inLanguage: "es-DO",
+          url: absoluteUrl(copy.path),
+          mainEntityOfPage: absoluteUrl(copy.path),
+          author: { "@id": orgId() },
+          publisher: { "@id": orgId() },
+        }}
       />
       <SiteNav />
       <main id="main">

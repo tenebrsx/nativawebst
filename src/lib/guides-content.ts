@@ -223,6 +223,198 @@ export const guidesEs: Record<GuideSlug, GuideCopy> = {
     cta: "Pedir cotización clara",
     need: "Cotización de sitio web",
   },
+  "instagram-vs-pagina-web": {
+    slug: "instagram-vs-pagina-web",
+    path: "/guias/instagram-vs-pagina-web",
+    metaTitle: "Instagram vs página web: ¿qué necesita tu negocio?",
+    metaDescription:
+      "Instagram te ayuda a que te vean, pero no es tuyo. Qué hace una página web que Instagram no hace, y por qué tu negocio en RD necesita los dos.",
+    label: "Guía",
+    h1: "Instagram vs página web: por qué tu negocio necesita un lugar propio",
+    lede:
+      "Instagram es buenísimo para que te vean, y nadie te va a decir que lo dejes. Pero ese espacio no es tuyo: las reglas las pone otro. Esta guía explica qué hace cada uno y por qué funcionan mejor juntos.",
+    sections: [
+      {
+        title: "Tu perfil es una vitrina alquilada",
+        body: "Si mañana te suspenden la cuenta o el algoritmo cambia, pierdes tus fotos, tus mensajes y la forma de avisarle a tus seguidores dónde encontrarte. Tus seguidores no son tus contactos.",
+      },
+      {
+        title: "No todo el que te busca está en Instagram",
+        body: "Quien necesita un taller, una clínica o un restaurante saca el celular y escribe en Google “cerca de mí”. Ahí salen las fichas de Google Maps y las páginas web. Si solo vives en Instagram, en ese momento no existes.",
+      },
+      {
+        title: "En Instagram, tu cliente tiene que trabajar",
+        body: "Para saber cuánto cobras, a qué hora abres o dónde estás, tiene que bajar entre posts o escribirte y esperar. Una página web responde eso de una vez, con un botón para escribirte por WhatsApp.",
+      },
+      {
+        title: "“Pero ya tengo el horario en la bio y WhatsApp Business”",
+        body: "Sirve. Pero la bio vive dentro de Instagram, y WhatsApp solo le sirve a quien ya sabe que existes. Una página web la encuentra cualquiera, desde cualquier celular, sin app ni cuenta. Basta con cuatro cosas: qué haces, desde cuánto cuesta, dónde estás y a qué hora abres, y un botón de WhatsApp.",
+      },
+      {
+        title: "No es una cosa o la otra",
+        body: "Instagram atrae. Tu página web cierra. Instagram es donde te descubren; tu página es donde confirman que eres serio y te escriben. Por eso el enlace de tu perfil debería llevar a ella.",
+      },
+    ],
+    faqs: [
+      { q: "¿Necesito página web si ya tengo Instagram?", a: "Sí, si quieres que te encuentren en Google y tener un lugar que sea tuyo. Instagram sigue siendo útil para que te descubran." },
+      { q: "¿Qué debe tener una página web sencilla?", a: "Qué haces, desde cuánto cuesta, dónde estás, tu horario y un botón de WhatsApp." },
+      { q: "¿Cuánto cuesta una página web con Nativa?", a: "Desde RD$20,940, pago único. Una tienda online empieza en RD$35,000." },
+    ],
+    cta: "Quiero mi página web",
+    need: "Página web (vengo de Instagram)",
+    links: [
+      { href: "/pagina-web-para-mi-negocio", label: "Página web para tu negocio", sub: "Desde RD$20,940, pago único." },
+      { href: "/precio-pagina-web", label: "Precios", sub: "Página web y tienda online." },
+      { href: "/guias/seo-local-google-maps-rd", label: "Google Maps desde el celular", sub: "Guía paso a paso." },
+      { href: "/", label: "Inicio", sub: "Nativa Studio." },
+    ],
+  },
+  "como-responder-resena-una-estrella": {
+    slug: "como-responder-resena-una-estrella",
+    path: "/guias/como-responder-resena-una-estrella",
+    metaTitle: "Cómo responder una reseña de una estrella en Google",
+    metaDescription:
+      "Te dejaron una estrella en Google. Cómo responder sin pelear, cuándo denunciar una reseña y cómo conseguir más reseñas reales sin romper las reglas.",
+    label: "Guía",
+    h1: "Cómo responder una reseña de una estrella (sin pelear)",
+    lede:
+      "Lo primero que dan ganas es contestar caliente. Respira: tu respuesta no es para esa persona, es para todos los clientes que vienen detrás y la van a leer.",
+    sections: [
+      {
+        title: "Tu respuesta la lee todo el mundo",
+        body: "Cuando respondes una reseña en Google, tu respuesta sale publicada debajo, a nombre de tu negocio, y a quien la escribió le llega una notificación. Hasta puede cambiar su reseña después de leerte.",
+      },
+      {
+        title: "Lo que Google recomienda",
+        body: "• Sé amable y breve.\n• Nada de ataques ni datos privados del cliente.\n• Reconoce lo que fue tu culpa y explica sin pelear lo que no estaba en tus manos.\n• Pide disculpas si toca y ofrece seguir la conversación por teléfono o WhatsApp.\n• Firma con tu nombre o iniciales.\n• Responde pronto.",
+      },
+      {
+        title: "Un ejemplo de respuesta",
+        body: "“Hola, María. Lamentamos que la espera del sábado no fuera lo que esperabas; tienes razón en que debimos avisarte. Escríbenos al WhatsApp del negocio y lo resolvemos. — Carlos, gerente.” Corta, sin excusas largas y con una salida concreta.",
+      },
+      {
+        title: "“Pero esa persona ni vino al negocio”",
+        body: "Si una reseña rompe las reglas de Google (es falsa, spam, tiene insultos o datos personales), denúnciala desde tu Perfil de Negocio. Google la revisa y la quita solo si incumple sus políticas. No se denuncia una reseña solo porque no te gusta.",
+      },
+      {
+        title: "La mejor defensa: muchas reseñas reales",
+        body: "Una estrella entre tres reseñas se ve fatal; entre cuarenta, se ve como un mal día. Desde tu Perfil de Negocio puedes sacar un enlace o código QR para pedir reseñas: ponlo en el mostrador o mándalo por WhatsApp después de atender.\nLíneas que no se cruzan: nada de descuentos o regalos a cambio de reseñas, no le pidas reseña solo al que salió contento, y no le dictes a nadie lo que tiene que escribir.",
+      },
+    ],
+    faqs: [
+      { q: "¿Debo responder una reseña negativa?", a: "Sí. Con calma, breve y con una salida concreta. Tu respuesta la leen todos tus clientes futuros." },
+      { q: "¿Puedo borrar una reseña mala de Google?", a: "No puedes borrarla tú. Puedes denunciarla si rompe las políticas de Google; si solo es injusta, se queda." },
+      { q: "¿Puedo ofrecer un descuento a cambio de reseñas?", a: "No. Google prohíbe ofrecer descuentos, regalos o servicios a cambio de reseñas." },
+    ],
+    cta: "Pide ayuda con tu ficha de Google",
+    need: "Reseñas y Google Maps",
+    links: [
+      { href: "/servicios/seo-local", label: "SEO local", sub: "Tu ficha de Google Maps, completa." },
+      { href: "/guias/seo-local-google-maps-rd", label: "Google Maps desde el celular", sub: "Guía paso a paso." },
+      { href: "/pagina-web-para-mi-negocio", label: "Página web para tu negocio", sub: "Desde RD$20,940, pago único." },
+      { href: "/precio-pagina-web", label: "Precios", sub: "Página web y tienda online." },
+      { href: "/", label: "Inicio", sub: "Nativa Studio." },
+    ],
+  },
+  "cuanto-cuesta-mantener-pagina-web": {
+    slug: "cuanto-cuesta-mantener-pagina-web",
+    path: "/guias/cuanto-cuesta-mantener-pagina-web",
+    metaTitle: "Cuánto cuesta mantener una página web en RD",
+    metaDescription:
+      "Qué pagas cada año o cada mes después de tener tu página web: dominio, hosting, cambios y soporte. Sin mensualidad obligatoria con Nativa.",
+    label: "Guía",
+    h1: "Cuánto cuesta mantener una página web en República Dominicana",
+    lede:
+      "Después de pagar tu página web, ¿qué más hay que pagar? Depende de quién te la haga. Esta guía separa lo que es obligatorio de lo que es opcional, para que preguntes antes de firmar.",
+    sections: [
+      {
+        title: "Lo que se renueva cada año: el dominio",
+        body: "El nombre de tu página (tunegocio.com o .com.do) se renueva cada año con el proveedor del dominio. Debe quedar a nombre de tu negocio, no de quien te hizo la página.",
+      },
+      {
+        title: "Dónde vive tu página: el hosting",
+        body: "Tu página web tiene que estar alojada en algún servidor. Pregunta si está incluido y por cuánto tiempo, o si es un pago aparte.",
+      },
+      {
+        title: "Correcciones vs. cambios",
+        body: "Corregir algo que no funciona no debería costarte. Cambiar precios, fotos o agregar secciones sí es trabajo nuevo. Pide que te lo separen por escrito.",
+      },
+      {
+        title: "Cómo lo hacemos en Nativa",
+        body: "No hay mensualidad obligatoria. El soporte Estándar va incluido: corregimos errores y te respondemos por WhatsApp. Si quieres cambios cada mes, el plan Activo suma cambios, actualizaciones y monitoreo por RD$3,000 al mes. Ese plan todavía es un borrador y puede cambiar.",
+      },
+      {
+        title: "Qué preguntar antes de pagar",
+        body: "• ¿Hay pagos mensuales obligatorios?\n• ¿El dominio queda a mi nombre?\n• ¿Qué cuenta como corrección y qué como cambio?\n• ¿Qué pasa con mi página si dejo de pagar el plan mensual?",
+      },
+    ],
+    faqs: [
+      { q: "¿Cuánto cuesta mantener una página web al mes?", a: "Con Nativa, nada obligatorio. El plan Activo opcional cuesta RD$3,000 al mes (precio en borrador, por confirmar)." },
+      { q: "¿Tengo que pagar el dominio cada año?", a: "Sí, el dominio se renueva cada año con el proveedor. Te ayudamos a que quede a nombre de tu negocio." },
+      { q: "¿Qué pasa si no tomo un plan mensual?", a: "Tu página sigue funcionando y las correcciones de errores siguen incluidas. Los cambios grandes se cotizan aparte." },
+    ],
+    cta: "Pregunta por el soporte",
+    need: "Mantenimiento web",
+    links: [
+      { href: "/servicios/mantenimiento-web", label: "Mantenimiento web", sub: "Estándar incluido y Activo opcional." },
+      { href: "/pagina-web-para-mi-negocio", label: "Página web para tu negocio", sub: "Desde RD$20,940, pago único." },
+      { href: "/precio-pagina-web", label: "Precios", sub: "Página web y tienda online." },
+      { href: "/", label: "Inicio", sub: "Nativa Studio." },
+    ],
+  },
+  "como-atraer-clientes-a-tu-negocio": {
+    slug: "como-atraer-clientes-a-tu-negocio",
+    path: "/guias/como-atraer-clientes-a-tu-negocio",
+    metaTitle: "Cómo atraer clientes a tu negocio en RD",
+    metaDescription:
+      "Ideas prácticas para atraer clientes a tu negocio en República Dominicana: Google Maps, reseñas, WhatsApp, Instagram y una página web propia.",
+    label: "Guía",
+    h1: "Cómo atraer clientes a tu negocio en República Dominicana",
+    lede:
+      "No hace falta un presupuesto grande. Hace falta que te encuentren cuando te buscan, que confíen cuando te ven y que escribirte sea fácil. Estas son las bases, en orden.",
+    sections: [
+      {
+        title: "1. Aparece donde te buscan: Google Maps",
+        body: "Mucha gente busca “cerca de mí”. Una ficha de Google Maps verificada y completa (horario, fotos reales, teléfono) es gratis y es lo primero que ven.",
+      },
+      {
+        title: "2. Gánate la confianza: reseñas reales",
+        body: "Pide reseñas a todos tus clientes por igual, con el enlace o QR de tu perfil. Responde todas, también las malas, con calma.",
+      },
+      {
+        title: "3. Que escribirte sea un toque: WhatsApp",
+        body: "En RD el cliente cierra por chat. Cada botón de tu ficha, tus redes y tu página web debería abrir WhatsApp con el servicio ya nombrado.",
+      },
+      {
+        title: "4. Muestra tu trabajo: Instagram",
+        body: "Instagram sirve para que te descubran y vean lo que haces. Pon en la bio el enlace a tu página web, no solo tu número.",
+      },
+      {
+        title: "5. Ten un lugar propio: tu página web",
+        body: "Tu página web junta todo: qué haces, desde cuánto cuesta, dónde estás, tus fotos y tu WhatsApp. Es lo que revisa el cliente antes de decidir, y es tuya.",
+      },
+      {
+        title: "6. Cuando llegan muchos mensajes",
+        body: "Si ya no das abasto con el chat, un agente de WhatsApp puede responder lo repetido y agendar citas, y un CRM guarda a cada cliente. Primero lo básico; esto viene después.",
+      },
+    ],
+    faqs: [
+      { q: "¿Cuál es la forma más barata de atraer clientes?", a: "Una ficha de Google Maps completa y reseñas reales. Las dos son gratis." },
+      { q: "¿Necesito pagar anuncios?", a: "No para empezar. Primero que te encuentren y que escribirte sea fácil; los anuncios funcionan mejor cuando eso ya está." },
+      { q: "¿Una página web me trae clientes sola?", a: "Nadie puede prometerte clientes. Una página web hace que quien te busca te encuentre, confíe y te escriba." },
+    ],
+    cta: "Hablemos por WhatsApp",
+    need: "Atraer clientes",
+    links: [
+      { href: "/pagina-web-para-mi-negocio", label: "Página web para tu negocio", sub: "Desde RD$20,940, pago único." },
+      { href: "/precio-pagina-web", label: "Precios", sub: "Página web y tienda online." },
+      { href: "/guias/instagram-vs-pagina-web", label: "Instagram vs página web", sub: "Por qué necesitas los dos." },
+      { href: "/servicios/agentes-ia", label: "Agendar citas por WhatsApp", sub: "Agente de WhatsApp." },
+      { href: "/santiago", label: "Santiago", sub: "Negocios del Cibao." },
+      { href: "/punta-cana", label: "Punta Cana", sub: "Negocios del este." },
+      { href: "/", label: "Inicio", sub: "Nativa Studio." },
+    ],
+  },
 };
 
 export const GUIDE_LIST = Object.values(guidesEs);
