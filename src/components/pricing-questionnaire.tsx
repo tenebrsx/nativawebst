@@ -9,10 +9,10 @@ import { useGeo } from "@/lib/geo-context";
 import { translations } from "@/lib/translations";
 import { buildConfiguratorMessage, openWhatsApp } from "@/lib/whatsapp";
 import { TEMPLATES, findTemplate, templatesFor, tx } from "@/lib/pricing-templates";
-import { loadPreviewFonts } from "@/lib/preview-fonts";
 import { addonsFor, formatMoney, quote, sanitizeAddons, type AddonId, type PlanId } from "@/lib/pricing";
 import { PALETTES, SECTIONS, STORAGE_KEY, defaultBuild, normalizeBuild, type Build, type Tone } from "@/lib/configurator";
-import { AnimatedMoney, COPY, LivePreview } from "@/components/pricing-configurator";
+import { AnimatedMoney, COPY } from "@/components/pricing-configurator";
+import PricingIllustration from "@/components/pricing-illustration";
 import "./pricing-builder.css";
 import "./pricing-configurator.css";
 import "./pricing-configurator-mobile.css";
@@ -119,7 +119,7 @@ export default function PricingQuestionnaire() {
       const c = localStorage.getItem(CONTACT_KEY);
       if (c) setContact((p) => ({ ...p, ...JSON.parse(c) }));
     } catch {}
-    loadPreviewFonts?.();
+    
     setReady(true);
   }, []);
   useEffect(() => {
@@ -364,7 +364,7 @@ export default function PricingQuestionnaire() {
         </div>
         <aside className="qz-right" aria-label={copy.preview}>
           <div className="qz-prev-frame" data-flip-id="preview">
-            <LivePreview template={template} build={build} lang={lang} copy={copy} planName={planName} />
+            <PricingIllustration build={build} lang={lang} label={`${tx(template.cat, lang)} · ${planName}`} addonLabels={Object.fromEntries(Object.entries(dict.addons).map(([k, v]) => [k, v.label]))} />
           </div>
           <div className="qz-price" aria-live="polite">
             <div><span>{t.total}</span><strong><AnimatedMoney value={q.oneTime} currency={currency} /></strong></div>
