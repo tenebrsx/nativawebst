@@ -67,27 +67,24 @@
 .pi-sec b{font-weight:600;color:var(--pi-a)}
 .pi-sw{display:flex;align-items:center;gap:6px;font-size:12px}.pi-sw i{width:16px;height:16px;border-radius:50%;border:1px solid var(--border)}
 @media (max-width:900px){.qz-right .qz-prev-frame{height:auto}.pi-stage{min-height:160px}.pi-scene{max-width:220px}}
-/* homepage teaser — matches .proof-section band (black, 90px) so the dark run proof/how-it-works reads as one block */
-.qzt{background:#000;color:#fff;padding:90px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+/* homepage teaser — a deeper paper layer (--gray-foam) between the white sections and the dark proof band */
+.qzt{position:relative;background:var(--gray-foam);color:var(--text);padding:96px 0;border-top:1px solid var(--border)}
+.qzt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--border)}
 .qzt-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
-.qzt .section-label{color:var(--blue-on-dark)}
-.qzt .section-title{color:#fff}
-.qzt .section-sub{color:rgba(255,255,255,.55)}
 .qzt-plans{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:8px;max-width:420px}
-.qzt-plan{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:14px 16px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.1);color:#fff;transition:border-color .2s,background-color .2s}
-.qzt-plan:hover{border-color:rgba(142,174,255,.6);background:rgba(255,255,255,.03)}
-.qzt-plan:focus-visible{outline:2px solid var(--blue-on-dark);outline-offset:2px}
+.qzt-plan{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:14px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm);transition:border-color .2s,transform .2s cubic-bezier(.22,1,.36,1)}
+.qzt-plan:hover{border-color:#C9D0DB;transform:translateY(-1px)}
+.qzt-plan:focus-visible{outline:2px solid var(--coral-blue);outline-offset:2px}
 .qzt-plan-n{font-weight:600;font-size:15px}
-.qzt-plan-p{font-size:14px;color:rgba(255,255,255,.6)}
-.qzt-plan-go{color:var(--blue-on-dark);transition:transform .2s cubic-bezier(.22,1,.36,1)}
+.qzt-plan-p{font-size:14px;color:var(--muted)}
+.qzt-plan-go{color:var(--coral-blue);transition:transform .2s cubic-bezier(.22,1,.36,1)}
 .qzt-plan:hover .qzt-plan-go{transform:translateX(3px)}
 .qzt-cta{display:flex;align-items:center;gap:16px;margin-top:24px;flex-wrap:wrap}
 .qzt-cta .qz-cta{display:inline-block}
-.qzt-meta{font-size:13px;color:rgba(255,255,255,.45)}
-.qzt-art{display:block;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-.qzt .pi{padding:16px;background:#0B0D12}
-.qzt .pi-stage{min-height:260px;background:var(--navy-mid)}
-.qzt .pi-addon{background:#0B0D12;border-color:#2A2F3B;color:#fff}
+.qzt-meta{font-size:13px;color:var(--muted)}
+.qzt-art{display:block;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
+.qzt .pi{padding:16px}
+.qzt .pi-stage{min-height:260px;background:var(--sand)}
 @media (max-width:900px){.qzt{padding:72px 0}.qzt-wrap{grid-template-columns:1fr;gap:32px}.qzt-plans{max-width:none}.qzt .pi-stage{min-height:180px;grid-template-columns:1fr}.qzt .pi-addons{grid-template-columns:1fr 1fr 1fr}.qzt .pi-addon span{display:none}.qzt .pi-addon{justify-content:center}}
 /* dark tone: lift ink line-work so scenes read on dark */
 .pi.is-dark .pi-scene [stroke="#0B0D12"]{stroke:#C9D0DB}

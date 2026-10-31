@@ -41,7 +41,7 @@ export default function PricingTeaser() {
           </div>
         </div>
         <Link href="/pricing-builder" className="qzt-art" aria-label={es ? "Abrir cotizador" : "Open quote builder"} tabIndex={-1}>
-          <PricingIllustration compact build={{ ...defaultBuild("landing"), tone: "dark", addons: ["seo", "crm", "ai"] }} lang={lang} label={dict.title} addonLabels={labels} />
+          <PricingIllustration compact build={{ ...defaultBuild("landing"), addons: ["seo", "crm", "ai"] }} lang={lang} label={dict.title} addonLabels={labels} />
         </Link>
       </div>
     </section>
